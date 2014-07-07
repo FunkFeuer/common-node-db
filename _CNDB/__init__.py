@@ -23,7 +23,7 @@
 #    CNDB.__init__
 #
 # Purpose
-#    Community network database: object model, web resources, templates
+#    Common node database: object model, web resources, templates
 #
 # Revision Dates
 #    07-Jul-2014 (CT) Creation

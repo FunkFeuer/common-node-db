@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Net_Interface
+#    CNDB.OMP.Net_Interface
 #
 # Purpose
-#    Model network interfaces in FFM
+#    Model network interfaces in CNDB
 #
 # Revision Dates
 #     6-Mar-2012 (CT) Creation
@@ -45,23 +45,24 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
 from   _GTW._OMP._DNS.Attr_Type import A_DNS_Label
 
-import _FFM.Net_Device
-import _FFM.Belongs_to_Net_Device
-import _FFM.Belongs_to_Node
+import _CNDB._OMP.Net_Device
+import _CNDB._OMP.Belongs_to_Net_Device
+import _CNDB._OMP.Belongs_to_Node
 
 from   _GTW._OMP._NET           import NET
 import _GTW._OMP._NET.Attr_Type
 
-_Ancestor_Essence = FFM.Link1
-_Mixin_1 = FFM.Belongs_to_Node_Left
-_Mixin_2 = FFM.Belongs_to_Net_Device_Left
+_Ancestor_Essence = CNDB.OMP.Link1
+_Mixin_1 = CNDB.OMP.Belongs_to_Node_Left
+_Mixin_2 = CNDB.OMP.Belongs_to_Net_Device_Left
 
 class Net_Interface (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
-    """Model a network interface of a FFM device"""
+    """Model a network interface of a CNDB device"""
 
     is_partial  = True
     is_relevant = True
@@ -79,7 +80,7 @@ class Net_Interface (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
         class left (_Ancestor.left) :
             """Network device the interface is connected to."""
 
-            role_type          = FFM.Net_Device
+            role_type          = CNDB.OMP.Net_Device
             role_name          = "device"
             Kind_Mixins        = (Attr.Init_Only_Mixin, )
             show_in_ui_selector= False
@@ -123,5 +124,5 @@ class Net_Interface (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
 # end class Net_Interface
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Net_Interface
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Net_Interface

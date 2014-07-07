@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Wireless_Channel
+#    CNDB.OMP.Wireless_Channel
 #
 # Purpose
 #    Model a wireless standard
@@ -34,11 +34,12 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-import _FFM.Wireless_Standard
+import _CNDB._OMP.Wireless_Standard
 
-_Ancestor_Essence = FFM.Link1
+_Ancestor_Essence = CNDB.OMP.Link1
 
 class Wireless_Channel (_Ancestor_Essence) :
     """Wireless channel of a wireless standard"""
@@ -51,7 +52,7 @@ class Wireless_Channel (_Ancestor_Essence) :
             """The wireless standard for this channel"""
 
             role_name          = 'standard'
-            role_type          = FFM.Wireless_Standard
+            role_type          = CNDB.OMP.Wireless_Standard
             ui_allow_new       = False
 
         # end class left
@@ -76,5 +77,5 @@ class Wireless_Channel (_Ancestor_Essence) :
 # end class Wireless_Channel
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Wireless_Channel
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Wireless_Channel

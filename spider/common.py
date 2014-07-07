@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 # #*** <License> ************************************************************#
-# This module is part of the program FFM.
+# This module is part of the repository CNDB.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by

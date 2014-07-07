@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Wired_Interface
+#    CNDB.OMP.Wired_Interface
 #
 # Purpose
-#    Model a wired interface of a FFM device
+#    Model a wired interface of a CNDB device
 #
 # Revision Dates
 #    10-May-2012 (CT) Creation
@@ -35,15 +35,16 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-from   _FFM.Attr_Type         import *
-import _FFM.Net_Interface
+from   _CNDB._OMP.Attr_Type         import *
+import _CNDB._OMP.Net_Interface
 
-_Ancestor_Essence = FFM.Net_Interface
+_Ancestor_Essence = CNDB.OMP.Net_Interface
 
 class Wired_Interface (_Ancestor_Essence) :
-    """Wired interface of a FFM device"""
+    """Wired interface of a CNDB device"""
 
     class _Attributes (_Ancestor_Essence._Attributes) :
 
@@ -61,5 +62,5 @@ class Wired_Interface (_Ancestor_Essence) :
 # end class Wired_Interface
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Wired_Interface
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Wired_Interface

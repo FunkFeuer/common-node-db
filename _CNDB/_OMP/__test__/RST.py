@@ -2,7 +2,7 @@
 # Copyright (C) 2013-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.__test__.
+# This module is part of the package CNDB.OMP.__test__.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.__test__.RST
+#    CNDB.OMP.__test__.RST
 #
 # Purpose
-#    Test RESTful api for FFM
+#    Test RESTful api for CNDB
 #
 # Revision Dates
 #     9-Jan-2013 (CT) Creation
@@ -46,11 +46,12 @@
 
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
-from   _FFM                       import FFM
+from   _CNDB                      import CNDB
+import _CNDB._OMP
 from   _GTW.__test__.rst_harness  import *
 from   _GTW.__test__              import rst_harness
 
-import _FFM.import_FFM
+import _CNDB._OMP.import_CNDB
 import _GTW._OMP._Auth.import_Auth
 import _GTW._OMP._PAP.import_PAP
 
@@ -59,18 +60,18 @@ import _GTW._RST._MOM.Client
 import json
 
 def run_server (db_url = "hps://", db_name = None) :
-    return rst_harness.run_server ("_FFM.__test__.RST", db_url, db_name)
+    return rst_harness.run_server ("_CNDB._OMP.__test__.RST", db_url, db_name)
 # end def run_server
 
-class FFM_RST_Test_Command (GTW_RST_Test_Command) :
+class CNDB_RST_Test_Command (GTW_RST_Test_Command) :
 
-    ANS                     = FFM
+    ANS                     = CNDB
 
     def fixtures (self, scope) :
-        from _FFM.__test__.fixtures import create
+        from _CNDB._OMP.__test__.fixtures import create
         create (scope)
         PAP = scope.PAP
-        nod = scope.FFM.Node.query (name = "node2").one ()
+        nod = scope.CNDB.Node.query (name = "node2").one ()
         nod.address = PAP.Address \
             ( street  = 'Beispiel 23'
             , zip     = '1010'
@@ -79,9 +80,9 @@ class FFM_RST_Test_Command (GTW_RST_Test_Command) :
             )
     # end def fixtures
 
-# end class FFM_RST_Test_Command
+# end class CNDB_RST_Test_Command
 
-Scaffold   = FFM_RST_Test_Command ()
+Scaffold   = CNDB_RST_Test_Command ()
 
 ### «text» ### The doctest follows::
 
@@ -93,18 +94,18 @@ _test_get = r"""
     >>> r._url
     u'http://localhost:9999/'
 
-    >>> r = show (R.get ("/v1/FFM-Node"))
+    >>> r = show (R.get ("/v1/CNDB-Node"))
     { 'json' :
         { 'entries' :
-            [ '/v1/FFM-Node/2'
-            , '/v1/FFM-Node/3'
+            [ '/v1/CNDB-Node/2'
+            , '/v1/CNDB-Node/3'
             ]
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Node?verbose&order_by=pid&limit=1"))
+    >>> r = show (R.get ("/v1/CNDB-Node?verbose&order_by=pid&limit=1"))
     { 'json' :
         { 'attribute_names' :
             [ 'name'
@@ -131,16 +132,16 @@ _test_get = r"""
                   }
               , 'cid' : 2
               , 'pid' : 2
-              , 'type_name' : 'FFM.Node'
-              , 'url' : '/v1/FFM-Node/2'
+              , 'type_name' : 'CNDB.Node'
+              , 'url' : '/v1/CNDB-Node/2'
               }
             ]
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node?verbose&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node?verbose&order_by=pid&limit=1'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Node?verbose&closure&order_by=pid&limit=1"))
+    >>> r = show (R.get ("/v1/CNDB-Node?verbose&closure&order_by=pid&limit=1"))
     { 'json' :
         { 'attribute_names' :
             [ 'name'
@@ -175,17 +176,17 @@ _test_get = r"""
                   }
               , 'cid' : 2
               , 'pid' : 2
-              , 'type_name' : 'FFM.Node'
-              , 'url' : '/v1/FFM-Node/2'
+              , 'type_name' : 'CNDB.Node'
+              , 'url' : '/v1/CNDB-Node/2'
               }
             ]
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node?verbose&closure&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node?verbose&closure&order_by=pid&limit=1'
     }
 
 
-    >>> r = show (R.get ("/v1/FFM-Net_Interface_in_IP4_Network?brief"))
+    >>> r = show (R.get ("/v1/CNDB-Net_Interface_in_IP4_Network?brief"))
     { 'json' :
         { 'entries' :
             [ 31
@@ -193,10 +194,10 @@ _test_get = r"""
             , 33
             , 34
             ]
-        , 'url_template' : '/v1/FFM-Net_Interface_in_IP4_Network/{entry}'
+        , 'url_template' : '/v1/CNDB-Net_Interface_in_IP4_Network/{entry}'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Net_Interface_in_IP4_Network?brief'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Net_Interface_in_IP4_Network?brief'
     }
 
 """
@@ -204,7 +205,7 @@ _test_get = r"""
 _test_limit = r"""
     >>> server = run_server (%(p1)s, %(n1)s)
 
-    >>> r = show (R.get ("/v1/FFM-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1"))
+    >>> r = show (R.get ("/v1/CNDB-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1"))
     { 'json' :
         { 'attribute_names' :
             [ 'left'
@@ -226,8 +227,8 @@ _test_limit = r"""
                                           }
                                       , 'cid' : 34
                                       , 'pid' : 27
-                                      , 'type_name' : 'FFM.Net_Device_Type'
-                                      , 'url' : '/v1/FFM-Net_Device_Type/27'
+                                      , 'type_name' : 'CNDB.Net_Device_Type'
+                                      , 'url' : '/v1/CNDB-Net_Device_Type/27'
                                       }
                                   , 'name' : 'dev'
                                   , 'node' :
@@ -268,22 +269,22 @@ _test_limit = r"""
                                           }
                                       , 'cid' : 43
                                       , 'pid' : 3
-                                      , 'type_name' : 'FFM.Node'
-                                      , 'url' : '/v1/FFM-Node/3'
+                                      , 'type_name' : 'CNDB.Node'
+                                      , 'url' : '/v1/CNDB-Node/3'
                                       }
                                   }
                               , 'cid' : 35
                               , 'pid' : 28
-                              , 'type_name' : 'FFM.Net_Device'
-                              , 'url' : '/v1/FFM-Net_Device/28'
+                              , 'type_name' : 'CNDB.Net_Device'
+                              , 'url' : '/v1/CNDB-Net_Device/28'
                               }
                           , 'mac_address' : ''
                           , 'name' : 'wr'
                           }
                       , 'cid' : 36
                       , 'pid' : 29
-                      , 'type_name' : 'FFM.Wired_Interface'
-                      , 'url' : '/v1/FFM-Wired_Interface/29'
+                      , 'type_name' : 'CNDB.Wired_Interface'
+                      , 'url' : '/v1/CNDB-Wired_Interface/29'
                       }
                   , 'mask_len' : 24
                   , 'name' : 'wr'
@@ -295,33 +296,33 @@ _test_limit = r"""
                                   { 'net_address' : '192.168.23.0/24'
                                   , 'pool' :
                                       { 'pid' : 4
-                                      , 'url' : '/v1/FFM-IP4_Network/4'
+                                      , 'url' : '/v1/CNDB-IP4_Network/4'
                                       }
                                   }
                               , 'cid' : 4
                               , 'pid' : 4
-                              , 'type_name' : 'FFM.IP4_Network'
-                              , 'url' : '/v1/FFM-IP4_Network/4'
+                              , 'type_name' : 'CNDB.IP4_Network'
+                              , 'url' : '/v1/CNDB-IP4_Network/4'
                               }
                           }
                       , 'cid' : 21
                       , 'pid' : 20
-                      , 'type_name' : 'FFM.IP4_Network'
-                      , 'url' : '/v1/FFM-IP4_Network/20'
+                      , 'type_name' : 'CNDB.IP4_Network'
+                      , 'url' : '/v1/CNDB-IP4_Network/20'
                       }
                   }
               , 'cid' : 38
               , 'pid' : 31
-              , 'type_name' : 'FFM.Wired_Interface_in_IP4_Network'
-              , 'url' : '/v1/FFM-Net_Interface_in_IP4_Network/31'
+              , 'type_name' : 'CNDB.Wired_Interface_in_IP4_Network'
+              , 'url' : '/v1/CNDB-Net_Interface_in_IP4_Network/31'
               }
             ]
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1&META"), cleaner = date_cleaner)
+    >>> r = show (R.get ("/v1/CNDB-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1&META"), cleaner = date_cleaner)
     { 'json' :
         { 'attribute_names' :
             [ 'left'
@@ -347,8 +348,8 @@ _test_limit = r"""
                                       , 'last_change' :
                                           { 'date' : <datetime> }
                                       , 'pid' : 27
-                                      , 'type_name' : 'FFM.Net_Device_Type'
-                                      , 'url' : '/v1/FFM-Net_Device_Type/27'
+                                      , 'type_name' : 'CNDB.Net_Device_Type'
+                                      , 'url' : '/v1/CNDB-Net_Device_Type/27'
                                       }
                                   , 'name' : 'dev'
                                   , 'node' :
@@ -401,8 +402,8 @@ _test_limit = r"""
                                       , 'last_change' :
                                           { 'date' : <datetime> }
                                       , 'pid' : 3
-                                      , 'type_name' : 'FFM.Node'
-                                      , 'url' : '/v1/FFM-Node/3'
+                                      , 'type_name' : 'CNDB.Node'
+                                      , 'url' : '/v1/CNDB-Node/3'
                                       }
                                   }
                               , 'cid' : 35
@@ -411,8 +412,8 @@ _test_limit = r"""
                               , 'last_change' :
                                   { 'date' : <datetime> }
                               , 'pid' : 28
-                              , 'type_name' : 'FFM.Net_Device'
-                              , 'url' : '/v1/FFM-Net_Device/28'
+                              , 'type_name' : 'CNDB.Net_Device'
+                              , 'url' : '/v1/CNDB-Net_Device/28'
                               }
                           , 'mac_address' : ''
                           , 'name' : 'wr'
@@ -423,8 +424,8 @@ _test_limit = r"""
                       , 'last_change' :
                           { 'date' : <datetime> }
                       , 'pid' : 29
-                      , 'type_name' : 'FFM.Wired_Interface'
-                      , 'url' : '/v1/FFM-Wired_Interface/29'
+                      , 'type_name' : 'CNDB.Wired_Interface'
+                      , 'url' : '/v1/CNDB-Wired_Interface/29'
                       }
                   , 'mask_len' : 24
                   , 'name' : 'wr'
@@ -436,7 +437,7 @@ _test_limit = r"""
                                   { 'net_address' : '192.168.23.0/24'
                                   , 'pool' :
                                       { 'pid' : 4
-                                      , 'url' : '/v1/FFM-IP4_Network/4'
+                                      , 'url' : '/v1/CNDB-IP4_Network/4'
                                       }
                                   }
                               , 'cid' : 4
@@ -445,8 +446,8 @@ _test_limit = r"""
                               , 'last_change' :
                                   { 'date' : <datetime> }
                               , 'pid' : 4
-                              , 'type_name' : 'FFM.IP4_Network'
-                              , 'url' : '/v1/FFM-IP4_Network/4'
+                              , 'type_name' : 'CNDB.IP4_Network'
+                              , 'url' : '/v1/CNDB-IP4_Network/4'
                               }
                           }
                       , 'cid' : 21
@@ -455,8 +456,8 @@ _test_limit = r"""
                       , 'last_change' :
                           { 'date' : <datetime> }
                       , 'pid' : 20
-                      , 'type_name' : 'FFM.IP4_Network'
-                      , 'url' : '/v1/FFM-IP4_Network/20'
+                      , 'type_name' : 'CNDB.IP4_Network'
+                      , 'url' : '/v1/CNDB-IP4_Network/20'
                       }
                   }
               , 'cid' : 38
@@ -465,21 +466,21 @@ _test_limit = r"""
               , 'last_change' :
                   { 'date' : <datetime> }
               , 'pid' : 31
-              , 'type_name' : 'FFM.Wired_Interface_in_IP4_Network'
-              , 'url' : '/v1/FFM-Net_Interface_in_IP4_Network/31'
+              , 'type_name' : 'CNDB.Wired_Interface_in_IP4_Network'
+              , 'url' : '/v1/CNDB-Net_Interface_in_IP4_Network/31'
               }
             ]
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1&META'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Net_Interface_in_IP4_Network?verbose&closure&order_by=pid&limit=1&META'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Wired_Interface/29?verbose&order_by=pid&limit=1"), cleaner = date_cleaner)
+    >>> r = show (R.get ("/v1/CNDB-Wired_Interface/29?verbose&order_by=pid&limit=1"), cleaner = date_cleaner)
     { 'json' :
         { 'attributes' :
             { 'left' :
                 { 'pid' : 28
-                , 'url' : '/v1/FFM-Net_Device/28'
+                , 'url' : '/v1/CNDB-Net_Device/28'
                 }
             , 'mac_address' : ''
             , 'name' : 'wr'
@@ -487,99 +488,99 @@ _test_limit = r"""
         , 'cid' : 36
         , 'pid' : 29
         , 'rels' :
-            [ '/v1/FFM-Wired_Interface/29/documents'
-            , '/v1/FFM-Wired_Interface/29/group_links'
-            , '/v1/FFM-Wired_Interface/29/ip4_network_links'
-            , '/v1/FFM-Wired_Interface/29/ip6_network_links'
-            , '/v1/FFM-Wired_Interface/29/left_net_links'
-            , '/v1/FFM-Wired_Interface/29/right_net_links'
+            [ '/v1/CNDB-Wired_Interface/29/documents'
+            , '/v1/CNDB-Wired_Interface/29/group_links'
+            , '/v1/CNDB-Wired_Interface/29/ip4_network_links'
+            , '/v1/CNDB-Wired_Interface/29/ip6_network_links'
+            , '/v1/CNDB-Wired_Interface/29/left_net_links'
+            , '/v1/CNDB-Wired_Interface/29/right_net_links'
             ]
-        , 'type_name' : 'FFM.Wired_Interface'
-        , 'url' : '/v1/FFM-Wired_Interface/29'
+        , 'type_name' : 'CNDB.Wired_Interface'
+        , 'url' : '/v1/CNDB-Wired_Interface/29'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Wired_Interface/29?verbose&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Wired_Interface/29?verbose&order_by=pid&limit=1'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Wired_Interface/29?verbose&fields=name&order_by=pid&limit=1"), cleaner = date_cleaner)
+    >>> r = show (R.get ("/v1/CNDB-Wired_Interface/29?verbose&fields=name&order_by=pid&limit=1"), cleaner = date_cleaner)
     { 'json' :
         { 'attributes' :
             { 'name' : 'wr' }
         , 'cid' : 36
         , 'pid' : 29
         , 'rels' :
-            [ '/v1/FFM-Wired_Interface/29/documents'
-            , '/v1/FFM-Wired_Interface/29/group_links'
-            , '/v1/FFM-Wired_Interface/29/ip4_network_links'
-            , '/v1/FFM-Wired_Interface/29/ip6_network_links'
-            , '/v1/FFM-Wired_Interface/29/left_net_links'
-            , '/v1/FFM-Wired_Interface/29/right_net_links'
+            [ '/v1/CNDB-Wired_Interface/29/documents'
+            , '/v1/CNDB-Wired_Interface/29/group_links'
+            , '/v1/CNDB-Wired_Interface/29/ip4_network_links'
+            , '/v1/CNDB-Wired_Interface/29/ip6_network_links'
+            , '/v1/CNDB-Wired_Interface/29/left_net_links'
+            , '/v1/CNDB-Wired_Interface/29/right_net_links'
             ]
-        , 'type_name' : 'FFM.Wired_Interface'
-        , 'url' : '/v1/FFM-Wired_Interface/29'
+        , 'type_name' : 'CNDB.Wired_Interface'
+        , 'url' : '/v1/CNDB-Wired_Interface/29'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Wired_Interface/29?verbose&fields=name&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Wired_Interface/29?verbose&fields=name&order_by=pid&limit=1'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Wired_Interface/29?verbose&fields=left,name&order_by=pid&limit=1"), cleaner = date_cleaner)
+    >>> r = show (R.get ("/v1/CNDB-Wired_Interface/29?verbose&fields=left,name&order_by=pid&limit=1"), cleaner = date_cleaner)
     { 'json' :
         { 'attributes' :
             { 'left' :
                 { 'pid' : 28
-                , 'url' : '/v1/FFM-Net_Device/28'
+                , 'url' : '/v1/CNDB-Net_Device/28'
                 }
             , 'name' : 'wr'
             }
         , 'cid' : 36
         , 'pid' : 29
         , 'rels' :
-            [ '/v1/FFM-Wired_Interface/29/documents'
-            , '/v1/FFM-Wired_Interface/29/group_links'
-            , '/v1/FFM-Wired_Interface/29/ip4_network_links'
-            , '/v1/FFM-Wired_Interface/29/ip6_network_links'
-            , '/v1/FFM-Wired_Interface/29/left_net_links'
-            , '/v1/FFM-Wired_Interface/29/right_net_links'
+            [ '/v1/CNDB-Wired_Interface/29/documents'
+            , '/v1/CNDB-Wired_Interface/29/group_links'
+            , '/v1/CNDB-Wired_Interface/29/ip4_network_links'
+            , '/v1/CNDB-Wired_Interface/29/ip6_network_links'
+            , '/v1/CNDB-Wired_Interface/29/left_net_links'
+            , '/v1/CNDB-Wired_Interface/29/right_net_links'
             ]
-        , 'type_name' : 'FFM.Wired_Interface'
-        , 'url' : '/v1/FFM-Wired_Interface/29'
+        , 'type_name' : 'CNDB.Wired_Interface'
+        , 'url' : '/v1/CNDB-Wired_Interface/29'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Wired_Interface/29?verbose&fields=left,name&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Wired_Interface/29?verbose&fields=left,name&order_by=pid&limit=1'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Wired_Interface/29?verbose&add_fields=my_node&order_by=pid&limit=1"), cleaner = date_cleaner)
+    >>> r = show (R.get ("/v1/CNDB-Wired_Interface/29?verbose&add_fields=my_node&order_by=pid&limit=1"), cleaner = date_cleaner)
     { 'json' :
         { 'attributes' :
             { 'left' :
                 { 'pid' : 28
-                , 'url' : '/v1/FFM-Net_Device/28'
+                , 'url' : '/v1/CNDB-Net_Device/28'
                 }
             , 'mac_address' : ''
             , 'my_node' :
                 { 'pid' : 3
-                , 'url' : '/v1/FFM-Node/3'
+                , 'url' : '/v1/CNDB-Node/3'
                 }
             , 'name' : 'wr'
             }
         , 'cid' : 36
         , 'pid' : 29
         , 'rels' :
-            [ '/v1/FFM-Wired_Interface/29/documents'
-            , '/v1/FFM-Wired_Interface/29/group_links'
-            , '/v1/FFM-Wired_Interface/29/ip4_network_links'
-            , '/v1/FFM-Wired_Interface/29/ip6_network_links'
-            , '/v1/FFM-Wired_Interface/29/left_net_links'
-            , '/v1/FFM-Wired_Interface/29/right_net_links'
+            [ '/v1/CNDB-Wired_Interface/29/documents'
+            , '/v1/CNDB-Wired_Interface/29/group_links'
+            , '/v1/CNDB-Wired_Interface/29/ip4_network_links'
+            , '/v1/CNDB-Wired_Interface/29/ip6_network_links'
+            , '/v1/CNDB-Wired_Interface/29/left_net_links'
+            , '/v1/CNDB-Wired_Interface/29/right_net_links'
             ]
-        , 'type_name' : 'FFM.Wired_Interface'
-        , 'url' : '/v1/FFM-Wired_Interface/29'
+        , 'type_name' : 'CNDB.Wired_Interface'
+        , 'url' : '/v1/CNDB-Wired_Interface/29'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Wired_Interface/29?verbose&add_fields=my_node&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Wired_Interface/29?verbose&add_fields=my_node&order_by=pid&limit=1'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Wired_Interface?verbose&add_fields=my_node&order_by=pid&limit=1"), cleaner = date_cleaner)
+    >>> r = show (R.get ("/v1/CNDB-Wired_Interface?verbose&add_fields=my_node&order_by=pid&limit=1"), cleaner = date_cleaner)
     { 'json' :
         { 'attribute_names' :
             [ 'left'
@@ -592,24 +593,24 @@ _test_limit = r"""
             [ { 'attributes' :
                   { 'left' :
                       { 'pid' : 28
-                      , 'url' : '/v1/FFM-Net_Device/28'
+                      , 'url' : '/v1/CNDB-Net_Device/28'
                       }
                   , 'mac_address' : ''
                   , 'my_node' :
                       { 'pid' : 3
-                      , 'url' : '/v1/FFM-Node/3'
+                      , 'url' : '/v1/CNDB-Node/3'
                       }
                   , 'name' : 'wr'
                   }
               , 'cid' : 36
               , 'pid' : 29
-              , 'type_name' : 'FFM.Wired_Interface'
-              , 'url' : '/v1/FFM-Wired_Interface/29'
+              , 'type_name' : 'CNDB.Wired_Interface'
+              , 'url' : '/v1/CNDB-Wired_Interface/29'
               }
             ]
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Wired_Interface?verbose&add_fields=my_node&order_by=pid&limit=1'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Wired_Interface?verbose&add_fields=my_node&order_by=pid&limit=1'
     }
 
 """
@@ -623,27 +624,27 @@ _test_local_query = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
 
-    >>> show_by_pid (scope.FFM.Node)
+    >>> show_by_pid (scope.CNDB.Node)
     2   : nogps
     3   : node2
 
-    >>> show_by_pid (scope.FFM.Net_Device)
+    >>> show_by_pid (scope.CNDB.Net_Device)
     28  : Generic, node2, dev
 
-    >>> show_by_pid (scope.FFM.Net_Interface)
+    >>> show_by_pid (scope.CNDB.Net_Interface)
     29  : Generic, node2, dev, wr
     30  : Generic, node2, dev, wl
 
-    >>> show_by_pid (scope.FFM.Net_Interface_in_IP4_Network)
+    >>> show_by_pid (scope.CNDB.Net_Interface_in_IP4_Network)
     31  : Generic, node2, dev, wr, 192.168.23.1
     32  : Generic, node2, dev, wl, 192.168.23.2
     33  : Generic, node2, dev, wr, 192.168.23.3
     34  : Generic, node2, dev, wl, 192.168.23.4
 
-    >>> show_by_pid (scope.FFM.IP4_Network)
+    >>> show_by_pid (scope.CNDB.IP4_Network)
     4   : 192.168.23.0/24
     5   : 192.168.23.0/25
     6   : 192.168.23.128/25
@@ -713,7 +714,7 @@ _test_put = r"""
     >>> server  = run_server (%(p1)s, %(n1)s)
     >>> headers = { "Content-Type": "application/json" }
 
-    >>> r = show (R.get ("/v1/FFM-Node/2?raw"))
+    >>> r = show (R.get ("/v1/CNDB-Node/2?raw"))
     { 'json' :
         { 'attributes_raw' :
             { 'manager' :
@@ -729,14 +730,14 @@ _test_put = r"""
         , 'cid' : 2
         , 'pid' : 2
         , 'rels' :
-            [ '/v1/FFM-Node/2/documents'
-            , '/v1/FFM-Node/2/group_links'
+            [ '/v1/CNDB-Node/2/documents'
+            , '/v1/CNDB-Node/2/group_links'
             ]
-        , 'type_name' : 'FFM.Node'
-        , 'url' : '/v1/FFM-Node/2'
+        , 'type_name' : 'CNDB.Node'
+        , 'url' : '/v1/CNDB-Node/2'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node/2?raw'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node/2?raw'
     }
 
     >>> rj = req_json (r)
@@ -763,14 +764,14 @@ _test_put = r"""
             }
         , 'cid' : 44
         , 'pid' : 2
-        , 'type_name' : 'FFM.Node'
-        , 'url' : '/v1/FFM-Node/2'
+        , 'type_name' : 'CNDB.Node'
+        , 'url' : '/v1/CNDB-Node/2'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node/2'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node/2'
     }
 
-    >>> r = show (R.get ("/v1/FFM-Node/2?raw&brief"))
+    >>> r = show (R.get ("/v1/CNDB-Node/2?raw&brief"))
     { 'json' :
         { 'attributes_raw' :
             { 'manager' : 1
@@ -780,14 +781,14 @@ _test_put = r"""
         , 'cid' : 44
         , 'pid' : 2
         , 'rels' :
-            [ '/v1/FFM-Node/2/documents'
-            , '/v1/FFM-Node/2/group_links'
+            [ '/v1/CNDB-Node/2/documents'
+            , '/v1/CNDB-Node/2/group_links'
             ]
-        , 'type_name' : 'FFM.Node'
-        , 'url' : '/v1/FFM-Node/2'
+        , 'type_name' : 'CNDB.Node'
+        , 'url' : '/v1/CNDB-Node/2'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node/2?raw&brief'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node/2?raw&brief'
     }
 
     >>> rj = req_json (r)
@@ -814,11 +815,11 @@ _test_put = r"""
             }
         , 'cid' : 45
         , 'pid' : 2
-        , 'type_name' : 'FFM.Node'
-        , 'url' : '/v1/FFM-Node/2'
+        , 'type_name' : 'CNDB.Node'
+        , 'url' : '/v1/CNDB-Node/2'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node/2'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node/2'
     }
 
     >>> snoopy_cargo = json.dumps (
@@ -873,11 +874,11 @@ _test_put = r"""
             }
         , 'cid' : 47
         , 'pid' : 2
-        , 'type_name' : 'FFM.Node'
-        , 'url' : '/v1/FFM-Node/2'
+        , 'type_name' : 'CNDB.Node'
+        , 'url' : '/v1/CNDB-Node/2'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node/2'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node/2'
     }
 
     >>> cargo_c = json.dumps (
@@ -890,7 +891,7 @@ _test_put = r"""
     { 'json' :
         { 'error' : 'Cid mismatch: requested cid = 45, current cid = 47' }
     , 'status' : 409
-    , 'url' : 'http://localhost:9999/v1/FFM-Node/2'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node/2'
     }
 
     >>> sj3 = req_json (s3)
@@ -915,11 +916,11 @@ _test_put = r"""
             }
         , 'cid' : 48
         , 'pid' : 2
-        , 'type_name' : 'FFM.Node'
-        , 'url' : '/v1/FFM-Node/2'
+        , 'type_name' : 'CNDB.Node'
+        , 'url' : '/v1/CNDB-Node/2'
         }
     , 'status' : 200
-    , 'url' : 'http://localhost:9999/v1/FFM-Node/2'
+    , 'url' : 'http://localhost:9999/v1/CNDB-Node/2'
     }
 
 """
@@ -935,4 +936,4 @@ __test__ = Scaffold.create_test_dict \
 
 if __name__ == "__main__" :
     rst_harness._main (Scaffold)
-### __END__ FFM.__test__.RST
+### __END__ CNDB.OMP.__test__.RST

@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Person_mentors_Person
+#    CNDB.OMP.Person_mentors_Person
 #
 # Purpose
 #    Model mentor relationship between persons
@@ -35,12 +35,13 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 from   _GTW._OMP._PAP         import PAP
 
 import _GTW._OMP._PAP.Person
 
-_Ancestor_Essence = FFM.Link2
+_Ancestor_Essence = CNDB.OMP.Link2
 
 class Person_mentors_Person (_Ancestor_Essence) :
     """Person is the mentor of another person."""
@@ -72,5 +73,5 @@ class Person_mentors_Person (_Ancestor_Essence) :
 # end class Person_mentors_Person
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Person_mentors_Person
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Person_mentors_Person

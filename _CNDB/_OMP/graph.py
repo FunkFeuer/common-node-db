@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.graph
+#    CNDB.OMP.graph
 #
 # Purpose
-#    Graph describing FFM (partial) object model
+#    Graph describing CNDB (partial) object model
 #
 # Revision Dates
 #    27-Aug-2012 (RS) Creation
@@ -50,7 +50,8 @@ from   __future__  import absolute_import, division, print_function, unicode_lit
 
 from   _GTW                   import GTW
 from   _MOM                   import MOM
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 from   _GTW._OMP._PAP         import PAP
 
 from   _MOM._Graph.Spec       import Attr, Child, ET, IS_A, Role, Skip
@@ -65,9 +66,9 @@ from   _TFL.I18N              import _, _T
 def graph (app_type) :
     return MOM.Graph.Spec.Graph \
         ( app_type
-        , ET.FFM.Device
+        , ET.CNDB.Device
             ( Role.left
-                ( ET.FFM.Device_Type_made_by_Company
+                ( ET.CNDB.Device_Type_made_by_Company
                     ( Role.right
                         ( IS_A.PAP.Subject
                             ( Child.PAP.Person (offset = CD.N)
@@ -82,17 +83,17 @@ def graph (app_type) :
                 , source_side  = "N"
                 , target_side  = "N"
                 )
-            , Child.FFM.Antenna
+            , Child.CNDB.Antenna
                 ( Role.left
-                    ( IS_A.FFM.Device_Type
-                    , ET.FFM.Antenna_Band (offset = CD.E)
+                    ( IS_A.CNDB.Device_Type
+                    , ET.CNDB.Antenna_Band (offset = CD.E)
                     , offset = CD.E * 4
                     )
                 , offset = CD.N
                 )
-            , Child.FFM.Net_Device
+            , Child.CNDB.Net_Device
                 ( Role.left
-                    ( IS_A.FFM.Device_Type
+                    ( IS_A.CNDB.Device_Type
                     , guide_offset = 0.5
                     , offset       = CD.E * 3
                     , source_side  = "S"
@@ -108,21 +109,21 @@ def graph (app_type) :
                     , IS_A.PAP.Subject (source_side = "E", target_side = "W")
                     , offset = CD.N
                     )
-                , ET.FFM.Net_Interface (offset = CD.S + CD.E * 2)
+                , ET.CNDB.Net_Interface (offset = CD.S + CD.E * 2)
                 , offset = CD.E + CD.S
                 )
             )
-        , ET.FFM.Net_Interface
+        , ET.CNDB.Net_Interface
             ( Role.left (guide_offset = 1.0)
-            , ET.FFM.Net_Link (offset = CD.S)
-            , ET.FFM._Net_Credentials_
+            , ET.CNDB.Net_Link (offset = CD.S)
+            , ET.CNDB._Net_Credentials_
                 ( Role.left (guide_offset = 1.0)
                 , offset = CD.N + CD.E * 2
                 )
-            , ET.FFM.Net_Interface_in_IP_Network
+            , ET.CNDB.Net_Interface_in_IP_Network
                 ( Role.right
-                    ( Child.FFM.IP4_Network (offset = CD.SW)
-                    , Child.FFM.IP6_Network (offset = CD.S)
+                    ( Child.CNDB.IP4_Network (offset = CD.SW)
+                    , Child.CNDB.IP6_Network (offset = CD.S)
                     , offset = CD.S
                     )
                 , Role.left
@@ -132,9 +133,9 @@ def graph (app_type) :
                     )
                 , offset = CD.E * 2
                 )
-            , Child.FFM.Wireless_Interface
+            , Child.CNDB.Wireless_Interface
                 ( Skip.left
-                , ET.FFM.Wireless_Interface_uses_Antenna
+                , ET.CNDB.Wireless_Interface_uses_Antenna
                     ( Role.left
                         ( guide_offset = 1.5
                         )
@@ -145,7 +146,7 @@ def graph (app_type) :
                         )
                     , offset = CD.N + CD.W * 2
                     )
-                , ET.FFM.Wireless_Interface_uses_Wireless_Channel
+                , ET.CNDB.Wireless_Interface_uses_Wireless_Channel
                     ( Role.right
                         ( Role.left
                             ( offset = CD.S
@@ -156,19 +157,19 @@ def graph (app_type) :
                     )
                 , offset = CD.W
                 )
-            , Child.FFM.Wired_Interface
+            , Child.CNDB.Wired_Interface
                 ( Skip.left
                 , offset = CD.E
                 )
             )
         , desc  = _T ("Graph displaying Funkfeuer object model")
-        , title = _T ("FFM graph")
+        , title = _T ("CNDB graph")
         )
 # end def graph
 
 class Command (MOM.Graph.Command) :
 
-    PNS                   = FFM
+    PNS                   = CNDB
 
     _defaults             = dict \
         ( name            = "nodedb"
@@ -181,10 +182,10 @@ class Command (MOM.Graph.Command) :
 # end class Command
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
+    CNDB.OMP._Export ("*")
 else :
     import _GTW._OMP._PAP.import_PAP
     import _GTW._OMP._Auth.import_Auth
-    import _FFM.import_FFM
+    import _CNDB._OMP.import_CNDB
     Command () ()
-### __END__ FFM.graph
+### __END__ CNDB.OMP.graph

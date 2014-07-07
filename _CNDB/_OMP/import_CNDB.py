@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.import_FFM
+#    CNDB.OMP.import_CNDB
 #
 # Purpose
-#    Import FFM object model
+#    Import CNDB object model
 #
 # Revision Dates
 #     6-Mar-2012 (CT) Creation
@@ -59,7 +59,8 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
 import _GTW._OMP._PAP.Association
 import _GTW._OMP._PAP.IM_Handle
@@ -68,52 +69,52 @@ import _GTW._OMP._PAP.Adhoc_Group
 import _GTW._OMP._PAP.Person_in_Group
 import _GTW._OMP._PAP.Id_Entity_permits_Group
 
-import _FFM.Antenna
-import _FFM.Antenna_Band
-import _FFM.Antenna_Type
-import _FFM.Device
-import _FFM.Device_Type
-import _FFM.Firmware
-import _FFM.IP4_DNS_Alias
-import _FFM.IP4_Network
-import _FFM.IP4_Pool
-import _FFM.IP6_DNS_Alias
-import _FFM.IP6_Network
-import _FFM.IP6_Pool
-import _FFM.IP_DNS_Alias
-import _FFM.IP_Network
-import _FFM.IP_Pool
-import _FFM.Net_Credentials
-import _FFM.Net_Device
-import _FFM.Net_Device_Type
-import _FFM.Net_Interface
-import _FFM.Node
-import _FFM.Regulatory_Domain
-import _FFM.Regulatory_Permission
-import _FFM.Routing_Zone
-import _FFM.Wired_Interface
-import _FFM.Wireless_Channel
-import _FFM.Wireless_Interface
-import _FFM.Wireless_Standard
+import _CNDB._OMP.Antenna
+import _CNDB._OMP.Antenna_Band
+import _CNDB._OMP.Antenna_Type
+import _CNDB._OMP.Device
+import _CNDB._OMP.Device_Type
+import _CNDB._OMP.Firmware
+import _CNDB._OMP.IP4_DNS_Alias
+import _CNDB._OMP.IP4_Network
+import _CNDB._OMP.IP4_Pool
+import _CNDB._OMP.IP6_DNS_Alias
+import _CNDB._OMP.IP6_Network
+import _CNDB._OMP.IP6_Pool
+import _CNDB._OMP.IP_DNS_Alias
+import _CNDB._OMP.IP_Network
+import _CNDB._OMP.IP_Pool
+import _CNDB._OMP.Net_Credentials
+import _CNDB._OMP.Net_Device
+import _CNDB._OMP.Net_Device_Type
+import _CNDB._OMP.Net_Interface
+import _CNDB._OMP.Node
+import _CNDB._OMP.Regulatory_Domain
+import _CNDB._OMP.Regulatory_Permission
+import _CNDB._OMP.Routing_Zone
+import _CNDB._OMP.Wired_Interface
+import _CNDB._OMP.Wireless_Channel
+import _CNDB._OMP.Wireless_Interface
+import _CNDB._OMP.Wireless_Standard
 
-import _FFM.Wireless_Mode
-import _FFM.Zone
+import _CNDB._OMP.Wireless_Mode
+import _CNDB._OMP.Zone
 
-import _FFM.Device_Type_made_by_Company
-import _FFM.IP_Network_in_IP_Pool
-import _FFM.IP4_Network_in_IP4_Pool
-import _FFM.IP6_Network_in_IP6_Pool
-import _FFM.IP_Pool_permits_Group
-import _FFM.IP4_Pool_permits_Group
-import _FFM.IP6_Pool_permits_Group
-import _FFM.Net_Interface_in_IP4_Network
-import _FFM.Net_Interface_in_IP6_Network
-import _FFM.Net_Interface_in_IP_Network
-import _FFM.Net_Link
-import _FFM.Person_mentors_Person
-import _FFM.Wireless_Interface_uses_Antenna
-import _FFM.Wireless_Interface_uses_Wireless_Channel
+import _CNDB._OMP.Device_Type_made_by_Company
+import _CNDB._OMP.IP_Network_in_IP_Pool
+import _CNDB._OMP.IP4_Network_in_IP4_Pool
+import _CNDB._OMP.IP6_Network_in_IP6_Pool
+import _CNDB._OMP.IP_Pool_permits_Group
+import _CNDB._OMP.IP4_Pool_permits_Group
+import _CNDB._OMP.IP6_Pool_permits_Group
+import _CNDB._OMP.Net_Interface_in_IP4_Network
+import _CNDB._OMP.Net_Interface_in_IP6_Network
+import _CNDB._OMP.Net_Interface_in_IP_Network
+import _CNDB._OMP.Net_Link
+import _CNDB._OMP.Person_mentors_Person
+import _CNDB._OMP.Wireless_Interface_uses_Antenna
+import _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel
 
 import _MOM.Document
 
-### __END__ FFM.import_FFM
+### __END__ CNDB.OMP.import_CNDB

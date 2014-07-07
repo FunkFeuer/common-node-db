@@ -2,7 +2,7 @@
 # Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.IP_DNS_Alias
+#    CNDB.OMP.IP_DNS_Alias
 #
 # Purpose
 #    Model a DNS alias for a Net_Interface_in_IP_Network
@@ -33,13 +33,14 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
 from   _GTW._OMP._DNS.Attr_Type import A_DNS_Label
 
-import _FFM.Net_Interface_in_IP_Network
+import _CNDB._OMP.Net_Interface_in_IP_Network
 
-_Ancestor_Essence = FFM.Link1
+_Ancestor_Essence = CNDB.OMP.Link1
 
 class IP_DNS_Alias (_Ancestor_Essence) :
     """DNS alias for IP address"""
@@ -56,7 +57,7 @@ class IP_DNS_Alias (_Ancestor_Essence) :
             """The assigned IP Address"""
 
             role_name          = 'address'
-            role_type          = FFM.Net_Interface_in_IP_Network
+            role_type          = CNDB.OMP.Net_Interface_in_IP_Network
 
         # end class left
 
@@ -79,5 +80,5 @@ class IP_DNS_Alias (_Ancestor_Essence) :
 # end class IP_DNS_Alias
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP_DNS_Alias
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP_DNS_Alias

@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.IP6_Network
+#    CNDB.OMP.IP6_Network
 #
 # Purpose
-#    Model IP6 Network of FFM
+#    Model IP6 Network of CNDB
 #
 # Revision Dates
 #    22-May-2012 (RS) Creation
@@ -39,19 +39,20 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
-from   _FFM.Attr_Type           import *
+from   _CNDB._OMP.Attr_Type           import *
 from   _GTW._OMP._NET           import NET
 
-import _FFM.IP_Network
+import _CNDB._OMP.IP_Network
 
 import _GTW._OMP._NET.Attr_Type
 
-_Ancestor_Essence = FFM.IP_Network
+_Ancestor_Essence = CNDB.OMP.IP_Network
 
 class IP6_Network (_Ancestor_Essence) :
-    """IPv6 Network of FFM"""
+    """IPv6 Network of CNDB"""
 
     class _Attributes (_Ancestor_Essence._Attributes) :
 
@@ -69,7 +70,7 @@ class IP6_Network (_Ancestor_Essence) :
         class parent (_Ancestor.parent) :
             """Parent of the `%(type_name)s`."""
 
-            P_Type             = "FFM.IP6_Network"
+            P_Type             = "CNDB.IP6_Network"
             rev_ref_attr_name  = "subnets"
 
         # end class parent
@@ -77,7 +78,7 @@ class IP6_Network (_Ancestor_Essence) :
         class pool (_Ancestor.pool) :
             """Pool to which this `%(type_name)s` belongs."""
 
-            P_Type             = "FFM.IP6_Network"
+            P_Type             = "CNDB.IP6_Network"
 
         # end class pool
 
@@ -86,5 +87,5 @@ class IP6_Network (_Ancestor_Essence) :
 # end class IP6_Network
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP6_Network
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP6_Network

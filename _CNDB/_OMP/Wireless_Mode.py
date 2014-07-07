@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Wireless_Mode
+#    CNDB.OMP.Wireless_Mode
 #
 # Purpose
 #    Model the mode a wireless device operates in
@@ -35,7 +35,8 @@
 
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _TFL                     import TFL
 
 from   _TFL.I18N                import _, _T, _Tn
@@ -103,5 +104,5 @@ class Client (Wireless_Mode) :
 # end class Client
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Wireless_Mode
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Wireless_Mode

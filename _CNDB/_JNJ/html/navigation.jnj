@@ -1,6 +1,6 @@
 {#- jinja template: navigation.jnj -#}
 {#
-## Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************#
 ## This template is part of the web page ffm.funkfeuer.at.
@@ -24,7 +24,7 @@
 ##    html/navigation.jnj
 ##
 ## Purpose
-##    Navigation for ffm.funkfeuer.at
+##    Navigation template
 ##
 ## Revision Dates
 ##    27-Mar-2012 (CT) Creation

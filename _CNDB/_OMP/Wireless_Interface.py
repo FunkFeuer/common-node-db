@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Wireless_Interface
+#    CNDB.OMP.Wireless_Interface
 #
 # Purpose
-#    Model a wireless interface of a FFM device
+#    Model a wireless interface of a CNDB device
 #
 # Revision Dates
 #    14-Mar-2012 (CT) Creation
@@ -48,17 +48,18 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
-from   _FFM.Attr_Type           import *
+from   _CNDB._OMP.Attr_Type           import *
 
-import _FFM.Net_Interface
-import _FFM.Wireless_Standard
+import _CNDB._OMP.Net_Interface
+import _CNDB._OMP.Wireless_Standard
 
 from   _GTW._OMP._NET           import NET
 import _GTW._OMP._NET.Attr_Type
 
-_Ancestor_Essence = FFM.Net_Interface
+_Ancestor_Essence = CNDB.OMP.Net_Interface
 
 class _Wireless_Interface_ (_Ancestor_Essence) :
     """Base class for wireless interfaces"""
@@ -101,7 +102,7 @@ class _Wireless_Interface_ (_Ancestor_Essence) :
             """Wireless standard used by the wireless interface."""
 
             kind               = Attr.Necessary
-            P_Type             = FFM.Wireless_Standard
+            P_Type             = CNDB.OMP.Wireless_Standard
             ui_allow_new       = False
 
         # end class standard
@@ -121,7 +122,7 @@ class _Wireless_Interface_ (_Ancestor_Essence) :
 _Ancestor_Essence = _Wireless_Interface_
 
 class Wireless_Interface (_Ancestor_Essence) :
-    """Wireless interface of a FFM device"""
+    """Wireless interface of a CNDB device"""
 
     class _Attributes (_Ancestor_Essence._Attributes) :
 
@@ -139,7 +140,7 @@ class Wireless_Interface (_Ancestor_Essence) :
 _Ancestor_Essence = _Wireless_Interface_
 
 class Virtual_Wireless_Interface (_Ancestor_Essence) :
-    """Virtual wireless interface of a FFM device"""
+    """Virtual wireless interface of a CNDB device"""
 
     class _Attributes (_Ancestor_Essence._Attributes) :
 
@@ -199,5 +200,5 @@ class Virtual_Wireless_Interface (_Ancestor_Essence) :
 # end class Virtual_Wireless_Interface
 
 if __name__ != "__main__" :
-    FFM._Export ("*", "_Wireless_Interface_")
-### __END__ FFM.Wireless_Interface
+    CNDB.OMP._Export ("*", "_Wireless_Interface_")
+### __END__ CNDB.OMP.Wireless_Interface

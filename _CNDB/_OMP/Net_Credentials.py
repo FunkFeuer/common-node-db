@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Net_Credentials
+#    CNDB.OMP.Net_Credentials
 #
 # Purpose
 #    Model credentials for a network interface
@@ -40,17 +40,18 @@ from   __future__  import absolute_import, division, print_function, unicode_lit
 
 from   _MOM.import_MOM        import *
 from   _MOM.import_MOM        import _A_String_Ascii_
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-import _FFM.Net_Interface
-import _FFM.Belongs_to_Net_Device
-import _FFM.Belongs_to_Node
+import _CNDB._OMP.Net_Interface
+import _CNDB._OMP.Belongs_to_Net_Device
+import _CNDB._OMP.Belongs_to_Node
 
 from   _TFL.Regexp            import Regexp, re
 
-_Ancestor_Essence = FFM.Link1
-_Mixin_1 = FFM.Belongs_to_Node_Left
-_Mixin_2 = FFM.Belongs_to_Net_Device_Left
+_Ancestor_Essence = CNDB.OMP.Link1
+_Mixin_1 = CNDB.OMP.Belongs_to_Node_Left
+_Mixin_2 = CNDB.OMP.Belongs_to_Net_Device_Left
 
 class _Net_Credentials_ (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
     """Model credentials used by a Net_Interface, e.g., `802.1x`
@@ -73,7 +74,7 @@ class _Net_Credentials_ (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
         class left (_Ancestor.left) :
             """The network interface using these credentials."""
 
-            role_type          = FFM.Net_Interface
+            role_type          = CNDB.OMP.Net_Interface
             role_name          = "interface"
             link_ref_attr_name = "credentials"
             link_ref_suffix    = None
@@ -119,5 +120,5 @@ class WPA_Credentials (_Ancestor_Essence) :
 # end class WPA2
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Net_Credentials
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Net_Credentials

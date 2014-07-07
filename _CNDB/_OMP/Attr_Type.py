@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Attr_Type
+#    CNDB.OMP.Attr_Type
 #
 # Purpose
-#    Define attribute types for package FFM
+#    Define attribute types for package CNDB
 #
 # Revision Dates
 #    14-Mar-2012 (CT) Creation
@@ -51,11 +51,12 @@ from   math                     import log
 
 from   _MOM.import_MOM          import *
 from   _MOM.import_MOM          import _A_Unit_, _A_Float_, _A_Named_Value_
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _TFL.I18N                import _
 from _MOM._Attr.Number_Interval import A_Int_Interval_C
 
-import _FFM.Wireless_Mode
+import _CNDB._OMP.Wireless_Mode
 
 class A_Polarization (_A_Named_Value_) :
     """Antenna polarisation"""
@@ -118,7 +119,7 @@ class A_Wireless_Mode (MOM.Attr._A_Named_Object_) :
 
     example     = u"Ad_Hoc"
     typ         = "wl-mode"
-    Table       = FFM.Wireless_Mode.Table
+    Table       = CNDB.OMP.Wireless_Mode.Table
 
 # end class A_Wireless_Mode
 
@@ -200,5 +201,5 @@ class A_IP6_Netmask_Interval (_A_IP_Netmask_Interval_) :
 __all__ = tuple (k for (k, v) in globals ().iteritems () if is_attr_type (v))
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Attr_Type
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Attr_Type

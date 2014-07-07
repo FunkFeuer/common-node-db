@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Net_Interface_in_IP4_Network
+#    CNDB.OMP.Net_Interface_in_IP4_Network
 #
 # Purpose
 #    Model a Net interface in an IPv4 network
@@ -36,12 +36,13 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
-from   _FFM.Attr_Type           import *
-import _FFM.Net_Interface_in_IP_Network
+from   _CNDB._OMP.Attr_Type           import *
+import _CNDB._OMP.Net_Interface_in_IP_Network
 
-_Ancestor_Essence = FFM.Net_Interface_in_IP_Network
+_Ancestor_Essence = CNDB.OMP.Net_Interface_in_IP_Network
 
 class Net_Interface_in_IP4_Network (_Ancestor_Essence) :
     """Net interface in IPv4 network"""
@@ -57,7 +58,7 @@ class Net_Interface_in_IP4_Network (_Ancestor_Essence) :
         class right (_Ancestor.right) :
             """IP Network."""
 
-            role_type          = FFM.IP4_Network
+            role_type          = CNDB.OMP.IP4_Network
             auto_rev_ref       = True
 
         # end class right
@@ -69,5 +70,5 @@ class Net_Interface_in_IP4_Network (_Ancestor_Essence) :
 # end class Net_Interface_in_IP4_Network
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Net_Interface_in_IP4_Network
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Net_Interface_in_IP4_Network

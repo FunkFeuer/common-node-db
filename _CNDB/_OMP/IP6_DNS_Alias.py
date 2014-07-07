@@ -2,7 +2,7 @@
 # Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.IP_DNS_Alias
+#    CNDB.OMP.IP_DNS_Alias
 #
 # Purpose
 #    Model a DNS alias for a Network_Interface_in_IP_Network
@@ -33,11 +33,12 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-import _FFM.IP_DNS_Alias
+import _CNDB._OMP.IP_DNS_Alias
 
-_Ancestor_Essence = FFM.IP_DNS_Alias
+_Ancestor_Essence = CNDB.OMP.IP_DNS_Alias
 
 class IP6_DNS_Alias (_Ancestor_Essence) :
     """DNS alias for IPv6 address"""
@@ -54,5 +55,5 @@ class IP6_DNS_Alias (_Ancestor_Essence) :
 # end class IP6_DNS_Alias
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP6_DNS_Alias
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP6_DNS_Alias

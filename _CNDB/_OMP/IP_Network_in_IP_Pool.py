@@ -2,7 +2,7 @@
 # Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.IP_Network_in_IP_Pool
+#    CNDB.OMP.IP_Network_in_IP_Pool
 #
 # Purpose
 #    Model IP networks in an IP pool
@@ -33,12 +33,13 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-import _FFM.IP_Network
-import _FFM.IP_Pool
+import _CNDB._OMP.IP_Network
+import _CNDB._OMP.IP_Pool
 
-_Ancestor_Essence = FFM.Link2
+_Ancestor_Essence = CNDB.OMP.Link2
 
 class IP_Network_in_IP_Pool (_Ancestor_Essence) :
     """IP networks in an IP pool."""
@@ -54,7 +55,7 @@ class IP_Network_in_IP_Pool (_Ancestor_Essence) :
         class left (_Ancestor.left) :
             """IP network."""
 
-            role_type          = FFM.IP_Network
+            role_type          = CNDB.OMP.IP_Network
             max_links          = 1
 
         # end class left
@@ -62,7 +63,7 @@ class IP_Network_in_IP_Pool (_Ancestor_Essence) :
         class right (_Ancestor.right) :
             """IP pool."""
 
-            role_type          = FFM.IP_Pool
+            role_type          = CNDB.OMP.IP_Pool
 
         # end class right
 
@@ -71,5 +72,5 @@ class IP_Network_in_IP_Pool (_Ancestor_Essence) :
 # end class IP_Network_in_IP_Pool
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP_Network_in_IP_Pool
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP_Network_in_IP_Pool

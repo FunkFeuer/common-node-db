@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -71,13 +71,14 @@
 
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _GTW                     import GTW
 from   _JNJ                     import JNJ
 from   _MOM                     import MOM
 from   _TFL                     import TFL
 
-import _FFM.import_FFM
+import _CNDB._OMP.import_CNDB
 
 from   _GTW._MF3                import Element as MF3
 
@@ -177,8 +178,8 @@ class Login_has_Person (GTW.RST._Permission_) :
 
 # end class Login_has_Person
 
-@Add_New_Method (FFM.Net_Device, FFM.Wired_Interface, FFM.Wireless_Interface)
-def _FFM_User_Entity_PRC (self, resource, request, response, attribute_changes) :
+@Add_New_Method (CNDB.OMP.Net_Device, CNDB.OMP.Wired_Interface, CNDB.OMP.Wireless_Interface)
+def _CNDB_User_Entity_PRC (self, resource, request, response, attribute_changes) :
     for eia in self.id_entity_attr :
         if eia.name in attribute_changes or eia.is_primary :
             ET = eia.E_Type
@@ -189,13 +190,13 @@ def _FFM_User_Entity_PRC (self, resource, request, response, attribute_changes) 
                     err = MOM.Error.Permission (self, eia, ent, eligible)
                     self.add_error (err)
                     raise err
-# end def _FFM_User_Entity_PRC
+# end def _CNDB_User_Entity_PRC
 
 _pre_commit_entity_check = GTW.RST.MOM.Pre_Commit_Entity_Check \
-    ("_FFM_User_Entity_PRC")
+    ("_CNDB_User_Entity_PRC")
 
-@Add_New_Method (FFM.Node)
-def _FFM_Node_PRC (self, resource, request, response, attribute_changes) :
+@Add_New_Method (CNDB.OMP.Node)
+def _CNDB_Node_PRC (self, resource, request, response, attribute_changes) :
     changed = tuple (k for k in ("manager", "owner") if k in attribute_changes)
     if changed :
         user = resource.user_restriction
@@ -203,10 +204,10 @@ def _FFM_Node_PRC (self, resource, request, response, attribute_changes) :
             err = Node_Manager_Error (self, changed, user.ui_display)
             self.add_error (err)
             raise err
-# end def _FFM_Node_PRC
+# end def _CNDB_Node_PRC
 
 _pre_commit_node_check = GTW.RST.MOM.Pre_Commit_Entity_Check \
-    ("_FFM_Node_PRC")
+    ("_CNDB_Node_PRC")
 
 _Ancestor = GTW.RST.TOP.MOM.Admin_Restricted.E_Type
 
@@ -267,7 +268,7 @@ class User_Entity (_Ancestor) :
 class User_Node (User_Entity) :
     """Directory displaying the node instances belonging to the current user."""
 
-    _ETM                  = "FFM.Node"
+    _ETM                  = "CNDB.Node"
 
     child_postconditions_map  = dict \
         ( User_Entity.child_postconditions_map
@@ -290,7 +291,7 @@ class User_Node (User_Entity) :
 class User_Node_Dependent (User_Entity) :
     """Temporary until query attributes with chained Q expressions work"""
 
-    ET_depends            = "FFM.Node" ### E_Type we depend on
+    ET_depends            = "CNDB.Node" ### E_Type we depend on
 
     @Once_Property
     @getattr_safe
@@ -307,14 +308,14 @@ class User_Node_Dependent (User_Entity) :
 
 class User_Antenna (User_Node_Dependent) :
 
-    ET_depends            = "FFM.Wireless_Interface_uses_Antenna"
-    _ETM                  = "FFM.Antenna"
+    ET_depends            = "CNDB.Wireless_Interface_uses_Antenna"
+    _ETM                  = "CNDB.Antenna"
 
 # end class User_Antenna
 
 class User_Net_Device (User_Node_Dependent) :
 
-    _ETM                  = "FFM.Net_Device"
+    _ETM                  = "CNDB.Net_Device"
 
     @property
     @getattr_safe
@@ -339,8 +340,8 @@ class User_Net_Device (User_Node_Dependent) :
 
 class User_Net_Interface (User_Node_Dependent) :
 
-    ET_depends            = "FFM.Net_Device"
-    _ETM                  = "FFM.Net_Interface"
+    ET_depends            = "CNDB.Net_Device"
+    _ETM                  = "CNDB.Net_Interface"
 
 # end class User_Net_Interface
 
@@ -388,29 +389,29 @@ class User_Person_has_Phone (_User_Person_has_Property_) :
 
 class User_Wired_Interface (User_Node_Dependent) :
 
-    ET_depends            = "FFM.Net_Device"
-    _ETM                  = "FFM.Wired_Interface"
+    ET_depends            = "CNDB.Net_Device"
+    _ETM                  = "CNDB.Wired_Interface"
 
 # end class User_Wired_Interface
 
 class User_Wireless_Interface (User_Node_Dependent) :
 
-    ET_depends            = "FFM.Net_Device"
-    _ETM                  = "FFM.Wireless_Interface"
+    ET_depends            = "CNDB.Net_Device"
+    _ETM                  = "CNDB.Wireless_Interface"
 
 # end class User_Wireless_Interface
 
 class User_Wireless_Interface_uses_Antenna (User_Node_Dependent) :
 
-    ET_depends            = "FFM.Wireless_Interface"
-    _ETM                  = "FFM.Wireless_Interface_uses_Antenna"
+    ET_depends            = "CNDB.Wireless_Interface"
+    _ETM                  = "CNDB.Wireless_Interface_uses_Antenna"
 
 # end class User_Wireless_Interface_uses_Antenna
 
 class User_Wireless_Interface_uses_Wireless_Channel (User_Node_Dependent) :
 
-    ET_depends            = "FFM.Wireless_Interface"
-    _ETM                  = "FFM.Wireless_Interface_uses_Wireless_Channel"
+    ET_depends            = "CNDB.Wireless_Interface"
+    _ETM                  = "CNDB.Wireless_Interface_uses_Wireless_Channel"
 
 # end class User_Wireless_Interface_uses_Wireless_Channel
 
@@ -812,9 +813,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
         ref_name = "type"
         typ_map  = \
-            { "FFM.Virtual_Wireless_Interface" : "V"
-            , "FFM.Wired_Interface"            : "L"
-            , "FFM.Wireless_Interface"         : "W"
+            { "CNDB.Virtual_Wireless_Interface" : "V"
+            , "CNDB.Wired_Interface"            : "L"
+            , "CNDB.Wireless_Interface"         : "W"
             }
 
         def value (self, o) :
@@ -989,9 +990,9 @@ class DB_Address (_DB_Person_Property_) :
 # end class DB_Address
 
 class DB_Device (_DB_E_Type_) :
-    """FFM.Net_Device displayed by, and managed via, Funkfeuer dashboard."""
+    """CNDB.Net_Device displayed by, and managed via, Funkfeuer dashboard."""
 
-    type_name             = "FFM.Net_Device"
+    type_name             = "CNDB.Net_Device"
 
     view_action_names     = _DB_E_Type_.view_action_names + \
         ("firmware", )
@@ -1054,10 +1055,10 @@ class DB_IM_Handle (_DB_Person_Property_) :
 _Ancestor = _DB_E_Type_
 
 class DB_Interface (_Ancestor) :
-    """FFM.Net_Interface displayed by, and managed via, Funkfeuer dashboard."""
+    """CNDB.Net_Interface displayed by, and managed via, Funkfeuer dashboard."""
 
     app_div_class         = "pure-u-24-24"
-    type_name             = "FFM.Net_Interface"
+    type_name             = "CNDB.Net_Interface"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_graph"
 
     view_field_names      = \
@@ -1102,15 +1103,15 @@ class DB_Interface (_Ancestor) :
 
         def _get_ip_for_interface (self, scope, owner, iface) :
             from rsclib.IP_Address import IP4_Address
-            FFM = scope.FFM
+            CNDB = scope.CNDB
             for ip in self.freenet_networks :
                 ip  = IP4_Address (ip)
-                net = FFM.IP4_Network.instance (ip)
+                net = CNDB.IP4_Network.instance (ip)
                 try :
                     adr = net.allocate (32, owner)
-                except FFM.Error.No_Free_Address_Range :
+                except CNDB.OMP.Error.No_Free_Address_Range :
                     continue
-                FFM.Net_Interface_in_IP4_Network (iface, adr, mask_len = 32)
+                CNDB.Net_Interface_in_IP4_Network (iface, adr, mask_len = 32)
                 return adr
         # end def _get_ip_for_interface
 
@@ -1149,10 +1150,10 @@ class DB_Interface (_Ancestor) :
 # end class DB_Interface
 
 class DB_Node (_DB_E_Type_) :
-    """FFM.Node displayed by, and managed via, Funkfeuer dashboard."""
+    """CNDB.Node displayed by, and managed via, Funkfeuer dashboard."""
 
     app_div_class         = "pure-u-12-24"
-    type_name             = "FFM.Node"
+    type_name             = "CNDB.Node"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_node_map"
 
     view_action_names     = _DB_E_Type_.view_action_names + ("graphs", )

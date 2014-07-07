@@ -11,7 +11,7 @@
 //    html/dashboard/app.js
 //
 // Purpose
-//    Javascript code for Funkfeuer dashboard
+//    Javascript code for CNDB dashboard
 //
 // Revision Dates
 //    15-Apr-2014 (CT) Creation
@@ -23,7 +23,7 @@
 
 ;( function ($) {
     "use strict";
-    $.fn.ff_dashboard = function ff_dashboard (opts) {
+    $.fn.cndb_dashboard = function cndb_dashboard (opts) {
         var selectors = $.extend
             ( { app_div          : "[id^=\"app-D:\"]"
               , app_div_edit     : "[id=\"app-D:edit\"]"

@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.__test__.
+# This module is part of the package CNDB.OMP.__test__.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.__test__.Nodes
+#    CNDB.OMP.__test__.Nodes
 #
 # Purpose
 #    Test Node and associations
@@ -30,7 +30,7 @@
 #    24-Sep-2012 (RS) More tests, up to `Net_Interface_in_IP4_Network`
 #    11-Oct-2012 (RS) Fix missing `raw` parameter
 #    12-Oct-2012 (RS) Add tests for `Node` in role `Subject`
-#    16-Oct-2012 (CT) Add tracebacks triggered by `FFM.Node.refuse_links`
+#    16-Oct-2012 (CT) Add tracebacks triggered by `CNDB.Node.refuse_links`
 #    17-Dec-2012 (RS) Add tests for attributes of `belongs_to_node`
 #     5-Mar-2013 (CT) Adapt to changes in `Net_Interface_in_IP4_Network`
 #     7-Mar-2013 (RS) Add test for duplicate network allocation
@@ -50,7 +50,7 @@
 
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
-from   _FFM.__test__.model      import *
+from   _CNDB._OMP.__test__.model      import *
 from   _MOM.inspect             import children_trans_iter
 
 from   datetime                 import datetime
@@ -61,18 +61,18 @@ _test_code = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
-    >>> Adr = str ### XXX FFM.IP4_Network.net_address.P_Type
+    >>> Adr = str ### XXX CNDB.IP4_Network.net_address.P_Type
 
     >>> mgr = PAP.Person \\
     ...     (first_name = 'Ralf', last_name = 'Schlatterbeck', raw = True)
 
     >>> comp = PAP.Company (name = "Open Source Consulting", raw = True)
-    >>> node1 = FFM.Node \\
+    >>> node1 = CNDB.Node \\
     ...     (name = "nogps", manager = mgr, position = None, raw = True)
     >>> gps1 = dict (lat = "48 d 17 m 9.64 s", lon = "15 d 52 m 27.84 s")
-    >>> node2 = FFM.Node \\
+    >>> node2 = CNDB.Node \\
     ...     (name = "node2", manager = mgr, position = gps1, raw = True)
 
     >>> adr = PAP.Address \\
@@ -86,7 +86,7 @@ _test_code = """
     PAP.Address (u'example 23', u'1010', u'wien', u'austria')
 
     >>> gps2 = dict (lat = "48.367088", lon = "16.187672")
-    >>> node3 = FFM.Node \\
+    >>> node3 = CNDB.Node \\
     ...    (name = "node3", manager = mgr, owner = comp, position = gps2)
     >>> fmt = '%%Y-%%m-%%d %%H:%%M:%%S'
     >>> t1 = datetime.strptime ("2009-05-05 17:17:17", fmt)
@@ -97,27 +97,27 @@ _test_code = """
     >>> node3.last_changed
     datetime.datetime(2010, 5, 5, 23, 23, 23)
 
-    >>> net = FFM.IP4_Network ('192.168.23.0/24', owner = mgr, raw = True)
+    >>> net = CNDB.IP4_Network ('192.168.23.0/24', owner = mgr, raw = True)
     >>> a1  = net.reserve (Adr ('192.168.23.1/32'))
     >>> a2  = net.reserve (Adr ('192.168.23.2/32'))
     >>> a3  = net.reserve (Adr ('192.168.23.3/32'))
     >>> a4  = net.reserve (Adr ('192.168.23.4/32'))
     >>> ax  = net.reserve ('192.168.23.42/32')
     >>> ax
-    FFM.IP4_Network ("192.168.23.42")
+    CNDB.IP4_Network ("192.168.23.42")
 
-    >>> devtype = FFM.Net_Device_Type.instance_or_new \\
+    >>> devtype = CNDB.Net_Device_Type.instance_or_new \\
     ...     (name = 'Generic', raw = True)
-    >>> dev = FFM.Net_Device \\
+    >>> dev = CNDB.Net_Device \\
     ...     (left = devtype, node = node3, name = 'dev', raw = True)
-    >>> wr  = FFM.Wired_Interface (left = dev, name = 'wr', raw = True)
-    >>> wl  = FFM.Wireless_Interface (left = dev, name = 'wl', raw = True)
-    >>> ir1 = FFM.Net_Interface_in_IP4_Network (wr, a1, mask_len = 24)
-    >>> il1 = FFM.Net_Interface_in_IP4_Network (wl, a2, mask_len = 32)
-    >>> ir2 = FFM.Net_Interface_in_IP4_Network (wr, a3, mask_len = 24)
-    >>> il2 = FFM.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
+    >>> wr  = CNDB.Wired_Interface (left = dev, name = 'wr', raw = True)
+    >>> wl  = CNDB.Wireless_Interface (left = dev, name = 'wl', raw = True)
+    >>> ir1 = CNDB.Net_Interface_in_IP4_Network (wr, a1, mask_len = 24)
+    >>> il1 = CNDB.Net_Interface_in_IP4_Network (wl, a2, mask_len = 32)
+    >>> ir2 = CNDB.Net_Interface_in_IP4_Network (wr, a3, mask_len = 24)
+    >>> il2 = CNDB.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
 
-    >>> irx = FFM.Net_Interface_in_IP4_Network (wr, ax, mask_len = 22) # doctest:+ELLIPSIS
+    >>> irx = CNDB.Net_Interface_in_IP4_Network (wr, ax, mask_len = 22) # doctest:+ELLIPSIS
     Traceback (most recent call last):
       ...
     Invariants: Condition `valid_mask_len` : The `mask_len` must match the one of `right` or of any
@@ -127,7 +127,7 @@ _test_code = """
         right = 192.168.23.42
         right.net_address = ...
 
-    >>> net2 = FFM.IP4_Network (net_address = '10.0.0.0/8', owner = mgr, raw = True)
+    >>> net2 = CNDB.IP4_Network (net_address = '10.0.0.0/8', owner = mgr, raw = True)
     >>> a2_1 = net2.reserve (Adr ('10.139.187.0/27'))
     >>> a2_2 = net2.reserve (Adr ('10.139.187.2'))
     >>> a2_f = net2.reserve (Adr ('10.139.187.0/27'))
@@ -135,7 +135,7 @@ _test_code = """
       ...
     Address_Already_Used: Address 10.139.187.0/27 already in use by 'Schlatterbeck Ralf'
 
-    >>> at1 = FFM.Antenna_Type \\
+    >>> at1 = CNDB.Antenna_Type \\
     ...     ( name         = "Yagi1"
     ...     , desc         = "A Yagi"
     ...     , gain         = 17.5
@@ -143,37 +143,37 @@ _test_code = """
     ...     , raw          = True
     ...     )
     >>> args = dict (left = at1, azimuth = "180", elevation_angle = 0, raw = True)
-    >>> a = FFM.Antenna (name = "1", ** args)
-    >>> wia = FFM.Wireless_Interface_uses_Antenna (wl, a)
+    >>> a = CNDB.Antenna (name = "1", ** args)
+    >>> wia = CNDB.Wireless_Interface_uses_Antenna (wl, a)
 
-    >>> FFM.Antenna.query (Q.my_node == node3).count ()
+    >>> CNDB.Antenna.query (Q.my_node == node3).count ()
     1
 
-    >>> FFM.Belongs_to_Node.query (Q.my_node == node3).count ()
+    >>> CNDB.Belongs_to_Node.query (Q.my_node == node3).count ()
     6
 
-    >>> FFM.Net_Device.query (Q.my_node == node3).count ()
+    >>> CNDB.Net_Device.query (Q.my_node == node3).count ()
     1
 
-    >>> FFM.Net_Interface.query (Q.my_node == node3).count ()
+    >>> CNDB.Net_Interface.query (Q.my_node == node3).count ()
     2
 
-    >>> FFM.Node.query (Q.my_node == node3).count ()
+    >>> CNDB.Node.query (Q.my_node == node3).count ()
     1
 
-    >>> FFM.Wired_Interface.query (Q.my_node == node3).count ()
+    >>> CNDB.Wired_Interface.query (Q.my_node == node3).count ()
     1
 
-    >>> FFM.Wireless_Interface.query (Q.my_node == node3).count ()
+    >>> CNDB.Wireless_Interface.query (Q.my_node == node3).count ()
     1
 
-    >>> FFM.Wireless_Interface_uses_Antenna.query (Q.my_node == node3).count ()
+    >>> CNDB.Wireless_Interface_uses_Antenna.query (Q.my_node == node3).count ()
     1
 
-    >>> FFM.Net_Device.query (Q.my_node.manager == mgr).count ()
+    >>> CNDB.Net_Device.query (Q.my_node.manager == mgr).count ()
     1
 
-    >>> FFM.Net_Device.query (Q.my_node != node3).count ()
+    >>> CNDB.Net_Device.query (Q.my_node != node3).count ()
     0
 
 """
@@ -182,7 +182,7 @@ _test_auto_children = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
 
     >>> for T, l in children_trans_iter (scope.PAP.Subject_has_Property) :
@@ -260,18 +260,18 @@ _test_owner = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
-    >>> Adr = FFM.IP4_Network.net_address.P_Type
+    >>> Adr = CNDB.IP4_Network.net_address.P_Type
 
     >>> mgr = PAP.Person \\
     ...     (first_name = 'Ralf', last_name = 'Schlatterbeck', raw = True)
 
-    >>> node1 = FFM.Node (name = "nogps", manager = mgr, position = None, raw = True)
+    >>> node1 = CNDB.Node (name = "nogps", manager = mgr, position = None, raw = True)
     >>> node1.owner
     PAP.Person (u'schlatterbeck', u'ralf', u'', u'')
 
-    >>> node4 = FFM.Node (name = "node4", manager = mgr, owner = node1)
+    >>> node4 = CNDB.Node (name = "node4", manager = mgr, owner = node1)
     Traceback (most recent call last):
       ...
     Wrong_Type: Node 'nogps' not eligible for attribute owner,
@@ -283,28 +283,28 @@ _test_refuse_e_types = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
 
     >>> for ET in scope.app_type._T_Extension :
     ...     for a in ET.id_entity_attr :
     ...         if getattr (a, "refuse_e_types", None) :
     ...             print (ET.type_name, a.name, sorted (a.refuse_e_types))
-    FFM.Node owner ['FFM.Node']
+    CNDB.Node owner ['CNDB.Node']
 
     >>> for ET in scope.app_type._T_Extension :
     ...     for a in ET.id_entity_attr :
     ...         if getattr (a, "refuse_e_types", None) :
     ...             print (ET.type_name, a.name, sorted (a.refuse_e_types_transitive))
-    FFM.Node owner ['FFM.Node']
+    CNDB.Node owner ['CNDB.Node']
 
-    >>> sorted (FFM.Node.manager.eligible_e_types)
+    >>> sorted (CNDB.Node.manager.eligible_e_types)
     ['PAP.Person']
 
-    >>> sorted (FFM.Node.owner.eligible_e_types)
+    >>> sorted (CNDB.Node.owner.eligible_e_types)
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
-    >>> sorted (FFM.Node.owner.selectable_e_types)
+    >>> sorted (CNDB.Node.owner.selectable_e_types)
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
     >>> sorted (PAP.Subject_has_Property.left.eligible_e_types)
@@ -313,7 +313,7 @@ _test_refuse_e_types = """
     >>> sorted (PAP.Subject_has_Phone.left.eligible_e_types)
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
-    >>> AQ = FFM.Node.AQ
+    >>> AQ = CNDB.Node.AQ
     >>> print (formatted (AQ.As_Template_Elem))
     [ Record
       ( attr = String `name`
@@ -1131,4 +1131,4 @@ __test__ = Scaffold.create_test_dict \
       )
   )
 
-### __END__ FFM.__test__.Nodes
+### __END__ CNDB.OMP.__test__.Nodes

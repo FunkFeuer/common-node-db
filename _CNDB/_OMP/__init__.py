@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP
@@ -23,7 +23,7 @@
 #    CNDB.OMP__init__
 #
 # Purpose
-#    Package defining the common node model for Community Networks.
+#    Package defining the common node database model for Community Networks.
 #
 # Revision Dates
 #    07-Jul-2014 (CT) Creation
@@ -37,7 +37,7 @@ from   _CNDB                import CNDB
 import _MOM.Derived_PNS
 
 _desc_ = """
-Object model defining the common node model for Community Networks.
+Object model defining the common node database model for Community Networks.
 """
 
 OMP = MOM.Derived_PNS (parent = MOM, pns_alias = "CNDB")

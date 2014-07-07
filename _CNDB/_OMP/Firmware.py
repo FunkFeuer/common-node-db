@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Firmware
+#    CNDB.OMP.Firmware
 #
 # Purpose
 #    Model the firmware of a device
@@ -35,9 +35,10 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-_Ancestor_Essence = FFM.Object
+_Ancestor_Essence = CNDB.OMP.Object
 
 class Firmware_Type (_Ancestor_Essence) :
     """Type of firmware usable by some devices."""
@@ -65,7 +66,7 @@ class Firmware_Type (_Ancestor_Essence) :
 
 # end class Firmware_Type
 
-_Ancestor_Essence = FFM.Link1
+_Ancestor_Essence = CNDB.OMP.Link1
 
 class Firmware_Version (_Ancestor_Essence) :
     """Firmware version usable by some devices."""
@@ -96,7 +97,7 @@ class Firmware_Version (_Ancestor_Essence) :
 
 # end class Firmware_Version
 
-_Ancestor_Essence = FFM.Id_Entity
+_Ancestor_Essence = CNDB.OMP.Id_Entity
 
 class Firmware_Bin (_Ancestor_Essence) :
     """Base class for Firmware_Binary and Firmware_Bundle."""
@@ -111,7 +112,7 @@ class Firmware_Bin (_Ancestor_Essence) :
 
 # end class Firmware_Bin
 
-_Ancestor_Essence = FFM.Link1
+_Ancestor_Essence = CNDB.OMP.Link1
 
 class Firmware_Binary (Firmware_Bin, _Ancestor_Essence) :
     """Binary for firmware."""
@@ -146,7 +147,7 @@ class Firmware_Binary (Firmware_Bin, _Ancestor_Essence) :
 
 # end class Firmware_Binary
 
-_Ancestor_Essence = FFM.Object
+_Ancestor_Essence = CNDB.OMP.Object
 
 class Firmware_Bundle (Firmware_Bin, _Ancestor_Essence) :
     """A bundle of binaries for firmware."""
@@ -175,7 +176,7 @@ class Firmware_Bundle (Firmware_Bin, _Ancestor_Essence) :
 
 # end class Firmware_Bundle
 
-_Ancestor_Essence = FFM.Link2
+_Ancestor_Essence = CNDB.OMP.Link2
 
 class Firmware_Binary_in_Firmware_Bundle (_Ancestor_Essence) :
     """Link Firmware_Binary to Firmware_Bundle."""
@@ -206,5 +207,5 @@ class Firmware_Binary_in_Firmware_Bundle (_Ancestor_Essence) :
 # end class Firmware_Binary_in_Firmware_Bundle
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Firmware
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Firmware

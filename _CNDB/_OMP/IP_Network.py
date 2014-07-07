@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.IP_Network
+#    CNDB.OMP.IP_Network
 #
 # Purpose
-#    Model network interfaces in FFM
+#    Model network interfaces in CNDB
 #
 # Revision Dates
 #    18-May-2012 (RS) Creation
@@ -46,7 +46,7 @@
 #     5-Mar-2013 (CT) Add `electric`, fix predicate `owner_or_cool_down`
 #     5-Mar-2013 (CT) Make `owner` argument of `reserve` optional
 #    28-Apr-2013 (CT) Add attribute `desc`
-#     8-May-2013 (CT) Set `pool.P_Type` to `FFM.IP_Network`
+#     8-May-2013 (CT) Set `pool.P_Type` to `CNDB.OMP.IP_Network`
 #     7-Aug-2013 (CT) Adapt to major surgery of GTW.OMP.NET.Attr_Type
 #    13-Aug-2013 (CT) Adapt to major surgery of GTW.OMP.NET.Attr_Type some more
 #     2-Apr-2014 (CT) Fix base class of `net_address`
@@ -70,10 +70,11 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _TFL.pyk                 import pyk
 
-import _FFM.Error
+import _CNDB._OMP.Error
 
 from   _GTW._OMP._NET           import NET
 from   _GTW._OMP._PAP           import PAP, Subject
@@ -82,10 +83,10 @@ from   datetime                 import datetime
 
 import _GTW._OMP._NET.Attr_Type
 
-_Ancestor_Essence = FFM.Object
+_Ancestor_Essence = CNDB.OMP.Object
 
 class IP_Network (_Ancestor_Essence) :
-    """IP Network of FFM"""
+    """IP Network of CNDB"""
 
     implementation_notes = \
     """
@@ -317,7 +318,7 @@ class IP_Network (_Ancestor_Essence) :
             ( "Address %s not in the address range [%s] of this %s"
             % (net_addr, self.net_address, self.ui_name)
             )
-        raise FFM.Error.Address_not_in_Network \
+        raise CNDB.OMP.Error.Address_not_in_Network \
             (self.net_address, net_addr, msg)
     # end def find_closest_address
 
@@ -343,7 +344,7 @@ class IP_Network (_Ancestor_Essence) :
                   "free subrange for mask length %s"
                 % (self.net_address, self.ui_name, mask_len)
                 )
-            raise FFM.Error.No_Free_Address_Range \
+            raise CNDB.OMP.Error.No_Free_Address_Range \
                 (self.net_address, mask_len, msg)
     # end def find_closest_mask
 
@@ -356,7 +357,7 @@ class IP_Network (_Ancestor_Essence) :
         """
         if self.pool == self or not self.pool :
             msg = "Cannot free toplevel network %s" % self.net_address
-            raise FFM.Error.Cannot_Free_Network (self.net_address, msg)
+            raise CNDB.OMP.Error.Cannot_Free_Network (self.net_address, msg)
         now = datetime.now ()
         # check if there are leaf-nodes (without self)
         # which are non-electric and have an owner
@@ -370,7 +371,7 @@ class IP_Network (_Ancestor_Essence) :
         if allocated_children :
             net = self.net_address
             msg = "Cannot free network with allocations: %s" % net
-            raise FFM.Error.Cannot_Free_Network (self.net_address, msg)
+            raise CNDB.OMP.Error.Cannot_Free_Network (self.net_address, msg)
         cooldown   = self.min_cooldown_period (cool_down_period)
         # If no cool_down_period is found, expire now
         expiration = now
@@ -418,7 +419,7 @@ class IP_Network (_Ancestor_Essence) :
                 ( "Address %s already in use by '%s'"
                 % (net_addr, frm.FO.owner)
                 )
-            raise FFM.Error.Address_Already_Used \
+            raise CNDB.OMP.Error.Address_Already_Used \
                 (net_addr, frm.FO.owner, str (owner.FO), msg)
         return self._reserve (self, frm, net_addr, owner)
     # end def reserve
@@ -496,5 +497,5 @@ class IP_Network (_Ancestor_Essence) :
 # end class IP_Network
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP_Network
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP_Network

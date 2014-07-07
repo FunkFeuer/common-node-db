@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Wireless_Standard
+#    CNDB.OMP.Wireless_Standard
 #
 # Purpose
 #    Model a wireless standard
@@ -34,9 +34,10 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-_Ancestor_Essence = FFM.Object
+_Ancestor_Essence = CNDB.OMP.Object
 
 class Wireless_Standard (_Ancestor_Essence) :
     """Wireless standard"""
@@ -67,5 +68,5 @@ class Wireless_Standard (_Ancestor_Essence) :
 # end class Wireless_Standard
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Wireless_Standard
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Wireless_Standard

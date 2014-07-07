@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Regulatory_Permission
+#    CNDB.OMP.Regulatory_Permission
 #
 # Purpose
 #    Model a regulatory transmit permission
@@ -36,12 +36,13 @@ from   __future__  import absolute_import, division, print_function, unicode_lit
 
 from   _MOM.import_MOM            import *
 from   _MOM._Attr.Number_Interval import *
-from   _FFM                       import FFM
-from   _FFM.Attr_Type             import A_TX_Power
+from   _CNDB                      import CNDB
+import _CNDB._OMP
+from   _CNDB._OMP.Attr_Type             import A_TX_Power
 
-import _FFM.Regulatory_Domain
+import _CNDB._OMP.Regulatory_Domain
 
-_Ancestor_Essence = FFM.Link1
+_Ancestor_Essence = CNDB.OMP.Link1
 
 class Regulatory_Permission (_Ancestor_Essence) :
     """Regulatory transmit permission"""
@@ -54,7 +55,7 @@ class Regulatory_Permission (_Ancestor_Essence) :
             """The regulatory domain that gives this permission."""
 
             role_name          = 'domain'
-            role_type          = FFM.Regulatory_Domain
+            role_type          = CNDB.OMP.Regulatory_Domain
             ui_allow_new       = False
 
         # end class left
@@ -111,5 +112,5 @@ class Regulatory_Permission (_Ancestor_Essence) :
 # end class Regulatory_Permission
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Regulatory_Permission
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Regulatory_Permission

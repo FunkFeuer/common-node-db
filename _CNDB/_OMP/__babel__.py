@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.__babel__
+#    CNDB.OMP.__babel__
 #
 # Purpose
 #    This file is the entry point for the Babel translation extraction
@@ -35,16 +35,17 @@ from   __future__  import absolute_import, division, print_function, unicode_lit
 
 from   _MOM.import_MOM import *
 import _MOM.Babel
-import _FFM.import_FFM
+import _CNDB._OMP.import_CNDB
 
 def main (encoding, config, method) :
     from   _MOM._EMS.Hash         import Manager as EMS
     from   _MOM._DBW._HPS.Manager import Manager as DBW
-    from   _FFM import FFM
+    from   _CNDB import CNDB
+import _CNDB._OMP
     return MOM.Babel.Add_Translations \
         ( encoding, config, method
-        , MOM.App_Type ("FFM", FFM).Derived (EMS, DBW)
+        , MOM.App_Type ("CNDB", CNDB).Derived (EMS, DBW)
         )
 # end def main
 
-### __END__ FFM.__babel__
+### __END__ CNDB.OMP.__babel__

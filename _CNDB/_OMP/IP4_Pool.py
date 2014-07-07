@@ -2,7 +2,7 @@
 # Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.IP4_Pool
+#    CNDB.OMP.IP4_Pool
 #
 # Purpose
 #    Model Attributes of an IPv4 network pool
@@ -36,12 +36,13 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
-from   _FFM.Attr_Type         import A_IP4_Netmask_Interval
+from   _CNDB                  import CNDB
+import _CNDB._OMP
+from   _CNDB._OMP.Attr_Type         import A_IP4_Netmask_Interval
 
-import _FFM.IP_Pool
+import _CNDB._OMP.IP_Pool
 
-_Ancestor_Essence = FFM.IP_Pool
+_Ancestor_Essence = CNDB.OMP.IP_Pool
 
 class IP4_Pool (_Ancestor_Essence) :
     """Attributes of an IPv4 network pool."""
@@ -64,5 +65,5 @@ class IP4_Pool (_Ancestor_Essence) :
 # end class IP4_Pool
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP4_Pool
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP4_Pool

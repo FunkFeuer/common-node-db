@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Wireless_Interface_uses_Antenna
+#    CNDB.OMP.Wireless_Interface_uses_Antenna
 #
 # Purpose
 #    Model the antenna used by a wireless interface
@@ -39,17 +39,18 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-from   _FFM.Attr_Type         import *
-import _FFM.Antenna
-import _FFM.Wireless_Interface
-import _FFM.Belongs_to_Net_Device
-import _FFM.Belongs_to_Node
+from   _CNDB._OMP.Attr_Type         import *
+import _CNDB._OMP.Antenna
+import _CNDB._OMP.Wireless_Interface
+import _CNDB._OMP.Belongs_to_Net_Device
+import _CNDB._OMP.Belongs_to_Node
 
-_Ancestor_Essence = FFM.Link2
-_Mixin_1 = FFM.Belongs_to_Node_Left
-_Mixin_2 = FFM.Belongs_to_Net_Device_Left
+_Ancestor_Essence = CNDB.OMP.Link2
+_Mixin_1 = CNDB.OMP.Belongs_to_Node_Left
+_Mixin_2 = CNDB.OMP.Belongs_to_Net_Device_Left
 
 class Wireless_Interface_uses_Antenna (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
     """Antenna used by a wireless interface"""
@@ -67,7 +68,7 @@ class Wireless_Interface_uses_Antenna (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
         class left (_Ancestor.left) :
             """Wireless interface."""
 
-            role_type          = FFM.Wireless_Interface
+            role_type          = CNDB.OMP.Wireless_Interface
             rev_ref_attr_name  = "interface"
 
         # end class left
@@ -75,7 +76,7 @@ class Wireless_Interface_uses_Antenna (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
         class right (_Ancestor.right) :
             """Antenna."""
 
-            role_type          = FFM.Antenna
+            role_type          = CNDB.OMP.Antenna
             auto_rev_ref       = True
             ui_allow_new       = True
             max_links          = 1
@@ -98,5 +99,5 @@ class Wireless_Interface_uses_Antenna (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
 # end class Wireless_Interface_uses_Antenna
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Wireless_Interface_uses_Antenna
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Wireless_Interface_uses_Antenna

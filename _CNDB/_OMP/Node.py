@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Node
+#    CNDB.OMP.Node
 #
 # Purpose
-#    Model a node of FFM
+#    Model a node of CNDB
 #
 # Revision Dates
 #     6-Mar-2012 (CT) Creation
@@ -40,7 +40,7 @@
 #    14-Dec-2012 (CT) Return `obj`, not `self`, from `belongs_to_node.computed`
 #    17-Dec-2012 (CT) Set `manager.ui_allow_new` to `False`
 #     4-Apr-2013 (CT) Change `owner.P_Type` back to `PAP.Subject`
-#    16-Apr-2013 (CT) Set `owner.refuse_e_types` to `FFM.Node`
+#    16-Apr-2013 (CT) Set `owner.refuse_e_types` to `CNDB.OMP.Node`
 #    17-Apr-2013 (CT) Use `Computed_Set_Mixin`, not `Computed_Mixin`
 #     3-May-2013 (CT) Add attribute `address`,
 #                     put `Node_has_Address` into `refuse_links`
@@ -58,17 +58,18 @@ from   __future__  import absolute_import, division, print_function, unicode_lit
 
 from   _MOM.import_MOM          import *
 from   _MOM._Attr.Position      import A_Position
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _GTW._OMP._PAP           import PAP, Person, Subject, Address
 from   _GTW._OMP._DNS.Attr_Type import A_DNS_Label
 
-import _FFM.Belongs_to_Node
+import _CNDB._OMP.Belongs_to_Node
 
-_Ancestor_Essence = FFM.Object
-_Mixin            = FFM.Belongs_to_Node
+_Ancestor_Essence = CNDB.OMP.Object
+_Mixin            = CNDB.OMP.Belongs_to_Node
 
 class Node (_Mixin, _Ancestor_Essence) :
-    """Model a node of FFM"""
+    """Model a node of CNDB"""
 
     class _Attributes \
               ( _Mixin._Attributes
@@ -133,7 +134,7 @@ class Node (_Mixin, _Ancestor_Essence) :
             kind               = Attr.Optional
             Kind_Mixins        = (Attr.Computed_Set_Mixin, )
             P_Type             = PAP.Subject
-            refuse_e_types     = (str ("FFM.Node"), )
+            refuse_e_types     = (str ("CNDB.Node"), )
             ui_allow_new       = False
 
             def computed (self, obj) :
@@ -163,5 +164,5 @@ class Node (_Mixin, _Ancestor_Essence) :
 # end class Node
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Node
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Node

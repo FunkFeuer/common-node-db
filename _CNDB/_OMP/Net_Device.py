@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Net_Device
+#    CNDB.OMP.Net_Device
 #
 # Purpose
-#    Model a network device of FFM
+#    Model a network device of CNDB
 #
 # Revision Dates
 #     6-Mar-2012 (CT) Creation
@@ -44,19 +44,20 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
-import _FFM.Device
-import _FFM.Net_Device_Type
-import _FFM.Node
-import _FFM.Belongs_to_Node
-import _FFM.Belongs_to_Net_Device
+from   _CNDB                  import CNDB
+import _CNDB._OMP
+import _CNDB._OMP.Device
+import _CNDB._OMP.Net_Device_Type
+import _CNDB._OMP.Node
+import _CNDB._OMP.Belongs_to_Node
+import _CNDB._OMP.Belongs_to_Net_Device
 
-_Ancestor_Essence = FFM.Device
-_Mixin_1            = FFM.Belongs_to_Node
-_Mixin_2            = FFM.Belongs_to_Net_Device
+_Ancestor_Essence = CNDB.OMP.Device
+_Mixin_1            = CNDB.OMP.Belongs_to_Node
+_Mixin_2            = CNDB.OMP.Belongs_to_Net_Device
 
 class Net_Device (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
-    """Model a network device of FFM."""
+    """Model a network device of CNDB.OMP."""
 
     class _Attributes \
               ( _Mixin_1._Attributes
@@ -69,7 +70,7 @@ class Net_Device (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
         class left (_Ancestor.left) :
             """Type of net device"""
 
-            role_type          = FFM.Net_Device_Type
+            role_type          = CNDB.OMP.Net_Device_Type
             show_in_ui_selector= False
 
         # end class left
@@ -78,7 +79,7 @@ class Net_Device (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
             """`Node` to which the `net_device` is connected."""
 
             kind               = Attr.Primary
-            P_Type             = FFM.Node
+            P_Type             = CNDB.OMP.Node
             rev_ref_attr_name  = "net_devices"
             ui_allow_new       = False
             Kind_Mixins        = (Attr.Init_Only_Mixin, )
@@ -108,5 +109,5 @@ class Net_Device (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
 # end class Net_Device
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Net_Device
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Net_Device

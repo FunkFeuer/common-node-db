@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Belongs_to_Node
+#    CNDB.OMP.Belongs_to_Node
 #
 # Purpose
 #    Mixin for computed `my_node` attribute
@@ -34,8 +34,8 @@
 #    26-Feb-2013 (CT) Disable `belongs_to_node`
 #    14-Aug-2013 (CT) Re-enable `belongs_to_node`
 #    14-Aug-2013 (CT) Add `is_partial = True`,
-#                     derive from `FFM.Id_Entity`, not `FFM.Entity`
-#     4-Sep-2013 (CT) Derive from `FFM.Link`, not `FFM.Id_Entity`
+#                     derive from `CNDB.OMP.Id_Entity`, not `CNDB.OMP.Entity`
+#     4-Sep-2013 (CT) Derive from `CNDB.OMP.Link`, not `CNDB.OMP.Id_Entity`
 #    30-Sep-2013 (CT) Split into partial `Belongs_to_Node`, non-partial
 #                     `Belongs_to_Node_Left`
 #     1-Oct-2013 (CT) Rename from `_Belongs_to_Node_` to `Belongs_to_Node`
@@ -47,9 +47,10 @@
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
-_Ancestor_Essence = FFM.Id_Entity
+_Ancestor_Essence = CNDB.OMP.Id_Entity
 
 class Belongs_to_Node (_Ancestor_Essence) :
     """Mixin for the query attribute `my_node`"""
@@ -64,7 +65,7 @@ class Belongs_to_Node (_Ancestor_Essence) :
             """Node this %(ui_type_name)s belongs to."""
 
             kind                = Attr.Query
-            P_Type              = "FFM.Node"
+            P_Type              = "CNDB.Node"
             is_partial          = True ### `query` is defined by descendents
 
         # end class my_node
@@ -84,7 +85,7 @@ class Belongs_to_Node (_Ancestor_Essence) :
 
 # end class Belongs_to_Node
 
-_Ancestor_Essence = FFM.Link
+_Ancestor_Essence = CNDB.OMP.Link
 _Mixin            = Belongs_to_Node
 
 class Belongs_to_Node_Left (_Mixin, _Ancestor_Essence) :
@@ -111,5 +112,5 @@ class Belongs_to_Node_Left (_Mixin, _Ancestor_Essence) :
 # end class Belongs_to_Node_Left
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Belongs_to_Node
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Belongs_to_Node

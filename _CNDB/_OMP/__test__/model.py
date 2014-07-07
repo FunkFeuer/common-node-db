@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.__test__.
+# This module is part of the package CNDB.OMP.__test__.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.__test__.model
+#    CNDB.OMP.__test__.model
 #
 # Purpose
-#    FFM-specific descendent of GTW.__test__.Test_Command
+#    CNDB-specific descendent of GTW.__test__.Test_Command
 #
 # Revision Dates
 #    18-Sep-2012 (CT) Creation
@@ -33,22 +33,23 @@
 
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
-from   _FFM                       import FFM
+from   _CNDB                      import CNDB
+import _CNDB._OMP
 from   _GTW.__test__.Test_Command import *
 
-import _FFM.import_FFM
+import _CNDB._OMP.import_CNDB
 import _GTW._OMP._Auth.import_Auth
 import _GTW._OMP._PAP.import_PAP
 
 import _GTW._OMP._Auth.Nav
 import _GTW._OMP._PAP.Nav
-import _FFM.Nav
+import _CNDB._OMP.Nav
 
-class _FFM_Test_Command_ (GTW_Test_Command) :
+class _CNDB_Test_Command_ (GTW_Test_Command) :
 
-    _rn_prefix              = "_FFM_Test"
+    _rn_prefix              = "_CNDB_Test"
 
-    ANS                     = FFM
+    ANS                     = CNDB
 
     def fixtures (self, scope) :
         if sos.environ.get ("GTW_FIXTURES") :
@@ -59,16 +60,16 @@ class _FFM_Test_Command_ (GTW_Test_Command) :
         RST = GTW.RST
         return \
             [ self.nav_admin_group
-                ( "FFM"
+                ( "CNDB"
                 , _ ("Administration of node database")
-                , "FFM"
-                , permission = RST.In_Group ("FFM-admin")
+                , "CNDB"
+                , permission = RST.In_Group ("CNDB-admin")
                 )
             , self.nav_admin_group
                 ( "PAP"
                 , _ ("Administration of persons/addresses...")
                 , "GTW.OMP.PAP"
-                , permission = RST.In_Group ("FFM-admin")
+                , permission = RST.In_Group ("CNDB-admin")
                 )
             , self.nav_admin_group
                 ( _ ("Users")
@@ -79,8 +80,8 @@ class _FFM_Test_Command_ (GTW_Test_Command) :
             ]
     # end def _nav_admin_groups
 
-_Command_  = _FFM_Test_Command_ # end class
+_Command_  = _CNDB_Test_Command_ # end class
 
 Scaffold   = _Command_ ()
 
-### __END__ FFM.__test__.model
+### __END__ CNDB.OMP.__test__.model

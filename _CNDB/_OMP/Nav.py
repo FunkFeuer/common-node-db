@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the program FFM.
+# This module is part of the repository CNDB.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Nav
+#    CNDB.OMP.Nav
 #
 # Purpose
 #    Provide configuration for GTW.NAV.E_Type.Admin entries
@@ -56,7 +56,8 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _TFL                     import TFL
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _GTW._OMP._PAP           import PAP
 
 from   _TFL.I18N                import _
@@ -65,56 +66,56 @@ class Admin (object) :
     """Provide configuration for GTW.NAV.E_Type.Admin entries"""
 
     Antenna               = dict \
-        ( ETM             = "FFM.Antenna"
+        ( ETM             = "CNDB.OMP.Antenna"
         , list_display    = ("left", "name", "gain")
         )
 
     Antenna_Type          = dict \
-        ( ETM             = "FFM.Antenna_Type"
+        ( ETM             = "CNDB.OMP.Antenna_Type"
         )
 
     Firmware_Binary       = dict \
-        ( ETM             = "FFM.Firmware_Binary"
+        ( ETM             = "CNDB.OMP.Firmware_Binary"
         )
 
     Firmware_Bundle       = dict \
-        ( ETM             = "FFM.Firmware_Bundle"
+        ( ETM             = "CNDB.OMP.Firmware_Bundle"
         )
 
     Firmware_Type         = dict \
-        ( ETM             = "FFM.Firmware_Type"
+        ( ETM             = "CNDB.OMP.Firmware_Type"
         )
 
     Firmware_Version      = dict \
-        ( ETM             = "FFM.Firmware_Version"
+        ( ETM             = "CNDB.OMP.Firmware_Version"
         )
 
     IP_Network            = dict \
-        ( ETM             = "FFM.IP_Network"
+        ( ETM             = "CNDB.OMP.IP_Network"
         )
 
     IP4_Network           = dict \
-        ( ETM             = "FFM.IP4_Network"
+        ( ETM             = "CNDB.OMP.IP4_Network"
         )
 
     IP6_Network           = dict \
-        ( ETM             = "FFM.IP6_Network"
+        ( ETM             = "CNDB.OMP.IP6_Network"
         )
 
     Net_Credentials       = dict \
-        ( ETM             = "FFM.Net_Credentials"
+        ( ETM             = "CNDB.OMP.Net_Credentials"
         )
 
     Net_Device            = dict \
-        ( ETM             = "FFM.Net_Device"
+        ( ETM             = "CNDB.OMP.Net_Device"
         )
 
     Net_Device_Type       = dict \
-        ( ETM             = "FFM.Net_Device_Type"
+        ( ETM             = "CNDB.OMP.Net_Device_Type"
         )
 
     Net_Interface         = dict \
-        ( ETM             = "FFM.Net_Interface"
+        ( ETM             = "CNDB.OMP.Net_Interface"
         )
 
     Nickname              = dict \
@@ -122,7 +123,7 @@ class Admin (object) :
         )
 
     Node                  = dict \
-        ( ETM             = "FFM.Node"
+        ( ETM             = "CNDB.OMP.Node"
         )
 
     Person                = dict \
@@ -130,92 +131,92 @@ class Admin (object) :
         )
 
     Regulatory_Domain     = dict \
-        ( ETM             = "FFM.Regulatory_Domain"
+        ( ETM             = "CNDB.OMP.Regulatory_Domain"
         )
 
     Regulatory_Permission = dict \
-        ( ETM             = "FFM.Regulatory_Permission"
+        ( ETM             = "CNDB.OMP.Regulatory_Permission"
         )
 
     Routing_Zone          = dict \
-        ( ETM             = "FFM.Routing_Zone"
+        ( ETM             = "CNDB.OMP.Routing_Zone"
         )
 
     Virtual_Wireless_Interface = dict \
-        ( ETM             = "FFM.Virtual_Wireless_Interface"
+        ( ETM             = "CNDB.OMP.Virtual_Wireless_Interface"
         , list_display    =
             ("hardware", "mac_address", "name", "is_active")
         )
 
     Wired_Interface       = dict \
-        ( ETM             = "FFM.Wired_Interface"
+        ( ETM             = "CNDB.OMP.Wired_Interface"
         )
 
     Wireless_Channel      = dict \
-        ( ETM             = "FFM.Wireless_Channel"
+        ( ETM             = "CNDB.OMP.Wireless_Channel"
         )
 
     Wireless_Interface    = dict \
-        ( ETM             = "FFM.Wireless_Interface"
+        ( ETM             = "CNDB.OMP.Wireless_Interface"
         , list_display    = ("left", "mac_address", "name", "is_active")
         )
 
     Wireless_Standard     = dict \
-        ( ETM             = "FFM.Wireless_Standard"
+        ( ETM             = "CNDB.OMP.Wireless_Standard"
         )
 
     Zone                  = dict \
-        ( ETM             = "FFM.Zone"
+        ( ETM             = "CNDB.OMP.Zone"
         )
 
     if False :
         Device_Type_made_by_Company = dict \
-            ( ETM            = "FFM.Device_Type_made_by_Company"
+            ( ETM            = "CNDB.OMP.Device_Type_made_by_Company"
             )
 
         Net_Interface_in_IP4_Network = dict \
-            ( ETM            = "FFM.Net_Interface_in_IP4_Network"
+            ( ETM            = "CNDB.OMP.Net_Interface_in_IP4_Network"
             )
 
         Net_Interface_in_IP6_Network = dict \
-            ( ETM            = "FFM.Net_Interface_in_IP6_Network"
+            ( ETM            = "CNDB.OMP.Net_Interface_in_IP6_Network"
             )
 
         Net_Interface_in_IP_Network = dict \
-            ( ETM            = "FFM.Net_Interface_in_IP_Network"
+            ( ETM            = "CNDB.OMP.Net_Interface_in_IP_Network"
             )
 
         Person_mentors_Person = dict \
-            ( ETM            = "FFM.Person_mentors_Person"
+            ( ETM            = "CNDB.OMP.Person_mentors_Person"
             )
 
         Wireless_Interface_uses_Antenna = dict \
-            ( ETM            = "FFM.Wireless_Interface_uses_Antenna"
+            ( ETM            = "CNDB.OMP.Wireless_Interface_uses_Antenna"
             )
 
         Wireless_Interface_uses_Wireless_Channel = dict \
-            ( ETM            = "FFM.Wireless_Interface_uses_Wireless_Channel"
+            ( ETM            = "CNDB.OMP.Wireless_Interface_uses_Wireless_Channel"
             )
 
 # end class Admin
 
 from   _GTW._AFS._MOM import Spec
 
-FFM.Antenna_Type.GTW.afs_spec = Spec.Entity (include_links = ("bands",))
+CNDB.OMP.Antenna_Type.GTW.afs_spec = Spec.Entity (include_links = ("bands",))
 
-FFM.Antenna.GTW.afs_spec = Spec.Entity (include_links = ("interface", ))
-FFM.Net_Device.GTW.afs_spec = Spec.Entity \
+CNDB.OMP.Antenna.GTW.afs_spec = Spec.Entity (include_links = ("interface", ))
+CNDB.OMP.Net_Device.GTW.afs_spec = Spec.Entity \
     ( include_links =
         ( "wired_interfaces"
         , "wireless_interfaces"
         , "virtual_wireless_interfaces"
         )
     )
-### FFM.Net_Device_Type.GTW.afs_spec = Spec.Entity \
-###    (include_links = ("FFM.Device_Type_made_by_Company", ))
-FFM.Wireless_Interface.GTW.afs_spec = Spec.Entity \
+### CNDB.OMP.Net_Device_Type.GTW.afs_spec = Spec.Entity \
+###    (include_links = ("CNDB.OMP.Device_Type_made_by_Company", ))
+CNDB.OMP.Wireless_Interface.GTW.afs_spec = Spec.Entity \
     (include_links = ("antennas", "channels"))
 
 if __name__ != "__main__" :
-    FFM._Export_Module ()
-### __END__ FFM.Nav
+    CNDB.OMP._Export_Module ()
+### __END__ CNDB.OMP.Nav

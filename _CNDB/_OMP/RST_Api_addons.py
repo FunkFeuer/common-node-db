@@ -2,7 +2,7 @@
 # Copyright (C) 2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.RST_Api_addons
+#    CNDB.OMP.RST_Api_addons
 #
 # Purpose
-#    Define RESTful resource for FFM-Net_Interface and its descendents
+#    Define RESTful resource for CNDB-Net_Interface and its descendents
 #
 # Revision Dates
 #    20-May-2013 (CT) Creation
@@ -32,12 +32,13 @@
 
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _GTW                     import GTW
 from   _MOM                     import MOM
 from   _TFL                     import TFL
 
-import _FFM.import_FFM
+import _CNDB._OMP.import_CNDB
 
 import _GTW._RST._MOM.Role_Bound_Links
 
@@ -91,11 +92,11 @@ class RBL_NI_6 (RBL_NI) :
 
 # end class RBL_NI_6
 
-FFM.Net_Interface.GTW.rst_mom_rbl_spec = dict \
+CNDB.OMP.Net_Interface.GTW.rst_mom_rbl_spec = dict \
     ( ip4_network_links = RBL_NI_4
     , ip6_network_links = RBL_NI_6
     )
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.RST_Api_addons
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.RST_Api_addons

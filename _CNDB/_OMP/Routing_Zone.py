@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Routing_Zone
+#    CNDB.OMP.Routing_Zone
 #
 # Purpose
-#    Model the routing of a zone of FFM
+#    Model the routing of a zone of CNDB
 #
 # Revision Dates
 #     6-Mar-2012 (CT) Creation
@@ -33,13 +33,14 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
-import _FFM.Zone
+from   _CNDB                  import CNDB
+import _CNDB._OMP
+import _CNDB._OMP.Zone
 
-_Ancestor_Essence = FFM.Link1
+_Ancestor_Essence = CNDB.OMP.Link1
 
 class Routing_Zone (_Ancestor_Essence) :
-    """Model the routing of a zone of FFM."""
+    """Model the routing of a zone of CNDB.OMP."""
 
     is_partial = True
 
@@ -52,7 +53,7 @@ class Routing_Zone (_Ancestor_Essence) :
         class left (_Ancestor.left) :
             """The zone that's routed for."""
 
-            role_type          = FFM.Zone
+            role_type          = CNDB.OMP.Zone
             ui_allow_new       = True
 
         # end class left
@@ -78,5 +79,5 @@ class Routing_Zone_OLSR (_Ancestor_Essence) :
 # end class Routing_Zone_OLSR
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Routing_Zone
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Routing_Zone

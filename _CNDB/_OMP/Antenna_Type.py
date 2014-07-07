@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Antenna_Type
+#    CNDB.OMP.Antenna_Type
 #
 # Purpose
-#    Model the type of antennas in FFM
+#    Model the type of antennas in CNDB
 #
 # Revision Dates
 #     6-Mar-2012 (CT) Creation
@@ -38,14 +38,15 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM            import *
-from   _FFM                       import FFM
-import _FFM.Device_Type
-from   _FFM.Attr_Type             import A_Polarization
+from   _CNDB                      import CNDB
+import _CNDB._OMP
+import _CNDB._OMP.Device_Type
+from   _CNDB._OMP.Attr_Type             import A_Polarization
 
-_Ancestor_Essence = FFM.Device_Type
+_Ancestor_Essence = CNDB.OMP.Device_Type
 
 class Antenna_Type (_Ancestor_Essence) :
-    """Model the type of antennas in FFM."""
+    """Model the type of antennas in CNDB.OMP."""
 
     class _Attributes (_Ancestor_Essence._Attributes) :
 
@@ -90,5 +91,5 @@ class Antenna_Type (_Ancestor_Essence) :
 # end class Antenna_Type
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Antenna_Type
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Antenna_Type

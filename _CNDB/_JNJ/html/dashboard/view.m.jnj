@@ -38,16 +38,6 @@
 
 {%- import "html/dashboard/app.m.jnj" as DB with context %}
 
-{%- macro node_graphs (page, node) -%}
-  <section id="node-statistics-{{ node.pid }}-" class="pure-u-10-24">
-    <h2>Graphs / Statistiken</h2>
-    <p><img src="https://marvin.funkfeuer.at/smokeping/freenet/rei6/nanom5wan_last_10800.png"></p>
-    <p><img src="https://marvin.funkfeuer.at/smokeping/freenet/rei6/nanom5wan_last_86400.png" /></p>
-    <p><img src="https://marvin.funkfeuer.at/smokeping/freenet/rei6/nanom5wan_last_604800.png" /></p>
-    <p><img src="https://marvin.funkfeuer.at/smokeping/freenet/rei6/nanom5wan_last_31536000.png" /></p>
-  </section>
-{%- endmacro -%} {#- node_graphs -#}
-
 {%- macro main (page) -%}
   {{ DB.db_div_main (page.db_view) }}
 {%- endmacro -%} {#- main -#}

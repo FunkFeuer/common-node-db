@@ -2,7 +2,7 @@
 # Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.IP_Pool_permits_Group
+#    CNDB.OMP.IP_Pool_permits_Group
 #
 # Purpose
 #    Model permission for IP_Network reservation from an IP_Pool
@@ -33,12 +33,13 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 from   _GTW._OMP._PAP         import PAP
 
-from   _FFM.Attr_Type         import *
+from   _CNDB._OMP.Attr_Type         import *
 
-import _FFM.IP_Network
+import _CNDB._OMP.IP_Network
 import _GTW._OMP._PAP.Id_Entity_permits_Group
 
 _Ancestor_Essence = PAP.Id_Entity_permits_Group
@@ -57,7 +58,7 @@ class IP_Pool_permits_Group (_Ancestor_Essence) :
         class left (_Ancestor.left) :
             """IP Pool."""
 
-            role_type          = FFM.IP_Pool
+            role_type          = CNDB.OMP.IP_Pool
 
         # end class left
 
@@ -91,5 +92,5 @@ class IP_Pool_permits_Group (_Ancestor_Essence) :
 # end class IP_Pool_permits_Group
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP_Pool_permits_Group
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP_Pool_permits_Group

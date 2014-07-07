@@ -2,7 +2,7 @@
 # Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Belongs_to_Net_Device
+#    CNDB.OMP.Belongs_to_Net_Device
 #
 # Purpose
 #    Mixin for computed `my_net_device` attribute
@@ -34,9 +34,10 @@ from   __future__ import division, print_function
 from   __future__ import absolute_import, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
-_Ancestor_Essence = FFM.Id_Entity
+_Ancestor_Essence = CNDB.OMP.Id_Entity
 
 class Belongs_to_Net_Device (_Ancestor_Essence) :
     """Mixin for the query attribute `my_net_device`"""
@@ -51,7 +52,7 @@ class Belongs_to_Net_Device (_Ancestor_Essence) :
             """Net_Device this %(ui_type_name)s belongs to."""
 
             kind               = Attr.Query
-            P_Type              = "FFM.Net_Device"
+            P_Type              = "CNDB.Net_Device"
             is_partial          = True ### `query` is defined by descendents
 
         # end class my_net_device
@@ -60,7 +61,7 @@ class Belongs_to_Net_Device (_Ancestor_Essence) :
 
 # end class Belongs_to_Net_Device
 
-_Ancestor_Essence = FFM.Link
+_Ancestor_Essence = CNDB.OMP.Link
 _Mixin            = Belongs_to_Net_Device
 
 class Belongs_to_Net_Device_Left (_Mixin, _Ancestor_Essence) :
@@ -87,5 +88,5 @@ class Belongs_to_Net_Device_Left (_Mixin, _Ancestor_Essence) :
 # end class Belongs_to_Net_Device_Left
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Belongs_to_Net_Device
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Belongs_to_Net_Device

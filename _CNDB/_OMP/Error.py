@@ -2,7 +2,7 @@
 # Copyright (C) 2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,10 +20,10 @@
 #
 #++
 # Name
-#    FFM.Error
+#    CNDB.OMP.Error
 #
 # Purpose
-#    Provide exception classes for package FFM
+#    Provide exception classes for package CNDB
 #
 # Revision Dates
 #     1-Mar-2013 (CT) Creation
@@ -33,18 +33,19 @@
 
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 from   _TFL                     import TFL
 from   _MOM                     import MOM
 
 import _MOM.Error
 
-class _FFM_Error_ (MOM.Error.Error) :
-    """Root class of FFM exceptions"""
+class _CNDB_Error_ (MOM.Error.Error) :
+    """Root class of CNDB exceptions"""
 
     _real_name = "Error"
 
-Error = _FFM_Error_ # end class
+Error = _CNDB_Error_ # end class
 
 class Address_Already_Used (Error, ValueError) :
     """Address is already in use"""
@@ -91,5 +92,5 @@ class Cannot_Free_Network (Error, ValueError) :
 # end class Cannot_Free_Network
 
 if __name__ != "__main__" :
-    FFM._Export_Module ()
-### __END__ FFM.Error
+    CNDB.OMP._Export_Module ()
+### __END__ CNDB.OMP.Error

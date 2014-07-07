@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Antenna_Band
+#    CNDB.OMP.Antenna_Band
 #
 # Purpose
 #    Model a supported frequency band of an Antenna_Type
@@ -34,10 +34,11 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM            import *
-from   _FFM                       import FFM
+from   _CNDB                      import CNDB
+import _CNDB._OMP
 from   _MOM._Attr.Number_Interval import *
 
-_Ancestor_Essence = FFM.Link1
+_Ancestor_Essence = CNDB.OMP.Link1
 
 class Antenna_Band (_Ancestor_Essence) :
     """Frequency Band of an antenna type"""
@@ -49,7 +50,7 @@ class Antenna_Band (_Ancestor_Essence) :
         class left (_Ancestor.left) :
             """The antenna type for this band"""
 
-            role_type          = FFM.Antenna_Type
+            role_type          = CNDB.OMP.Antenna_Type
             ui_allow_new       = False
             link_ref_attr_name = "band"
 
@@ -68,5 +69,5 @@ class Antenna_Band (_Ancestor_Essence) :
 # end class Antenna_Band
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Antenna_Band
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Antenna_Band

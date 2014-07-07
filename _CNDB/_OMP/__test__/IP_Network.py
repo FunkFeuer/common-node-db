@@ -2,7 +2,7 @@
 # Copyright (C) 2013-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.__test__.
+# This module is part of the package CNDB.OMP.__test__.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.__test__.IP_Network
+#    CNDB.OMP.__test__.IP_Network
 #
 # Purpose
 #    Test IP_Network
@@ -62,22 +62,22 @@
 
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
-from   _FFM.__test__.model      import *
+from   _CNDB._OMP.__test__.model      import *
 from   datetime                 import datetime
 
 import _GTW._RST._TOP._MOM.Query_Restriction
 
 from _MOM._Attr.Date_Time_Delta import A_Date_Time_Delta
 
-from _FFM.__test__.fixtures import net_fixtures, create as std_fixtures
+from _CNDB._OMP.__test__.fixtures import net_fixtures, create as std_fixtures
 
 _test_alloc = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
-    >>> Adr = FFM.IP4_Network.net_address.P_Type
+    >>> Adr = CNDB.IP4_Network.net_address.P_Type
 
     >>> ff  = PAP.Association ("Funkfeuer", short_name = "0xFF", raw = True)
     >>> mg  = PAP.Person ("Glueck", "Martin", raw = True)
@@ -87,15 +87,15 @@ _test_alloc = """
     >>> lt  = PAP.Person ("Tanzer", "Laurens", raw = True)
     >>> osc = PAP.Company ("Open Source Consulting", raw = True)
 
-    >>> ETM = scope.FFM.IP4_Network
+    >>> ETM = scope.CNDB.IP4_Network
     >>> show_networks (scope, ETM) ### nothing allocated yet
 
-    >>> ff_pool  = FFM.IP4_Network ('10.0.0.0/8', owner = ff, raw = True)
+    >>> ff_pool  = CNDB.IP4_Network ('10.0.0.0/8', owner = ff, raw = True)
     >>> show_networks (scope, ETM) ### 10.0.0.0/8
     10.0.0.0/8         Funkfeuer                : electric = F, children = F
 
     >>> show_network_count (scope, ETM)
-    FFM.IP4_Network count: 1
+    CNDB.IP4_Network count: 1
 
     >>> osc_pool = ff_pool.allocate (16, osc)
     >>> show_networks (scope, ETM) ### 10.0.0.0/16
@@ -118,7 +118,7 @@ _test_alloc = """
     10.128.0.0/9       Funkfeuer                : electric = T, children = F
 
     >>> show_network_count (scope, ETM)
-    FFM.IP4_Network count: 17
+    CNDB.IP4_Network count: 17
 
     >>> rs_pool = osc_pool.allocate (28, rs)
     >>> show_networks (scope, ETM, pool = osc_pool) ### 10.0.0.0/28
@@ -157,7 +157,7 @@ _test_alloc = """
     10.0.0.0/28        Schlatterbeck Ralf       : electric = F, children = F
 
     >>> show_network_count (scope, ETM)
-    FFM.IP4_Network count: 41
+    CNDB.IP4_Network count: 41
 
     >>> ct_pool = rs_pool.allocate (30, ct)
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.0/30 ct
@@ -196,7 +196,7 @@ _test_alloc = """
     10.0.0.8/29        Schlatterbeck Ralf       : electric = T, children = F
 
     >>> show_network_count (scope, ETM)
-    FFM.IP4_Network count: 45
+    CNDB.IP4_Network count: 45
 
     >>> mg_pool = rs_pool.allocate (29, mg)
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.8/29
@@ -217,7 +217,7 @@ _test_alloc = """
     No_Free_Address_Range: Address range [10.0.0.8/29] of this IP4_Network doesn't contain a free subrange for mask length 29
 
     >>> show_network_count (scope, ETM)
-    FFM.IP4_Network count: 45
+    CNDB.IP4_Network count: 45
 
     >>> mg_addr = ct_pool.reserve ('10.0.0.1/32', owner = mg)
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.1/32
@@ -247,7 +247,7 @@ _test_alloc = """
 
     >>> rs_addr = ct_pool.reserve ('10.0.0.0/32', owner = rs)
     >>> rs_addr.pool
-    FFM.IP4_Network ("10.0.0.0/30")
+    CNDB.IP4_Network ("10.0.0.0/30")
     >>> ct_addr = ct_pool.reserve (Adr ('10.0.0.3/32'), owner = ct)
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.3/32
     10.0.0.0/28        Schlatterbeck Ralf       : electric = F, children = T
@@ -377,9 +377,9 @@ _test_alloc = """
     10.128.0.0/9       Funkfeuer                : electric = T, children = F
 
     >>> show_network_count (scope, ETM)
-    FFM.IP4_Network count: 95
+    CNDB.IP4_Network count: 95
 
-    >>> ETM = FFM.IP4_Network
+    >>> ETM = CNDB.IP4_Network
     >>> q   = ETM.query
     >>> n   = '10.42.137.0/28'
     >>> q (Q.net_address.IN (n)).count ()
@@ -387,7 +387,7 @@ _test_alloc = """
 
     >>> s = TFL.Sorted_By ("-net_address.mask_len")
     >>> q (Q.net_address.CONTAINS (n), sort_key = s).first ()
-    FFM.IP4_Network ("10.42.137.0/28")
+    CNDB.IP4_Network ("10.42.137.0/28")
 
     >>> ff_pool.free ()
     Traceback (most recent call last):
@@ -398,86 +398,86 @@ _test_alloc = """
       ...
     Cannot_Free_Network: Cannot free network with allocations: 10.0.0.0/28
 
-    >>> FFM.IP4_Network.query \\
+    >>> CNDB.IP4_Network.query \\
     ...   ( Q.net_address.CONTAINS (rs_pool.net_address)
     ...   , Q.ip_pool != None
     ...   )
     SQL: SELECT
-           ffm_ip4_network."desc" AS ffm_ip4_network_desc,
-           ffm_ip4_network.expiration_date AS ffm_ip4_network_expiration_date,
-           ffm_ip4_network.net_address AS ffm_ip4_network_net_address,
-           ffm_ip4_network.net_address__mask_len AS ffm_ip4_network_net_address__mask_len,
-           ffm_ip4_network.net_address__numeric AS ffm_ip4_network_net_address__numeric,
-           ffm_ip4_network.net_address__upper_bound AS ffm_ip4_network_net_address__upper_bound,
-           ffm_ip4_network.owner AS ffm_ip4_network_owner,
-           ffm_ip4_network.parent AS ffm_ip4_network_parent,
-           ffm_ip4_network.pid AS ffm_ip4_network_pid,
-           ffm_ip4_network.pool AS ffm_ip4_network_pool,
+           cndb_ip4_network."desc" AS cndb_ip4_network_desc,
+           cndb_ip4_network.expiration_date AS cndb_ip4_network_expiration_date,
+           cndb_ip4_network.net_address AS cndb_ip4_network_net_address,
+           cndb_ip4_network.net_address__mask_len AS cndb_ip4_network_net_address__mask_len,
+           cndb_ip4_network.net_address__numeric AS cndb_ip4_network_net_address__numeric,
+           cndb_ip4_network.net_address__upper_bound AS cndb_ip4_network_net_address__upper_bound,
+           cndb_ip4_network.owner AS cndb_ip4_network_owner,
+           cndb_ip4_network.parent AS cndb_ip4_network_parent,
+           cndb_ip4_network.pid AS cndb_ip4_network_pid,
+           cndb_ip4_network.pool AS cndb_ip4_network_pool,
            mom_id_entity.electric AS mom_id_entity_electric,
            mom_id_entity.last_cid AS mom_id_entity_last_cid,
            mom_id_entity.pid AS mom_id_entity_pid,
            mom_id_entity.type_name AS mom_id_entity_type_name,
            mom_id_entity.x_locked AS mom_id_entity_x_locked
          FROM mom_id_entity
-           JOIN ffm_ip4_network ON mom_id_entity.pid = ffm_ip4_network.pid
-           LEFT OUTER JOIN ffm_ip4_network_in_ip4_pool AS ffm_ip4_network_in_ip4_pool__1 ON ffm_ip4_network_in_ip4_pool__1."left" = ffm_ip4_network.pid
-           LEFT OUTER JOIN ffm_ip4_pool AS ffm_ip4_pool__1 ON ffm_ip4_pool__1.pid = ffm_ip4_network_in_ip4_pool__1."right"
-         WHERE ffm_ip4_network.net_address__numeric <= :net_address__numeric_1
-            AND ffm_ip4_network.net_address__upper_bound >= :net_address__upper_bound_1
-            AND ffm_ip4_network.net_address__mask_len <= :net_address__mask_len_1
-            AND ffm_ip4_network_in_ip4_pool__1."right" IS NOT NULL
+           JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
+           LEFT OUTER JOIN cndb_ip4_network_in_ip4_pool AS cndb_ip4_network_in_ip4_pool__1 ON cndb_ip4_network_in_ip4_pool__1."left" = cndb_ip4_network.pid
+           LEFT OUTER JOIN cndb_ip4_pool AS cndb_ip4_pool__1 ON cndb_ip4_pool__1.pid = cndb_ip4_network_in_ip4_pool__1."right"
+         WHERE cndb_ip4_network.net_address__numeric <= :net_address__numeric_1
+            AND cndb_ip4_network.net_address__upper_bound >= :net_address__upper_bound_1
+            AND cndb_ip4_network.net_address__mask_len <= :net_address__mask_len_1
+            AND cndb_ip4_network_in_ip4_pool__1."right" IS NOT NULL
 
-    >>> p1 = FFM.IP4_Pool \\
+    >>> p1 = CNDB.IP4_Pool \\
     ...     ( name             = "ff_pool"
     ...     , cool_down_period = '1w'
     ...     , netmask_interval = '0-32'
     ...     , raw              = True
     ...     )
-    >>> i1 = FFM.IP4_Network_in_IP4_Pool (ff_pool, p1)
-    >>> p2 = FFM.IP4_Pool \\
+    >>> i1 = CNDB.IP4_Network_in_IP4_Pool (ff_pool, p1)
+    >>> p2 = CNDB.IP4_Pool \\
     ...     ( name             = "osc_pool"
     ...     , netmask_interval = '0-32'
     ...     , raw              = True
     ...     )
-    >>> i2 = FFM.IP4_Network_in_IP4_Pool (osc_pool, p2)
-    >>> p3 = FFM.IP4_Pool \\
+    >>> i2 = CNDB.IP4_Network_in_IP4_Pool (osc_pool, p2)
+    >>> p3 = CNDB.IP4_Pool \\
     ...     ( name             = "rs_pool"
     ...     , cool_down_period = '1d'
     ...     , netmask_interval = '32-32'
     ...     , raw              = True
     ...     )
-    >>> i3 = FFM.IP4_Network_in_IP4_Pool (rs_pool, p3)
+    >>> i3 = CNDB.IP4_Network_in_IP4_Pool (rs_pool, p3)
 
-    >>> FFM.IP4_Network_in_IP4_Pool.query \\
+    >>> CNDB.IP4_Network_in_IP4_Pool.query \\
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
     ...     , Q.ip_pool.cool_down_period != None
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
     ...     ).distinct ().all ()
-    [FFM.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', )), FFM.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), (u'ff_pool', ))]
+    [CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', )), CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), (u'ff_pool', ))]
 
     >>> IPP_ETM = rs_pool.home_scope [rs_pool.ETM.ip_pool.P_Type]
     >>> IPP_ETM
-    <E_Type_Manager for FFM.IP4_Pool of scope MOMT__SAW__SQ>
+    <E_Type_Manager for CNDB.IP4_Pool of scope MOMT__SAW__SQ>
 
     >>> IPPL_ETM = rs_pool.home_scope [rs_pool.ETM.ip_pool_link.P_Type]
     >>> IPPL_ETM
-    <E_Type_Manager for FFM.IP4_Network_in_IP4_Pool of scope MOMT__SAW__SQ>
-    >>> IPPL_ETM = FFM.IP4_Network_in_IP4_Pool
+    <E_Type_Manager for CNDB.IP4_Network_in_IP4_Pool of scope MOMT__SAW__SQ>
+    >>> IPPL_ETM = CNDB.IP4_Network_in_IP4_Pool
     >>> IPPL_ETM.query \\
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
     ...     , Q.ip_pool.cool_down_period != None
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
     ...     ).first () 
-    FFM.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', ))
+    CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', ))
 
-    >>> FFM.IP4_Network_in_IP4_Pool.query \\
+    >>> CNDB.IP4_Network_in_IP4_Pool.query \\
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
     ...     , Q.ip_pool.cool_down_period != None
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
     ...     ).distinct ().all ()
-    [FFM.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', )), FFM.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), (u'ff_pool', ))]
+    [CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', )), CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), (u'ff_pool', ))]
 
-    >>> FFM.IP4_Network_in_IP4_Pool.query \\
+    >>> CNDB.IP4_Network_in_IP4_Pool.query \\
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
     ...     ).distinct ().count ()
@@ -803,8 +803,8 @@ _test_alloc = """
     >>> tree_view (ff_pool) ### After collect_garbage 2
     10.0.0.0/8
 
-    >>> ETM = FFM.IP4_Network
-    >>> xpool  = FFM.IP4_Network ('192.168.0.0/16', owner = ff, raw = True)
+    >>> ETM = CNDB.IP4_Network
+    >>> xpool  = CNDB.IP4_Network ('192.168.0.0/16', owner = ff, raw = True)
     >>> mgpool = xpool.allocate (17, mg)
     >>> ctpool = xpool.allocate (17, ct)
     >>> rspool = xpool.allocate (32, rs)
@@ -823,25 +823,25 @@ _test_partial = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
 
     Clear the cache, how can we avoid to cache across tests??
-    #>>> FFM.Net_Interface_in_IP4_Network.child_np_map = {}
-    #>>> FFM.Net_Interface_in_IP4_Network.child_np_map
+    #>>> CNDB.Net_Interface_in_IP4_Network.child_np_map = {}
+    #>>> CNDB.Net_Interface_in_IP4_Network.child_np_map
     #{}
 
     >>> ff = PAP.Association ("Funkfeuer", short_name = "0xFF", raw = True)
     >>> rs = PAP.Person ("Schlatterbeck", "Ralf", raw = True)
-    >>> fp = FFM.IP4_Network ('10.0.0.0/8', owner = ff, raw = True)
+    >>> fp = CNDB.IP4_Network ('10.0.0.0/8', owner = ff, raw = True)
     >>> a4 = fp.reserve ('10.0.0.1/32', owner = ff)
-    >>> dt = FFM.Net_Device_Type.instance_or_new (name = 'G', raw = True)
-    >>> n1 = FFM.Node (name = "nogps", manager = rs, raw = True)
-    >>> dv = FFM.Net_Device (left = dt, node = n1, name = 'dev', raw = True)
-    >>> wl = FFM.Wireless_Interface (left = dv, name = 'wl', raw = True)
+    >>> dt = CNDB.Net_Device_Type.instance_or_new (name = 'G', raw = True)
+    >>> n1 = CNDB.Node (name = "nogps", manager = rs, raw = True)
+    >>> dv = CNDB.Net_Device (left = dt, node = n1, name = 'dev', raw = True)
+    >>> wl = CNDB.Wireless_Interface (left = dv, name = 'wl', raw = True)
     >>> scope.commit ()
 
-    >>> il2 = FFM.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
+    >>> il2 = CNDB.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
 
 """
 
@@ -849,11 +849,11 @@ _test_AQ = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
-    >>> AQ = FFM.IP4_Network.E_Type.AQ
+    >>> AQ = CNDB.IP4_Network.E_Type.AQ
     >>> AQ
-    <Attr.Type.Querier.E_Type for FFM.IP4_Network>
+    <Attr.Type.Querier.E_Type for CNDB.IP4_Network>
     >>> for aq in AQ.Attrs :
     ...     print (aq)
     <net_address.AQ [Attr.Type.Querier Ckd]>
@@ -881,15 +881,15 @@ _test_AQ = """
     <net_address.AQ [Attr.Type.Querier Ckd]> -----
     <desc.AQ [Attr.Type.Querier String]> -----
     <owner.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
-    <pool.AQ [Attr.Type.Querier Id_Entity]> FFM.IP4_Network
+    <pool.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
     <pool.net_address.AQ [Attr.Type.Querier Ckd]> -----
     <pool.desc.AQ [Attr.Type.Querier String]> -----
     <pool.owner.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
-    <pool.pool.AQ [Attr.Type.Querier Id_Entity]> FFM.IP4_Network
+    <pool.pool.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
     <pool.expiration_date.AQ [Attr.Type.Querier Ckd]> -----
     <pool.has_children.AQ [Attr.Type.Querier Boolean]> -----
     <pool.is_free.AQ [Attr.Type.Querier Boolean]> -----
-    <pool.parent.AQ [Attr.Type.Querier Id_Entity]> FFM.IP4_Network
+    <pool.parent.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
     <creation.AQ [Attr.Type.Querier Rev_Ref]> MOM.MD_Change
     <creation.c_time.AQ [Attr.Type.Querier Ckd]> -----
     <creation.c_user.AQ [Attr.Type.Querier Id_Entity]> MOM.Id_Entity
@@ -908,19 +908,19 @@ _test_AQ = """
     <expiration_date.AQ [Attr.Type.Querier Ckd]> -----
     <has_children.AQ [Attr.Type.Querier Boolean]> -----
     <is_free.AQ [Attr.Type.Querier Boolean]> -----
-    <parent.AQ [Attr.Type.Querier Id_Entity]> FFM.IP4_Network
+    <parent.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
     <parent.net_address.AQ [Attr.Type.Querier Ckd]> -----
     <parent.desc.AQ [Attr.Type.Querier String]> -----
     <parent.owner.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
-    <parent.pool.AQ [Attr.Type.Querier Id_Entity]> FFM.IP4_Network
+    <parent.pool.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
     <parent.expiration_date.AQ [Attr.Type.Querier Ckd]> -----
     <parent.has_children.AQ [Attr.Type.Querier Boolean]> -----
     <parent.is_free.AQ [Attr.Type.Querier Boolean]> -----
-    <parent.parent.AQ [Attr.Type.Querier Id_Entity]> FFM.IP4_Network
-    <ip_pool.AQ [Attr.Type.Querier Rev_Ref]> FFM.IP4_Pool
+    <parent.parent.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
+    <ip_pool.AQ [Attr.Type.Querier Rev_Ref]> CNDB.IP4_Pool
     <ip_pool.name.AQ [Attr.Type.Querier String]> -----
     <ip_pool.cool_down_period.AQ [Attr.Type.Querier Ckd]> -----
-    <ip_pool.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <ip_pool.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <ip_pool.node.name.AQ [Attr.Type.Querier String]> -----
     <ip_pool.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <ip_pool.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -951,19 +951,19 @@ _test_AQ = """
     <ip_pool.netmask_interval.upper.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.netmask_interval.center.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.netmask_interval.length.AQ [Attr.Type.Querier Ckd]> -----
-    <net_interface.AQ [Attr.Type.Querier Rev_Ref]> FFM.Net_Interface
+    <net_interface.AQ [Attr.Type.Querier Rev_Ref]> CNDB.Net_Interface
     <documents.AQ [Attr.Type.Querier Rev_Ref]> MOM.Document
     <documents.url.AQ [Attr.Type.Querier String]> -----
     <documents.type.AQ [Attr.Type.Querier String]> -----
     <documents.desc.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.AQ [Attr.Type.Querier Rev_Ref]> FFM.Wired_Interface
-    <wired_interface.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <wired_interface.left.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <wired_interface.AQ [Attr.Type.Querier Rev_Ref]> CNDB.Wired_Interface
+    <wired_interface.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <wired_interface.left.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <wired_interface.left.left.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.left.model_no.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.left.revision.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.left.desc.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wired_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.left.node.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wired_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -991,7 +991,7 @@ _test_AQ = """
     <wired_interface.left.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <wired_interface.left.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.desc.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wired_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.left.my_node.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wired_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1021,7 +1021,7 @@ _test_AQ = """
     <wired_interface.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.is_active.AQ [Attr.Type.Querier Boolean]> -----
     <wired_interface.desc.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wired_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.my_node.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wired_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1047,13 +1047,13 @@ _test_AQ = """
     <wired_interface.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <wired_interface.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <wired_interface.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <wired_interface.my_net_device.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <wired_interface.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <wired_interface.my_net_device.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <wired_interface.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <wired_interface.my_net_device.left.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.left.model_no.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.left.revision.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wired_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wired_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1081,7 +1081,7 @@ _test_AQ = """
     <wired_interface.my_net_device.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <wired_interface.my_net_device.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wired_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wired_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1107,14 +1107,14 @@ _test_AQ = """
     <wired_interface.my_net_device.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <wired_interface.my_net_device.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <wired_interface.my_net_device.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <wireless_interface.AQ [Attr.Type.Querier Rev_Ref]> FFM.Wireless_Interface
-    <wireless_interface.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <wireless_interface.left.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <wireless_interface.AQ [Attr.Type.Querier Rev_Ref]> CNDB.Wireless_Interface
+    <wireless_interface.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <wireless_interface.left.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <wireless_interface.left.left.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.left.model_no.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.left.revision.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.left.desc.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wireless_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.left.node.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wireless_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1142,7 +1142,7 @@ _test_AQ = """
     <wireless_interface.left.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <wireless_interface.left.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.desc.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wireless_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.left.my_node.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wireless_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1175,11 +1175,11 @@ _test_AQ = """
     <wireless_interface.mode.AQ [Attr.Type.Querier Ckd]> -----
     <wireless_interface.essid.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.bssid.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.standard.AQ [Attr.Type.Querier Id_Entity]> FFM.Wireless_Standard
+    <wireless_interface.standard.AQ [Attr.Type.Querier Id_Entity]> CNDB.Wireless_Standard
     <wireless_interface.standard.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.standard.bandwidth.AQ [Attr.Type.Querier Raw]> -----
     <wireless_interface.txpower.AQ [Attr.Type.Querier Raw]> -----
-    <wireless_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wireless_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.my_node.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wireless_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1205,13 +1205,13 @@ _test_AQ = """
     <wireless_interface.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <wireless_interface.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <wireless_interface.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <wireless_interface.my_net_device.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <wireless_interface.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <wireless_interface.my_net_device.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <wireless_interface.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <wireless_interface.my_net_device.left.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.left.model_no.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.left.revision.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wireless_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wireless_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1239,7 +1239,7 @@ _test_AQ = """
     <wireless_interface.my_net_device.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <wireless_interface.my_net_device.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <wireless_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <wireless_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1265,14 +1265,14 @@ _test_AQ = """
     <wireless_interface.my_net_device.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <wireless_interface.my_net_device.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <wireless_interface.my_net_device.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.AQ [Attr.Type.Querier Rev_Ref]> FFM.Virtual_Wireless_Interface
-    <virtual_wireless_interface.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <virtual_wireless_interface.left.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <virtual_wireless_interface.AQ [Attr.Type.Querier Rev_Ref]> CNDB.Virtual_Wireless_Interface
+    <virtual_wireless_interface.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <virtual_wireless_interface.left.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <virtual_wireless_interface.left.left.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.left.model_no.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.left.revision.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.left.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.left.node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1300,7 +1300,7 @@ _test_AQ = """
     <virtual_wireless_interface.left.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <virtual_wireless_interface.left.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.left.my_node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1326,14 +1326,14 @@ _test_AQ = """
     <virtual_wireless_interface.left.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <virtual_wireless_interface.left.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <virtual_wireless_interface.left.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.hardware.AQ [Attr.Type.Querier Id_Entity]> FFM.Wireless_Interface
-    <virtual_wireless_interface.hardware.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <virtual_wireless_interface.hardware.left.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <virtual_wireless_interface.hardware.AQ [Attr.Type.Querier Id_Entity]> CNDB.Wireless_Interface
+    <virtual_wireless_interface.hardware.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <virtual_wireless_interface.hardware.left.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <virtual_wireless_interface.hardware.left.left.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.left.model_no.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.left.revision.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.left.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.hardware.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.left.node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.hardware.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1361,7 +1361,7 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.left.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <virtual_wireless_interface.hardware.left.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.hardware.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.left.my_node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.hardware.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1394,11 +1394,11 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.mode.AQ [Attr.Type.Querier Ckd]> -----
     <virtual_wireless_interface.hardware.essid.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.bssid.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.standard.AQ [Attr.Type.Querier Id_Entity]> FFM.Wireless_Standard
+    <virtual_wireless_interface.hardware.standard.AQ [Attr.Type.Querier Id_Entity]> CNDB.Wireless_Standard
     <virtual_wireless_interface.hardware.standard.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.standard.bandwidth.AQ [Attr.Type.Querier Raw]> -----
     <virtual_wireless_interface.hardware.txpower.AQ [Attr.Type.Querier Raw]> -----
-    <virtual_wireless_interface.hardware.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.hardware.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.my_node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.hardware.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1424,13 +1424,13 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <virtual_wireless_interface.hardware.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <virtual_wireless_interface.hardware.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.hardware.my_net_device.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <virtual_wireless_interface.hardware.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <virtual_wireless_interface.hardware.my_net_device.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <virtual_wireless_interface.hardware.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <virtual_wireless_interface.hardware.my_net_device.left.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.left.model_no.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.left.revision.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.hardware.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.hardware.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1458,7 +1458,7 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.my_net_device.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <virtual_wireless_interface.hardware.my_net_device.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.hardware.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.hardware.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1491,7 +1491,7 @@ _test_AQ = """
     <virtual_wireless_interface.mode.AQ [Attr.Type.Querier Ckd]> -----
     <virtual_wireless_interface.essid.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.bssid.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.my_node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1517,13 +1517,13 @@ _test_AQ = """
     <virtual_wireless_interface.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <virtual_wireless_interface.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <virtual_wireless_interface.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.my_net_device.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device
-    <virtual_wireless_interface.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> FFM.Net_Device_Type
+    <virtual_wireless_interface.my_net_device.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device
+    <virtual_wireless_interface.my_net_device.left.AQ [Attr.Type.Querier Id_Entity]> CNDB.Net_Device_Type
     <virtual_wireless_interface.my_net_device.left.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.left.model_no.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.left.revision.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1551,7 +1551,7 @@ _test_AQ = """
     <virtual_wireless_interface.my_net_device.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
     <virtual_wireless_interface.my_net_device.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> FFM.Node
+    <virtual_wireless_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
     <virtual_wireless_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
@@ -1577,7 +1577,7 @@ _test_AQ = """
     <virtual_wireless_interface.my_net_device.my_node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <virtual_wireless_interface.my_net_device.my_node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <virtual_wireless_interface.my_net_device.my_node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.standard.AQ [Attr.Type.Querier Id_Entity]> FFM.Wireless_Standard
+    <virtual_wireless_interface.standard.AQ [Attr.Type.Querier Id_Entity]> CNDB.Wireless_Standard
     <virtual_wireless_interface.standard.name.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.standard.bandwidth.AQ [Attr.Type.Querier Raw]> -----
     <virtual_wireless_interface.txpower.AQ [Attr.Type.Querier Raw]> -----
@@ -8263,7 +8263,7 @@ _test_AQ = """
             , id = 'pool__pool'
             , name = 'pool'
             , sig_key = 2
-            , type_name = 'FFM.IP4_Network'
+            , type_name = 'CNDB.IP4_Network'
             , ui_name = 'Pool/Pool'
             , ui_type_name = 'IP4_Network'
             )
@@ -8306,7 +8306,7 @@ _test_AQ = """
             , id = 'pool__parent'
             , name = 'parent'
             , sig_key = 2
-            , type_name = 'FFM.IP4_Network'
+            , type_name = 'CNDB.IP4_Network'
             , ui_name = 'Pool/Parent'
             , ui_type_name = 'IP4_Network'
             )
@@ -8315,7 +8315,7 @@ _test_AQ = """
       , id = 'pool'
       , name = 'pool'
       , sig_key = 2
-      , type_name = 'FFM.IP4_Network'
+      , type_name = 'CNDB.IP4_Network'
       , ui_name = 'Pool'
       , ui_type_name = 'IP4_Network'
       )
@@ -8916,7 +8916,7 @@ _test_AQ = """
             , id = 'parent__pool'
             , name = 'pool'
             , sig_key = 2
-            , type_name = 'FFM.IP4_Network'
+            , type_name = 'CNDB.IP4_Network'
             , ui_name = 'Parent/Pool'
             , ui_type_name = 'IP4_Network'
             )
@@ -8953,7 +8953,7 @@ _test_AQ = """
             , id = 'parent__parent'
             , name = 'parent'
             , sig_key = 2
-            , type_name = 'FFM.IP4_Network'
+            , type_name = 'CNDB.IP4_Network'
             , ui_name = 'Parent/Parent'
             , ui_type_name = 'IP4_Network'
             )
@@ -8962,7 +8962,7 @@ _test_AQ = """
       , id = 'parent'
       , name = 'parent'
       , sig_key = 2
-      , type_name = 'FFM.IP4_Network'
+      , type_name = 'CNDB.IP4_Network'
       , ui_name = 'Parent'
       , ui_type_name = 'IP4_Network'
       )
@@ -9347,7 +9347,7 @@ _test_AQ = """
             , id = 'ip_pool__node'
             , name = 'node'
             , sig_key = 2
-            , type_name = 'FFM.Node'
+            , type_name = 'CNDB.Node'
             , ui_name = 'Ip pool/Node'
             , ui_type_name = 'Node'
             )
@@ -9397,7 +9397,7 @@ _test_AQ = """
       , id = 'ip_pool'
       , name = 'ip_pool'
       , sig_key = 2
-      , type_name = 'FFM.IP4_Pool'
+      , type_name = 'CNDB.IP4_Pool'
       , ui_name = 'Ip pool'
       , ui_type_name = 'IP4_Pool'
       )
@@ -9408,7 +9408,7 @@ _test_AQ = """
       , id = 'net_interface'
       , name = 'net_interface'
       , sig_key = 2
-      , type_name = 'FFM.Net_Interface'
+      , type_name = 'CNDB.Net_Interface'
       , ui_name = 'Net interface'
       , ui_type_name = 'Net_Interface'
       )
@@ -9498,7 +9498,7 @@ _test_AQ = """
                   , id = 'wired_interface__left__left'
                   , name = 'left'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device_Type'
+                  , type_name = 'CNDB.Net_Device_Type'
                   , ui_name = 'Wired interface/Net device/Net device type'
                   , ui_type_name = 'Net_Device_Type'
                   )
@@ -9848,7 +9848,7 @@ _test_AQ = """
                   , id = 'wired_interface__left__node'
                   , name = 'node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wired interface/Net device/Node'
                   , ui_type_name = 'Node'
                   )
@@ -10214,7 +10214,7 @@ _test_AQ = """
                   , id = 'wired_interface__left__my_node'
                   , name = 'my_node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wired interface/Net device/My node'
                   , ui_type_name = 'Node'
                   )
@@ -10223,7 +10223,7 @@ _test_AQ = """
             , id = 'wired_interface__left'
             , name = 'left'
             , sig_key = 2
-            , type_name = 'FFM.Net_Device'
+            , type_name = 'CNDB.Net_Device'
             , ui_name = 'Wired interface/Net device'
             , ui_type_name = 'Net_Device'
             )
@@ -10609,7 +10609,7 @@ _test_AQ = """
             , id = 'wired_interface__my_node'
             , name = 'my_node'
             , sig_key = 2
-            , type_name = 'FFM.Node'
+            , type_name = 'CNDB.Node'
             , ui_name = 'Wired interface/My node'
             , ui_type_name = 'Node'
             )
@@ -10658,7 +10658,7 @@ _test_AQ = """
                   , id = 'wired_interface__my_net_device__left'
                   , name = 'left'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device_Type'
+                  , type_name = 'CNDB.Net_Device_Type'
                   , ui_name = 'Wired interface/My net device/Net device type'
                   , ui_type_name = 'Net_Device_Type'
                   )
@@ -11008,7 +11008,7 @@ _test_AQ = """
                   , id = 'wired_interface__my_net_device__node'
                   , name = 'node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wired interface/My net device/Node'
                   , ui_type_name = 'Node'
                   )
@@ -11374,7 +11374,7 @@ _test_AQ = """
                   , id = 'wired_interface__my_net_device__my_node'
                   , name = 'my_node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wired interface/My net device/My node'
                   , ui_type_name = 'Node'
                   )
@@ -11383,7 +11383,7 @@ _test_AQ = """
             , id = 'wired_interface__my_net_device'
             , name = 'my_net_device'
             , sig_key = 2
-            , type_name = 'FFM.Net_Device'
+            , type_name = 'CNDB.Net_Device'
             , ui_name = 'Wired interface/My net device'
             , ui_type_name = 'Net_Device'
             )
@@ -11392,7 +11392,7 @@ _test_AQ = """
       , id = 'wired_interface'
       , name = 'wired_interface'
       , sig_key = 2
-      , type_name = 'FFM.Wired_Interface'
+      , type_name = 'CNDB.Wired_Interface'
       , ui_name = 'Wired interface'
       , ui_type_name = 'Wired_Interface'
       )
@@ -11445,7 +11445,7 @@ _test_AQ = """
                   , id = 'wireless_interface__left__left'
                   , name = 'left'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device_Type'
+                  , type_name = 'CNDB.Net_Device_Type'
                   , ui_name = 'Wireless interface/Net device/Net device type'
                   , ui_type_name = 'Net_Device_Type'
                   )
@@ -11795,7 +11795,7 @@ _test_AQ = """
                   , id = 'wireless_interface__left__node'
                   , name = 'node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wireless interface/Net device/Node'
                   , ui_type_name = 'Node'
                   )
@@ -12161,7 +12161,7 @@ _test_AQ = """
                   , id = 'wireless_interface__left__my_node'
                   , name = 'my_node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wireless interface/Net device/My node'
                   , ui_type_name = 'Node'
                   )
@@ -12170,7 +12170,7 @@ _test_AQ = """
             , id = 'wireless_interface__left'
             , name = 'left'
             , sig_key = 2
-            , type_name = 'FFM.Net_Device'
+            , type_name = 'CNDB.Net_Device'
             , ui_name = 'Wireless interface/Net device'
             , ui_type_name = 'Net_Device'
             )
@@ -12270,7 +12270,7 @@ _test_AQ = """
             , id = 'wireless_interface__standard'
             , name = 'standard'
             , sig_key = 2
-            , type_name = 'FFM.Wireless_Standard'
+            , type_name = 'CNDB.Wireless_Standard'
             , ui_name = 'Wireless interface/Standard'
             , ui_type_name = 'Wireless_Standard'
             )
@@ -12628,7 +12628,7 @@ _test_AQ = """
             , id = 'wireless_interface__my_node'
             , name = 'my_node'
             , sig_key = 2
-            , type_name = 'FFM.Node'
+            , type_name = 'CNDB.Node'
             , ui_name = 'Wireless interface/My node'
             , ui_type_name = 'Node'
             )
@@ -12677,7 +12677,7 @@ _test_AQ = """
                   , id = 'wireless_interface__my_net_device__left'
                   , name = 'left'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device_Type'
+                  , type_name = 'CNDB.Net_Device_Type'
                   , ui_name = 'Wireless interface/My net device/Net device type'
                   , ui_type_name = 'Net_Device_Type'
                   )
@@ -13027,7 +13027,7 @@ _test_AQ = """
                   , id = 'wireless_interface__my_net_device__node'
                   , name = 'node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wireless interface/My net device/Node'
                   , ui_type_name = 'Node'
                   )
@@ -13393,7 +13393,7 @@ _test_AQ = """
                   , id = 'wireless_interface__my_net_device__my_node'
                   , name = 'my_node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Wireless interface/My net device/My node'
                   , ui_type_name = 'Node'
                   )
@@ -13402,7 +13402,7 @@ _test_AQ = """
             , id = 'wireless_interface__my_net_device'
             , name = 'my_net_device'
             , sig_key = 2
-            , type_name = 'FFM.Net_Device'
+            , type_name = 'CNDB.Net_Device'
             , ui_name = 'Wireless interface/My net device'
             , ui_type_name = 'Net_Device'
             )
@@ -13411,7 +13411,7 @@ _test_AQ = """
       , id = 'wireless_interface'
       , name = 'wireless_interface'
       , sig_key = 2
-      , type_name = 'FFM.Wireless_Interface'
+      , type_name = 'CNDB.Wireless_Interface'
       , ui_name = 'Wireless interface'
       , ui_type_name = 'Wireless_Interface'
       )
@@ -13464,7 +13464,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__left__left'
                   , name = 'left'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device_Type'
+                  , type_name = 'CNDB.Net_Device_Type'
                   , ui_name = 'Virtual wireless interface/Net device/Net device type'
                   , ui_type_name = 'Net_Device_Type'
                   )
@@ -13814,7 +13814,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__left__node'
                   , name = 'node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Virtual wireless interface/Net device/Node'
                   , ui_type_name = 'Node'
                   )
@@ -14180,7 +14180,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__left__my_node'
                   , name = 'my_node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Virtual wireless interface/Net device/My node'
                   , ui_type_name = 'Node'
                   )
@@ -14189,7 +14189,7 @@ _test_AQ = """
             , id = 'virtual_wireless_interface__left'
             , name = 'left'
             , sig_key = 2
-            , type_name = 'FFM.Net_Device'
+            , type_name = 'CNDB.Net_Device'
             , ui_name = 'Virtual wireless interface/Net device'
             , ui_type_name = 'Net_Device'
             )
@@ -14242,7 +14242,7 @@ _test_AQ = """
                         , id = 'virtual_wireless_interface__hardware__left__left'
                         , name = 'left'
                         , sig_key = 2
-                        , type_name = 'FFM.Net_Device_Type'
+                        , type_name = 'CNDB.Net_Device_Type'
                         , ui_name = 'Virtual wireless interface/Hardware/Net device/Net device type'
                         , ui_type_name = 'Net_Device_Type'
                         )
@@ -14592,7 +14592,7 @@ _test_AQ = """
                         , id = 'virtual_wireless_interface__hardware__left__node'
                         , name = 'node'
                         , sig_key = 2
-                        , type_name = 'FFM.Node'
+                        , type_name = 'CNDB.Node'
                         , ui_name = 'Virtual wireless interface/Hardware/Net device/Node'
                         , ui_type_name = 'Node'
                         )
@@ -14958,7 +14958,7 @@ _test_AQ = """
                         , id = 'virtual_wireless_interface__hardware__left__my_node'
                         , name = 'my_node'
                         , sig_key = 2
-                        , type_name = 'FFM.Node'
+                        , type_name = 'CNDB.Node'
                         , ui_name = 'Virtual wireless interface/Hardware/Net device/My node'
                         , ui_type_name = 'Node'
                         )
@@ -14967,7 +14967,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__hardware__left'
                   , name = 'left'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device'
+                  , type_name = 'CNDB.Net_Device'
                   , ui_name = 'Virtual wireless interface/Hardware/Net device'
                   , ui_type_name = 'Net_Device'
                   )
@@ -15054,7 +15054,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__hardware__standard'
                   , name = 'standard'
                   , sig_key = 2
-                  , type_name = 'FFM.Wireless_Standard'
+                  , type_name = 'CNDB.Wireless_Standard'
                   , ui_name = 'Virtual wireless interface/Hardware/Standard'
                   , ui_type_name = 'Wireless_Standard'
                   )
@@ -15412,7 +15412,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__hardware__my_node'
                   , name = 'my_node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Virtual wireless interface/Hardware/My node'
                   , ui_type_name = 'Node'
                   )
@@ -15461,7 +15461,7 @@ _test_AQ = """
                         , id = 'virtual_wireless_interface__hardware__my_net_device__left'
                         , name = 'left'
                         , sig_key = 2
-                        , type_name = 'FFM.Net_Device_Type'
+                        , type_name = 'CNDB.Net_Device_Type'
                         , ui_name = 'Virtual wireless interface/Hardware/My net device/Net device type'
                         , ui_type_name = 'Net_Device_Type'
                         )
@@ -15811,7 +15811,7 @@ _test_AQ = """
                         , id = 'virtual_wireless_interface__hardware__my_net_device__node'
                         , name = 'node'
                         , sig_key = 2
-                        , type_name = 'FFM.Node'
+                        , type_name = 'CNDB.Node'
                         , ui_name = 'Virtual wireless interface/Hardware/My net device/Node'
                         , ui_type_name = 'Node'
                         )
@@ -16177,7 +16177,7 @@ _test_AQ = """
                         , id = 'virtual_wireless_interface__hardware__my_net_device__my_node'
                         , name = 'my_node'
                         , sig_key = 2
-                        , type_name = 'FFM.Node'
+                        , type_name = 'CNDB.Node'
                         , ui_name = 'Virtual wireless interface/Hardware/My net device/My node'
                         , ui_type_name = 'Node'
                         )
@@ -16186,7 +16186,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__hardware__my_net_device'
                   , name = 'my_net_device'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device'
+                  , type_name = 'CNDB.Net_Device'
                   , ui_name = 'Virtual wireless interface/Hardware/My net device'
                   , ui_type_name = 'Net_Device'
                   )
@@ -16195,7 +16195,7 @@ _test_AQ = """
             , id = 'virtual_wireless_interface__hardware'
             , name = 'hardware'
             , sig_key = 2
-            , type_name = 'FFM.Wireless_Interface'
+            , type_name = 'CNDB.Wireless_Interface'
             , ui_name = 'Virtual wireless interface/Hardware'
             , ui_type_name = 'Wireless_Interface'
             )
@@ -16616,7 +16616,7 @@ _test_AQ = """
             , id = 'virtual_wireless_interface__my_node'
             , name = 'my_node'
             , sig_key = 2
-            , type_name = 'FFM.Node'
+            , type_name = 'CNDB.Node'
             , ui_name = 'Virtual wireless interface/My node'
             , ui_type_name = 'Node'
             )
@@ -16665,7 +16665,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__my_net_device__left'
                   , name = 'left'
                   , sig_key = 2
-                  , type_name = 'FFM.Net_Device_Type'
+                  , type_name = 'CNDB.Net_Device_Type'
                   , ui_name = 'Virtual wireless interface/My net device/Net device type'
                   , ui_type_name = 'Net_Device_Type'
                   )
@@ -17015,7 +17015,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__my_net_device__node'
                   , name = 'node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Virtual wireless interface/My net device/Node'
                   , ui_type_name = 'Node'
                   )
@@ -17381,7 +17381,7 @@ _test_AQ = """
                   , id = 'virtual_wireless_interface__my_net_device__my_node'
                   , name = 'my_node'
                   , sig_key = 2
-                  , type_name = 'FFM.Node'
+                  , type_name = 'CNDB.Node'
                   , ui_name = 'Virtual wireless interface/My net device/My node'
                   , ui_type_name = 'Node'
                   )
@@ -17390,7 +17390,7 @@ _test_AQ = """
             , id = 'virtual_wireless_interface__my_net_device'
             , name = 'my_net_device'
             , sig_key = 2
-            , type_name = 'FFM.Net_Device'
+            , type_name = 'CNDB.Net_Device'
             , ui_name = 'Virtual wireless interface/My net device'
             , ui_type_name = 'Net_Device'
             )
@@ -17419,7 +17419,7 @@ _test_AQ = """
             , id = 'virtual_wireless_interface__standard'
             , name = 'standard'
             , sig_key = 2
-            , type_name = 'FFM.Wireless_Standard'
+            , type_name = 'CNDB.Wireless_Standard'
             , ui_name = 'Virtual wireless interface/Standard'
             , ui_type_name = 'Wireless_Standard'
             )
@@ -17436,14 +17436,14 @@ _test_AQ = """
       , id = 'virtual_wireless_interface'
       , name = 'virtual_wireless_interface'
       , sig_key = 2
-      , type_name = 'FFM.Virtual_Wireless_Interface'
+      , type_name = 'CNDB.Virtual_Wireless_Interface'
       , ui_name = 'Virtual wireless interface'
       , ui_type_name = 'Virtual_Wireless_Interface'
       )
     ]
 
     >>> QR  = GTW.RST.TOP.MOM.Query_Restriction
-    >>> print (formatted (QR.Filter_Atoms (QR.Filter (FFM.IP4_Network, "owner"))))
+    >>> print (formatted (QR.Filter_Atoms (QR.Filter (CNDB.IP4_Network, "owner"))))
     ( Record
       ( AQ = <lifetime.start.AQ [Attr.Type.Querier Date]>
       , attr = Date `start`
@@ -17476,7 +17476,7 @@ _test_AQ = """
       )
     )
 
-    >>> print (formatted (QR.Filter_Atoms (QR.Filter (FFM.IP4_Network, "parent"))))
+    >>> print (formatted (QR.Filter_Atoms (QR.Filter (CNDB.IP4_Network, "parent"))))
     ( Record
       ( AQ = <net_address.AQ [Attr.Type.Querier Ckd]>
       , attr = IP4-network `net_address`
@@ -17494,7 +17494,7 @@ _test_AQ = """
       )
     )
 
-    >>> print (formatted (QR.Filter_Atoms (QR.Filter (FFM.Net_Interface_in_IP4_Network, "right"))))
+    >>> print (formatted (QR.Filter_Atoms (QR.Filter (CNDB.Net_Interface_in_IP4_Network, "right"))))
     ( Record
       ( AQ = <net_address.AQ [Attr.Type.Querier Ckd]>
       , attr = IP4-network `net_address`
@@ -17512,7 +17512,7 @@ _test_AQ = """
       )
     )
 
-    >>> for aq in FFM.Node.E_Type.AQ.Attrs_Transitive :
+    >>> for aq in CNDB.Node.E_Type.AQ.Attrs_Transitive :
     ...     print (aq._ui_name_T)
     Name
     Manager
@@ -17559,7 +17559,7 @@ _test_AQ = """
     Documents/Type
     Documents/Description
 
-    >>> for aq in FFM.Net_Interface.E_Type.AQ.Attrs_Transitive :
+    >>> for aq in CNDB.Net_Interface.E_Type.AQ.Attrs_Transitive :
     ...     print (aq._ui_name_T)
     Device
     Device/Net device type
@@ -17833,12 +17833,12 @@ _test_net_fixtures = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
     >>> net_fixtures (scope)
     >>> scope.commit ()
 
-    >>> show_by_pid (scope.FFM.Node)
+    >>> show_by_pid (scope.CNDB.Node)
     2   : Node                      nogps
     3   : Node                      node2
     38  : Node                      Node-net1
@@ -17846,7 +17846,7 @@ _test_net_fixtures = """
     40  : Node                      Node-net3
     41  : Node                      Node-net4
 
-    >>> show_by_pid (scope.FFM.Net_Device)
+    >>> show_by_pid (scope.CNDB.Net_Device)
     28  : Net_Device                Generic, node2, dev
     44  : Net_Device                Generic, Node-net1, n1d1
     45  : Net_Device                Generic, Node-net1, n1d2
@@ -17860,31 +17860,31 @@ _test_net_fixtures = """
     53  : Net_Device                Generic, Node-net4, n4d4
     54  : Net_Device                Generic, Node-net4, n4d5
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.my_node.name == "nogps"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.my_node.name == "nogps"))
     2   : Node                      nogps
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.my_node.name == "node2"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.my_node.name == "node2"))
     3   : Node                      node2
     28  : Net_Device                Generic, node2, dev
     29  : Wired_Interface           Generic, node2, dev, wr
     30  : Wireless_Interface        Generic, node2, dev, wl
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.RAW.my_node.name == "Node-net1"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.RAW.my_node.name == "Node-net1"))
     38  : Node                      Node-net1
     44  : Net_Device                Generic, Node-net1, n1d1
     45  : Net_Device                Generic, Node-net1, n1d2
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.RAW.my_node.name == "Node-net2"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.RAW.my_node.name == "Node-net2"))
     39  : Node                      Node-net2
     46  : Net_Device                Generic, Node-net2, n2d1
     47  : Net_Device                Generic, Node-net2, n2d2
     48  : Net_Device                Generic, Node-net2, n2d3
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.RAW.my_node.name == "Node-net3"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.RAW.my_node.name == "Node-net3"))
     40  : Node                      Node-net3
     49  : Net_Device                Generic, Node-net3, n3d1
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.my_node.name == "node-net4"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.my_node.name == "node-net4"))
     41  : Node                      Node-net4
     50  : Net_Device                Generic, Node-net4, n4d1
     51  : Net_Device                Generic, Node-net4, n4d2
@@ -17898,8 +17898,8 @@ _test_order_4 = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
-    >>> I4N = FFM.IP4_Network
+    >>> CNDB = scope.CNDB
+    >>> I4N = CNDB.IP4_Network
 
     >>> PAP = scope.PAP
     >>> ff  = PAP.Association ("Funkfeuer", short_name = "0xFF", raw = True)
@@ -17923,7 +17923,7 @@ _test_order_4 = """
 
     >>> scope.commit ()
 
-    >>> ETM = scope.FFM.IP4_Network
+    >>> ETM = scope.CNDB.IP4_Network
     >>> show_networks (scope, ETM)
     10.0.0.0           Funkfeuer                : electric = F, children = F
     10.0.0.16/28                                : electric = F, children = F
@@ -17947,7 +17947,7 @@ _test_order_4 = """
     >>> bool (adr1)
     True
     >>> I4N (adr1, owner = ff)
-    FFM.IP4_Network ("192.168.0.96/27")
+    CNDB.IP4_Network ("192.168.0.96/27")
 
     >>> adr2 = I4N.net_address.P_Type ("192.168.1.96/27")
     >>> adr2
@@ -17955,7 +17955,7 @@ _test_order_4 = """
     >>> bool (adr2)
     True
     >>> I4N (adr2, owner = ff, raw = True)
-    FFM.IP4_Network ("192.168.1.96/27")
+    CNDB.IP4_Network ("192.168.1.96/27")
 
 """
 
@@ -17963,8 +17963,8 @@ _test_order_6 = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
-    >>> I6N = FFM.IP6_Network
+    >>> CNDB = scope.CNDB
+    >>> I6N = CNDB.IP6_Network
 
     >>> PAP = scope.PAP
     >>> ff  = PAP.Association ("Funkfeuer", short_name = "0xFF", raw = True)
@@ -17988,7 +17988,7 @@ _test_order_6 = """
 
     >>> scope.commit ()
 
-    >>> ETM = scope.FFM.IP6_Network
+    >>> ETM = scope.CNDB.IP6_Network
     >>> show_networks (scope, ETM)
     2001:db8::         Funkfeuer                : electric = F, children = F
     2001:db8::10/124                            : electric = F, children = F
@@ -18012,7 +18012,7 @@ _test_order_6 = """
     >>> bool (adr1)
     True
     >>> I6N  (adr1, owner = ff, raw = True)
-    FFM.IP6_Network ("2a02:58::/29")
+    CNDB.IP6_Network ("2a02:58::/29")
 
     >>> adr2 = I6N.net_address.P_Type ("2a02:60::/29")
     >>> adr2
@@ -18020,7 +18020,7 @@ _test_order_6 = """
     >>> bool (adr2)
     True
     >>> I6N  (adr2, owner = ff)
-    FFM.IP6_Network ("2a02:60::/29")
+    CNDB.IP6_Network ("2a02:60::/29")
 
 """
 
@@ -18028,29 +18028,29 @@ _test_std_fixtures = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
     >>> std_fixtures (scope)
     >>> scope.commit ()
 
-    >>> show_by_pid (scope.FFM.Node)
+    >>> show_by_pid (scope.CNDB.Node)
     2   : Node                      nogps
     3   : Node                      node2
 
-    >>> show_by_pid (scope.FFM.Net_Device)
+    >>> show_by_pid (scope.CNDB.Net_Device)
     28  : Net_Device                Generic, node2, dev
 
-    >>> show_by_pid (scope.FFM.Net_Interface)
+    >>> show_by_pid (scope.CNDB.Net_Interface)
     29  : Wired_Interface           Generic, node2, dev, wr
     30  : Wireless_Interface        Generic, node2, dev, wl
 
-    >>> show_by_pid (scope.FFM.Net_Interface_in_IP4_Network)
+    >>> show_by_pid (scope.CNDB.Net_Interface_in_IP4_Network)
     31  : Wired_Interface_in_IP4_Network Generic, node2, dev, wr, 192.168.23.1
     32  : Wireless_Interface_in_IP4_Network Generic, node2, dev, wl, 192.168.23.2
     33  : Wired_Interface_in_IP4_Network Generic, node2, dev, wr, 192.168.23.3
     34  : Wireless_Interface_in_IP4_Network Generic, node2, dev, wl, 192.168.23.4
 
-    >>> show_by_pid (scope.FFM.IP4_Network)
+    >>> show_by_pid (scope.CNDB.IP4_Network)
     4   : IP4_Network               192.168.23.0/24
     5   : IP4_Network               192.168.23.0/25
     6   : IP4_Network               192.168.23.128/25
@@ -18075,10 +18075,10 @@ _test_std_fixtures = """
     25  : IP4_Network               192.168.23.4
     26  : IP4_Network               192.168.23.5
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.my_node.name == "nogps"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.my_node.name == "nogps"))
     2   : Node                      nogps
 
-    >>> show_query_by_pid (scope.FFM.Belongs_to_Node.query (Q.my_node.name == "node2"))
+    >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.my_node.name == "node2"))
     3   : Node                      node2
     28  : Net_Device                Generic, node2, dev
     29  : Wired_Interface           Generic, node2, dev, wr
@@ -18090,9 +18090,9 @@ _test_debug = """
     >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
     Creating new scope MOMT__...
 
-    >>> FFM = scope.FFM
+    >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
-    >>> I4N = FFM.IP4_Network
+    >>> I4N = CNDB.IP4_Network
     >>> Adr = I4N.net_address.P_Type
 
     >>> _   = I4N ("10.0.0.16/28")
@@ -18111,21 +18111,21 @@ _test_debug = """
     >>> _   = I4N ("10.0.0.212/28")
 
     >>> mgr = PAP.Person (first_name = 'Ralf', last_name = 'Schlatterbeck', raw = True)
-    >>> node1 = FFM.Node (name = "nogps", manager = mgr, raw = True)
-    >>> net = FFM.IP4_Network ('192.168.23.0/24', raw = True)
+    >>> node1 = CNDB.Node (name = "nogps", manager = mgr, raw = True)
+    >>> net = CNDB.IP4_Network ('192.168.23.0/24', raw = True)
     >>> a1  = net.reserve ('192.168.23.1/32')
     >>> a2  = net.reserve (Adr ('192.168.23.2/32'))
     >>> a3  = net.reserve ('192.168.23.3/32')
     >>> a4  = net.reserve (Adr ('192.168.23.4/32'))
-    >>> devtype = FFM.Net_Device_Type.instance_or_new (name = 'Generic', raw = True)
-    >>> dev = FFM.Net_Device (left = devtype, node = node1, name = 'dev', raw = True)
-    >>> wr  = FFM.Wired_Interface (left = dev, name = 'wr', raw = True)
-    >>> wl  = FFM.Wireless_Interface (left = dev, name = 'wl', raw = True)
+    >>> devtype = CNDB.Net_Device_Type.instance_or_new (name = 'Generic', raw = True)
+    >>> dev = CNDB.Net_Device (left = devtype, node = node1, name = 'dev', raw = True)
+    >>> wr  = CNDB.Wired_Interface (left = dev, name = 'wr', raw = True)
+    >>> wl  = CNDB.Wireless_Interface (left = dev, name = 'wl', raw = True)
 
-    >>> ir1 = FFM.Net_Interface_in_IP4_Network (wr, a1, mask_len = 24)
-    >>> il1 = FFM.Net_Interface_in_IP4_Network (wl, a2, mask_len = 32)
-    >>> ir2 = FFM.Net_Interface_in_IP4_Network (wr, a3, mask_len = 24)
-    >>> il2 = FFM.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
+    >>> ir1 = CNDB.Net_Interface_in_IP4_Network (wr, a1, mask_len = 24)
+    >>> il1 = CNDB.Net_Interface_in_IP4_Network (wl, a2, mask_len = 32)
+    >>> ir2 = CNDB.Net_Interface_in_IP4_Network (wr, a3, mask_len = 24)
+    >>> il2 = CNDB.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
 
     >>> il1.right.ETM.query ( (Q.net_address.CONTAINS (il1.right.net_address)) & (Q.electric == False)).attr ("net_address.mask_len").all ()
 
@@ -18187,4 +18187,4 @@ X__test__ = Scaffold.create_test_dict \
         )
     )
 
-### __END__ FFM.__test__.IP_Network
+### __END__ CNDB.OMP.__test__.IP_Network

@@ -2,7 +2,7 @@
 # Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.IP6_Network_in_IP6_Pool
+#    CNDB.OMP.IP6_Network_in_IP6_Pool
 #
 # Purpose
 #    Model IPv6 networks in an IPv6 pool
@@ -33,13 +33,14 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM        import *
-from   _FFM                   import FFM
+from   _CNDB                  import CNDB
+import _CNDB._OMP
 
-import _FFM.IP6_Network
-import _FFM.IP6_Pool
-import _FFM.IP_Network_in_IP_Pool
+import _CNDB._OMP.IP6_Network
+import _CNDB._OMP.IP6_Pool
+import _CNDB._OMP.IP_Network_in_IP_Pool
 
-_Ancestor_Essence = FFM.IP_Network_in_IP_Pool
+_Ancestor_Essence = CNDB.OMP.IP_Network_in_IP_Pool
 
 class IP6_Network_in_IP6_Pool (_Ancestor_Essence) :
     """IPv6 networks in an IPv6 pool."""
@@ -53,7 +54,7 @@ class IP6_Network_in_IP6_Pool (_Ancestor_Essence) :
         class left (_Ancestor.left) :
             """IP network."""
 
-            role_type          = FFM.IP6_Network
+            role_type          = CNDB.OMP.IP6_Network
             link_ref_attr_name = "ip_pool"
 
         # end class left
@@ -61,7 +62,7 @@ class IP6_Network_in_IP6_Pool (_Ancestor_Essence) :
         class right (_Ancestor.right) :
             """IP pool."""
 
-            role_type          = FFM.IP6_Pool
+            role_type          = CNDB.OMP.IP6_Pool
             auto_rev_ref       = "ip_pool"
             link_ref_attr_name = "ip_network"
 
@@ -72,5 +73,5 @@ class IP6_Network_in_IP6_Pool (_Ancestor_Essence) :
 # end class IP6_Network_in_IP6_Pool
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.IP6_Network_in_IP6_Pool
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.IP6_Network_in_IP6_Pool

@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    FFM.Net_Link
+#    CNDB.OMP.Net_Link
 #
 # Purpose
 #    Model a link between two network interfaces
@@ -38,11 +38,12 @@
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM.import_MOM          import *
-from   _FFM                     import FFM
+from   _CNDB                    import CNDB
+import _CNDB._OMP
 
-import _FFM.Net_Interface
+import _CNDB._OMP.Net_Interface
 
-_Ancestor_Essence = FFM.Link2
+_Ancestor_Essence = CNDB.OMP.Link2
 
 class Net_Link (_Ancestor_Essence) :
     """Link between two network interfaces."""
@@ -56,7 +57,7 @@ class Net_Link (_Ancestor_Essence) :
         class left (_Ancestor.left) :
             """Left network interface"""
 
-            role_type          = FFM.Net_Interface
+            role_type          = CNDB.OMP.Net_Interface
             force_role_name    = "left"
             link_ref_suffix    = "_net_link"
 
@@ -65,7 +66,7 @@ class Net_Link (_Ancestor_Essence) :
         class right (_Ancestor.right) :
             """Right network interface"""
 
-            role_type          = FFM.Net_Interface
+            role_type          = CNDB.OMP.Net_Interface
             force_role_name    = "right"
             link_ref_suffix    = "_net_link"
 
@@ -108,5 +109,5 @@ class Net_Link (_Ancestor_Essence) :
 # end class Net_Link
 
 if __name__ != "__main__" :
-    FFM._Export ("*")
-### __END__ FFM.Net_Link
+    CNDB.OMP._Export ("*")
+### __END__ CNDB.OMP.Net_Link
