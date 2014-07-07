@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # ****************************************************************************
-# This script is part of the FFM program.
+# This script is part of the CNDB package.
 #
 # This script is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,7 @@
 #
 #++
 # Name
-#    babel
+#    babel.sh
 #
 # Purpose
 #    Extract and compile translations from Python modules and Jinja templates
@@ -34,7 +34,7 @@
 cmd=${1:?"Specify a command: extract | language | compile"}; shift
 
 default_langs="en,de"
-default_dirs="_FFM ."
+default_dirs="_CNDB _CNDB._OMP _CNDB._GTW _CNDB._JNJ ."
 lib=$(dirname $(python -c 'from _TFL import sos; print sos.path.dirname (sos.__file__)'))
 
 export PYTHONPATH=./:$PYTHONPATH
@@ -43,12 +43,12 @@ case "$cmd" in
     "extract" )
         dirs=${1:-${default_dirs}}; shift
         ( cd ${lib}; ./babel_extract.sh extract )
-        python ${lib}/_TFL/Babel.py extract                                          \
+        python ${lib}/_TFL/Babel.py extract                                   \
             -bugs_address        "tanzer@swing.co.at,ralf@runtux.com"         \
             -charset             utf-8                                        \
             -copyright_holder    "Mag. Christian Tanzer, Ralf Schlatterbeck"  \
             -global_config       ${lib}/_MOM/base_babel.cfg                   \
-            -project             "FFM"                                        \
+            -project             "CNDB"                                       \
             -sort                                                             \
                 $dirs
         ;;
@@ -60,7 +60,7 @@ case "$cmd" in
         ;;
     "compile" )
         langs=${1:-${default_langs}}; shift
-        ${lib}/babel.sh compile ./model.py "${langs}"
+        ${lib}/babel.sh compile ./Command.py "${langs}"
         ;;
     * )
         echo "Unknown command $cmd; use one of"
@@ -70,4 +70,4 @@ case "$cmd" in
         ;;
 esac
 
-### __END__ babel
+### __END__ babel.sh

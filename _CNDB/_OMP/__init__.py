@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package FFM.
+# This module is part of the package CNDB.OMP
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -20,27 +20,27 @@
 #
 #++
 # Name
-#    FFM.__init__
+#    CNDB.OMP__init__
 #
 # Purpose
-#    Package defining the common node model for Funkfeuer...
+#    Package defining the common node model for Community Networks.
 #
 # Revision Dates
-#     6-Mar-2012 (CT) Creation
-#     9-Oct-2012 (CT) Add `_desc_`
-#    15-Jun-2013 (CT) Use `MOM.Underived_PNS`
+#    07-Jul-2014 (CT) Creation
 #    ««revision-date»»···
 #--
 
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
 from   _MOM                 import MOM
+from   _CNDB                import CNDB
 import _MOM.Derived_PNS
 
 _desc_ = """
-Object model defining the common node model for Funkfeuer.
+Object model defining the common node model for Community Networks.
 """
 
-FFM = MOM.Underived_PNS ()
+OMP = MOM.Derived_PNS (parent = MOM, pns_alias = "CNDB")
+CNDB._Export ("OMP")
 
-### __END__ FFM.__init__
+### __END__ CNDB.OMP__init__
