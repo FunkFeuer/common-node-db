@@ -8,7 +8,7 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
 >
   <title>
-    FFM graph
+    CNDB graph
   </title>
   <defs>
     <marker id="MOM:AM" fill="none" markerHeight="4"
@@ -45,22 +45,22 @@
       </path>
     </marker>
   </defs>
-  <g id="FFM.Antenna" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Antenna" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Antenna: Model an antenna used by a FFM node.
+      CNDB.Antenna: Model an antenna used by a CNDB node.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
           y="75"
     />
     <text fill="#003" font-family="sans-serif" font-size="18" x="89" y="75">
       <tspan dx="0" dy="27.0" x="89">
-        FFM.Antenna
+        CNDB.Antenna
       </tspan>
     </text>
   </g>
-  <g id="FFM.Antenna_Band" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Antenna_Band" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Antenna_Band: Frequency Band of an antenna type
+      CNDB.Antenna_Band: Frequency Band of an antenna type
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
           y="75"
@@ -69,16 +69,16 @@
           y="75"
     >
       <tspan dx="0" dy="27.0" x="1689">
-        FFM.Antenna
+        CNDB.Antenna
       </tspan>
       <tspan dx="9" dy="27.0" x="1689">
         _Band
       </tspan>
     </text>
   </g>
-  <g id="FFM.Antenna_Type" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Antenna_Type" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Antenna_Type: Model the type of antennas in FFM.
+      CNDB.Antenna_Type: Model the type of antennas in CNDB.OMP.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
           y="75"
@@ -87,29 +87,29 @@
           y="75"
     >
       <tspan dx="0" dy="27.0" x="1369">
-        FFM.Antenna
+        CNDB.Antenna
       </tspan>
       <tspan dx="9" dy="27.0" x="1369">
         _Type
       </tspan>
     </text>
   </g>
-  <g id="FFM.Device" fill="#EDEDED" class="E_Type" opacity="0.6">
+  <g id="CNDB.Device" fill="#EDEDED" class="E_Type" opacity="0.6">
     <title>
-      FFM.Device: Model a device used by a FFM node.
+      CNDB.Device: Model a device used by a CNDB node.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
           y="375"
     />
     <text fill="#003" font-family="sans-serif" font-size="18" x="89" y="375">
       <tspan dx="0" dy="27.0" x="89">
-        FFM.Device
+        CNDB.Device
       </tspan>
     </text>
   </g>
-  <g id="FFM.Device_Type" fill="#EDEDED" class="E_Type" opacity="0.6">
+  <g id="CNDB.Device_Type" fill="#EDEDED" class="E_Type" opacity="0.6">
     <title>
-      FFM.Device_Type: Model the type of devices in FFM.
+      CNDB.Device_Type: Model the type of devices in CNDB.OMP.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
           y="375"
@@ -118,18 +118,18 @@
           y="375"
     >
       <tspan dx="0" dy="27.0" x="1369">
-        FFM.Device
+        CNDB.Device
       </tspan>
       <tspan dx="9" dy="27.0" x="1369">
         _Type
       </tspan>
     </text>
   </g>
-  <g id="FFM.Device_Type_made_by_Company" fill="#EDEDED" class="E_Type"
+  <g id="CNDB.Device_Type_made_by_Company" fill="#EDEDED" class="E_Type"
      opacity="1.0"
   >
     <title>
-      FFM.Device_Type_made_by_Company: Model manufacturer of device-type.
+      CNDB.Device_Type_made_by_Company: Model manufacturer of device-type.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
           y="375"
@@ -142,9 +142,9 @@
       </tspan>
     </text>
   </g>
-  <g id="FFM.IP4_Network" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.IP4_Network" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.IP4_Network: IPv4 Network of FFM
+      CNDB.IP4_Network: IPv4 Network of CNDB
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
           y="1575"
@@ -153,16 +153,16 @@
           y="1575"
     >
       <tspan dx="0" dy="27.0" x="1369">
-        FFM.IP4
+        CNDB.IP4
       </tspan>
       <tspan dx="9" dy="27.0" x="1369">
         _Network
       </tspan>
     </text>
   </g>
-  <g id="FFM.IP6_Network" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.IP6_Network" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.IP6_Network: IPv6 Network of FFM
+      CNDB.IP6_Network: IPv6 Network of CNDB
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
           y="1575"
@@ -171,16 +171,16 @@
           y="1575"
     >
       <tspan dx="0" dy="27.0" x="1689">
-        FFM.IP6
+        CNDB.IP6
       </tspan>
       <tspan dx="9" dy="27.0" x="1689">
         _Network
       </tspan>
     </text>
   </g>
-  <g id="FFM.IP_Network" fill="#EDEDED" class="E_Type" opacity="0.6">
+  <g id="CNDB.IP_Network" fill="#EDEDED" class="E_Type" opacity="0.6">
     <title>
-      FFM.IP_Network: IP Network of FFM
+      CNDB.IP_Network: IP Network of CNDB
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
           y="1275"
@@ -189,13 +189,16 @@
           y="1275"
     >
       <tspan dx="0" dy="27.0" x="1689">
-        FFM.IP_Network
+        CNDB.IP
+      </tspan>
+      <tspan dx="9" dy="27.0" x="1689">
+        _Network
       </tspan>
     </text>
   </g>
-  <g id="FFM.Net_Device" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Net_Device" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Net_Device: Model a network device of FFM.
+      CNDB.Net_Device: Model a network device of CNDB.OMP.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
           y="675"
@@ -204,13 +207,16 @@
           y="675"
     >
       <tspan dx="0" dy="27.0" x="409">
-        FFM.Net_Device
+        CNDB.Net
+      </tspan>
+      <tspan dx="9" dy="27.0" x="409">
+        _Device
       </tspan>
     </text>
   </g>
-  <g id="FFM.Net_Device_Type" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Net_Device_Type" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Net_Device_Type: Model the type of network devices in FFM.
+      CNDB.Net_Device_Type: Model the type of network devices in CNDB.OMP.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
           y="675"
@@ -219,16 +225,16 @@
           y="675"
     >
       <tspan dx="0" dy="27.0" x="1369">
-        FFM.Net_Device
+        CNDB.Net
       </tspan>
       <tspan dx="9" dy="27.0" x="1369">
-        _Type
+        _Device_Type
       </tspan>
     </text>
   </g>
-  <g id="FFM.Net_Interface" fill="#EDEDED" class="E_Type" opacity="0.6">
+  <g id="CNDB.Net_Interface" fill="#EDEDED" class="E_Type" opacity="0.6">
     <title>
-      FFM.Net_Interface: Model a network interface of a FFM device
+      CNDB.Net_Interface: Model a network interface of a CNDB device
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
           y="975"
@@ -237,18 +243,18 @@
           y="975"
     >
       <tspan dx="0" dy="27.0" x="1049">
-        FFM.Net
+        CNDB.Net
       </tspan>
       <tspan dx="9" dy="27.0" x="1049">
         _Interface
       </tspan>
     </text>
   </g>
-  <g id="FFM.Net_Interface_in_IP_Network" fill="#EDEDED" class="E_Type"
+  <g id="CNDB.Net_Interface_in_IP_Network" fill="#EDEDED" class="E_Type"
      opacity="0.6"
   >
     <title>
-      FFM.Net_Interface_in_IP_Network: Net interface in IP network
+      CNDB.Net_Interface_in_IP_Network: Net interface in IP network
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
           y="975"
@@ -261,9 +267,9 @@
       </tspan>
     </text>
   </g>
-  <g id="FFM.Net_Link" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Net_Link" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Net_Link: Link between two network interfaces.
+      CNDB.Net_Link: Link between two network interfaces.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
           y="1275"
@@ -272,13 +278,13 @@
           y="1275"
     >
       <tspan dx="0" dy="27.0" x="1049">
-        FFM.Net_Link
+        CNDB.Net_Link
       </tspan>
     </text>
   </g>
-  <g id="FFM.Node" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Node" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Node: Model a node of FFM
+      CNDB.Node: Model a node of CNDB
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
           y="375"
@@ -287,13 +293,13 @@
           y="375"
     >
       <tspan dx="0" dy="27.0" x="409">
-        FFM.Node
+        CNDB.Node
       </tspan>
     </text>
   </g>
-  <g id="FFM.Wired_Interface" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Wired_Interface" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Wired_Interface: Wired interface of a FFM device
+      CNDB.Wired_Interface: Wired interface of a CNDB device
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
           y="975"
@@ -302,32 +308,34 @@
           y="975"
     >
       <tspan dx="0" dy="27.0" x="1369">
-        FFM.Wired
+        CNDB.Wired
       </tspan>
       <tspan dx="9" dy="27.0" x="1369">
         _Interface
       </tspan>
     </text>
   </g>
-  <g id="FFM.Wireless_Channel" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Wireless_Channel" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Wireless_Channel: Wireless channel of a wireless standard
+      CNDB.Wireless_Channel: Wireless channel of a wireless standard
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
           y="975"
     />
     <text fill="#003" font-family="sans-serif" font-size="18" x="89" y="975">
       <tspan dx="0" dy="27.0" x="89">
-        FFM.Wireless
+        CNDB.Wireless
       </tspan>
       <tspan dx="9" dy="27.0" x="89">
         _Channel
       </tspan>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Wireless_Interface" fill="#EDEDED" class="E_Type"
+     opacity="1.0"
+  >
     <title>
-      FFM.Wireless_Interface: Wireless interface of a FFM device
+      CNDB.Wireless_Interface: Wireless interface of a CNDB device
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
           y="975"
@@ -336,18 +344,18 @@
           y="975"
     >
       <tspan dx="0" dy="27.0" x="729">
-        FFM.Wireless
+        CNDB.Wireless
       </tspan>
       <tspan dx="9" dy="27.0" x="729">
         _Interface
       </tspan>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface_uses_Antenna" fill="#EDEDED" class="E_Type"
+  <g id="CNDB.Wireless_Interface_uses_Antenna" fill="#EDEDED" class="E_Type"
      opacity="1.0"
   >
     <title>
-      FFM.Wireless_Interface_uses_Antenna: Antenna used by a wireless interface
+      CNDB.Wireless_Interface_uses_Antenna: Antenna used by a wireless interface
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
           y="675"
@@ -358,11 +366,11 @@
       </tspan>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface_uses_Wireless_Channel" fill="#EDEDED"
+  <g id="CNDB.Wireless_Interface_uses_Wireless_Channel" fill="#EDEDED"
      class="E_Type" opacity="1.0"
   >
     <title>
-      FFM.Wireless_Interface_uses_Wireless_Channel: Wireless channel used by a wireless interface
+      CNDB.Wireless_Interface_uses_Wireless_Channel: Wireless channel used by a wireless interface
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
           y="975"
@@ -375,9 +383,9 @@
       </tspan>
     </text>
   </g>
-  <g id="FFM.Wireless_Standard" fill="#EDEDED" class="E_Type" opacity="1.0">
+  <g id="CNDB.Wireless_Standard" fill="#EDEDED" class="E_Type" opacity="1.0">
     <title>
-      FFM.Wireless_Standard: Wireless standard
+      CNDB.Wireless_Standard: Wireless standard
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
           y="1275"
@@ -386,16 +394,16 @@
           y="1275"
     >
       <tspan dx="0" dy="27.0" x="89">
-        FFM.Wireless
+        CNDB.Wireless
       </tspan>
       <tspan dx="9" dy="27.0" x="89">
         _Standard
       </tspan>
     </text>
   </g>
-  <g id="FFM._Net_Credentials_" fill="#EDEDED" class="E_Type" opacity="0.6">
+  <g id="CNDB._Net_Credentials_" fill="#EDEDED" class="E_Type" opacity="0.6">
     <title>
-      FFM._Net_Credentials_: Model credentials used by a Net_Interface, e.g., `802.1x`
+      CNDB._Net_Credentials_: Model credentials used by a Net_Interface, e.g., `802.1x`
              authentication for a wired interface, or WPA authentication for a WiFi
              interface.
           
@@ -407,7 +415,7 @@
           y="675"
     >
       <tspan dx="0" dy="27.0" x="1689">
-        FFM._Net
+        CNDB._Net
       </tspan>
       <tspan dx="9" dy="27.0" x="1689">
         _Credentials_
@@ -459,21 +467,21 @@
       </tspan>
     </text>
   </g>
-  <g id="FFM.Antenna.left:FFM.Antenna_Type" opacity="1.0">
+  <g id="CNDB.Antenna.left:CNDB.Antenna_Type" opacity="1.0">
     <title>
-      FFM.Antenna role antenna_type: Type of antenna
+      CNDB.Antenna role antenna_type: Type of Antenna
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="240,125 1360,125" stroke="#666" stroke-width="5"
     />
     <path d="M 240 125 L 1360 125"
-          id="FFM.Antenna.left:FFM.Antenna_Type::path" fill="none"
+          id="CNDB.Antenna.left:CNDB.Antenna_Type::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Antenna.left:FFM.Antenna_Type::path"
+                xlink:href="#CNDB.Antenna.left:CNDB.Antenna_Type::path"
       >
         <tspan dy="-7.0">
           left
@@ -481,14 +489,14 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Antenna:is_a:FFM.Device" opacity="1.0">
+  <g id="CNDB.Antenna:is_a:CNDB.Device" opacity="1.0">
     <title>
-      FFM.Antenna is-a FFM.Device: FFM.Antenna is derived from FFM.Device
+      CNDB.Antenna is-a CNDB.Device: CNDB.Antenna is derived from CNDB.Device
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)" points="120,175 120,375"
               stroke="#08D" stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 120 175 L 120 375" id="FFM.Antenna:is_a:FFM.Device::path"
+    <path d="M 120 175 L 120 375" id="CNDB.Antenna:is_a:CNDB.Device::path"
           fill="none" stroke="none"
     >
     </path>
@@ -496,7 +504,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Antenna:is_a:FFM.Device::path"
+                xlink:href="#CNDB.Antenna:is_a:CNDB.Device::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -504,21 +512,21 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Antenna_Band.left:FFM.Antenna_Type" opacity="1.0">
+  <g id="CNDB.Antenna_Band.left:CNDB.Antenna_Type" opacity="1.0">
     <title>
-      FFM.Antenna_Band role antenna_type: The antenna type for this band
+      CNDB.Antenna_Band role antenna_type: The antenna type for this band
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1680,125 1520,125" stroke="#666" stroke-width="5"
     />
     <path d="M 1520 125 L 1680 125"
-          id="FFM.Antenna_Band.left:FFM.Antenna_Type::path" fill="none"
+          id="CNDB.Antenna_Band.left:CNDB.Antenna_Type::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="90%" text-anchor="end"
-                xlink:href="#FFM.Antenna_Band.left:FFM.Antenna_Type::path"
+                xlink:href="#CNDB.Antenna_Band.left:CNDB.Antenna_Type::path"
       >
         <tspan dy="-7.0">
           left
@@ -526,16 +534,16 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Antenna_Type:is_a:FFM.Device_Type" opacity="1.0">
+  <g id="CNDB.Antenna_Type:is_a:CNDB.Device_Type" opacity="1.0">
     <title>
-      FFM.Antenna_Type is-a FFM.Device_Type: FFM.Antenna_Type is derived from FFM.Device_Type
+      CNDB.Antenna_Type is-a CNDB.Device_Type: CNDB.Antenna_Type is derived from CNDB.Device_Type
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="1480,175 1480,375" stroke="#08D" stroke-opacity="0.45"
               stroke-width="5"
     />
     <path d="M 1480 175 L 1480 375"
-          id="FFM.Antenna_Type:is_a:FFM.Device_Type::path" fill="none"
+          id="CNDB.Antenna_Type:is_a:CNDB.Device_Type::path" fill="none"
           stroke="none"
     >
     </path>
@@ -543,7 +551,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Antenna_Type:is_a:FFM.Device_Type::path"
+                xlink:href="#CNDB.Antenna_Type:is_a:CNDB.Device_Type::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -551,21 +559,22 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Device.left:FFM.Device_Type" opacity="1.0">
+  <g id="CNDB.Device.left:CNDB.Device_Type" opacity="1.0">
     <title>
-      FFM.Device role type: Type of Device
+      CNDB.Device role type: Type of Device
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="200,375 200,275 1400,275 1400,375" stroke="#666"
               stroke-width="5"
     />
-    <path d="M 200 375 L 200 275" id="FFM.Device.left:FFM.Device_Type::path"
-          fill="none" stroke="none"
+    <path d="M 200 375 L 200 275"
+          id="CNDB.Device.left:CNDB.Device_Type::path" fill="none"
+          stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Device.left:FFM.Device_Type::path"
+                xlink:href="#CNDB.Device.left:CNDB.Device_Type::path"
       >
         <tspan dy="-7.0">
           left
@@ -573,21 +582,23 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Device_Type_made_by_Company.left:FFM.Device_Type" opacity="1.0">
+  <g id="CNDB.Device_Type_made_by_Company.left:CNDB.Device_Type"
+     opacity="1.0"
+  >
     <title>
-      FFM.Device_Type_made_by_Company role device_type: Device type.
+      CNDB.Device_Type_made_by_Company role device_type: Device type.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1200,425 1360,425" stroke="#666" stroke-width="5"
     />
     <path d="M 1200 425 L 1360 425"
-          id="FFM.Device_Type_made_by_Company.left:FFM.Device_Type::path"
+          id="CNDB.Device_Type_made_by_Company.left:CNDB.Device_Type::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Device_Type_made_by_Company.left:FFM.Device_Type::path"
+                xlink:href="#CNDB.Device_Type_made_by_Company.left:CNDB.Device_Type::path"
       >
         <tspan dy="-7.0">
           left
@@ -596,7 +607,7 @@
     </text>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Device_Type_made_by_Company.left:FFM.Device_Type::path"
+                xlink:href="#CNDB.Device_Type_made_by_Company.left:CNDB.Device_Type::path"
       >
         <tspan dy="18">
           0 .. 1
@@ -604,21 +615,21 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Device_Type_made_by_Company.right:PAP.Company" opacity="1.0">
+  <g id="CNDB.Device_Type_made_by_Company.right:PAP.Company" opacity="1.0">
     <title>
-      FFM.Device_Type_made_by_Company role manufacturer: Company manufacturing the device-type.
+      CNDB.Device_Type_made_by_Company role manufacturer: Company manufacturing the device-type.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1120,475 1120,675" stroke="#666" stroke-width="5"
     />
     <path d="M 1120 475 L 1120 675"
-          id="FFM.Device_Type_made_by_Company.right:PAP.Company::path"
+          id="CNDB.Device_Type_made_by_Company.right:PAP.Company::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Device_Type_made_by_Company.right:PAP.Company::path"
+                xlink:href="#CNDB.Device_Type_made_by_Company.right:PAP.Company::path"
       >
         <tspan dy="-7.0">
           right
@@ -626,16 +637,16 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.IP4_Network:is_a:FFM.IP_Network" opacity="1.0">
+  <g id="CNDB.IP4_Network:is_a:CNDB.IP_Network" opacity="1.0">
     <title>
-      FFM.IP4_Network is-a FFM.IP_Network: FFM.IP4_Network is derived from FFM.IP_Network
+      CNDB.IP4_Network is-a CNDB.IP_Network: CNDB.IP4_Network is derived from CNDB.IP_Network
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="1440,1575 1440,1550 1720,1550 1720,1375" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
     <path d="M 1440 1550 L 1720 1550"
-          id="FFM.IP4_Network:is_a:FFM.IP_Network::path" fill="none"
+          id="CNDB.IP4_Network:is_a:CNDB.IP_Network::path" fill="none"
           stroke="none"
     >
     </path>
@@ -643,7 +654,7 @@
           font-size="18"
     >
       <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#FFM.IP4_Network:is_a:FFM.IP_Network::path"
+                xlink:href="#CNDB.IP4_Network:is_a:CNDB.IP_Network::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -651,16 +662,16 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.IP6_Network:is_a:FFM.IP_Network" opacity="1.0">
+  <g id="CNDB.IP6_Network:is_a:CNDB.IP_Network" opacity="1.0">
     <title>
-      FFM.IP6_Network is-a FFM.IP_Network: FFM.IP6_Network is derived from FFM.IP_Network
+      CNDB.IP6_Network is-a CNDB.IP_Network: CNDB.IP6_Network is derived from CNDB.IP_Network
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="1800,1575 1800,1375" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
     <path d="M 1800 1575 L 1800 1375"
-          id="FFM.IP6_Network:is_a:FFM.IP_Network::path" fill="none"
+          id="CNDB.IP6_Network:is_a:CNDB.IP_Network::path" fill="none"
           stroke="none"
     >
     </path>
@@ -668,7 +679,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.IP6_Network:is_a:FFM.IP_Network::path"
+                xlink:href="#CNDB.IP6_Network:is_a:CNDB.IP_Network::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -676,22 +687,22 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Device.left:FFM.Net_Device_Type" opacity="1.0">
+  <g id="CNDB.Net_Device.left:CNDB.Net_Device_Type" opacity="1.0">
     <title>
-      FFM.Net_Device role net_device_type: Type of net device
+      CNDB.Net_Device role net_device_type: Type of Net_Device
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="520,775 520,825 1440,825 1440,775" stroke="#666"
               stroke-width="5"
     />
     <path d="M 520 775 L 520 825"
-          id="FFM.Net_Device.left:FFM.Net_Device_Type::path" fill="none"
+          id="CNDB.Net_Device.left:CNDB.Net_Device_Type::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Device.left:FFM.Net_Device_Type::path"
+                xlink:href="#CNDB.Net_Device.left:CNDB.Net_Device_Type::path"
       >
         <tspan dy="-7.0">
           left
@@ -699,15 +710,15 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Device.node:FFM.Node" opacity="1.0">
+  <g id="CNDB.Net_Device.node:CNDB.Node" opacity="1.0">
     <title>
-      FFM.Net_Device attribute node: `Node` to which the `net_device` is connected.
+      CNDB.Net_Device attribute node: `Node` to which the `net_device` is connected.
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
               points="520,675 520,475" stroke="#FFA022" stroke-opacity="0.7"
               stroke-width="5"
     />
-    <path d="M 520 675 L 520 475" id="FFM.Net_Device.node:FFM.Node::path"
+    <path d="M 520 675 L 520 475" id="CNDB.Net_Device.node:CNDB.Node::path"
           fill="none" stroke="none"
     >
     </path>
@@ -715,7 +726,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Device.node:FFM.Node::path"
+                xlink:href="#CNDB.Net_Device.node:CNDB.Node::path"
       >
         <tspan dy="-7.0">
           node
@@ -726,7 +737,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Device.node:FFM.Node::path"
+                xlink:href="#CNDB.Net_Device.node:CNDB.Node::path"
       >
         <tspan dy="18">
           [primary]
@@ -734,23 +745,24 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Device:is_a:FFM.Device" opacity="1.0">
+  <g id="CNDB.Net_Device:is_a:CNDB.Device" opacity="1.0">
     <title>
-      FFM.Net_Device is-a FFM.Device: FFM.Net_Device is derived from FFM.Device
+      CNDB.Net_Device is-a CNDB.Device: CNDB.Net_Device is derived from CNDB.Device
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="440,675 440,650 160,650 160,475" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 160 650 L 440 650" id="FFM.Net_Device:is_a:FFM.Device::path"
-          fill="none" stroke="none"
+    <path d="M 160 650 L 440 650"
+          id="CNDB.Net_Device:is_a:CNDB.Device::path" fill="none"
+          stroke="none"
     >
     </path>
     <text fill="#08D" fill-opacity="0.45" font-family="sans-serif"
           font-size="18"
     >
       <textPath startOffset="90%" text-anchor="end"
-                xlink:href="#FFM.Net_Device:is_a:FFM.Device::path"
+                xlink:href="#CNDB.Net_Device:is_a:CNDB.Device::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -758,16 +770,16 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Device_Type:is_a:FFM.Device_Type" opacity="1.0">
+  <g id="CNDB.Net_Device_Type:is_a:CNDB.Device_Type" opacity="1.0">
     <title>
-      FFM.Net_Device_Type is-a FFM.Device_Type: FFM.Net_Device_Type is derived from FFM.Device_Type
+      CNDB.Net_Device_Type is-a CNDB.Device_Type: CNDB.Net_Device_Type is derived from CNDB.Device_Type
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="1440,675 1440,475" stroke="#08D" stroke-opacity="0.45"
               stroke-width="5"
     />
     <path d="M 1440 675 L 1440 475"
-          id="FFM.Net_Device_Type:is_a:FFM.Device_Type::path" fill="none"
+          id="CNDB.Net_Device_Type:is_a:CNDB.Device_Type::path" fill="none"
           stroke="none"
     >
     </path>
@@ -775,7 +787,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Device_Type:is_a:FFM.Device_Type::path"
+                xlink:href="#CNDB.Net_Device_Type:is_a:CNDB.Device_Type::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -783,22 +795,22 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Interface.left:FFM.Net_Device" opacity="1.0">
+  <g id="CNDB.Net_Interface.left:CNDB.Net_Device" opacity="1.0">
     <title>
-      FFM.Net_Interface role device: Network device the interface is connected to.
+      CNDB.Net_Interface role device: Network device the interface is connected to.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1080,975 1080,875 440,875 440,775" stroke="#666"
               stroke-width="5"
     />
     <path d="M 1080 975 L 1080 875"
-          id="FFM.Net_Interface.left:FFM.Net_Device::path" fill="none"
+          id="CNDB.Net_Interface.left:CNDB.Net_Device::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Interface.left:FFM.Net_Device::path"
+                xlink:href="#CNDB.Net_Interface.left:CNDB.Net_Device::path"
       >
         <tspan dy="-7.0">
           left
@@ -806,24 +818,24 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Interface_in_IP_Network.left:FFM.Net_Interface"
+  <g id="CNDB.Net_Interface_in_IP_Network.left:CNDB.Net_Interface"
      opacity="1.0"
   >
     <title>
-      FFM.Net_Interface_in_IP_Network role net_interface: Network interface.
+      CNDB.Net_Interface_in_IP_Network role net_interface: Network interface.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1760,975 1760,925 1160,925 1160,975" stroke="#666"
               stroke-width="5"
     />
     <path d="M 1760 975 L 1760 925"
-          id="FFM.Net_Interface_in_IP_Network.left:FFM.Net_Interface::path"
+          id="CNDB.Net_Interface_in_IP_Network.left:CNDB.Net_Interface::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Interface_in_IP_Network.left:FFM.Net_Interface::path"
+                xlink:href="#CNDB.Net_Interface_in_IP_Network.left:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
           left
@@ -831,21 +843,23 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Interface_in_IP_Network.right:FFM.IP_Network" opacity="1.0">
+  <g id="CNDB.Net_Interface_in_IP_Network.right:CNDB.IP_Network"
+     opacity="1.0"
+  >
     <title>
-      FFM.Net_Interface_in_IP_Network role ip_network: IP Network.
+      CNDB.Net_Interface_in_IP_Network role ip_network: IP Network.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1760,1075 1760,1275" stroke="#666" stroke-width="5"
     />
     <path d="M 1760 1075 L 1760 1275"
-          id="FFM.Net_Interface_in_IP_Network.right:FFM.IP_Network::path"
+          id="CNDB.Net_Interface_in_IP_Network.right:CNDB.IP_Network::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Interface_in_IP_Network.right:FFM.IP_Network::path"
+                xlink:href="#CNDB.Net_Interface_in_IP_Network.right:CNDB.IP_Network::path"
       >
         <tspan dy="-7.0">
           right
@@ -854,7 +868,7 @@
     </text>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Interface_in_IP_Network.right:FFM.IP_Network::path"
+                xlink:href="#CNDB.Net_Interface_in_IP_Network.right:CNDB.IP_Network::path"
       >
         <tspan dy="18">
           0 .. 1
@@ -862,21 +876,21 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Link.left:FFM.Net_Interface" opacity="1.0">
+  <g id="CNDB.Net_Link.left:CNDB.Net_Interface" opacity="1.0">
     <title>
-      FFM.Net_Link role left: Left network interface
+      CNDB.Net_Link role left: Left network interface
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1080,1275 1080,1075" stroke="#666" stroke-width="5"
     />
     <path d="M 1080 1275 L 1080 1075"
-          id="FFM.Net_Link.left:FFM.Net_Interface::path" fill="none"
+          id="CNDB.Net_Link.left:CNDB.Net_Interface::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Link.left:FFM.Net_Interface::path"
+                xlink:href="#CNDB.Net_Link.left:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
           left
@@ -884,21 +898,21 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Net_Link.right:FFM.Net_Interface" opacity="1.0">
+  <g id="CNDB.Net_Link.right:CNDB.Net_Interface" opacity="1.0">
     <title>
-      FFM.Net_Link role right: Right network interface
+      CNDB.Net_Link role right: Right network interface
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1160,1275 1160,1075" stroke="#666" stroke-width="5"
     />
     <path d="M 1160 1275 L 1160 1075"
-          id="FFM.Net_Link.right:FFM.Net_Interface::path" fill="none"
+          id="CNDB.Net_Link.right:CNDB.Net_Interface::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Net_Link.right:FFM.Net_Interface::path"
+                xlink:href="#CNDB.Net_Link.right:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
           right
@@ -906,15 +920,15 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Node.manager:PAP.Person" opacity="1.0">
+  <g id="CNDB.Node.manager:PAP.Person" opacity="1.0">
     <title>
-      FFM.Node attribute manager: Manager of the node
+      CNDB.Node attribute manager: Manager of the node
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
               points="480,375 480,350 800,350 800,375" stroke="#FFA022"
               stroke-opacity="0.7" stroke-width="5"
     />
-    <path d="M 480 350 L 800 350" id="FFM.Node.manager:PAP.Person::path"
+    <path d="M 480 350 L 800 350" id="CNDB.Node.manager:PAP.Person::path"
           fill="none" stroke="none"
     >
     </path>
@@ -922,7 +936,7 @@
           font-size="18"
     >
       <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#FFM.Node.manager:PAP.Person::path"
+                xlink:href="#CNDB.Node.manager:PAP.Person::path"
       >
         <tspan dy="-7.0">
           manager
@@ -933,7 +947,7 @@
           font-size="18"
     >
       <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#FFM.Node.manager:PAP.Person::path"
+                xlink:href="#CNDB.Node.manager:PAP.Person::path"
       >
         <tspan dy="18">
           [required]
@@ -941,15 +955,15 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Node.owner:PAP.Subject" opacity="1.0">
+  <g id="CNDB.Node.owner:PAP.Subject" opacity="1.0">
     <title>
-      FFM.Node attribute owner: Owner of the node, defaults to manager
+      CNDB.Node attribute owner: Owner of the node, defaults to manager
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
               points="560,400 680,400 680,700 720,700" stroke="#FFA022"
               stroke-opacity="0.7" stroke-width="5"
     />
-    <path d="M 560 400 L 680 400" id="FFM.Node.owner:PAP.Subject::path"
+    <path d="M 560 400 L 680 400" id="CNDB.Node.owner:PAP.Subject::path"
           fill="none" stroke="none"
     >
     </path>
@@ -957,7 +971,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Node.owner:PAP.Subject::path"
+                xlink:href="#CNDB.Node.owner:PAP.Subject::path"
       >
         <tspan dy="-7.0">
           owner
@@ -968,7 +982,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Node.owner:PAP.Subject::path"
+                xlink:href="#CNDB.Node.owner:PAP.Subject::path"
       >
         <tspan dy="18">
           [optional]
@@ -976,15 +990,15 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Node:is_a:PAP.Subject" opacity="1.0">
+  <g id="CNDB.Node:is_a:PAP.Subject" opacity="1.0">
     <title>
-      FFM.Node is-a PAP.Subject: FFM.Node is derived from PAP.Subject
+      CNDB.Node is-a PAP.Subject: CNDB.Node is derived from PAP.Subject
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="560,450 600,450 600,750 720,750" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 600 450 L 600 750" id="FFM.Node:is_a:PAP.Subject::path"
+    <path d="M 600 450 L 600 750" id="CNDB.Node:is_a:PAP.Subject::path"
           fill="none" stroke="none"
     >
     </path>
@@ -992,7 +1006,7 @@
           font-size="18"
     >
       <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#FFM.Node:is_a:PAP.Subject::path"
+                xlink:href="#CNDB.Node:is_a:PAP.Subject::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -1000,24 +1014,24 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Wired_Interface:is_a:FFM.Net_Interface" opacity="1.0">
+  <g id="CNDB.Wired_Interface:is_a:CNDB.Net_Interface" opacity="1.0">
     <title>
-      FFM.Wired_Interface is-a FFM.Net_Interface: FFM.Wired_Interface is derived from FFM.Net_Interface
+      CNDB.Wired_Interface is-a CNDB.Net_Interface: CNDB.Wired_Interface is derived from CNDB.Net_Interface
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="1360,1025 1200,1025" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
     <path d="M 1200 1025 L 1360 1025"
-          id="FFM.Wired_Interface:is_a:FFM.Net_Interface::path" fill="none"
-          stroke="none"
+          id="CNDB.Wired_Interface:is_a:CNDB.Net_Interface::path"
+          fill="none" stroke="none"
     >
     </path>
     <text fill="#08D" fill-opacity="0.45" font-family="sans-serif"
           font-size="18"
     >
       <textPath startOffset="90%" text-anchor="end"
-                xlink:href="#FFM.Wired_Interface:is_a:FFM.Net_Interface::path"
+                xlink:href="#CNDB.Wired_Interface:is_a:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -1025,21 +1039,21 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Wireless_Channel.left:FFM.Wireless_Standard" opacity="1.0">
+  <g id="CNDB.Wireless_Channel.left:CNDB.Wireless_Standard" opacity="1.0">
     <title>
-      FFM.Wireless_Channel role standard: The wireless standard for this channel
+      CNDB.Wireless_Channel role standard: The wireless standard for this channel
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="160,1075 160,1275" stroke="#666" stroke-width="5"
     />
     <path d="M 160 1075 L 160 1275"
-          id="FFM.Wireless_Channel.left:FFM.Wireless_Standard::path"
+          id="CNDB.Wireless_Channel.left:CNDB.Wireless_Standard::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Wireless_Channel.left:FFM.Wireless_Standard::path"
+                xlink:href="#CNDB.Wireless_Channel.left:CNDB.Wireless_Standard::path"
       >
         <tspan dy="-7.0">
           left
@@ -1047,16 +1061,16 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface:is_a:FFM.Net_Interface" opacity="1.0">
+  <g id="CNDB.Wireless_Interface:is_a:CNDB.Net_Interface" opacity="1.0">
     <title>
-      FFM.Wireless_Interface is-a FFM.Net_Interface: FFM.Wireless_Interface is derived from FFM.Net_Interface
+      CNDB.Wireless_Interface is-a CNDB.Net_Interface: CNDB.Wireless_Interface is derived from CNDB.Net_Interface
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
               points="880,1025 1040,1025" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
     <path d="M 880 1025 L 1040 1025"
-          id="FFM.Wireless_Interface:is_a:FFM.Net_Interface::path"
+          id="CNDB.Wireless_Interface:is_a:CNDB.Net_Interface::path"
           fill="none" stroke="none"
     >
     </path>
@@ -1064,7 +1078,7 @@
           font-size="18"
     >
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Wireless_Interface:is_a:FFM.Net_Interface::path"
+                xlink:href="#CNDB.Wireless_Interface:is_a:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -1072,24 +1086,24 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface_uses_Antenna.left:FFM.Wireless_Interface"
+  <g id="CNDB.Wireless_Interface_uses_Antenna.left:CNDB.Wireless_Interface"
      opacity="1.0"
   >
     <title>
-      FFM.Wireless_Interface_uses_Antenna role wireless_interface: Wireless interface.
+      CNDB.Wireless_Interface_uses_Antenna role wireless_interface: Wireless interface.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="160,775 160,925 800,925 800,975" stroke="#666"
               stroke-width="5"
     />
     <path d="M 160 775 L 160 925"
-          id="FFM.Wireless_Interface_uses_Antenna.left:FFM.Wireless_Interface::path"
+          id="CNDB.Wireless_Interface_uses_Antenna.left:CNDB.Wireless_Interface::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Wireless_Interface_uses_Antenna.left:FFM.Wireless_Interface::path"
+                xlink:href="#CNDB.Wireless_Interface_uses_Antenna.left:CNDB.Wireless_Interface::path"
       >
         <tspan dy="-7.0">
           left
@@ -1097,24 +1111,24 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface_uses_Antenna.right:FFM.Antenna"
+  <g id="CNDB.Wireless_Interface_uses_Antenna.right:CNDB.Antenna"
      opacity="1.0"
   >
     <title>
-      FFM.Wireless_Interface_uses_Antenna role antenna: Antenna.
+      CNDB.Wireless_Interface_uses_Antenna role antenna: Antenna.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="80,725 40,725 40,125 80,125" stroke="#666"
               stroke-width="5"
     />
     <path d="M 40 725 L 40 125"
-          id="FFM.Wireless_Interface_uses_Antenna.right:FFM.Antenna::path"
+          id="CNDB.Wireless_Interface_uses_Antenna.right:CNDB.Antenna::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#FFM.Wireless_Interface_uses_Antenna.right:FFM.Antenna::path"
+                xlink:href="#CNDB.Wireless_Interface_uses_Antenna.right:CNDB.Antenna::path"
       >
         <tspan dy="-7.0">
           right
@@ -1123,7 +1137,7 @@
     </text>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#FFM.Wireless_Interface_uses_Antenna.right:FFM.Antenna::path"
+                xlink:href="#CNDB.Wireless_Interface_uses_Antenna.right:CNDB.Antenna::path"
       >
         <tspan dy="18">
           0 .. 1
@@ -1131,23 +1145,23 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface_uses_Wireless_Channel.left:FFM.Wireless_Interface"
+  <g id="CNDB.Wireless_Interface_uses_Wireless_Channel.left:CNDB.Wireless_Interface"
      opacity="1.0"
   >
     <title>
-      FFM.Wireless_Interface_uses_Wireless_Channel role interface: Wireless interface.
+      CNDB.Wireless_Interface_uses_Wireless_Channel role interface: Wireless interface.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="560,1025 720,1025" stroke="#666" stroke-width="5"
     />
     <path d="M 560 1025 L 720 1025"
-          id="FFM.Wireless_Interface_uses_Wireless_Channel.left:FFM.Wireless_Interface::path"
+          id="CNDB.Wireless_Interface_uses_Wireless_Channel.left:CNDB.Wireless_Interface::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM.Wireless_Interface_uses_Wireless_Channel.left:FFM.Wireless_Interface::path"
+                xlink:href="#CNDB.Wireless_Interface_uses_Wireless_Channel.left:CNDB.Wireless_Interface::path"
       >
         <tspan dy="-7.0">
           left
@@ -1155,23 +1169,23 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM.Wireless_Interface_uses_Wireless_Channel.right:FFM.Wireless_Channel"
+  <g id="CNDB.Wireless_Interface_uses_Wireless_Channel.right:CNDB.Wireless_Channel"
      opacity="1.0"
   >
     <title>
-      FFM.Wireless_Interface_uses_Wireless_Channel role channel: Wireless channel.
+      CNDB.Wireless_Interface_uses_Wireless_Channel role channel: Wireless channel.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="400,1025 240,1025" stroke="#666" stroke-width="5"
     />
     <path d="M 240 1025 L 400 1025"
-          id="FFM.Wireless_Interface_uses_Wireless_Channel.right:FFM.Wireless_Channel::path"
+          id="CNDB.Wireless_Interface_uses_Wireless_Channel.right:CNDB.Wireless_Channel::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="90%" text-anchor="end"
-                xlink:href="#FFM.Wireless_Interface_uses_Wireless_Channel.right:FFM.Wireless_Channel::path"
+                xlink:href="#CNDB.Wireless_Interface_uses_Wireless_Channel.right:CNDB.Wireless_Channel::path"
       >
         <tspan dy="-7.0">
           right
@@ -1179,22 +1193,22 @@
       </textPath>
     </text>
   </g>
-  <g id="FFM._Net_Credentials_.left:FFM.Net_Interface" opacity="1.0">
+  <g id="CNDB._Net_Credentials_.left:CNDB.Net_Interface" opacity="1.0">
     <title>
-      FFM._Net_Credentials_ role interface: The network interface using these credentials.
+      CNDB._Net_Credentials_ role interface: The network interface using these credentials.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
               points="1760,775 1760,875 1120,875 1120,975" stroke="#666"
               stroke-width="5"
     />
     <path d="M 1760 775 L 1760 875"
-          id="FFM._Net_Credentials_.left:FFM.Net_Interface::path"
+          id="CNDB._Net_Credentials_.left:CNDB.Net_Interface::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM._Net_Credentials_.left:FFM.Net_Interface::path"
+                xlink:href="#CNDB._Net_Credentials_.left:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
           left
@@ -1203,7 +1217,7 @@
     </text>
     <text fill="#666" font-family="sans-serif" font-size="18">
       <textPath startOffset="10%" text-anchor="start"
-                xlink:href="#FFM._Net_Credentials_.left:FFM.Net_Interface::path"
+                xlink:href="#CNDB._Net_Credentials_.left:CNDB.Net_Interface::path"
       >
         <tspan dy="18">
           0 .. 1

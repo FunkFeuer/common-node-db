@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package GTW.OMP.SRM.
@@ -176,7 +176,7 @@ class Command (MOM.Graph.Command) :
         )
 
     def _app_dir_default (self) :
-        return sos.path.normpath (sos.path.join (self.app_dir, "..", "doc"))
+        return sos.path.normpath (sos.path.join (self.app_dir, "../..", "doc"))
     # end def _app_dir_default
 
 # end class Command
