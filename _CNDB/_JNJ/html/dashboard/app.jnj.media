@@ -27,6 +27,7 @@
 #     9-Apr-2014 (CT) Creation
 #     2-May-2014 (CT) Add rules for `form.login`, `form.logout`
 #    14-May-2014 (CT) Factor rules for `form` to `JNJ/html/mf3.m.jnj.media`
+#     9-Jul-2014 (CT) Add rule for ".rotate-45-left"
 #    ««revision-date»»···
 #--
 
@@ -462,6 +463,10 @@ style_sheet = Style_Sheet \
                 , background_color = "#1B1B1B"
                 )
             ]
+        )
+    , Rule
+        ( ".rotate-45-left"
+        , P.Rule.rotate_45_left
         )
     , Rule
         ( ".small"

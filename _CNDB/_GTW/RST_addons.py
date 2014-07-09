@@ -811,7 +811,12 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     class _Field_Type_ (_Field_Ref_) :
 
+        icon_map = dict \
+            ( W  = """<i class="fa fa-rss rotate-45-left" title="WiFi"></i>"""
+            )
+
         ref_name = "type"
+
         typ_map  = \
             { "CNDB.Virtual_Wireless_Interface" : "V"
             , "CNDB.Wired_Interface"            : "L"
@@ -819,7 +824,10 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             }
 
         def value (self, o) :
-            return self.typ_map.get (o.type_name, o.ui_name_T)
+            result = self.typ_map.get (o.type_name, o.ui_name_T)
+            if result in self.icon_map :
+                result = self.icon_map [result]
+            return result
         # end def value
 
     # end class _Field_Type_
