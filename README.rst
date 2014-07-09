@@ -26,8 +26,8 @@ This object model (in SVG format) is automagically rendered using
 .. _`nodedb.svg`: https://github.com/CNDB/CNDB/blob/master/doc/nodedb.png
 .. _`graph.py`: https://github.com/CNDB/CNDB/blob/master/_CNDB/_OMP/graph.py
 
-.. image:: https://raw.github.com/CNDB/CNDB/blob/master/doc/nodedb.png
-    :alt: Object model SVG
+.. image:: https://raw.githubusercontent.com/CNDB/CNDB/master/doc/nodedb.png
+    :alt: Object model graph
     :target: https://github.com/CNDB/CNDB/blob/master/doc/nodedb.png
 
 Some notes on the object model: We try to keep only the relevant
