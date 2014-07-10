@@ -2,7 +2,7 @@
 # Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
-# This module is part of the package CNDB.OMP.
+# This module is part of the package CNDB.GTW.
 #
 # This module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -72,12 +72,12 @@
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
 from   _CNDB                    import CNDB
-import _CNDB._OMP
 from   _GTW                     import GTW
 from   _JNJ                     import JNJ
 from   _MOM                     import MOM
 from   _TFL                     import TFL
 
+import _CNDB._GTW
 import _CNDB._OMP.import_CNDB
 
 from   _GTW._MF3                import Element as MF3
