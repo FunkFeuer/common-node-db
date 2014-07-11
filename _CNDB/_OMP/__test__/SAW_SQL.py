@@ -6148,7 +6148,7 @@ _test_tables = """
         Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
     CNDB.IP4_Pool (MOM.Id_Entity) <Table cndb_ip4_pool>
         Column __raw_name                : Varchar(40)          Primary__Raw_Value String name
-        Column cool_down_period          : Text                 Optional Time Delta cool_down_period
+        Column cool_down_period          : Float                Optional Time Delta cool_down_period
         Column name                      : Varchar(40)          Primary__Raw_Value String name
         Column netmask_interval__lower   : Integer              Necessary__Nested Int lower
         Column netmask_interval__upper   : Integer              Necessary__Computed_Set__Nested Int upper
@@ -6169,7 +6169,7 @@ _test_tables = """
         Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
     CNDB.IP6_Pool (MOM.Id_Entity) <Table cndb_ip6_pool>
         Column __raw_name                : Varchar(40)          Primary__Raw_Value String name
-        Column cool_down_period          : Text                 Optional Time Delta cool_down_period
+        Column cool_down_period          : Float                Optional Time Delta cool_down_period
         Column name                      : Varchar(40)          Primary__Raw_Value String name
         Column netmask_interval__lower   : Integer              Necessary__Nested Int lower
         Column netmask_interval__upper   : Integer              Necessary__Computed_Set__Nested Int upper
