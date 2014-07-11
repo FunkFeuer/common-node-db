@@ -39,6 +39,7 @@
 ##     5-May-2014 (CT) Add `nav_menu_dashboard`;
 ##                     honor `user` in `nav_menu_person` and `nav_menu_links`
 ##     5-May-2014 (CT) Add guard to `db_node_map`, use `db_node.position`
+##    11-Jul-2014 (CT) Add guard for `pos` to `db_node_map`
 ##    ««revision-date»»···
 ##--
 #}
@@ -76,36 +77,38 @@
   {%- if db_type.objects %}
     {%- set pos = db_type.position %}
     {%- set tn  = db_type.div_name %}
-    {%- set nn = GTW.len (db_type.objects) %}
-    <div class="pure-u-12-24">
-      <div id="{{ tn }}-map" {# -#}
-           class="map" {# -#}
-           style="height: {{ 3 * (nn + 1) -}}rem; margin-top: 5rem;"{# -#}
-      >
+    {%- set nn  = GTW.len (db_type.objects) %}
+    {%- if pos %}
+      <div class="pure-u-12-24">
+        <div id="{{ tn }}-map" {# -#}
+             class="map" {# -#}
+             style="height: {{ 3 * (nn + 1) -}}rem; margin-top: 5rem;"{# -#}
+        >
+        </div>
+        <script>
+          L.Icon.Default.imagePath = "/media/GTW/css/images";
+          var node_map =
+              L.map ('{{ tn }}-map')
+               .setView ([{{ pos.lat }}, {{ pos.lon }}], 10);
+          L.tileLayer
+            ( 'https://\{s\}.tiles.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
+            , { maxZoom: 18
+              , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+              + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
+              }
+            ).addTo (node_map);
+          {%- for o in db_type.objects if o.position %}
+            {%- set pos = o.position %}
+            L .marker    ([{{ pos.lat }}, {{ pos.lon }}])
+              .addTo     (node_map)
+              .bindPopup ("<b>{{ o.name }}</b>")
+              {%- if loop.first %}
+                .openPopup ()
+              {%- endif %};
+          {% endfor %}
+        </script>
       </div>
-      <script>
-        L.Icon.Default.imagePath = "/media/GTW/css/images";
-        var node_map =
-            L.map ('{{ tn }}-map')
-             .setView ([{{ pos.lat }}, {{ pos.lon }}], 10);
-        L.tileLayer
-          ( 'https://\{s\}.tiles.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
-          , { maxZoom: 18
-            , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
-            + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
-            }
-          ).addTo (node_map);
-        {%- for o in db_type.objects if o.position %}
-          {%- set pos = o.position %}
-          L .marker    ([{{ pos.lat }}, {{ pos.lon }}])
-            .addTo     (node_map)
-            .bindPopup ("<b>{{ o.name }}</b>")
-            {%- if loop.first %}
-              .openPopup ()
-            {%- endif %};
-        {% endfor %}
-      </script>
-    </div>
+    {% endif -%}
   {% endif -%}
 {%- endmacro -%} {#- db_node_map -#}
 
