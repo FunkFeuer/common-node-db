@@ -57,6 +57,7 @@
 #    24-Jun-2014 (RS) `A_Netmask_Interval` derived from `A_Int_Interval_C`
 #     4-Jul-2014 (RS) `IP_Pool_permits_Group`, `IP_Network_in_IP_Pool`,
 #                     changes to `IP_Pool`
+#    11-Jul-2014 (CT) Add tests to `_test_partial`; clear ballast from it
 #    ««revision-date»»···
 #--
 
@@ -467,7 +468,7 @@ _test_alloc = """
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
     ...     , Q.ip_pool.cool_down_period != None
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
-    ...     ).first () 
+    ...     ).first ()
     CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', ))
 
     >>> CNDB.IP4_Network_in_IP4_Pool.query \\
@@ -826,11 +827,6 @@ _test_partial = """
     >>> CNDB = scope.CNDB
     >>> PAP = scope.PAP
 
-    Clear the cache, how can we avoid to cache across tests??
-    #>>> CNDB.Net_Interface_in_IP4_Network.child_np_map = {}
-    #>>> CNDB.Net_Interface_in_IP4_Network.child_np_map
-    #{}
-
     >>> ff = PAP.Association ("Funkfeuer", short_name = "0xFF", raw = True)
     >>> rs = PAP.Person ("Schlatterbeck", "Ralf", raw = True)
     >>> fp = CNDB.IP4_Network ('10.0.0.0/8', owner = ff, raw = True)
@@ -839,9 +835,17 @@ _test_partial = """
     >>> n1 = CNDB.Node (name = "nogps", manager = rs, raw = True)
     >>> dv = CNDB.Net_Device (left = dt, node = n1, name = 'dev', raw = True)
     >>> wl = CNDB.Wireless_Interface (left = dv, name = 'wl', raw = True)
+    >>> wd = CNDB.Wired_Interface (left = dv, name = 'wd', raw = True)
     >>> scope.commit ()
 
     >>> il2 = CNDB.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
+    >>> id2 = CNDB.Net_Interface_in_IP_Network  (wd, a4, mask_len = 24)
+
+    >>> il2
+    CNDB.Wireless_Interface_in_IP4_Network ((((u'g', u'', u''), (u'nogps', ), u'dev'), u'', u'wl'), ("10.0.0.1", ))
+
+    >>> id2
+    CNDB.Wired_Interface_in_IP4_Network ((((u'g', u'', u''), (u'nogps', ), u'dev'), u'', u'wd'), ("10.0.0.1", ))
 
 """
 
