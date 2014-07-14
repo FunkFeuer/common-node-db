@@ -28,6 +28,8 @@
 #     2-May-2014 (CT) Add rules for `form.login`, `form.logout`
 #    14-May-2014 (CT) Factor rules for `form` to `JNJ/html/mf3.m.jnj.media`
 #     9-Jul-2014 (CT) Add rule for ".rotate-45-left"
+#    14-Jul-2014 (CT) Use classes, not ids
+#    14-Jul-2014 (CT) Add rule for `max_height`, `min_height` of `.map`
 #    ««revision-date»»···
 #--
 
@@ -222,7 +224,7 @@ style_sheet = Style_Sheet \
             ]
         )
     , Rule
-        ( "#app"
+        ( ".app"
         , children             =
             [ Rule
                 ( "[class^=pure-u-]"
@@ -328,6 +330,11 @@ style_sheet = Style_Sheet \
                         )
                     ]
                 )
+            , Rule
+                ( ".map"
+                , max_height           = "80vh"
+                , min_height           = Rem (15)
+                )
             ]
         )
     , Rule
@@ -347,7 +354,7 @@ style_sheet = Style_Sheet \
         , margin_top            = Em (2)
         )
     , Rule
-        ( "#node-table"
+        ( ".node-table"
         , width                 = Percent (95)
         )
     , Rule
@@ -489,7 +496,7 @@ style_sheet = Style_Sheet \
         , Media.Query ("screen", P.breakpoint.small_device)
         , rules               =
             [ Rule
-                ( "#interface-table"
+                ( ".interface-table"
                 , children              =
                     [ Rule
                         ( ".created"
