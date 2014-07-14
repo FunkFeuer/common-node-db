@@ -34,6 +34,7 @@
 ##     5-May-2014 (CT) Factor macro `nav_menu_dashboard` to `app.m.jnj`
 ##     2-Jul-2014 (CT) Move `edit` behind `div#app` (form style)
 ##     9-Jul-2014 (CT) Factor out Funkfeuer specific stuff
+##    14-Jul-2014 (CT) Fix `{{ title }}` access in block `title`
 ##    ««revision-date»»···
 ##--
 #}
@@ -46,11 +47,11 @@
 {%- import "html/dashboard/view.m.jnj"    as DB_View with context %}
 
 {%- call X.html (lang = page.language|default ("en")) -%}
-  {%- set title = page.h_title or
-      ("%s dashboard" % (page.owner or "<Owner is missing>", ))
-  -%}
   {%- call X.head () -%}
     {%- block head_elements -%}
+      {%- set title = page.h_title or
+          ("%s dashboard" % (page.owner or "<Owner is missing>", ))
+      -%}
       <meta charset="{{ page.encoding|default ("utf-8") }}" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="{{ title }}">
@@ -58,7 +59,7 @@
         <meta name="robots" content="NOINDEX, NOFOLLOW">
       {% endif -%}
       {% block head_base_element %}{% endblock head_base_element %}
-        {% block title %}
+        {% block title scoped %}
           <title>{{ title }}</title>
         {% endblock title -%}
       {%- block styles %}
