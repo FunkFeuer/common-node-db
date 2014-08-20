@@ -40,6 +40,7 @@
 ##                     honor `user` in `nav_menu_person` and `nav_menu_links`
 ##     5-May-2014 (CT) Add guard to `db_node_map`, use `db_node.position`
 ##    11-Jul-2014 (CT) Add guard for `pos` to `db_node_map`
+##    20-Aug-2014 (CT) Add missing space to `th` of `e_type_table`
 ##    ««revision-date»»···
 ##--
 #}
@@ -133,9 +134,9 @@
       <tr>
         {%- for f in fields %}
           {%- set css_class =
-                 (" class=\"%s\" " % (f.css_class, )) if f.css_class else ""
+                 ("class=\"%s\" " % (f.css_class, )) if f.css_class else ""
           -%}
-          <th{{ css_class }}scope="col" title="{{ f.description }}">
+          <th {{ css_class }}scope="col" title="{{ f.description }}">
             {{- f.ui_name -}}
           </th>
         {% endfor -%}
