@@ -62,7 +62,7 @@
         var pat_div_name   = new RegExp (options.app_div_prefix + "(\\w+)$");
         var pat_pid        = new RegExp ("^([^-]+)-(\\d+)$");
         var pat_typ_name   = new RegExp (options.app_typ_prefix + "(\\w+)$");
-        var closest_el     = function closest_el_id (self, selector) {
+        var closest_el     = function closest_el (self, selector) {
             return $(self).closest (selector);
         };
         var closest_el_id = function closest_el_id (self, selector) {

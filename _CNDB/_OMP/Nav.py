@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
@@ -50,6 +50,7 @@
 #                     `Net_Device...include_links`
 #     7-May-2013 (RS) Add IPv6 related classes
 #     8-May-2013 (RS) Add `channels` to `Spec.Entity` for `Wireless_Interface`
+#    27-Aug-2014 (CT) Replace `GTW.AFS` specification by `MF3_Form_Spec`
 #    ««revision-date»»···
 #--
 
@@ -68,10 +69,16 @@ class Admin (object) :
     Antenna               = dict \
         ( ETM             = "CNDB.OMP.Antenna"
         , list_display    = ("left", "name", "gain")
+        , MF3_Form_Spec        = dict
+            ( include_rev_refs = ("interface", )
+            )
         )
 
     Antenna_Type          = dict \
         ( ETM             = "CNDB.OMP.Antenna_Type"
+        , MF3_Form_Spec        = dict
+            ( include_rev_refs = ("bands", )
+            )
         )
 
     Firmware_Binary       = dict \
@@ -108,6 +115,13 @@ class Admin (object) :
 
     Net_Device            = dict \
         ( ETM             = "CNDB.OMP.Net_Device"
+        , MF3_Form_Spec        = dict
+            ( include_rev_refs =
+                ( "wired_interfaces"
+                , "wireless_interfaces"
+                , "virtual_wireless_interfaces"
+                )
+            )
         )
 
     Net_Device_Type       = dict \
@@ -159,6 +173,9 @@ class Admin (object) :
     Wireless_Interface    = dict \
         ( ETM             = "CNDB.OMP.Wireless_Interface"
         , list_display    = ("left", "mac_address", "name", "is_active")
+        , MF3_Form_Spec        = dict
+            ( include_rev_refs = ("antennas", "channels")
+            )
         )
 
     Wireless_Standard     = dict \
@@ -199,23 +216,6 @@ class Admin (object) :
             )
 
 # end class Admin
-
-from   _GTW._AFS._MOM import Spec
-
-CNDB.OMP.Antenna_Type.GTW.afs_spec = Spec.Entity (include_links = ("bands",))
-
-CNDB.OMP.Antenna.GTW.afs_spec = Spec.Entity (include_links = ("interface", ))
-CNDB.OMP.Net_Device.GTW.afs_spec = Spec.Entity \
-    ( include_links =
-        ( "wired_interfaces"
-        , "wireless_interfaces"
-        , "virtual_wireless_interfaces"
-        )
-    )
-### CNDB.OMP.Net_Device_Type.GTW.afs_spec = Spec.Entity \
-###    (include_links = ("CNDB.OMP.Device_Type_made_by_Company", ))
-CNDB.OMP.Wireless_Interface.GTW.afs_spec = Spec.Entity \
-    (include_links = ("antennas", "channels"))
 
 if __name__ != "__main__" :
     CNDB.OMP._Export_Module ()

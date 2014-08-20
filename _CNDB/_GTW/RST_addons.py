@@ -66,6 +66,8 @@
 #     4-May-2014 (CT) Add `DB_Interface.xtra_template_macro`
 #     5-May-2014 (CT) Add `DB_Node.position`
 #    17-Jun-2014 (CT) Add `DB_Person.Form_spec` to test `include_rev_refs`
+#    20-Aug-2014 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Admin`
+#    29-Aug-2014 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Admin`, again
 #    ««revision-date»»···
 #--
 
@@ -84,10 +86,7 @@ from   _GTW._MF3                import Element as MF3
 
 import _GTW._RST._TOP.import_TOP
 import _GTW._RST._TOP._MOM.import_MOM
-
-import _GTW._RST._TOP._MOM.Admin
 import _GTW._RST._TOP._MOM.Admin_Restricted
-import _GTW._RST._TOP._MOM.MF3
 
 from   _MOM.import_MOM          import Q
 
@@ -96,6 +95,7 @@ from   _TFL.Decorator           import getattr_safe, Add_New_Method, Decorator
 from   _TFL.I18N                import _, _T, _Tn
 from   _TFL.predicate           import filtered_join
 from   _TFL.Record              import Record
+from   _TFL.update_combined     import update_combined
 
 from   itertools                import chain as ichain
 
@@ -277,14 +277,18 @@ class User_Node (User_Entity) :
 
     @property
     @getattr_safe
-    def form_parameters (self) :
-        result = self.__super.form_parameters
+    def mf3_attr_spec_d (self) :
+        result = self.__super.mf3_attr_spec_d
         u = self.user_restriction
         if u is not None :
-            result.setdefault ("form_kw", {}).update \
-                (manager = dict (init = u))
+            result = update_combined \
+                ( result
+                , dict
+                    ( manager = dict (default = u)
+                    )
+                )
         return result
-    # end def form_parameters
+    # end def mf3_attr_spec
 
 # end class User_Node
 
@@ -319,22 +323,22 @@ class User_Net_Device (User_Node_Dependent) :
 
     @property
     @getattr_safe
-    def form_parameters (self) :
-        result = self.__super.form_parameters
+    def mf3_attr_spec_d (self) :
+        result = self.__super.mf3_attr_spec_d
         u = self.top.user
-        if u and u.person :
+        if u :
             u = u.person
             if u :
-                result.setdefault ("form_kw", {}).update \
-                    ( node = dict
-                        ( manager = dict
-                            ( prefilled   = True
-                            , init        = u
-                            )
-                        )
+                result = update_combined \
+                    ( result
+                    , { "node.manager" : dict
+                          ( default     = u
+                          , prefilled   = True
+                          )
+                      }
                     )
         return result
-    # end def form_parameters
+    # end def mf3_attr_spec
 
 # end class User_Net_Device
 
@@ -532,12 +536,11 @@ class _DB_Div_ (_DB_Div_Base_) :
 # end class _DB_Div_
 
 _Ancestor  = _DB_Base_
-_MF3_Mixin = GTW.RST.TOP.MOM.MF3.E_Type_Mixin
+_MF3_Mixin = GTW.RST.TOP.MOM.Admin.E_Type_Mixin
 
 class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     """E_Type displayed by, and managed via, Funkfeuer dashboard."""
 
-    Field                 = GTW.RST.TOP.MOM.Admin.E_Type.Field
     add_css_classes       = []
     app_div_prefix        = _Ancestor.app_typ_prefix
     fill_edit             = True
@@ -548,8 +551,6 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     view_action_names     = ("filter", "edit", "delete")
     view_field_names      = ()    ### to be defined by subclass
     type_name             = None  ### to be defined by subclass
-
-    _form_attr_spec_d     = {}
 
     child_permission_map     = property \
         (lambda s : s.admin.child_permission_map)
@@ -584,7 +585,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         def __call__ (self, resource, request, response) :
             req_data = request.req_data
             if "create" in req_data :
-                resource._setup_create_form_attr_spec (request)
+                resource._setup_create_mf3_attr_spec (request)
                 creator = resource._get_child ("create")
                 return creator.GET () (creator, request, response)
             else :
@@ -600,8 +601,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         def __call__ (self, resource, request, response) :
             req_data = request.req_data
             if "qx_esf" in req_data :
+                ### XXX ??? is this necessary ???
                 json   = TFL.Record (** request.json)
-                af     = resource._get_esf_filter (json)
+                af     = resource._get_esf_filter (request, json)
                 result = resource._rendered_esf   (af)
                 return result
             else :
@@ -656,19 +658,13 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             )
         )
 
-    class _DB_Field_ (GTW.RST.TOP.MOM.Admin.E_Type.Field) :
+    class _DB_Field_ (GTW.RST.TOP.MOM.Field.Attr) :
 
         @Once_Property
         @getattr_safe
         def add_css_classes (self) :
             return [self.attr_name]
         # end def add_css_classes
-
-        @Once_Property
-        @getattr_safe
-        def attr_name (self) :
-            return self.attr.name
-        # end def attr_name
 
         @Once_Property
         @getattr_safe
@@ -695,27 +691,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     # end class _Field_Device_
 
-    class _Field_Created_ (Field) :
-
-        attr_name         = "created"
-
-        @property ### depends on currently selected language (I18N/L10N)
-        @getattr_safe
-        def description (self) :
-            return _T ("Date of creation.")
-        # end def description
-
-        @property ### depends on currently selected language (I18N/L10N)
-        @getattr_safe
-        def ui_name (self) :
-            return _T ("Created")
-        # end def ui_name
-
-        def value (self, o) :
-            return self.__super.value (o).split (" ") [0]
-        # end def value
-
-    # end class _Field_Created_
+    _Field_Created_ = GTW.RST.TOP.MOM.Field.Created
 
     class _Field_Device_ (_Field_Ref_) :
 
@@ -929,9 +905,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         return self.__super._init_kw (_field_map = {}, ** kw)
     # end def _init_kw
 
-    def _setup_create_form_attr_spec (self, request) :
+    def _setup_create_mf3_attr_spec (self, request) :
         pass
-    # end def _setup_create_form_attr_spec
+    # end def _setup_create_mf3_attr_spec
 
 # end class _DB_E_Type_
 
@@ -946,8 +922,8 @@ class _DB_Person_Property_ (_DB_E_Type_) :
 
     @property
     @getattr_safe
-    def form_attr_spec (self) :
-        result = self.__super.form_attr_spec
+    def mf3_attr_spec (self) :
+        result = self.__super.mf3_attr_spec
         u = self.admin.user_restriction
         if u is not None :
             result = dict \
@@ -955,7 +931,7 @@ class _DB_Person_Property_ (_DB_E_Type_) :
                 , left = dict (default = u, prefilled = "True")
                 )
         return result
-    # end def form_attr_spec
+    # end def mf3_attr_spec
 
     @property
     @getattr_safe
@@ -1024,8 +1000,8 @@ class DB_Device (_DB_E_Type_) :
         return "node-%d- device-%d-" % (o.my_node.pid, o.pid)
     # end def tr_instance_css_class
 
-    def _setup_create_form_attr_spec (self, request) :
-        fasd     = self.form_attr_spec_d = {}
+    def _setup_create_mf3_attr_spec (self, request) :
+        fasd     = self.mf3_attr_spec_d = {}
         req_data = request.req_data
         scope    = self.scope
         if "node" in req_data :
@@ -1035,7 +1011,7 @@ class DB_Device (_DB_E_Type_) :
                  pass
              else :
                  fasd ["node"] = dict (default = node)
-    # end def _setup_create_form_attr_spec
+    # end def _setup_create_mf3_attr_spec
 
 # end class DB_Device
 
@@ -1142,8 +1118,8 @@ class DB_Interface (_Ancestor) :
             (o.my_node.pid, o.my_net_device.pid, o.pid)
     # end def tr_instance_css_class
 
-    def _setup_create_form_attr_spec (self, request) :
-        fasd     = self.form_attr_spec_d = {}
+    def _setup_create_mf3_attr_spec (self, request) :
+        fasd     = self.mf3_attr_spec_d = {}
         req_data = request.req_data
         scope    = self.scope
         if "device" in req_data :
@@ -1153,7 +1129,7 @@ class DB_Interface (_Ancestor) :
                  pass
              else :
                  fasd ["left"] = dict (default = device)
-    # end def _setup_create_form_attr_spec
+    # end def _setup_create_mf3_attr_spec
 
 # end class DB_Interface
 
@@ -1179,7 +1155,7 @@ class DB_Node (_DB_E_Type_) :
 
     @property
     @getattr_safe
-    def form_attr_spec_d (self) :
+    def mf3_attr_spec_d (self) :
         result = {}
         u = self.admin.user_restriction
         if u is not None :
@@ -1194,7 +1170,7 @@ class DB_Node (_DB_E_Type_) :
             , lifetime = dict (skip = True)
             )
         return result
-    # end def form_attr_spec_d
+    # end def mf3_attr_spec_d
 
     @property
     @getattr_safe
@@ -1231,12 +1207,12 @@ class DB_Person (_DB_E_Type_) :
 
     @property
     @getattr_safe
-    def Form_spec (self) :
+    def MF3_Form_Spec (self) :
         result = dict \
             ( include_rev_refs = ("addresses", "emails", "phones")
             )
         return result
-    # end def Form_spec
+    # end def MF3_Form_Spec
 
     @property
     @getattr_safe
