@@ -1,0 +1,106 @@
+# Translations template for CNDB.
+# Copyright (C) 2014 Mag. Christian Tanzer, Ralf Schlatterbeck
+# This file is distributed under the same license as the CNDB project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CNDB 1.0\n"
+"Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
+"POT-Creation-Date: 2014-08-31 12:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: _CNDB/_GTW/RST_addons.py:885
+#, python-format
+msgid "%ss managed/owned by %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:940
+#, python-format
+msgid "%ss used by %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:971
+#, python-format
+msgid "Addresses used by %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:619
+#, python-format
+msgid "Change password of %s %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:624
+#, python-format
+msgid "Create a new %s %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:629
+#, python-format
+msgid "Delete %s %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:634
+#, python-format
+msgid "Edit %s %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:645
+#, python-format
+msgid "Generate firmware for %s %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:655
+#, python-format
+msgid "I forgot my password; reset password of %s %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:719
+msgid "IP addresses"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:713
+msgid "IP addresses assigned to interface"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:779
+#, python-format
+msgid "Number of %s belonging to %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:1220
+#, python-format
+msgid "Personal data of %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:650
+#, python-format
+msgid "Show graphs and statistics about %s %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:128
+#, python-format
+msgid ""
+"You are not allowed to change %s unless afterwards you [%s] are still "
+"either manager or owner"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:131
+msgid "and"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:226
+msgid "owned/managed by"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:133
+msgid "to"
+msgstr ""
+

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
@@ -41,7 +41,7 @@ def main (encoding, config, method) :
     from   _MOM._EMS.Hash         import Manager as EMS
     from   _MOM._DBW._HPS.Manager import Manager as DBW
     from   _CNDB import CNDB
-import _CNDB._OMP
+    import _CNDB._OMP
     return MOM.Babel.Add_Translations \
         ( encoding, config, method
         , MOM.App_Type ("CNDB", CNDB).Derived (EMS, DBW)

@@ -882,7 +882,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     @getattr_safe
     def view_title (self) :
         TN = self.Div_Name
-        return _T ("%ss managed/owned by %%s" % TN) % (self.user.FO.person, )
+        return _T ("%ss managed/owned by %s") % (TN, self.user.FO.person)
     # end def view_title
 
     @Once_Property
@@ -937,7 +937,7 @@ class _DB_Person_Property_ (_DB_E_Type_) :
     @getattr_safe
     def view_title (self) :
         TN = self.Div_Name
-        return _T ("%ss used by %%s" % TN) % (self.user.FO.person, )
+        return _T ("%ss used by %s") % (TN, self.user.FO.person)
     # end def view_title
 
     def view_name_instance (self, o) :

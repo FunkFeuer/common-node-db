@@ -1,14 +1,14 @@
-# Translations template for FFM.
+# Translations template for CNDB.
 # Copyright (C) 2014 Mag. Christian Tanzer, Ralf Schlatterbeck
-# This file is distributed under the same license as the FFM project.
+# This file is distributed under the same license as the CNDB project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: FFM 1.0\n"
+"Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2014-04-17 12:54+0200\n"
+"POT-Creation-Date: 2014-08-31 12:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,242 +17,246 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "A bundle of binaries for firmware."
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Address of association"
-msgstr ""
-
-#: _FFM.Node:0
+#: _CNDB._OMP.Node:0
 msgid "Address of the node (if stationary)."
 msgstr ""
 
-#: _FFM/__test__/model.py:63
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Adhoc group"
+msgstr ""
+
+#: _GTW._OMP._PAP.Adhoc_Group:0
+msgid "Adhoc group of persons."
+msgstr ""
+
+#: _GTW._OMP._PAP.Adhoc_Group:0
+msgid "Adhoc_Group"
+msgid_plural "Adhoc_Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Adhoc_Group of person"
+msgstr ""
+
+#: _CNDB/_OMP/__test__/model.py:64
 msgid "Administration of node database"
 msgstr ""
 
-#: _FFM/__test__/model.py:69
+#: _CNDB/_OMP/__test__/model.py:70
 msgid "Administration of persons/addresses..."
 msgstr ""
 
-#: _FFM/__test__/model.py:75
+#: _CNDB/_OMP/__test__/model.py:76
 msgid "Administration of user accounts and groups"
 msgstr ""
 
-#: _FFM.Antenna:0 _FFM.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Antenna:0 _CNDB._OMP.Wireless_Interface_uses_Antenna:0
 msgid "Antenna"
 msgid_plural "Antennas"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Antenna_Type:0
+#: _CNDB._OMP.Antenna_Type:0
 msgid "Antenna polarization."
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.Antenna:0
 msgid ""
 "Antenna polarization. Per default,\n"
 "`antenna_type.polarization` is used, but can be overriden here."
 msgstr ""
 
-#: _FFM.Antenna:0 _FFM.Antenna_Band:0
+#: _CNDB._OMP.Antenna:0 _CNDB._OMP.Antenna_Band:0
 msgid "Antenna type"
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
 msgid "Antenna used by a wireless interface"
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
 msgid "Antenna."
 msgstr ""
 
-#: _FFM.Antenna_Band:0
+#: _CNDB._OMP.Antenna_Band:0
 msgid "Antenna_Band"
 msgid_plural "Antenna_Bands"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Antenna_Type:0
+#: _CNDB._OMP.Antenna_Type:0
 msgid "Antenna_Type"
 msgid_plural "Antenna_Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Person_mentors_Person:0
+#: _CNDB._OMP.Person_mentors_Person:0
 msgid "Apprentice"
 msgstr ""
 
-#: _GTW._OMP._PAP.Association:0 _GTW._OMP._PAP.Subject_has_Property:0
+#: _GTW._OMP._PAP.Association:0 _GTW._OMP._PAP.Person_in_Group:0
 msgid "Association"
 msgid_plural "Associations"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Association linked to Address"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Association of person"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Association linked to IM_Handle"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Association linked to Nickname"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Association_has_Address"
-msgid_plural "Association_has_Addresses"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Association_has_IM_Handle"
-msgid_plural "Association_has_IM_Handles"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Association_has_Nickname"
-msgid_plural "Association_has_Nicknames"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _FFM.IP_Network:0
+#: _CNDB._OMP.IP_Network:0
 msgid ""
-"At most one of `owner` and `cool_down` can be defined at one\n"
-"time."
+"At most one of `owner` and `expiration_date` can be\n"
+"defined at one time."
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.IP4_Pool:0
+msgid "Attributes of an IPv4 network pool."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Pool:0
+msgid "Attributes of an IPv6 network pool."
+msgstr ""
+
+#: _CNDB._OMP.Antenna:0
 msgid "Azimuth"
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.Antenna:0
 msgid "Azimuth of antenna orientation (in degrees)."
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "BSSID"
 msgstr ""
 
-#: _FFM.Antenna_Band:0 _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Antenna_Band:0 _CNDB._OMP.Regulatory_Permission:0
 msgid "Band"
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Band needs dynamic frequency selection."
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0 _FFM.Wireless_Standard:0
+#: _CNDB._OMP.Regulatory_Permission:0 _CNDB._OMP.Wireless_Standard:0
 msgid "Bandwidth"
 msgstr ""
 
-#: _FFM.Wireless_Standard:0
+#: _CNDB._OMP.Wireless_Standard:0
 msgid "Bandwidth of a channel"
 msgstr ""
 
-#: _FFM.Belongs_to_Net_Device:0
+#: _CNDB._OMP.Belongs_to_Net_Device:0
 msgid "Belongs_to_Net_Device"
 msgid_plural "Belongs_to_Net_Devices"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Belongs_to_Net_Device:0
+#: _CNDB._OMP.Belongs_to_Net_Device:0
 msgid "Belongs_to_Net_Device_Left"
 msgid_plural "Belongs_to_Net_Device_Lefts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Belongs_to_Node:0
+#: _CNDB._OMP.Belongs_to_Node:0
 msgid "Belongs_to_Node"
 msgid_plural "Belongs_to_Nodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Belongs_to_Node:0
+#: _CNDB._OMP.Belongs_to_Node:0
 msgid "Belongs_to_Node_Left"
 msgid_plural "Belongs_to_Node_Lefts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Binary for firmware."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Binary."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Bundle."
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB/_OMP/graph.py:166
+msgid "CNDB graph"
+msgstr ""
+
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Cell name."
 msgstr ""
 
-#: _FFM.Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Channel:0
 msgid "Center frequency of this channel"
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 msgid "Channel"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Company linked to IM_Handle"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Company linked to Nickname"
-msgstr ""
-
-#: _FFM.Device_Type_made_by_Company:0
+#: _CNDB._OMP.Device_Type_made_by_Company:0
 msgid "Company manufacturing the device-type."
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Company_has_IM_Handle"
-msgid_plural "Company_has_IM_Handles"
-msgstr[0] ""
-msgstr[1] ""
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Company of person"
+msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Company_has_Nickname"
-msgid_plural "Company_has_Nicknames"
-msgstr[0] ""
-msgstr[1] ""
+#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
+msgid "Cool down period"
+msgstr ""
 
-#: _FFM.Regulatory_Domain:0
+#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
+msgid "Cool down period for this String `type_name`."
+msgstr ""
+
+#: _CNDB._OMP.Regulatory_Domain:0
 msgid "Countrycode"
 msgstr ""
 
-#: _FFM.Antenna_Type:0
+#: _CNDB._OMP.IP4_DNS_Alias:0
+msgid "DNS alias for IPv4 address"
+msgstr ""
+
+#: _CNDB._OMP.IP6_DNS_Alias:0
+msgid "DNS alias for IPv6 address"
+msgstr ""
+
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
+msgid "DNS name for this IP Network."
+msgstr ""
+
+#: _CNDB._OMP.Antenna_Type:0
 msgid ""
 "Describes how well the antenna converts input power into radio\n"
 "waves headed in a specified direction (in dBi)."
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.Antenna:0
 msgid ""
 "Describes how well the antenna converts input power into radio\n"
 "waves headed in a specified direction (in dBi). Per default,\n"
 "`antenna_type.gain` is used, but can be overriden here."
 msgstr ""
 
-#: _FFM.IP_Network:0
+#: _CNDB._OMP.IP_Network:0
 msgid "Description of and remarks about the IP_Network"
 msgstr ""
 
-#: _FFM.Device:0
+#: _CNDB._OMP.Device:0
 msgid "Description of device"
 msgstr ""
 
-#: _FFM.Device_Type:0
+#: _CNDB._OMP.Device_Type:0
 msgid "Description of device type"
 msgstr ""
 
@@ -260,31 +264,35 @@ msgstr ""
 msgid "Description of document."
 msgstr ""
 
-#: _FFM.Net_Interface:0
+#: _CNDB._OMP.Net_Interface:0
 msgid "Description of interface"
 msgstr ""
 
-#: _FFM.Device:0 _FFM.Net_Interface:0
+#: _CNDB._OMP.Node:0
+msgid "Description of the node"
+msgstr ""
+
+#: _CNDB._OMP.Device:0 _CNDB._OMP.Net_Interface:0
 msgid "Device"
 msgid_plural "Devices"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Device_Type_made_by_Company:0
+#: _CNDB._OMP.Device_Type_made_by_Company:0
 msgid "Device type"
 msgstr ""
 
-#: _FFM.Device_Type_made_by_Company:0
+#: _CNDB._OMP.Device_Type_made_by_Company:0
 msgid "Device type."
 msgstr ""
 
-#: _FFM.Device_Type:0
+#: _CNDB._OMP.Device_Type:0
 msgid "Device_Type"
 msgid_plural "Device_Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Device_Type_made_by_Company:0
+#: _CNDB._OMP.Device_Type_made_by_Company:0
 msgid "Device_Type_made_by_Company"
 msgid_plural "Device_Type_made_by_Companys"
 msgstr[0] ""
@@ -296,23 +304,23 @@ msgid_plural "Documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Domain"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "ESSID"
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Eirp"
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.Antenna:0
 msgid "Elevation angle"
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.Antenna:0
 msgid ""
 "Elevation angle of the beam from the horizontal plane\n"
 "(in degrees)."
@@ -322,65 +330,61 @@ msgstr ""
 msgid "Entity the document applies to."
 msgstr ""
 
-#: _FFM/graph.py:165
-msgid "FFM graph"
-msgstr ""
-
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware binary"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware bundle"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware for which binary was built."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware type"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware version"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware version usable by some devices."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware_Bin"
 msgid_plural "Firmware_Bins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware_Binary"
 msgid_plural "Firmware_Binarys"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware_Binary_in_Firmware_Bundle"
 msgid_plural "Firmware_Binary_in_Firmware_Bundles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware_Bundle"
 msgid_plural "Firmware_Bundles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware_Type"
 msgid_plural "Firmware_Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Firmware_Version"
 msgid_plural "Firmware_Versions"
 msgstr[0] ""
@@ -396,15 +400,15 @@ msgstr[1] ""
 msgid "Floating-point attribute."
 msgstr ""
 
-#: _FFM.Antenna_Band:0
+#: _CNDB._OMP.Antenna_Band:0
 msgid "Frequency Band of an antenna type"
 msgstr ""
 
-#: _FFM.Antenna_Band:0
+#: _CNDB._OMP.Antenna_Band:0
 msgid "Frequency range an antenna type supports."
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Frequency range for which transmission is allowed."
 msgstr ""
 
@@ -418,32 +422,41 @@ msgid_plural "Frequency_Intervals"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Node:0
+#: _CNDB._OMP.Node:0
 msgid "GPS position and optional height of the node"
 msgstr ""
 
-#: _FFM.Antenna_Type:0 _FFM.Antenna:0 _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Antenna_Type:0 _CNDB._OMP.Antenna:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Gain"
 msgstr ""
 
-#: _FFM/graph.py:164
+#: _CNDB/_OMP/graph.py:165
 msgid "Graph displaying Funkfeuer object model"
+msgstr ""
+
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Group of person"
 msgstr ""
 
 #: _GTW._OMP._PAP.IM_Handle:0
 msgid "Handle of a subject for an instant messaging system"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Hardware"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Hardware interface used by virtual interface."
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
 msgid "Height relative to device the antenna is connected to."
+msgstr ""
+
+#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
+msgid "ID_Entity for which the permission exists"
 msgstr ""
 
 #: _GTW._OMP._PAP.IM_Handle:0
@@ -460,155 +473,249 @@ msgid_plural "IM_Handles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "IM_Handle of association"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "IM_Handle of company"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "IM_Handle of node"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "IM_Handle of person"
-msgstr ""
-
-#: _FFM.Net_Interface_in_IP_Network:0 _FFM.Net_Interface_in_IP4_Network:0
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "IP Network."
 msgstr ""
 
-#: _FFM.IP4_Network:0
+#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "IP Pool."
+msgstr ""
+
+#: _CNDB._OMP.IP_Network_in_IP_Pool:0 _CNDB._OMP.IP4_Network_in_IP4_Pool:0
+#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
+msgid "IP network."
+msgstr ""
+
+#: _CNDB._OMP.IP_Network_in_IP_Pool:0 _CNDB._OMP.IP4_Network_in_IP4_Pool:0
+#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
+msgid "IP pool."
+msgstr ""
+
+#: _CNDB._OMP.IP4_DNS_Alias:0
+msgid "IP4_DNS_Alias"
+msgid_plural "IP4_DNS_Aliases"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP4_Network:0
 msgid "IP4_Network"
 msgid_plural "IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.IP6_Network:0
+#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0
+msgid "IP4_Network_in_IP4_Pool"
+msgid_plural "IP4_Network_in_IP4_Pools"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP4_Pool:0
+msgid "IP4_Pool"
+msgid_plural "IP4_Pools"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP4_Pool_permits_Group:0
+msgid "IP4_Pool_permits_Group"
+msgid_plural "IP4_Pool_permits_Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP6_DNS_Alias:0
+msgid "IP6_DNS_Alias"
+msgid_plural "IP6_DNS_Aliases"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP6_Network:0
 msgid "IP6_Network"
 msgid_plural "IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.IP_Network:0
+#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
+msgid "IP6_Network_in_IP6_Pool"
+msgid_plural "IP6_Network_in_IP6_Pools"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP6_Pool:0
+msgid "IP6_Pool"
+msgid_plural "IP6_Pools"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "IP6_Pool_permits_Group"
+msgid_plural "IP6_Pool_permits_Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP_DNS_Alias:0
+msgid "IP_DNS_Alias"
+msgid_plural "IP_DNS_Aliases"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP_Network:0
 msgid "IP_Network"
 msgid_plural "IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.IP4_Network:0
+#: _CNDB._OMP.IP_Network_in_IP_Pool:0
+msgid "IP_Network_in_IP_Pool"
+msgid_plural "IP_Network_in_IP_Pools"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP_Pool:0
+msgid "IP_Pool"
+msgid_plural "IP_Pools"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP_Pool_permits_Group:0
+msgid "IP_Pool_permits_Group"
+msgid_plural "IP_Pool_permits_Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP4_Network:0
 msgid "IPv4 Network address."
 msgstr ""
 
-#: _FFM.IP4_Network:0
-msgid "IPv4 Network of FFM"
+#: _CNDB._OMP.IP4_Network:0
+msgid "IPv4 Network of CNDB"
 msgstr ""
 
-#: _FFM.IP6_Network:0
+#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0
+msgid "IPv4 networks in an IPv4 pool."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Network:0
 msgid "IPv6 Network address."
 msgstr ""
 
-#: _FFM.IP6_Network:0
-msgid "IPv6 Network of FFM"
+#: _CNDB._OMP.IP6_Network:0
+msgid "IPv6 Network of CNDB"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Im handle"
+#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
+msgid "IPv6 networks in an IPv6 pool."
 msgstr ""
 
-#: _FFM.Net_Interface:0
+#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
+msgid "Id entity"
+msgstr ""
+
+#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
+msgid "Id_Entity_permits_Group"
+msgid_plural "Id_Entity_permits_Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "Iface quota"
+msgstr ""
+
+#: _CNDB._OMP.Net_Interface:0
 msgid "Indicates if this interface is active."
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Indoor only"
 msgstr ""
 
-#: _FFM.Net_Credentials:0 _FFM.Wireless_Interface_uses_Wireless_Channel:0
+#: _MOM._Attr.Number_Interval:0
+msgid "Int_Interval"
+msgid_plural "Int_Intervals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _MOM._Attr.Number_Interval:0
+msgid "Int_Interval_C"
+msgid_plural "Int_Interval_Cs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _MOM._Attr.Number_Interval:0
+msgid "Integer attribute."
+msgstr ""
+
+#: _CNDB._OMP.Net_Credentials:0
+#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 msgid "Interface"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0 _CNDB._OMP.IP_Network_in_IP_Pool:0
 msgid "Ip network"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.IP_Network_in_IP_Pool:0 _CNDB._OMP.IP_Pool_permits_Group:0
+msgid "Ip pool"
+msgstr ""
+
+#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid "Ip4 network"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+msgid "Ip4 pool"
+msgstr ""
+
+#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "Ip6 network"
 msgstr ""
 
-#: _FFM.Net_Interface:0
+#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0 _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "Ip6 pool"
+msgstr ""
+
+#: _CNDB._OMP.Net_Interface:0
 msgid "Is active"
 msgstr ""
 
-#: _FFM.Net_Credentials:0
+#: _CNDB._OMP.Net_Credentials:0
 msgid "Key"
 msgstr ""
 
-#: _FFM.Net_Credentials:0
+#: _CNDB._OMP.Net_Credentials:0
 msgid "Key used for WPA authentication."
 msgstr ""
 
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid "Left network interface"
 msgstr ""
 
-#: _FFM.Person_acts_for_Legal_Entity:0
-msgid "Legal entity"
+#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
+msgid "Limit netmasks to allocate from this String `type_name`."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Link Firmware_Binary to Firmware_Bundle."
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a association to a address"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Link a person to a adhoc_group"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a association to a im_handle"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Link a person to a association"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a association to a nickname"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Link a person to a company"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a company to a im_handle"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a company to a nickname"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a node to a im_handle"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a node to a nickname"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a person to a im_handle"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Link a person to a nickname"
-msgstr ""
-
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid "Link between two network interfaces."
-msgstr ""
-
-#: _FFM.Person_acts_for_Legal_Entity:0
-msgid "Link person to legal entities they are allowed to act for"
 msgstr ""
 
 #: _MOM.Document:0
@@ -623,47 +730,47 @@ msgstr ""
 msgid "Lower bound of interval."
 msgstr ""
 
-#: _FFM.Net_Interface:0
+#: _CNDB._OMP.Net_Interface:0
 msgid "MAC address of interface."
 msgstr ""
 
-#: _FFM.Net_Interface:0
+#: _CNDB._OMP.Net_Interface:0
 msgid "Mac address"
 msgstr ""
 
-#: _FFM.Node:0
+#: _CNDB._OMP.Node:0
 msgid "Manager"
 msgstr ""
 
-#: _FFM.Node:0
+#: _CNDB._OMP.Node:0
 msgid "Manager of the node"
 msgstr ""
 
-#: _FFM.Device_Type_made_by_Company:0
+#: _CNDB._OMP.Device_Type_made_by_Company:0
 msgid "Manufacturer"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Mask len"
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Maximum allowed TX power in dBm, dBW or units of W."
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Maximum allowed antenna gain in dB."
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Maximum allowed bandwidth."
 msgstr ""
 
-#: _FFM.Person_mentors_Person:0
+#: _CNDB._OMP.Person_mentors_Person:0
 msgid "Mentor"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Mode"
 msgstr ""
 
@@ -671,20 +778,20 @@ msgstr ""
 msgid "Model a document linked to some other entity."
 msgstr ""
 
-#: _FFM.Net_Device:0
-msgid "Model a network device of FFM."
+#: _CNDB._OMP.Net_Device:0
+msgid "Model a network device of CNDB.OMP."
 msgstr ""
 
-#: _FFM.Node:0
-msgid "Model a node of FFM"
+#: _CNDB._OMP.Node:0
+msgid "Model a node of CNDB"
 msgstr ""
 
-#: _FFM.Zone:0
-msgid "Model a routing zone of FFM."
+#: _CNDB._OMP.Zone:0
+msgid "Model a routing zone of CNDB.OMP."
 msgstr ""
 
-#: _FFM.Antenna:0
-msgid "Model an antenna used by a FFM node."
+#: _CNDB._OMP.Antenna:0
+msgid "Model an antenna used by a CNDB node."
 msgstr ""
 
 #: _GTW._OMP._PAP.Association:0
@@ -699,154 +806,179 @@ msgstr ""
 msgid "Model an interval of frequency values (lower, upper)."
 msgstr ""
 
-#: _FFM.Net_Credentials:0
+#: _MOM._Attr.Number_Interval:0
+msgid "Model an interval of int values (lower, upper)."
+msgstr ""
+
+#: _CNDB._OMP.Net_Credentials:0
 msgid "Model credentials necessary for WPA authentication."
 msgstr ""
 
-#: _FFM.Device_Type_made_by_Company:0
+#: _CNDB._OMP.Device_Type_made_by_Company:0
 msgid "Model manufacturer of device-type."
 msgstr ""
 
-#: _FFM.Device_Type:0
+#: _CNDB._OMP.Device_Type:0
 msgid "Model no"
 msgstr ""
 
-#: _FFM.Device_Type:0
+#: _CNDB._OMP.Device_Type:0
 msgid "Model number identifying the device type"
 msgstr ""
 
-#: _FFM.Antenna_Type:0
-msgid "Model the type of antennas in FFM."
+#: _CNDB._OMP.Antenna_Type:0
+msgid "Model the type of antennas in CNDB.OMP."
 msgstr ""
 
-#: _FFM.Net_Device_Type:0
-msgid "Model the type of network devices in FFM."
+#: _CNDB._OMP.Net_Device_Type:0
+msgid "Model the type of network devices in CNDB.OMP."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Name identifying the firmware bundle."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Name identifying the firmware type."
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.Antenna:0
 msgid "Name of Antenna"
 msgstr ""
 
-#: _FFM.Device:0
+#: _CNDB._OMP.Device:0
 msgid "Name of Device"
 msgstr ""
 
-#: _FFM.Net_Device:0
+#: _CNDB._OMP.IP_Pool:0
+msgid "Name of IP_Pool"
+msgstr ""
+
+#: _CNDB._OMP.Net_Device:0
 msgid "Name of Net_Device"
+msgstr ""
+
+#: _GTW._OMP._PAP.Adhoc_Group:0
+msgid "Name of adhoc_group."
 msgstr ""
 
 #: _GTW._OMP._PAP.Association:0
 msgid "Name of association."
 msgstr ""
 
-#: _FFM.Device_Type:0
+#: _CNDB._OMP.Device_Type:0
 msgid "Name of device type"
 msgstr ""
 
-#: _FFM.Node:0 _FFM.Net_Interface:0
+#: _CNDB._OMP.IP_DNS_Alias:0
+msgid "Name of the alias."
+msgstr ""
+
+#: _CNDB._OMP.Net_Interface:0
+msgid "Name of the interface."
+msgstr ""
+
+#: _CNDB._OMP.Node:0
 msgid "Name of the node"
 msgstr ""
 
-#: _FFM.Wireless_Standard:0
+#: _CNDB._OMP.Wireless_Standard:0
 msgid "Name of the standard"
 msgstr ""
 
-#: _FFM.Zone:0
+#: _CNDB._OMP.Zone:0
 msgid "Name of the zone"
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Need dfs"
 msgstr ""
 
-#: _FFM.IP_Network:0 _FFM.IP4_Network:0 _FFM.IP6_Network:0
+#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
 msgid "Net address"
 msgstr ""
 
-#: _FFM.Wired_Interface:0 _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wired_Interface:0 _CNDB._OMP.Wireless_Interface:0
 msgid "Net device"
 msgstr ""
 
-#: _FFM.Net_Device:0
+#: _CNDB._OMP.Net_Device:0
 msgid "Net device type"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Net interface"
 msgstr ""
 
-#: _FFM.Net_Device:0
+#: _CNDB._OMP.Net_Device:0
 msgid "Net_Device"
 msgid_plural "Net_Devices"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Device_Type:0
+#: _CNDB._OMP.Net_Device_Type:0
 msgid "Net_Device_Type"
 msgid_plural "Net_Device_Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface:0
+#: _CNDB._OMP.Net_Interface:0
 msgid "Net_Interface"
 msgid_plural "Net_Interfaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid "Net_Interface_in_IP4_Network"
 msgid_plural "Net_Interface_in_IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "Net_Interface_in_IP6_Network"
 msgid_plural "Net_Interface_in_IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Net_Interface_in_IP_Network"
 msgid_plural "Net_Interface_in_IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid "Net_Link"
 msgid_plural "Net_Links"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.IP_Network:0
+#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
+msgid "Netmask interval"
+msgstr ""
+
+#: _CNDB._OMP.IP_Network:0
 msgid "Network address."
 msgstr ""
 
-#: _FFM.Net_Interface:0
+#: _CNDB._OMP.Net_Interface:0
 msgid "Network device the interface is connected to."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0 _FFM.Net_Interface_in_IP6_Network:0
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid "Network interface."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Network mask used for this IP Network."
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Network name."
 msgstr ""
 
-#: _GTW._OMP._PAP.Nickname:0 _GTW._OMP._PAP.Subject_has_Property:0
+#: _GTW._OMP._PAP.Nickname:0
 msgid "Nickname"
 msgid_plural "Nicknames"
 msgstr[0] ""
@@ -856,155 +988,181 @@ msgstr[1] ""
 msgid "Nickname of a subject"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Nickname of association"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Nickname of company"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Nickname of node"
-msgstr ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Nickname of person"
-msgstr ""
-
-#: _FFM.Node:0 _FFM.Net_Device:0 _GTW._OMP._PAP.Subject_has_Property:0
+#: _CNDB._OMP.Node:0 _CNDB._OMP.Net_Device:0 _CNDB._OMP.IP_Pool:0
+#: _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
 msgid "Node"
 msgid_plural "Nodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Node linked to IM_Handle"
+#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
+msgid "Node for which this `String `type_name`` is reserved."
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Node linked to Nickname"
+#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "Node quota"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Node_has_IM_Handle"
-msgid_plural "Node_has_IM_Handles"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Node_has_Nickname"
-msgid_plural "Node_has_Nicknames"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Only indoor TX allowed."
 msgstr ""
 
-#: _FFM.Node:0 _FFM.IP_Network:0 _FFM.IP4_Network:0 _FFM.IP6_Network:0
+#: _CNDB._OMP.Node:0 _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0
+#: _CNDB._OMP.IP6_Network:0
 msgid "Owner"
 msgstr ""
 
-#: _FFM.IP_Network:0 _FFM.IP4_Network:0 _FFM.IP6_Network:0
+#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
 msgid "Owner of the `String `type_name``."
 msgstr ""
 
-#: _FFM.Node:0
+#: _CNDB._OMP.Node:0
 msgid "Owner of the node, defaults to manager"
 msgstr ""
 
-#: _FFM.Person_acts_for_Legal_Entity:0
-msgid "Person allowed to act for a legal entity"
+#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
+msgid "Permission of a group on id_entity."
 msgstr ""
 
-#: _FFM.Person_mentors_Person:0
+#: _CNDB._OMP.IP4_Pool_permits_Group:0
+msgid "Permission of a group on ip4_pool."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "Permission of a group on ip6_pool."
+msgstr ""
+
+#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
+msgid "Permitted Group"
+msgstr ""
+
+#: _CNDB._OMP.Person_mentors_Person:0
 msgid "Person is the mentor of another person."
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Person linked to IM_Handle"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person linked to Adhoc_Group"
 msgstr ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Person linked to Nickname"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person linked to Association"
 msgstr ""
 
-#: _FFM.Person_acts_for_Legal_Entity:0
-msgid "Person_acts_for_Legal_Entity"
-msgid_plural "Person_acts_for_Legal_Entitys"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person linked to Company"
+msgstr ""
+
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person linked to Group"
+msgstr ""
+
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person_in_Adhoc_Group"
+msgid_plural "Person_in_Adhoc_Groups"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Person_has_IM_Handle"
-msgid_plural "Person_has_IM_Handles"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person_in_Association"
+msgid_plural "Person_in_Associations"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _GTW._OMP._PAP.Subject_has_Property:0
-msgid "Person_has_Nickname"
-msgid_plural "Person_has_Nicknames"
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person_in_Company"
+msgid_plural "Person_in_Companys"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Person_mentors_Person:0
+#: _GTW._OMP._PAP.Person_in_Group:0
+msgid "Person_in_Group"
+msgid_plural "Person_in_Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.Person_mentors_Person:0
 msgid "Person_mentors_Person"
 msgid_plural "Person_mentors_Persons"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Antenna_Type:0 _FFM.Antenna:0
+#: _CNDB._OMP.Antenna_Type:0 _CNDB._OMP.Antenna:0
 msgid "Polarization"
+msgstr ""
+
+#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
+msgid "Pool"
+msgstr ""
+
+#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
+msgid "Pool to which this `String `type_name`` belongs."
 msgstr ""
 
 #: _GTW._OMP._PAP.IM_Handle:0
 msgid "Protocol"
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid ""
+"Quota of IP allocations from this IP pool for a single\n"
+"network interface."
+msgstr ""
+
+#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "Quota of IP allocations from this IP pool per node."
+msgstr ""
+
+#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "Quota of IP allocations from this IP pool per user."
+msgstr ""
+
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Regulatory transmit permission"
 msgstr ""
 
-#: _FFM.Regulatory_Domain:0
+#: _CNDB._OMP.Regulatory_Domain:0
 msgid "Regulatory_Domain"
 msgid_plural "Regulatory_Domains"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "Regulatory_Permission"
 msgid_plural "Regulatory_Permissions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
 msgid "Relative height"
 msgstr ""
 
-#: _FFM.Device_Type:0
+#: _CNDB._OMP.Device_Type:0
 msgid "Revision"
 msgstr ""
 
-#: _FFM.Device_Type:0
+#: _CNDB._OMP.Device_Type:0
 msgid "Revision of hardware of device type"
 msgstr ""
 
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid "Right network interface"
 msgstr ""
 
-#: _FFM.Routing_Zone:0
+#: _CNDB._OMP.Routing_Zone:0
 msgid "Routing zone using the OLSR routing protocol."
 msgstr ""
 
-#: _FFM.Routing_Zone:0
+#: _CNDB._OMP.Routing_Zone:0
 msgid "Routing_Zone"
 msgid_plural "Routing_Zones"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Routing_Zone:0
+#: _CNDB._OMP.Routing_Zone:0
 msgid "Routing_Zone_OLSR"
 msgid_plural "Routing_Zone_OLSRs"
 msgstr[0] ""
@@ -1018,53 +1176,65 @@ msgstr ""
 msgid "Short description of the nickname"
 msgstr ""
 
+#: _GTW._OMP._PAP.Adhoc_Group:0
+msgid "Short name of adhoc_group."
+msgstr ""
+
 #: _GTW._OMP._PAP.Association:0
 msgid "Short name of association."
 msgstr ""
 
-#: _FFM.Node:0
+#: _CNDB._OMP.Node:0
 msgid "Show in map"
 msgstr ""
 
-#: _FFM.Node:0
+#: _CNDB._OMP.Node:0
 msgid "Show in map."
 msgstr ""
 
-#: _FFM.Wireless_Channel:0 _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Channel:0 _CNDB._OMP.Wireless_Interface:0
 msgid "Standard"
 msgstr ""
 
-#: _FFM/Attr_Type.py:80
+#: _CNDB/_OMP/Attr_Type.py:88
 msgid "TX Power"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "TX power"
 msgstr ""
 
-#: _FFM.Person_mentors_Person:0
+#: _CNDB._OMP.Person_mentors_Person:0
 msgid "The Person being mentored."
 msgstr ""
 
-#: _FFM.Person_mentors_Person:0
+#: _CNDB._OMP.Person_mentors_Person:0
 msgid "The Person mentoring another person."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "The `mask_len` must match the one of `right` or of any\n"
 "network containing `right`."
 msgstr ""
 
-#: _FFM.IP_Network:0
+#: _CNDB._OMP.IP_Network:0
 msgid "The `net_address` must be contained in the `parent`."
 msgstr ""
 
-#: _FFM.Antenna_Band:0
+#: _CNDB._OMP.Antenna_Band:0
 msgid "The antenna type for this band"
 msgstr ""
 
-#: _FFM.Net_Credentials:0
+#: _CNDB._OMP.IP_DNS_Alias:0
+msgid "The assigned IP Address"
+msgstr ""
+
+#: _CNDB._OMP.IP4_DNS_Alias:0 _CNDB._OMP.IP6_DNS_Alias:0
+msgid "The name must be unique for this type of address."
+msgstr ""
+
+#: _CNDB._OMP.Net_Credentials:0
 msgid "The network interface using these credentials."
 msgstr ""
 
@@ -1072,7 +1242,7 @@ msgstr ""
 msgid "The nickname."
 msgstr ""
 
-#: _FFM.Regulatory_Permission:0
+#: _CNDB._OMP.Regulatory_Permission:0
 msgid "The regulatory domain that gives this permission."
 msgstr ""
 
@@ -1080,67 +1250,67 @@ msgstr ""
 msgid "The upper bound must be greater than the lower bound."
 msgstr ""
 
-#: _FFM.Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Channel:0
 msgid "The wireless standard for this channel"
 msgstr ""
 
-#: _FFM.Routing_Zone:0
+#: _CNDB._OMP.Routing_Zone:0
 msgid "The zone that's routed for."
 msgstr ""
 
-#: _FFM.Antenna_Type:0
+#: _CNDB._OMP.Antenna_Type:0
 msgid "There must be at least one frequency band for the antenna."
 msgstr ""
 
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid ""
 "There must not be a second link with `left` and `right`\n"
 "swapped."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`net_interface_in_ip4_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`net_interface_in_ip4_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`net_interface_in_ip6_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`net_interface_in_ip6_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`net_interface_in_ip_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`net_interface_in_ip_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`virtual_wireless_interface_in_ip4_network` `left`, the network `right` "
@@ -1148,7 +1318,7 @@ msgid ""
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`virtual_wireless_interface_in_ip4_network` `left`, the network `right` "
@@ -1156,7 +1326,7 @@ msgid ""
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`virtual_wireless_interface_in_ip6_network` `left`, the network `right` "
@@ -1164,7 +1334,7 @@ msgid ""
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`virtual_wireless_interface_in_ip6_network` `left`, the network `right` "
@@ -1172,7 +1342,7 @@ msgid ""
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`virtual_wireless_interface_in_ip_network` `left`, the network `right` "
@@ -1180,7 +1350,7 @@ msgid ""
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`virtual_wireless_interface_in_ip_network` `left`, the network `right` "
@@ -1188,111 +1358,111 @@ msgid ""
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wired_interface_in_ip4_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wired_interface_in_ip4_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wired_interface_in_ip6_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wired_interface_in_ip6_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wired_interface_in_ip_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wired_interface_in_ip_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wireless_interface_in_ip4_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wireless_interface_in_ip4_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wireless_interface_in_ip6_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wireless_interface_in_ip6_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wireless_interface_in_ip_network` `left`, the network `right` must\n"
 "have been explicitly allocated to an `owner`."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid ""
 "To be eligible to be assigned to the\n"
 "`wireless_interface_in_ip_network` `left`, the network `right` must\n"
 "not be split into sub-networks."
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Transmit power with unit (units of dBW or W)."
 msgstr ""
 
-#: _FFM.Regulatory_Domain:0
+#: _CNDB._OMP.Regulatory_Domain:0
 msgid "Two-letter country-code"
 msgstr ""
 
-#: _FFM.Device:0 _MOM.Document:0
+#: _CNDB._OMP.Device:0 _MOM.Document:0
 msgid "Type"
 msgstr ""
 
-#: _FFM.Antenna:0
+#: _CNDB._OMP.Antenna:0
 msgid "Type of Antenna"
 msgstr ""
 
-#: _FFM.Device:0
+#: _CNDB._OMP.Device:0
 msgid "Type of Device"
 msgstr ""
 
-#: _FFM.Net_Device:0
+#: _CNDB._OMP.Net_Device:0
 msgid "Type of Net_Device"
 msgstr ""
 
@@ -1300,19 +1470,19 @@ msgstr ""
 msgid "Type of document (e.g., picture, user manual)."
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Type of firmware"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Type of firmware usable by some devices."
 msgstr ""
 
-#: _FFM.Wired_Interface:0 _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wired_Interface:0 _CNDB._OMP.Wireless_Interface:0
 msgid "Type of net device"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "URL for Firmware_Type"
 msgstr ""
 
@@ -1324,211 +1494,220 @@ msgstr ""
 msgid "Upper bound of interval."
 msgstr ""
 
-#: _FFM/__test__/model.py:74
+#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
+#: _CNDB._OMP.IP6_Pool_permits_Group:0
+msgid "User quota"
+msgstr ""
+
+#: _CNDB/_OMP/__test__/model.py:75
 msgid "Users"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Version"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Version of the firmware"
 msgstr ""
 
-#: _FFM.Firmware:0
+#: _CNDB._OMP.Firmware:0
 msgid "Version of the firmware bundle."
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0 _FFM.Net_Interface_in_IP4_Network:0
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Virtual wireless interface"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
-msgid "Virtual wireless interface of a FFM device"
+#: _CNDB._OMP.Wireless_Interface:0
+msgid "Virtual wireless interface of a CNDB device"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Virtual_Wireless_Interface"
 msgid_plural "Virtual_Wireless_Interfaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid "Virtual_Wireless_Interface_in_IP4_Network"
 msgid_plural "Virtual_Wireless_Interface_in_IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "Virtual_Wireless_Interface_in_IP6_Network"
 msgid_plural "Virtual_Wireless_Interface_in_IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Virtual_Wireless_Interface_in_IP_Network"
 msgid_plural "Virtual_Wireless_Interface_in_IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Credentials:0
+#: _CNDB._OMP.Net_Credentials:0
 msgid "WPA_Credentials"
 msgid_plural "WPA_Credentialses"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0 _FFM.Net_Interface_in_IP4_Network:0
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Wired interface"
 msgstr ""
 
-#: _FFM.Wired_Interface:0
-msgid "Wired interface of a FFM device"
+#: _CNDB._OMP.Wired_Interface:0
+msgid "Wired interface of a CNDB device"
 msgstr ""
 
-#: _FFM.Wired_Interface:0
+#: _CNDB._OMP.Wired_Interface:0
 msgid "Wired_Interface"
 msgid_plural "Wired_Interfaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid "Wired_Interface_in_IP4_Network"
 msgid_plural "Wired_Interface_in_IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "Wired_Interface_in_IP6_Network"
 msgid_plural "Wired_Interface_in_IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Wired_Interface_in_IP_Network"
 msgid_plural "Wired_Interface_in_IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Regulatory_Domain:0
+#: _CNDB._OMP.Regulatory_Domain:0
 msgid "Wireless Regulatory Domain"
 msgstr ""
 
-#: _FFM.Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Channel:0
 msgid "Wireless channel of a wireless standard"
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 msgid "Wireless channel used by a wireless interface"
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 msgid "Wireless channel."
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Antenna:0 _FFM.Net_Interface_in_IP6_Network:0
-#: _FFM.Net_Interface_in_IP4_Network:0 _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Wireless interface"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
-msgid "Wireless interface of a FFM device"
+#: _CNDB._OMP.Wireless_Interface:0
+msgid "Wireless interface of a CNDB device"
 msgstr ""
 
-#: _FFM.Wireless_Interface_uses_Antenna:0
-#: _FFM.Wireless_Interface_uses_Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 msgid "Wireless interface."
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Wireless mode to use for Virtual_Wireless_Interface"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Wireless mode to use for Wireless_Interface"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Wireless mode to use for _Wireless_Interface_"
 msgstr ""
 
-#: _FFM.Wireless_Standard:0
+#: _CNDB._OMP.Wireless_Standard:0
 msgid "Wireless standard"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Wireless standard used by the wireless interface."
 msgstr ""
 
-#: _FFM.Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Channel:0
 msgid "Wireless_Channel"
 msgid_plural "Wireless_Channels"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "Wireless_Interface"
 msgid_plural "Wireless_Interfaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 msgid "Wireless_Interface_in_IP4_Network"
 msgid_plural "Wireless_Interface_in_IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "Wireless_Interface_in_IP6_Network"
 msgid_plural "Wireless_Interface_in_IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "Wireless_Interface_in_IP_Network"
 msgid_plural "Wireless_Interface_in_IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Wireless_Interface_uses_Antenna:0
+#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
 msgid "Wireless_Interface_uses_Antenna"
 msgid_plural "Wireless_Interface_uses_Antennas"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Wireless_Interface_uses_Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 msgid "Wireless_Interface_uses_Wireless_Channel"
 msgid_plural "Wireless_Interface_uses_Wireless_Channels"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Wireless_Standard:0
+#: _CNDB._OMP.Wireless_Standard:0
 msgid "Wireless_Standard"
 msgid_plural "Wireless_Standards"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Zone:0 _FFM.Routing_Zone:0
+#: _CNDB._OMP.Zone:0 _CNDB._OMP.Routing_Zone:0
 msgid "Zone"
 msgid_plural "Zones"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _FFM.Net_Device:0
+#: _CNDB._OMP.Net_Device:0
 msgid "`Node` to which the `net_device` is connected."
 msgstr ""
 
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid "`left` and `right` must be different objects!"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "`left` must be equal to `hardware.left`"
 msgstr ""
 
-#: _FFM.Antenna_Type:0
+#: _CNDB._OMP.Antenna_Type:0
 msgid "band_exists"
 msgstr ""
 
@@ -1536,41 +1715,47 @@ msgstr ""
 msgid "is_valid"
 msgstr ""
 
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid "left_not_right"
 msgstr ""
 
-#: _FFM.IP_Network:0
+#: _CNDB._OMP.IP_Network:0
 msgid "net_address_in_parent"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0 _FFM.Net_Interface_in_IP4_Network:0
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "network_not_split"
 msgstr ""
 
-#: _FFM.Net_Link:0
+#: _CNDB._OMP.Net_Link:0
 msgid "not_inverse"
 msgstr ""
 
-#: _FFM.Wireless_Channel:0
+#: _CNDB._OMP.Wireless_Channel:0
 msgid "number of this channel"
 msgstr ""
 
-#: _FFM.IP_Network:0
-msgid "owner_or_cool_down"
+#: _CNDB._OMP.IP_Network:0
+msgid "owner_or_expiration"
 msgstr ""
 
-#: _FFM.Wireless_Interface:0
+#: _CNDB._OMP.IP4_DNS_Alias:0 _CNDB._OMP.IP6_DNS_Alias:0
+msgid "unique_name"
+msgstr ""
+
+#: _CNDB._OMP.Wireless_Interface:0
 msgid "valid_left"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "valid_mask_len"
 msgstr ""
 
-#: _FFM.Net_Interface_in_IP_Network:0 _FFM.Net_Interface_in_IP4_Network:0
-#: _FFM.Net_Interface_in_IP6_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
+#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 msgid "valid_network"
 msgstr ""
 

@@ -1,28 +1,56 @@
-# English translations for Project.
-# Copyright (C) 2012 Copyright
-# This file is distributed under the same license as the Project project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# Translations template for CNDB.
+# Copyright (C) 2014 Mag. Christian Tanzer, Ralf Schlatterbeck
+# This file is distributed under the same license as the CNDB project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Project 0.9\n"
-"Report-Msgid-Bugs-To: bugs@domain.unknown\n"
-"POT-Creation-Date: 2014-08-31 12:44+0200\n"
-"PO-Revision-Date: 2012-05-23 10:46+0200\n"
+"Project-Id-Version: CNDB 1.0\n"
+"Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
+"POT-Creation-Date: 2014-08-31 12:02+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
+#: _CNDB/_JNJ/html/base.jnj:39
+#, python-format
+msgid "%s Knotendatenbank"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:885
+#, python-format
+msgid "%ss managed/owned by %%s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:940
+#, python-format
+msgid "%ss used by %%s"
+msgstr ""
+
 #: _CNDB._OMP.Firmware:0
 msgid "A bundle of binaries for firmware."
 msgstr ""
 
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:222
+msgid "About"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:144
+msgid "Action"
+msgstr ""
+
 #: _CNDB._OMP.Node:0
 msgid "Address of the node (if stationary)."
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:971
+#, python-format
+msgid "Addresses used by %s"
 msgstr ""
 
 #: _GTW._OMP._PAP.Person_in_Group:0
@@ -84,7 +112,6 @@ msgid "Antenna."
 msgstr ""
 
 #: _CNDB._OMP.Antenna_Band:0
-#, fuzzy
 msgid "Antenna_Band"
 msgid_plural "Antenna_Bands"
 msgstr[0] ""
@@ -107,7 +134,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _GTW._OMP._PAP.Person_in_Group:0
-#, fuzzy
 msgid "Association of person"
 msgstr ""
 
@@ -201,6 +227,11 @@ msgstr ""
 msgid "Center frequency of this channel"
 msgstr ""
 
+#: _CNDB/_GTW/RST_addons.py:619
+#, python-format
+msgid "Change password of %s %s"
+msgstr ""
+
 #: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 msgid "Channel"
 msgstr ""
@@ -225,6 +256,11 @@ msgstr ""
 msgid "Countrycode"
 msgstr ""
 
+#: _CNDB/_GTW/RST_addons.py:624
+#, python-format
+msgid "Create a new %s %s"
+msgstr ""
+
 #: _CNDB._OMP.IP4_DNS_Alias:0
 msgid "DNS alias for IPv4 address"
 msgstr ""
@@ -235,6 +271,11 @@ msgstr ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
 msgid "DNS name for this IP Network."
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:629
+#, python-format
+msgid "Delete %s %s"
 msgstr ""
 
 #: _CNDB._OMP.Antenna_Type:0
@@ -274,6 +315,10 @@ msgstr ""
 msgid "Description of the node"
 msgstr ""
 
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:228
+msgid "Development"
+msgstr ""
+
 #: _CNDB._OMP.Device:0 _CNDB._OMP.Net_Interface:0
 msgid "Device"
 msgid_plural "Devices"
@@ -306,12 +351,21 @@ msgid_plural "Documents"
 msgstr[0] ""
 msgstr[1] ""
 
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:233
+msgid "Documentation"
+msgstr ""
+
 #: _CNDB._OMP.Regulatory_Permission:0
 msgid "Domain"
 msgstr ""
 
 #: _CNDB._OMP.Wireless_Interface:0
 msgid "ESSID"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:634
+#, python-format
+msgid "Edit %s %s"
 msgstr ""
 
 #: _CNDB._OMP.Regulatory_Permission:0
@@ -326,6 +380,10 @@ msgstr ""
 msgid ""
 "Elevation angle of the beam from the horizontal plane\n"
 "(in degrees)."
+msgstr ""
+
+#: _CNDB/_JNJ/html/login.jnj:74
+msgid "Email address of your account"
 msgstr ""
 
 #: _MOM.Document:0
@@ -419,7 +477,6 @@ msgid "Frequency with unit information (e.g. 2.437 GHz)."
 msgstr ""
 
 #: _MOM._Attr.Number_Interval:0
-#, fuzzy
 msgid "Frequency_Interval"
 msgid_plural "Frequency_Intervals"
 msgstr[0] ""
@@ -432,6 +489,11 @@ msgstr ""
 #: _CNDB._OMP.Antenna_Type:0 _CNDB._OMP.Antenna:0
 #: _CNDB._OMP.Regulatory_Permission:0
 msgid "Gain"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:645
+#, python-format
+msgid "Generate firmware for %s %s"
 msgstr ""
 
 #: _CNDB/_OMP/graph.py:165
@@ -456,6 +518,19 @@ msgstr ""
 
 #: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
 msgid "Height relative to device the antenna is connected to."
+msgstr ""
+
+#: _CNDB/_JNJ/html/login.jnj:118
+msgid "I forgot my password"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:655
+#, python-format
+msgid "I forgot my password; reset password of %s %s"
+msgstr ""
+
+#: _CNDB/_JNJ/html/login.jnj:114
+msgid "I forgot my password; send me a temporary one to my email address"
 msgstr ""
 
 #: _GTW._OMP._PAP.Id_Entity_permits_Group:0
@@ -485,6 +560,14 @@ msgstr ""
 #: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
 #: _CNDB._OMP.IP6_Pool_permits_Group:0
 msgid "IP Pool."
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:719
+msgid "IP addresses"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:713
+msgid "IP addresses assigned to interface"
 msgstr ""
 
 #: _CNDB._OMP.IP_Network_in_IP_Pool:0 _CNDB._OMP.IP4_Network_in_IP4_Pool:0
@@ -534,7 +617,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.IP6_Network:0
-#, fuzzy
 msgid "IP6_Network"
 msgid_plural "IP6_Networks"
 msgstr[0] ""
@@ -636,14 +718,12 @@ msgid "Indoor only"
 msgstr ""
 
 #: _MOM._Attr.Number_Interval:0
-#, fuzzy
 msgid "Int_Interval"
 msgid_plural "Int_Intervals"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _MOM._Attr.Number_Interval:0
-#, fuzzy
 msgid "Int_Interval_C"
 msgid_plural "Int_Interval_Cs"
 msgstr[0] ""
@@ -677,7 +757,6 @@ msgstr ""
 
 #: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#, fuzzy
 msgid "Ip6 network"
 msgstr ""
 
@@ -695,6 +774,10 @@ msgstr ""
 
 #: _CNDB._OMP.Net_Credentials:0
 msgid "Key used for WPA authentication."
+msgstr ""
+
+#: _CNDB/_JNJ/html/base.jnj:62
+msgid "Last change"
 msgstr ""
 
 #: _CNDB._OMP.Net_Link:0
@@ -727,6 +810,14 @@ msgstr ""
 
 #: _MOM.Document:0
 msgid "Location of document."
+msgstr ""
+
+#: _CNDB/_JNJ/html/login.jnj:104
+msgid "Log into website"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:200
+msgid "Logout"
 msgstr ""
 
 #: _MOM._Attr.Number_Interval:0
@@ -778,7 +869,6 @@ msgid "Mentor"
 msgstr ""
 
 #: _CNDB._OMP.Wireless_Interface:0
-#, fuzzy
 msgid "Mode"
 msgstr ""
 
@@ -907,7 +997,6 @@ msgid "Net address"
 msgstr ""
 
 #: _CNDB._OMP.Wired_Interface:0 _CNDB._OMP.Wireless_Interface:0
-#, fuzzy
 msgid "Net device"
 msgstr ""
 
@@ -944,7 +1033,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#, fuzzy
 msgid "Net_Interface_in_IP6_Network"
 msgid_plural "Net_Interface_in_IP6_Networks"
 msgstr[0] ""
@@ -1014,13 +1102,21 @@ msgstr ""
 msgid "Node quota"
 msgstr ""
 
+#: _CNDB/_GTW/RST_addons.py:779 _CNDB/_JNJ/html/dashboard/app.m.jnj:280
+#, python-format
+msgid "Number of %s belonging to %s"
+msgstr ""
+
 #: _CNDB._OMP.Regulatory_Permission:0
 msgid "Only indoor TX allowed."
 msgstr ""
 
+#: _CNDB/_JNJ/html/navigation.jnj:48
+msgid "Open wireless networks"
+msgstr ""
+
 #: _CNDB._OMP.Node:0 _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0
 #: _CNDB._OMP.IP6_Network:0
-#, fuzzy
 msgid "Owner"
 msgstr ""
 
@@ -1030,6 +1126,10 @@ msgstr ""
 
 #: _CNDB._OMP.Node:0
 msgid "Owner of the node, defaults to manager"
+msgstr ""
+
+#: _CNDB/_JNJ/html/login.jnj:89
+msgid "Password of your account"
 msgstr ""
 
 #: _GTW._OMP._PAP.Id_Entity_permits_Group:0
@@ -1075,7 +1175,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _GTW._OMP._PAP.Person_in_Group:0
-#, fuzzy
 msgid "Person_in_Association"
 msgid_plural "Person_in_Associations"
 msgstr[0] ""
@@ -1098,6 +1197,15 @@ msgid "Person_mentors_Person"
 msgid_plural "Person_mentors_Persons"
 msgstr[0] ""
 msgstr[1] ""
+
+#: _CNDB/_GTW/RST_addons.py:1220
+#, python-format
+msgid "Personal data of %s"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:264
+msgid "Personal settings"
+msgstr ""
 
 #: _CNDB._OMP.Antenna_Type:0 _CNDB._OMP.Antenna:0
 msgid "Polarization"
@@ -1130,6 +1238,10 @@ msgstr ""
 #: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
 #: _CNDB._OMP.IP6_Pool_permits_Group:0
 msgid "Quota of IP allocations from this IP pool per user."
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:240
+msgid "RESTful API"
 msgstr ""
 
 #: _CNDB._OMP.Regulatory_Permission:0
@@ -1196,6 +1308,11 @@ msgstr ""
 msgid "Short name of association."
 msgstr ""
 
+#: _CNDB/_GTW/RST_addons.py:650
+#, python-format
+msgid "Show graphs and statistics about %s %s"
+msgstr ""
+
 #: _CNDB._OMP.Node:0
 msgid "Show in map"
 msgstr ""
@@ -1205,7 +1322,6 @@ msgid "Show in map."
 msgstr ""
 
 #: _CNDB._OMP.Wireless_Channel:0 _CNDB._OMP.Wireless_Interface:0
-#, fuzzy
 msgid "Standard"
 msgstr ""
 
@@ -1455,6 +1571,10 @@ msgid ""
 "not be split into sub-networks."
 msgstr ""
 
+#: _CNDB/_JNJ/html/base.jnj:57
+msgid "Top of page"
+msgstr ""
+
 #: _CNDB._OMP.Wireless_Interface:0
 msgid "Transmit power with unit (units of dBW or W)."
 msgstr ""
@@ -1531,38 +1651,32 @@ msgstr ""
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#, fuzzy
 msgid "Virtual wireless interface"
 msgstr ""
 
 #: _CNDB._OMP.Wireless_Interface:0
-#, fuzzy
 msgid "Virtual wireless interface of a CNDB device"
 msgstr ""
 
 #: _CNDB._OMP.Wireless_Interface:0
-#, fuzzy
 msgid "Virtual_Wireless_Interface"
 msgid_plural "Virtual_Wireless_Interfaces"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#, fuzzy
 msgid "Virtual_Wireless_Interface_in_IP4_Network"
 msgid_plural "Virtual_Wireless_Interface_in_IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#, fuzzy
 msgid "Virtual_Wireless_Interface_in_IP6_Network"
 msgid_plural "Virtual_Wireless_Interface_in_IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#, fuzzy
 msgid "Virtual_Wireless_Interface_in_IP_Network"
 msgid_plural "Virtual_Wireless_Interface_in_IP_Networks"
 msgstr[0] ""
@@ -1591,21 +1705,18 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#, fuzzy
 msgid "Wired_Interface_in_IP4_Network"
 msgid_plural "Wired_Interface_in_IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#, fuzzy
 msgid "Wired_Interface_in_IP6_Network"
 msgid_plural "Wired_Interface_in_IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#, fuzzy
 msgid "Wired_Interface_in_IP_Network"
 msgid_plural "Wired_Interface_in_IP_Networks"
 msgstr[0] ""
@@ -1664,7 +1775,6 @@ msgid "Wireless standard used by the wireless interface."
 msgstr ""
 
 #: _CNDB._OMP.Wireless_Channel:0
-#, fuzzy
 msgid "Wireless_Channel"
 msgid_plural "Wireless_Channels"
 msgstr[0] ""
@@ -1677,21 +1787,18 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#, fuzzy
 msgid "Wireless_Interface_in_IP4_Network"
 msgid_plural "Wireless_Interface_in_IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#, fuzzy
 msgid "Wireless_Interface_in_IP6_Network"
 msgid_plural "Wireless_Interface_in_IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#, fuzzy
 msgid "Wireless_Interface_in_IP_Network"
 msgid_plural "Wireless_Interface_in_IP_Networks"
 msgstr[0] ""
@@ -1704,18 +1811,23 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
-#, fuzzy
 msgid "Wireless_Interface_uses_Wireless_Channel"
 msgid_plural "Wireless_Interface_uses_Wireless_Channels"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Wireless_Standard:0
-#, fuzzy
 msgid "Wireless_Standard"
 msgid_plural "Wireless_Standards"
 msgstr[0] ""
 msgstr[1] ""
+
+#: _CNDB/_GTW/RST_addons.py:128
+#, python-format
+msgid ""
+"You are not allowed to change %s unless afterwards you [%s] are still "
+"either manager or owner"
+msgstr ""
 
 #: _CNDB._OMP.Zone:0 _CNDB._OMP.Routing_Zone:0
 msgid "Zone"
@@ -1733,6 +1845,10 @@ msgstr ""
 
 #: _CNDB._OMP.Wireless_Interface:0
 msgid "`left` must be equal to `hardware.left`"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:131
+msgid "and"
 msgstr ""
 
 #: _CNDB._OMP.Antenna_Type:0
@@ -1765,8 +1881,16 @@ msgstr ""
 msgid "number of this channel"
 msgstr ""
 
+#: _CNDB/_GTW/RST_addons.py:226
+msgid "owned/managed by"
+msgstr ""
+
 #: _CNDB._OMP.IP_Network:0
 msgid "owner_or_expiration"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:133
+msgid "to"
 msgstr ""
 
 #: _CNDB._OMP.IP4_DNS_Alias:0 _CNDB._OMP.IP6_DNS_Alias:0
@@ -1784,408 +1908,6 @@ msgstr ""
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#, fuzzy
 msgid "valid_network"
 msgstr ""
-
-#~ msgid "Base class for Firmware_Binary and Firmware_Bundle."
-#~ msgstr ""
-
-#~ msgid "IP Network of FFM"
-#~ msgstr ""
-
-#~ msgid "Model an interval of freqency values (lower, upper)."
-#~ msgstr ""
-
-#~ msgid "Net device"
-#~ msgstr ""
-
-#~ msgid "Network devices used by a node."
-#~ msgstr ""
-
-#~ msgid "Network devices used by node"
-#~ msgstr ""
-
-#~ msgid "Node using network devices"
-#~ msgstr ""
-
-#~ msgid "Node_has_Net_Device"
-#~ msgid_plural "Node_has_Net_Devices"
-#~ msgstr[0] ""
-#~ msgstr[1] ""
-
-#~ msgid "Power"
-#~ msgstr ""
-
-#~ msgid "SSID"
-#~ msgstr ""
-
-#~ msgid "Transmit power in dBm."
-#~ msgstr ""
-
-#~ msgid "???"
-#~ msgstr ""
-
-#~ msgid "AP_Mode"
-#~ msgstr ""
-
-#~ msgid "AP_Modes"
-#~ msgstr ""
-
-#~ msgid "Ad_Hoc_Mode"
-#~ msgstr ""
-
-#~ msgid "Ad_Hoc_Modes"
-#~ msgstr ""
-
-#~ msgid "Client_Mode"
-#~ msgstr ""
-
-#~ msgid "Client_Modes"
-#~ msgstr ""
-
-#~ msgid "Frequency range the antenna supports."
-#~ msgstr ""
-
-#~ msgid "IP Address"
-#~ msgstr ""
-
-#~ msgid "IP Address in this IP Network."
-#~ msgstr ""
-
-#~ msgid "IP4_Address"
-#~ msgstr ""
-
-#~ msgid "IP4_Addresses"
-#~ msgstr ""
-
-#~ msgid "IP6_Address"
-#~ msgstr ""
-
-#~ msgid "IP6_Addresses"
-#~ msgstr ""
-
-#~ msgid "IP_Address"
-#~ msgstr ""
-
-#~ msgid "IP_Addresses"
-#~ msgstr ""
-
-#~ msgid "IPv4 Address"
-#~ msgstr ""
-
-#~ msgid "IPv4 Address in this IPv4 Network."
-#~ msgstr ""
-
-#~ msgid "IPv4 Network"
-#~ msgstr ""
-
-#~ msgid "IPv6 Address"
-#~ msgstr ""
-
-#~ msgid "IPv6 Network"
-#~ msgstr ""
-
-#~ msgid "Inclination"
-#~ msgstr ""
-
-#~ msgid "Inclination of the beam from the horizontal plane (in degrees)."
-#~ msgstr ""
-
-#~ msgid "Ip address"
-#~ msgstr ""
-
-#~ msgid "Is hidden"
-#~ msgstr ""
-
-#~ msgid "Link between two wired network interfaces."
-#~ msgstr ""
-
-#~ msgid "Link between two wireless network interfaces."
-#~ msgstr ""
-
-#~ msgid "Map p"
-#~ msgstr ""
-
-#~ msgid "Model a network interface of a FFM device"
-#~ msgstr ""
-
-#~ msgid "Model an IPv4 Address (without netmask)."
-#~ msgstr ""
-
-#~ msgid "Model an IPv4 Network with netmask."
-#~ msgstr ""
-
-#~ msgid "Model an IPv6 Address (without netmask)."
-#~ msgstr ""
-
-#~ msgid "Model an IPv6 Network with netmask."
-#~ msgstr ""
-
-#~ msgid "Model an abstract IP Address."
-#~ msgstr ""
-
-#~ msgid "Model the mode `access point`."
-#~ msgstr ""
-
-#~ msgid "Model the mode `ad hoc`."
-#~ msgstr ""
-
-#~ msgid "Model the mode `client`."
-#~ msgstr ""
-
-#~ msgid "Name of device"
-#~ msgstr ""
-
-#~ msgid "Net interface in IPv4 network"
-#~ msgstr ""
-
-#~ msgid "Node owned by Subject"
-#~ msgstr ""
-
-#~ msgid "Node."
-#~ msgstr ""
-
-#~ msgid "Orientation"
-#~ msgstr ""
-
-#~ msgid "Orientation in degrees relative to standard orientation."
-#~ msgstr ""
-
-#~ msgid "Protocol used by the wireless interface."
-#~ msgstr ""
-
-#~ msgid "Show in map ???"
-#~ msgstr ""
-
-#~ msgid "Subject."
-#~ msgstr ""
-
-#~ msgid "Subject_owns_Node"
-#~ msgstr ""
-
-#~ msgid "Subject_owns_Nodes"
-#~ msgstr ""
-
-#~ msgid "The wireless device operating in this mode."
-#~ msgstr ""
-
-#~ msgid "Type of antenna"
-#~ msgstr ""
-
-#~ msgid "Type of device"
-#~ msgstr ""
-
-#~ msgid "Wired_Link"
-#~ msgstr ""
-
-#~ msgid "Wired_Links"
-#~ msgstr ""
-
-#~ msgid "Wireless_Link"
-#~ msgstr ""
-
-#~ msgid "Wireless_Links"
-#~ msgstr ""
-
-#~ msgid "`left.mode` and `right.mode` must be linkable to each other."
-#~ msgstr ""
-
-#~ msgid "valid_modes"
-#~ msgstr ""
-
-#~ msgid "Address of association"
-#~ msgstr ""
-
-#~ msgid "Association linked to Address"
-#~ msgstr ""
-
-#~ msgid "Association linked to IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Association linked to Nickname"
-#~ msgstr ""
-
-#~ msgid "Association_has_Address"
-#~ msgstr ""
-
-#~ msgid "Association_has_Addresses"
-#~ msgstr ""
-
-#~ msgid "Association_has_IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Association_has_IM_Handles"
-#~ msgstr ""
-
-#~ msgid "Association_has_Nickname"
-#~ msgstr ""
-
-#~ msgid "Association_has_Nicknames"
-#~ msgstr ""
-
-#~ msgid ""
-#~ msgstr ""
-
-#~ msgid "Company linked to IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Company linked to Nickname"
-#~ msgstr ""
-
-#~ msgid "Company_has_IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Company_has_IM_Handles"
-#~ msgstr ""
-
-#~ msgid "Company_has_Nickname"
-#~ msgstr ""
-
-#~ msgid "Company_has_Nicknames"
-#~ msgstr ""
-
-#~ msgid "FFM graph"
-#~ msgstr ""
-
-#~ msgid "IM_Handle of association"
-#~ msgstr ""
-
-#~ msgid "IM_Handle of company"
-#~ msgstr ""
-
-#~ msgid "IM_Handle of node"
-#~ msgstr ""
-
-#~ msgid "IM_Handle of person"
-#~ msgstr ""
-
-#~ msgid "IPv4 Network of FFM"
-#~ msgstr ""
-
-#~ msgid "IPv6 Network of FFM"
-#~ msgstr ""
-
-#~ msgid "Im handle"
-#~ msgstr ""
-
-#~ msgid "Legal entity"
-#~ msgstr ""
-
-#~ msgid "Link a association to a address"
-#~ msgstr ""
-
-#~ msgid "Link a association to a im_handle"
-#~ msgstr ""
-
-#~ msgid "Link a association to a nickname"
-#~ msgstr ""
-
-#~ msgid "Link a company to a im_handle"
-#~ msgstr ""
-
-#~ msgid "Link a company to a nickname"
-#~ msgstr ""
-
-#~ msgid "Link a node to a im_handle"
-#~ msgstr ""
-
-#~ msgid "Link a node to a nickname"
-#~ msgstr ""
-
-#~ msgid "Link a person to a im_handle"
-#~ msgstr ""
-
-#~ msgid "Link a person to a nickname"
-#~ msgstr ""
-
-#~ msgid "Link person to legal entities they are allowed to act for"
-#~ msgstr ""
-
-#~ msgid "Model a network device of FFM."
-#~ msgstr ""
-
-#~ msgid "Model a node of FFM"
-#~ msgstr ""
-
-#~ msgid "Model a routing zone of FFM."
-#~ msgstr ""
-
-#~ msgid "Model an antenna used by a FFM node."
-#~ msgstr ""
-
-#~ msgid "Model the type of antennas in FFM."
-#~ msgstr ""
-
-#~ msgid "Model the type of network devices in FFM."
-#~ msgstr ""
-
-#~ msgid "Nickname of association"
-#~ msgstr ""
-
-#~ msgid "Nickname of company"
-#~ msgstr ""
-
-#~ msgid "Nickname of node"
-#~ msgstr ""
-
-#~ msgid "Nickname of person"
-#~ msgstr ""
-
-#~ msgid "Node linked to IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Node linked to Nickname"
-#~ msgstr ""
-
-#~ msgid "Node_has_IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Node_has_IM_Handles"
-#~ msgstr ""
-
-#~ msgid "Node_has_Nickname"
-#~ msgstr ""
-
-#~ msgid "Node_has_Nicknames"
-#~ msgstr ""
-
-#~ msgid "Person allowed to act for a legal entity"
-#~ msgstr ""
-
-#~ msgid "Person linked to IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Person linked to Nickname"
-#~ msgstr ""
-
-#~ msgid "Person_acts_for_Legal_Entity"
-#~ msgstr ""
-
-#~ msgid "Person_acts_for_Legal_Entitys"
-#~ msgstr ""
-
-#~ msgid "Person_has_IM_Handle"
-#~ msgstr ""
-
-#~ msgid "Person_has_IM_Handles"
-#~ msgstr ""
-
-#~ msgid "Person_has_Nickname"
-#~ msgstr ""
-
-#~ msgid "Person_has_Nicknames"
-#~ msgstr ""
-
-#~ msgid "Virtual wireless interface of a FFM device"
-#~ msgstr ""
-
-#~ msgid "Wired interface of a FFM device"
-#~ msgstr ""
-
-#~ msgid "Wireless interface of a FFM device"
-#~ msgstr ""
-
-#~ msgid "owner_or_cool_down"
-#~ msgstr ""
 
