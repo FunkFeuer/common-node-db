@@ -18,6 +18,7 @@
 //     2-May-2014 (CT) Add `graph_cb`
 //     3-May-2014 (CT) Add `active_filters`; pass contents to `?create`
 //     4-May-2014 (CT) Add `filter_typ_cb ["interface"]`, `graph_interface_cb`
+//     1-Sep-2014 (CT) Change `url` of `create_cb` (s=?=/=)
 //    ««revision-date»»···
 //--
 
@@ -72,7 +73,7 @@
             var afs   = $.param       (active_filters);
             var sid   = closest_el_id (this, "section");
             var typ   = sid.match     (pat_typ_name) [1];
-            var url   = options.urls.page + typ + "?create";
+            var url   = options.urls.page + typ + "/create";
             if (afs.length > 0) {
                 url   = url + "&" + afs;
             };

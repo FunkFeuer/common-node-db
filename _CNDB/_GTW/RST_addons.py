@@ -68,6 +68,8 @@
 #    17-Jun-2014 (CT) Add `DB_Person.Form_spec` to test `include_rev_refs`
 #    20-Aug-2014 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Admin`
 #    29-Aug-2014 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Admin`, again
+#     1-Sep-2014 (CT) Add property `_DB_E_Type_.eligible_objects`,
+#                     fix property `_DB_E_Type_.child_postconditions_map`
 #    ««revision-date»»···
 #--
 
@@ -556,7 +558,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         (lambda s : s.admin.child_permission_map)
 
     child_postconditions_map = property \
-        (lambda s : s.admin.User_Entity.child_postconditions_map)
+        (lambda s : s.admin.child_postconditions_map)
+
+    eligible_objects       = property (lambda s : s.admin.eligible_objects)
 
     class _Action_Override_ (GTW.RST.TOP._Base_) :
 
