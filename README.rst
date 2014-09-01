@@ -186,7 +186,10 @@ Create user and database user permitted to create databases. For instance,
 for Funkfeuer Wien::
 
  $ adduser ffw
- $ createuser -d ffw -P
+ $ sudo postgres createuser -d ffw -P
+
+Note: Depending on your setup the createuser command has to be executed by
+a different user.
 
 How to install
 --------------
@@ -290,7 +293,7 @@ also enable some needed modules::
 
   $ a2ensite nodedb2.example.com
   $ a2dissite default
-  $ a2enmod mod_expires
+  $ a2enmod expires
   $ a2enmod fcgid
   $ /etc/init.d/apache2 restart
 
