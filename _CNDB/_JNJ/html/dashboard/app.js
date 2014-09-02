@@ -20,6 +20,7 @@
 //     4-May-2014 (CT) Add `filter_typ_cb ["interface"]`, `graph_interface_cb`
 //     1-Sep-2014 (CT) Change `url` of `create_cb`
 //     2-Sep-2014 (CT) Fix change of `url` of `create_cb` (active_filters)
+//     2-Sep-2014 (MB) Remove Graph action from filter button for interface
 //    ««revision-date»»···
 //--
 
@@ -298,7 +299,7 @@
         $(selectors.edit_button      ).on ("click", edit_cb);
         $(selectors.filter_button    ).on ("click", filter_cb);
         $(selectors.firmware_button  ).on ("click", firmware_cb);
-        $(selectors.graph_button_if  ).on ("click", graph_interface_cb);
+        //$(selectors.graph_button_if  ).on ("click", graph_interface_cb);
         $(selectors.graph_button_node).on ("click", graph_cb);
         return this;
     };
