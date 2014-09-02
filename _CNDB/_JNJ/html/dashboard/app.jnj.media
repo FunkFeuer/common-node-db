@@ -30,6 +30,7 @@
 #     9-Jul-2014 (CT) Add rule for ".rotate-45-left"
 #    14-Jul-2014 (CT) Use classes, not ids
 #    14-Jul-2014 (CT) Add rule for `max_height`, `min_height` of `.map`
+#     2-Sep-2014 (MB) Change Z-Index of nav
 #    ««revision-date»»···
 #--
 
@@ -105,6 +106,7 @@ style_sheet = Style_Sheet \
             [ Rule
                 ( "> .pure-menu"
                 , padding          = TRBL (Rem (0.25), Rem (2.0), Rem (0.15))
+                , z_index          = "1001 !important" 
                 , children         =
                     [ Rule
                         ( ".pure-menu-auto-open > a:first-child:after"

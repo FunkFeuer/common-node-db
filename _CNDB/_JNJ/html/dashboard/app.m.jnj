@@ -41,6 +41,7 @@
 ##     5-May-2014 (CT) Add guard to `db_node_map`, use `db_node.position`
 ##    11-Jul-2014 (CT) Add guard for `pos` to `db_node_map`
 ##    20-Aug-2014 (CT) Add missing space to `th` of `e_type_table`
+##     2-Sep-2014 (MB) Fix tile url of map
 ##    ««revision-date»»···
 ##--
 #}
