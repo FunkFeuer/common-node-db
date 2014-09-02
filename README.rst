@@ -249,7 +249,7 @@ system should something go wrong during the upgrade::
   $ git clone git://github.com/Tapyr/tapyr.git v/1/tapyr
   $ git clone git://github.com/CNDB/CNDB.git   v/1/cndb
   $ git clone git://github.com/FFM/FFW.git     v/1/www/app
-  $ (cd v/1/www/media & ln -s ../media/images images)
+  $ (cd v/1/www/media ; ln -s ../media/images images)
   $ cp -a v/1 v/2
 
   $ vi active/www/.ffw.config
