@@ -27,6 +27,8 @@
 #
 # Revision Dates
 #    10-Jul-2014 (CT) Creation
+#     2-Sep-2014 (CT) Redefine `Babel` to augment `_package_dirs`
+#     2-Sep-2014 (CT) Add `template_package_dirs` to `_defaults`
 #    ««revision-date»»···
 #--
 
@@ -40,13 +42,29 @@ from   _TFL                     import TFL
 import _CNDB._GTW
 import _GTW.deploy
 
-class _CNDB_deploy_Command_ (GTW.deploy.Command) :
+_Ancestor = GTW.deploy.Command
+
+class _CNDB_deploy_Command_ (_Ancestor) :
     """Manage deployment of CNDB application"""
 
     _real_name     = "Command"
+    _rn_prefix     = "_CNDB_"
+
     _defaults      = dict \
-        ( lib_dir  = ["cndb", "tapyr"]
+        ( lib_dir               = ["cndb", "tapyr"]
+        , template_package_dirs = ["_CNDB._JNJ", "_JNJ"]
         )
+
+    class _CNDB_Babel_ (_Ancestor._Babel_) :
+
+        _package_dirs           = \
+            [ "_CNDB"
+            , "_CNDB._GTW"
+            , "_CNDB._JNJ"
+            , "_CNDB._OMP"
+            ]
+
+    _Babel_ = _CNDB_Babel_ # end class
 
 Command = _CNDB_deploy_Command_ # end class
 
