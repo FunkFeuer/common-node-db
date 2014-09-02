@@ -71,6 +71,7 @@
 #     1-Sep-2014 (CT) Add property `_DB_E_Type_.eligible_objects`,
 #                     fix property `_DB_E_Type_.child_postconditions_map`
 #     2-Sep-2014 (MB) Remove "graphs" action from node
+#                     Remove "firmware" action from device
 #    ««revision-date»»···
 #--
 
@@ -983,8 +984,7 @@ class DB_Device (_DB_E_Type_) :
 
     type_name             = "CNDB.Net_Device"
 
-    view_action_names     = _DB_E_Type_.view_action_names + \
-        ("firmware", )
+    view_action_names     = _DB_E_Type_.view_action_names 
     view_field_names      = \
         ( "name"
         , "my_node.name"
