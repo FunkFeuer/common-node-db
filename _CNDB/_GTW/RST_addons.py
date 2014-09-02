@@ -70,6 +70,7 @@
 #    29-Aug-2014 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Admin`, again
 #     1-Sep-2014 (CT) Add property `_DB_E_Type_.eligible_objects`,
 #                     fix property `_DB_E_Type_.child_postconditions_map`
+#     2-Sep-2014 (MB) Remove "graphs" action from node
 #    ««revision-date»»···
 #--
 
@@ -1144,7 +1145,7 @@ class DB_Node (_DB_E_Type_) :
     type_name             = "CNDB.Node"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_node_map"
 
-    view_action_names     = _DB_E_Type_.view_action_names + ("graphs", )
+    view_action_names     = _DB_E_Type_.view_action_names
     view_field_names      = \
         ( "name"
         , "devices"
