@@ -252,10 +252,10 @@ system should something go wrong during the upgrade::
   $ (cd v/1/www/media ; ln -s ../app/media/images images)
   $ cp -a v/1 v/2
 
-  $ vi active/www/.ffw.config
+  $ vi active/.ffw.config
     ### Add the lines (using the appropriate values for **your** install)::
       db_name       = "ffw1"
-  $ vi passive/www/.ffw.config
+  $ vi passive/.ffw.config
       db_name       = "ffw2"
 
   ### Define PYTHONPATH
