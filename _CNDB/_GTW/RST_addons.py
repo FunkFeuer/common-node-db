@@ -72,6 +72,8 @@
 #                     fix property `_DB_E_Type_.child_postconditions_map`
 #     2-Sep-2014 (MB) Remove "graphs" action from node
 #                     Remove "firmware" action from device
+#     2-Sep-2014 (CT) Remove `_setup_create_mf3_attr_spec`
+#                     (done by GTW.RST.TOP.MOM.Admin._Changer_, now)
 #    ««revision-date»»···
 #--
 
@@ -292,7 +294,7 @@ class User_Node (User_Entity) :
                     )
                 )
         return result
-    # end def mf3_attr_spec
+    # end def mf3_attr_spec_d
 
 # end class User_Node
 
@@ -342,7 +344,7 @@ class User_Net_Device (User_Node_Dependent) :
                       }
                     )
         return result
-    # end def mf3_attr_spec
+    # end def mf3_attr_spec_d
 
 # end class User_Net_Device
 
@@ -591,7 +593,6 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         def __call__ (self, resource, request, response) :
             req_data = request.req_data
             if "create" in req_data :
-                resource._setup_create_mf3_attr_spec (request)
                 creator = resource._get_child ("create")
                 return creator.GET () (creator, request, response)
             else :
@@ -911,10 +912,6 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         return self.__super._init_kw (_field_map = {}, ** kw)
     # end def _init_kw
 
-    def _setup_create_mf3_attr_spec (self, request) :
-        pass
-    # end def _setup_create_mf3_attr_spec
-
 # end class _DB_E_Type_
 
 class _DB_Person_Property_ (_DB_E_Type_) :
@@ -984,7 +981,7 @@ class DB_Device (_DB_E_Type_) :
 
     type_name             = "CNDB.Net_Device"
 
-    view_action_names     = _DB_E_Type_.view_action_names 
+    view_action_names     = _DB_E_Type_.view_action_names
     view_field_names      = \
         ( "name"
         , "my_node.name"
@@ -1004,19 +1001,6 @@ class DB_Device (_DB_E_Type_) :
     def tr_instance_css_class (self, o) :
         return "node-%d- device-%d-" % (o.my_node.pid, o.pid)
     # end def tr_instance_css_class
-
-    def _setup_create_mf3_attr_spec (self, request) :
-        fasd     = self.mf3_attr_spec_d = {}
-        req_data = request.req_data
-        scope    = self.scope
-        if "node" in req_data :
-             try :
-                 node = scope.pid_query (req_data ["node"])
-             except Exception :
-                 pass
-             else :
-                 fasd ["node"] = dict (default = node)
-    # end def _setup_create_mf3_attr_spec
 
 # end class DB_Device
 
@@ -1122,19 +1106,6 @@ class DB_Interface (_Ancestor) :
         return "node-%d- device-%d- interface-%d-" % \
             (o.my_node.pid, o.my_net_device.pid, o.pid)
     # end def tr_instance_css_class
-
-    def _setup_create_mf3_attr_spec (self, request) :
-        fasd     = self.mf3_attr_spec_d = {}
-        req_data = request.req_data
-        scope    = self.scope
-        if "device" in req_data :
-             try :
-                 device = scope.pid_query (req_data ["device"])
-             except Exception :
-                 pass
-             else :
-                 fasd ["left"] = dict (default = device)
-    # end def _setup_create_mf3_attr_spec
 
 # end class DB_Interface
 
