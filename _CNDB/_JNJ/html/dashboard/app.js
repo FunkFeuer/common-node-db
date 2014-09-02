@@ -18,7 +18,8 @@
 //     2-May-2014 (CT) Add `graph_cb`
 //     3-May-2014 (CT) Add `active_filters`; pass contents to `?create`
 //     4-May-2014 (CT) Add `filter_typ_cb ["interface"]`, `graph_interface_cb`
-//     1-Sep-2014 (CT) Change `url` of `create_cb` (s=?=/=)
+//     1-Sep-2014 (CT) Change `url` of `create_cb`
+//     2-Sep-2014 (CT) Fix change of `url` of `create_cb` (active_filters)
 //    ««revision-date»»···
 //--
 
@@ -75,7 +76,7 @@
             var typ   = sid.match     (pat_typ_name) [1];
             var url   = options.urls.page + typ + "/create";
             if (afs.length > 0) {
-                url   = url + "&" + afs;
+                url   = url + "?" + afs;
             };
             setTimeout
                 ( function () {
