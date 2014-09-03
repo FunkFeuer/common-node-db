@@ -23,6 +23,7 @@
 //     2-Sep-2014 (MB) Remove Graph action from filter button for interface
 //     3-Sep-2014 (MB) Focus map to filtered node - added focus_map_cb
 //                     Move Map to JS
+//                     Map now filters nodes and vice versa
 //    ««revision-date»»···
 //--
 
@@ -188,13 +189,14 @@
                 // currently filtered --> show all instances
                 $(all).show ();
                 delete active_filters [typ];
+                a$.removeClass(options.active_button_class);
             } else {
                 active_filters [typ] = pid;
                 if (typ_cb) {
                     typ_cb.apply (this, arguments);
                 };
+                a$.addClass (options.active_button_class);
             };
-            a$.toggleClass (options.active_button_class);
             // execute all filters that are active now
             hide$ = $(selectors.filter_active_button);
             hide$.each (do_filter);
@@ -305,8 +307,6 @@
         var filter_typ_cb = {
             //interface : graph_interface_cb
             node: focus_map_cb,
-            device: focus_map_cb,
-            interface: focus_map_cb
         };
 
         selectors.filter_active_button =
@@ -331,7 +331,7 @@
                 var node_map = L.map(el.attr('id'));
                 L.tileLayer ( 'https://\{s\}.tile.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
                         , { maxZoom: 18
-                           , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contri butors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
+                           , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
               }
                 ).addTo (node_map);
 
@@ -341,7 +341,27 @@
                     var n = node_data[i];
                     nodes[n.pid] = L.marker([n.pos.lat, n.pos.lon])
                                     .addTo (markers)
-                                    .bindPopup("<b>"+n.name+"</b>");
+                                    .bindPopup("<b>"+n.name+"</b>")
+                                    .on("popupopen",
+                                        function(p) {
+                                            var pid = p;
+                                            return function() {
+                                                var sel = obj_rows_selector_sel ("node-"+pid);
+                                                var all = obj_rows_selector_all ("node-"+pid);
+                                                $("#node-"+pid+" a[href='#filter']")
+                                                    .addClass(options.active_button_class);
+                                                $(all).hide();
+                                                $(sel).show();}}(n.pid)
+                                        )
+                                    .on("popupclose", 
+                                        function(p) {
+                                            var pid=p;
+                                            return function() {
+                                                $("#node-"+pid+" a[href='#filter']")
+                                                    .removeClass(options.active_button_class);
+                                                var all = obj_rows_selector_all ("node-"+pid); 
+                                                $(all).show();}}(n.pid)
+                                         );
                     }; 
                 node_map.fitBounds(markers.getBounds(),
                     {padding: [20,20]
