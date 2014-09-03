@@ -76,6 +76,7 @@
 #                     (done by GTW.RST.TOP.MOM.Admin._Changer_, now)
 #     3-Sep-2014 (CT) Add properties `_DB_E_Type_.query_filters_restricted`
 #                     and `.user_restriction`
+#     3-Sep-2014 (CT) Add `restrict_completion` for `DB_Device`, `DB_Interface`
 #    ««revision-date»»···
 #--
 
@@ -999,6 +1000,10 @@ class DB_Device (_DB_E_Type_) :
         , "creation_date"
         )
 
+    _MF3_Attr_Spec        = dict \
+        ( node            = dict (restrict_completion = True)
+        )
+
     def __init__ (self, ** kw) :
         self.__super.__init__ (** kw)
         self._field_map.update \
@@ -1055,6 +1060,10 @@ class DB_Interface (_Ancestor) :
     _field_type_map       = dict \
         ( _DB_E_Type_._field_type_map
         , ip4_networks    = _DB_E_Type_._Field_IP_Addresses_
+        )
+
+    _MF3_Attr_Spec        = dict \
+        ( left            = dict (restrict_completion = True)
         )
 
     class _DBI_Action_Override_ (_Ancestor._Action_Override_) :
