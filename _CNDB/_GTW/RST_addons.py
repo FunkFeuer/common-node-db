@@ -74,6 +74,8 @@
 #                     Remove "firmware" action from device
 #     2-Sep-2014 (CT) Remove `_setup_create_mf3_attr_spec`
 #                     (done by GTW.RST.TOP.MOM.Admin._Changer_, now)
+#     3-Sep-2014 (CT) Add properties `_DB_E_Type_.query_filters_restricted`
+#                     and `.user_restriction`
 #    ««revision-date»»···
 #--
 
@@ -564,7 +566,14 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     child_postconditions_map = property \
         (lambda s : s.admin.child_postconditions_map)
 
-    eligible_objects       = property (lambda s : s.admin.eligible_objects)
+    eligible_objects         = property \
+        (lambda s : s.admin.eligible_objects)
+
+    query_filters_restricted = property \
+        (lambda s : s.admin.query_filters_restricted)
+
+    user_restriction         = property \
+        (lambda s : s.admin.user_restriction)
 
     class _Action_Override_ (GTW.RST.TOP._Base_) :
 
