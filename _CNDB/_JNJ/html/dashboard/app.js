@@ -22,6 +22,7 @@
 //     2-Sep-2014 (CT) Fix change of `url` of `create_cb` (active_filters)
 //     2-Sep-2014 (MB) Remove Graph action from filter button for interface
 //     3-Sep-2014 (MB) Focus map to filtered node - added focus_map_cb
+//                     Move Map to JS
 //    ««revision-date»»···
 //--
 
@@ -63,6 +64,7 @@
               }
             );
         var active_filters = {};
+        var nodes={};
         var pat_div_name   = new RegExp (options.app_div_prefix + "(\\w+)$");
         var pat_pid        = new RegExp ("^([^-]+)-(\\d+)$");
         var pat_typ_name   = new RegExp (options.app_typ_prefix + "(\\w+)$");
@@ -294,7 +296,9 @@
         var focus_map_cb = function(e) {
             var id=$(e.target).parent().parent().parent().attr("class");
             var pid=id.match(/node-([0-9]+)-/)[1]
-            nodes[pid].openPopup();
+            if (nodes[pid]) {
+                nodes[pid].openPopup();
+                };
             };
 
         // Define custom actions on filter here
@@ -314,6 +318,36 @@
         $(selectors.firmware_button  ).on ("click", firmware_cb);
         //$(selectors.graph_button_if  ).on ("click", graph_interface_cb);
         $(selectors.graph_button_node).on ("click", graph_cb);
+        
+
+        // initialize the map
+        $(document).ready(function() {
+            var ms = $(".map");
+            L.Icon.Default.imagePath = "/media/GTW/css/images"; 
+            for (var j=0;j<ms.length;j++) {
+                var el = $(ms[j]);
+                var node_data = JSON.parse(el.data("markers"));
+
+                var node_map = L.map(el.attr('id'));
+                L.tileLayer ( 'https://\{s\}.tile.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
+                        , { maxZoom: 18
+                           , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contri butors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
+              }
+                ).addTo (node_map);
+
+                var markers = L.featureGroup()
+                    .addTo(node_map);
+                for (var i in node_data) {
+                    var n = node_data[i];
+                    nodes[n.pid] = L.marker([n.pos.lat, n.pos.lon])
+                                    .addTo (markers)
+                                    .bindPopup("<b>"+n.name+"</b>");
+                    }; 
+                node_map.fitBounds(markers.getBounds(),
+                    {padding: [20,20]
+                    , maxZoom: 15});    
+                    };
+            });
         return this;
     };
   } (jQuery)

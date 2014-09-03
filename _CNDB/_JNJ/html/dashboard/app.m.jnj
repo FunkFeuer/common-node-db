@@ -43,6 +43,7 @@
 ##    20-Aug-2014 (CT) Add missing space to `th` of `e_type_table`
 ##     2-Sep-2014 (MB) Fix tile url of map
 ##     3-Sep-2014 (MB) Store markers in an object 
+##                     Move map to js
 ##    ««revision-date»»···
 ##--
 #}
@@ -86,30 +87,21 @@
         <div id="{{ tn }}-map" {# -#}
              class="map" {# -#}
              style="height: {{ 3 * (nn + 1) -}}rem; margin-top: 5rem;"{# -#}
-        >
-        </div>
-        <script>
-          L.Icon.Default.imagePath = "/media/GTW/css/images";
-          var node_map =
-              L.map ('{{ tn }}-map')
-               .setView ([{{ pos.lat }}, {{ pos.lon }}], 10);
-          L.tileLayer
-            ( 'https://\{s\}.tile.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
-            , { maxZoom: 18
-              , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
-              + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
-              }
-            ).addTo (node_map);
-          var nodes={};
 
+             data-markers='[
           {%- for o in db_type.objects if o.position %}
             {%- set pos = o.position %}
-            // FIXME: Don't use global objects here
-            nodes [{{ o.pid }}] = L .marker([{{ pos.lat }}, {{ pos.lon }}])
-              .addTo     (node_map)
-              .bindPopup ("<b>{{ o.name }}</b>");
-          {% endfor %}
-        </script>
+            {  "pid": {{o.pid}}
+                            , "pos": { "lat": {{ pos.lat }}
+                                   , "lon": {{ pos.lon }}}
+                            , "name": "{{o.name}}"
+                            }
+             {% if not loop.last %}
+                ,
+             {% endif %}
+          {% endfor %}]'
+        >
+        </div>
       </div>
     {% endif -%}
   {% endif -%}
