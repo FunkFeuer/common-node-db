@@ -42,6 +42,7 @@
 ##    11-Jul-2014 (CT) Add guard for `pos` to `db_node_map`
 ##    20-Aug-2014 (CT) Add missing space to `th` of `e_type_table`
 ##     2-Sep-2014 (MB) Fix tile url of map
+##     3-Sep-2014 (MB) Store markers in an object 
 ##    ««revision-date»»···
 ##--
 #}
@@ -99,14 +100,14 @@
               + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
               }
             ).addTo (node_map);
+          var nodes={};
+
           {%- for o in db_type.objects if o.position %}
             {%- set pos = o.position %}
-            L .marker    ([{{ pos.lat }}, {{ pos.lon }}])
+            // FIXME: Don't use global objects here
+            nodes [{{ o.pid }}] = L .marker([{{ pos.lat }}, {{ pos.lon }}])
               .addTo     (node_map)
-              .bindPopup ("<b>{{ o.name }}</b>")
-              {%- if loop.first %}
-                .openPopup ()
-              {%- endif %};
+              .bindPopup ("<b>{{ o.name }}</b>");
           {% endfor %}
         </script>
       </div>

@@ -21,6 +21,7 @@
 //     1-Sep-2014 (CT) Change `url` of `create_cb`
 //     2-Sep-2014 (CT) Fix change of `url` of `create_cb` (active_filters)
 //     2-Sep-2014 (MB) Remove Graph action from filter button for interface
+//     3-Sep-2014 (MB) Focus map to filtered node - added focus_map_cb
 //    ««revision-date»»···
 //--
 
@@ -289,9 +290,21 @@
             var groups = id.match (pat_pid);
             return groups [1];
         };
+        
+        var focus_map_cb = function(e) {
+            var id=$(e.target).parent().parent().parent().attr("class");
+            var pid=id.match(/node-([0-9]+)-/)[1]
+            nodes[pid].openPopup();
+            };
+
+        // Define custom actions on filter here
         var filter_typ_cb = {
-            interface : graph_interface_cb
+            //interface : graph_interface_cb
+            node: focus_map_cb,
+            device: focus_map_cb,
+            interface: focus_map_cb
         };
+
         selectors.filter_active_button =
             "." + options.active_button_class + selectors.filter_button;
         $(selectors.create_button    ).on ("click", create_cb);
