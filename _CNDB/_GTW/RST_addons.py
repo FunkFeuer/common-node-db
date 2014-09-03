@@ -77,6 +77,7 @@
 #     3-Sep-2014 (CT) Add properties `_DB_E_Type_.query_filters_restricted`
 #                     and `.user_restriction`
 #     3-Sep-2014 (CT) Add `restrict_completion` for `DB_Device`, `DB_Interface`
+#     3-Sep-2014 (MB) Add owner field to db_node
 #    ««revision-date»»···
 #--
 
@@ -1139,6 +1140,7 @@ class DB_Node (_DB_E_Type_) :
         ( "name"
         , "devices"
         , "creation_date"
+        , "owner"
         )
 
     def __init__ (self, ** kw) :

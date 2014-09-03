@@ -44,6 +44,8 @@
 ##     2-Sep-2014 (MB) Fix tile url of map
 ##     3-Sep-2014 (MB) Store markers in an object 
 ##                     Move map to js
+##     3-Sep-2014 (MB) If column owner exists, check if owner of object is
+##                     Logged in user and show checkmark (or empty circle)
 ##    ««revision-date»»···
 ##--
 #}
@@ -150,7 +152,17 @@
                 (" class=\"%s\" " % (f.css_class, )) if f.css_class else ""
             -%}
             <td{{ css_class }}>
+              {% if f.css_class == 'owner' %}
+                <i class="fa
+                {% if o.owner.pid == page.user.person.pid %}
+                    fa-check-circle-o 
+                {% else %}
+                    fa-circle-o
+                {% endif %}
+                "></i>
+              {% else %}
               {{- f.as_html (o, f.value (o)) -}}
+              {% endif %}
             </td>
           {% endfor -%}
           {%- if actions %}
