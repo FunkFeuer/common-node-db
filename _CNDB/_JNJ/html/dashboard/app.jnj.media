@@ -31,6 +31,7 @@
 #    14-Jul-2014 (CT) Use classes, not ids
 #    14-Jul-2014 (CT) Add rule for `max_height`, `min_height` of `.map`
 #     2-Sep-2014 (MB) Change Z-Index of nav
+#     3-Sep-2014 (CT) Add rule for ".partial-type-menu"
 #    ««revision-date»»···
 #--
 
@@ -106,7 +107,7 @@ style_sheet = Style_Sheet \
             [ Rule
                 ( "> .pure-menu"
                 , padding          = TRBL (Rem (0.25), Rem (2.0), Rem (0.15))
-                , z_index          = "1001 !important" 
+                , z_index          = "1001 !important"
                 , children         =
                     [ Rule
                         ( ".pure-menu-auto-open > a:first-child:after"
@@ -288,16 +289,28 @@ style_sheet = Style_Sheet \
                                 , width                = Percent (100)
                                 )
                             , Rule_Attr
-                                ( "[colspan] .pure-button"
-                                , display      = "inline-block"
-                                , width        = Percent (100)
+                                ( "[colspan]"
                                 , children     =
                                     [ Rule
-                                        ( "i.fa"
-                                        , color        = "#0078E7"
-                                        , float        = "left"
-                                        , height       = Em (1.0)
-                                        , width        = Em (1.0)
+                                        ( ".pure-button"
+                                        , display      = "inline-block"
+                                        , width        = Percent (100)
+                                        , children     =
+                                            [ Rule
+                                                ( "i.fa"
+                                                , color        = "#0078E7"
+                                                , float        = "left"
+                                                , height       = Em (1.0)
+                                                , width        = Em (1.0)
+                                                )
+                                            ]
+                                        )
+                                    , Rule
+                                        ( ".partial-type-menu"
+                                        , display      = "none"
+                                        , list_style   = "none"
+                                        , margin       = 0
+                                        , padding      = 0
                                         )
                                     ]
                                 )

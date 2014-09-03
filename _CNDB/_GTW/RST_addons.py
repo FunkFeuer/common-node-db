@@ -78,6 +78,10 @@
 #                     and `.user_restriction`
 #     3-Sep-2014 (CT) Add `restrict_completion` for `DB_Device`, `DB_Interface`
 #     3-Sep-2014 (MB) Add owner field to db_node
+#     3-Sep-2014 (CT) Add `_get_dash`, `_DB_ETN_map`
+#     3-Sep-2014 (CT) Move `_get_child` from `_DB_Div_Base_` to `_DB_Base_`
+#     3-Sep-2014 (CT) Add `children_np` for partial `_DB_E_Type_` instances
+#     3-Sep-2014 (CT) Add `DB_Wired_Interface`, `DB_Wireless_Interface`
 #    ««revision-date»»···
 #--
 
@@ -222,7 +226,8 @@ _pre_commit_node_check = GTW.RST.MOM.Pre_Commit_Entity_Check \
 _Ancestor = GTW.RST.TOP.MOM.Admin_Restricted.E_Type
 
 class User_Entity (_Ancestor) :
-    """Directory displaying instances of one E_Type belonging to the current user."""
+    """Directory displaying instances of one E_Type owned or managed by """
+    """the current user."""
 
     child_permission_map      = dict \
         ( change              = Is_Owner_or_Manager
@@ -232,7 +237,7 @@ class User_Entity (_Ancestor) :
         ( create              = (_pre_commit_entity_check, )
         , change              = (_pre_commit_entity_check, )
         )
-    et_map_name               = "admin_ffd"
+    et_map_name               = "admin_omu"
     restriction_desc          = _ ("owned/managed by")
 
     def __init__ (self, ** kw) :
@@ -415,6 +420,13 @@ class User_Wireless_Interface (User_Node_Dependent) :
 
 # end class User_Wireless_Interface
 
+class User_Virtual_Wireless_Interface (User_Node_Dependent) :
+
+    ET_depends            = "CNDB.Net_Device"
+    _ETM                  = "CNDB.Virtual_Wireless_Interface"
+
+# end class User_Virtual_Wireless_Interface
+
 class User_Wireless_Interface_uses_Antenna (User_Node_Dependent) :
 
     ET_depends            = "CNDB.Wireless_Interface"
@@ -444,6 +456,8 @@ class _Meta_DB_Div_ (_Ancestor.__class__) :
             cls.app_div_id = cls.app_div_prefix + dn
             cls._entry_type_names = set \
                 (et.type_name for et in cls._entry_types if et.type_name)
+            if cls.type_name :
+                cls._DB_ETN_map [cls.type_name] = cls
             setattr (cls, "fill_%s" % dn, True)
     # end def __init__
 
@@ -461,13 +475,14 @@ class _Meta_DB_Div_ (_Ancestor.__class__) :
 # end class _Meta_DB_Div_
 
 class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
-    """Base class of Funkfeuer dashboard classes"""
+    """Base class of dashboard classes"""
 
     app_div_class         = "pure-u-24-24"
     app_div_prefix        = "app-D:"
     app_typ_prefix        = "app-T:"
     skip_etag             = True
     type_name             = None
+    _DB_ETN_map           = {}
     _db_name_map          = {}
     _entry_types          = ()
     _exclude_robots       = True
@@ -490,11 +505,31 @@ class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
         return "%s-%d-" % (self.div_name, o.pid)
     # end def tr_instance_css_class
 
-    def _get_ffd_admin (self, tn) :
-        et     = self.top.ET_Map [tn]
-        result = et.admin_ffd
+    def _get_child (self, child, * grandchildren) :
+        self._populate_db_entries ()
+        result = self.__super._get_child (child, * grandchildren)
+        if result is None and child in self._div_name_map :
+            result = self._div_name_map [child]
+            if grandchildren :
+                result = result._get_child (* grandchildren)
         return result
-    # end def _get_ffd_admin
+    # end def _get_child
+
+    def _get_dash (self, tn) :
+        et     = self.top.ET_Map [tn]
+        result = getattr (et, _DB_E_Type_.et_map_name, None)
+        if result is None :
+            RT = self._DB_ETN_map.get (tn)
+            if RT is not None :
+                result = RT (parent = self)
+        return result
+    # end def _get_dash
+
+    def _get_omu_admin (self, tn) :
+        et     = self.top.ET_Map [tn]
+        result = getattr (et, User_Entity.et_map_name, None)
+        return result
+    # end def _get_omu_admin
 
     def _init_kw (self, ** kw) :
         dkw = dict \
@@ -523,23 +558,10 @@ class _DB_Div_Base_ (_DB_Base_) :
 
     _div_name_map         = {}
 
-    def _get_child (self, child, * grandchildren) :
-        self._populate_db_entries ()
-        result = self.__super._get_child (child, * grandchildren)
-        if result is None and child in self._div_name_map :
-            result = self._div_name_map [child]
-            rtn    = result.type_name
-            if rtn and rtn not in self._entry_type_names :
-                raise self.Status.Not_Found ()
-            elif grandchildren :
-                result = result._get_child (* grandchildren)
-        return result
-    # end def _get_child
-
 # end class _DB_Div_Base_
 
 class _DB_Div_ (_DB_Div_Base_) :
-    """Division of Funkfeuer dashboard"""
+    """Division of dashboard"""
 
     dir_template_name     = "html/dashboard/app.jnj"
 
@@ -549,10 +571,11 @@ _Ancestor  = _DB_Base_
 _MF3_Mixin = GTW.RST.TOP.MOM.Admin.E_Type_Mixin
 
 class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
-    """E_Type displayed by, and managed via, Funkfeuer dashboard."""
+    """E_Type displayed by, and managed via, dashboard."""
 
     add_css_classes       = []
     app_div_prefix        = _Ancestor.app_typ_prefix
+    et_map_name           = "dash"
     fill_edit             = True
     fill_user             = False
     fill_view             = False
@@ -806,7 +829,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     class _Field_Type_ (_Field_Ref_) :
 
         icon_map = dict \
-            ( W  = """<i class="fa fa-rss rotate-45-left" title="WiFi"></i>"""
+            ( W  = """<i class="fa fa-rss rotate-45-left"></i>"""
             )
 
         ref_name = "type"
@@ -818,9 +841,10 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             }
 
         def value (self, o) :
-            result = self.typ_map.get (o.type_name, o.ui_name_T)
-            if result in self.icon_map :
-                result = self.icon_map [result]
+            code = self.typ_map.get (o.type_name, o.ui_name_T)
+            if code in self.icon_map :
+                code = self.icon_map [code]
+            result = """<span title="%s">%s</span""" % (o.ui_name_T, code)
             return result
         # end def value
 
@@ -834,11 +858,35 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         , type_name       = _Field_Type_
         )
 
+    def __init__ (self, ** kw) :
+        self.__super.__init__ (** kw)
+        if self.ETM.is_partial :
+            self.children_np ### materialize
+    # end def __init__
+
     @Once_Property
     @getattr_safe
     def admin (self) :
-        return self._get_ffd_admin (self.type_name)
+        return self._get_omu_admin (self.type_name)
     # end def admin
+
+    @Once_Property
+    @getattr_safe
+    def children_np (self) :
+        E_Type = self.E_Type
+        result = ()
+        if E_Type.is_partial :
+            def _gen (self, E_Type, dn_map) :
+                for k in E_Type.children_np :
+                    c = self._get_dash (k)
+                    if c is not None :
+                        yield c
+            result = sorted \
+                ( _gen (self, E_Type, self._db_name_map)
+                , key = Q.E_Type.i_rank
+                )
+        return tuple (result)
+    # end def children_np
 
     @Once_Property
     @getattr_safe
@@ -961,7 +1009,7 @@ class _DB_Person_Property_ (_DB_E_Type_) :
 # end class _DB_Person_Property_
 
 class DB_Account (_DB_Person_Property_) :
-    """PAP.Person_has_Account displayed by, and managed via, Funkfeuer dashboard."""
+    """PAP.Person_has_Account displayed by, and managed via, dashboard."""
 
     type_name             = "PAP.Person_has_Account"
     view_action_names     = \
@@ -975,7 +1023,7 @@ class DB_Account (_DB_Person_Property_) :
 # end class DB_Account
 
 class DB_Address (_DB_Person_Property_) :
-    """PAP.Person_has_Address displayed by, and managed via, Funkfeuer dashboard."""
+    """PAP.Person_has_Address displayed by, and managed via, dashboard."""
 
     type_name             = "PAP.Person_has_Address"
 
@@ -988,7 +1036,7 @@ class DB_Address (_DB_Person_Property_) :
 # end class DB_Address
 
 class DB_Device (_DB_E_Type_) :
-    """CNDB.Net_Device displayed by, and managed via, Funkfeuer dashboard."""
+    """CNDB.Net_Device displayed by, and managed via, dashboard."""
 
     type_name             = "CNDB.Net_Device"
 
@@ -1020,21 +1068,21 @@ class DB_Device (_DB_E_Type_) :
 # end class DB_Device
 
 class DB_Edit (_DB_Div_) :
-    """Edit division of Funkfeuer dashboard"""
+    """Edit division of dashboard"""
 
     hidden                = True
 
 # end class DB_Edit
 
 class DB_Email (_DB_Person_Property_) :
-    """PAP.Person_has_Email displayed by, and managed via, Funkfeuer dashboard."""
+    """PAP.Person_has_Email displayed by, and managed via, dashboard."""
 
     type_name             = "PAP.Person_has_Email"
 
 # end class DB_Email
 
 class DB_IM_Handle (_DB_Person_Property_) :
-    """PAP.Person_has_IM_Handle displayed by, and managed via, Funkfeuer dashboard."""
+    """PAP.Person_has_IM_Handle displayed by, and managed via, dashboard."""
 
     type_name             = "PAP.Person_has_IM_Handle"
 
@@ -1042,26 +1090,7 @@ class DB_IM_Handle (_DB_Person_Property_) :
 
 _Ancestor = _DB_E_Type_
 
-class DB_Interface (_Ancestor) :
-    """CNDB.Net_Interface displayed by, and managed via, Funkfeuer dashboard."""
-
-    app_div_class         = "pure-u-24-24"
-    type_name             = "CNDB.Net_Interface"
-    xtra_template_macro   = "html/dashboard/app.m.jnj, db_graph"
-
-    view_field_names      = \
-        ( "name"
-        , "my_net_device.name"
-        , "my_node.name"
-        , "ip4_networks" ### rendered as `IP addresses` by _Field_IP_Addresses_
-        , "type_name"
-        , "creation_date"
-        )
-
-    _field_type_map       = dict \
-        ( _DB_E_Type_._field_type_map
-        , ip4_networks    = _DB_E_Type_._Field_IP_Addresses_
-        )
+class _DB_Interface_ (_Ancestor) :
 
     _MF3_Attr_Spec        = dict \
         ( left            = dict (restrict_completion = True)
@@ -1121,6 +1150,31 @@ class DB_Interface (_Ancestor) :
 
     Instance = _DBI_Instance_ # end class
 
+# end class _DB_Interface_
+
+_Ancestor = _DB_Interface_
+
+class DB_Interface (_Ancestor) :
+    """CNDB.Net_Interface displayed by, and managed via, dashboard."""
+
+    app_div_class         = "pure-u-24-24"
+    type_name             = "CNDB.Net_Interface"
+    xtra_template_macro   = "html/dashboard/app.m.jnj, db_graph"
+
+    view_field_names      = \
+        ( "name"
+        , "my_net_device.name"
+        , "my_node.name"
+        , "ip4_networks" ### rendered as `IP addresses` by _Field_IP_Addresses_
+        , "type_name"
+        , "creation_date"
+        )
+
+    _field_type_map       = dict \
+        ( _DB_E_Type_._field_type_map
+        , ip4_networks    = _DB_E_Type_._Field_IP_Addresses_
+        )
+
     def tr_instance_css_class (self, o) :
         return "node-%d- device-%d- interface-%d-" % \
             (o.my_node.pid, o.my_net_device.pid, o.pid)
@@ -1128,14 +1182,37 @@ class DB_Interface (_Ancestor) :
 
 # end class DB_Interface
 
+_Ancestor = _DB_Interface_
+
+class DB_Wired_Interface (_Ancestor) :
+    """CNDB.Wired_Interface displayed by, and managed via, dashboard."""
+
+    type_name             = "CNDB.Wired_Interface"
+
+# end class DB_Wired_Interface
+
+class DB_Wireless_Interface (_Ancestor) :
+    """CNDB.Wireless_Interface displayed by, and managed via, dashboard."""
+
+    type_name             = "CNDB.Wireless_Interface"
+
+# end class DB_Wireless_Interface
+
+if 0 : ### Add this when there is an instance of User_Virtual_Wireless_Interface
+    class DB_Virtual_Wireless_Interface (_Ancestor) :
+        """CNDB.Virtual_Wireless_Interface displayed by, and managed via, dashboard."""
+
+        type_name             = "CNDB.Virtual_Wireless_Interface"
+
+    # end class DB_Virtual_Wireless_Interface
+
 class DB_Node (_DB_E_Type_) :
-    """CNDB.Node displayed by, and managed via, Funkfeuer dashboard."""
+    """CNDB.Node displayed by, and managed via, dashboard."""
 
     app_div_class         = "pure-u-12-24"
     type_name             = "CNDB.Node"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_node_map"
 
-    view_action_names     = _DB_E_Type_.view_action_names
     view_field_names      = \
         ( "name"
         , "devices"
@@ -1190,7 +1267,7 @@ class DB_Node (_DB_E_Type_) :
 # end class DB_Node
 
 class DB_Person (_DB_E_Type_) :
-    """PAP.Person displayed by, and managed via, Funkfeuer dashboard."""
+    """PAP.Person displayed by, and managed via, dashboard."""
 
     type_name             = "PAP.Person"
 
@@ -1223,14 +1300,14 @@ class DB_Person (_DB_E_Type_) :
 # end class DB_Person
 
 class DB_Phone (_DB_Person_Property_) :
-    """PAP.Person_has_Phone displayed by, and managed via, Funkfeuer dashboard."""
+    """PAP.Person_has_Phone displayed by, and managed via, dashboard."""
 
     type_name             = "PAP.Person_has_Phone"
 
 # end class DB_Phone
 
 class DB_User (_DB_Div_) :
-    """User division of Funkfeuer dashboard"""
+    """User division of dashboard"""
 
     _entry_types          = \
         ( DB_Person
@@ -1244,7 +1321,7 @@ class DB_User (_DB_Div_) :
 # end class DB_User
 
 class DB_View (_DB_Div_) :
-    """View division of Funkfeuer dashboard"""
+    """View division of dashboard"""
 
     _entry_types          = \
         ( DB_Node
@@ -1257,7 +1334,7 @@ class DB_View (_DB_Div_) :
 _Ancestor = _DB_Div_Base_
 
 class Dashboard (_Ancestor) :
-    """Funkfeuer dashboard"""
+    """CNDB dashboard"""
 
     pid                   = "Dashboard"
 

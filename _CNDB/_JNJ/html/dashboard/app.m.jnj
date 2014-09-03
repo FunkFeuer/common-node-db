@@ -42,10 +42,11 @@
 ##    11-Jul-2014 (CT) Add guard for `pos` to `db_node_map`
 ##    20-Aug-2014 (CT) Add missing space to `th` of `e_type_table`
 ##     2-Sep-2014 (MB) Fix tile url of map
-##     3-Sep-2014 (MB) Store markers in an object 
+##     3-Sep-2014 (MB) Store markers in an object
 ##                     Move map to js
 ##     3-Sep-2014 (MB) If column owner exists, check if owner of object is
 ##                     Logged in user and show checkmark (or empty circle)
+##     3-Sep-2014 (CT) Factor `action_button_create`, support `is_partial`
 ##    ««revision-date»»···
 ##--
 #}
@@ -57,10 +58,42 @@
   {%- if i_add_cls %}
     {%- set i_cls = "%s %s" % (i_cls, i_add_cls) %}
   {% endif -%}
-  <a class="{{ a_cls}}" href="{{ href }}"
+  <a class="{{ a_cls}}" href="{{ href }}"{{ kwargs|xmlattr }}
      {%- if title %} title="{{ title }}"{% endif -%}
   ><i class="{{ i_cls }}"></i>{{ text }}</a>
 {%- endmacro -%} {#- action_button -#}
+
+{%- macro action_button_create (db_type, create) -%}
+  {%- set ET          = db_type.E_Type %}
+  {%- set kw          = GTW.dict (kwargs) %}
+  {%- set a_cls       = kw.get ("a_cls", "pure-button") %}
+  {%- set action_name = create.name %}
+  {%- onion ET.is_partial %}
+    {%- head %}
+      {%- set action_name = action_name + "-partial" %}
+      {%- do kw.update (a_cls = " ".join ((a_cls, "partial-type"))) %}
+    {%- body %}
+      {{- action_button ("#" + action_name, create.icon, ** kw) -}}
+    {%- tail %}
+      <ul class="partial-type-menu">
+        {%- for c_db_type in db_type.children_np %}
+          <li>
+            {%- set TN = c_db_type.E_Type.ui_name_T %}
+            {%- set msg = (GTW._T (create.msg) % (TN, "")).strip () %}
+            {%- set kw = GTW.dict
+                ( kwargs
+                , text  = TN
+                , title = msg
+                , ** { "data-etn" : c_db_type.name }
+                )
+            %}
+            {{- action_button ("#" + create.name + "-type", "play", ** kw)
+            -}}
+          </li>
+        {% endfor -%}
+      </ul>
+    {%- endonion %}
+{%- endmacro -%} {#- action_button_create -#}
 
 {%- macro db_div_main (db_div) -%}
   {%- for db_type in db_div.entries %}
@@ -112,17 +145,20 @@
 {%- macro e_type_table (db_type) -%}
   {%- set actions = db_type.view_actions %}
   {%- set fields  = db_type.view_fields %}
+  {%- set objects = db_type.objects %}
   {%- set tn      = db_type.div_name %}
   {%- set TN      = db_type.Div_Name %}
   {%- set create  = db_type.create_action %}
   <h2>
     {{- db_type.view_title -}}
-    {%- if create %}
-      {{- action_button
-          ( "#" + create.name, create.icon
-          , (GTW._T (create.msg) % (TN, "")).strip ()
-          )
-      -}}
+    {%- if create and GTW.len (objects) > 10 %}
+      {%- if not db_type.E_Type.is_partial  %}
+        {{- action_button_create
+            ( db_type, create
+            , title = (GTW._T (create.msg) % (TN, "")).strip ()
+            )
+        -}}
+      {% endif -%}
     {% endif -%}
   </h2>
   <table id="{{ tn }}-table" class="{{ tn }}-table pure-table pure-table-bordered">
@@ -142,7 +178,7 @@
       </tr>
     </thead>
     <tbody>
-      {%- for o in db_type.objects %}
+      {%- for o in objects %}
         {%- set name = db_type.view_name_instance (o) %}
         <tr id="{{ tn }}-{{ o.pid }}" {# -#}
             class="{{ db_type.tr_instance_css_class (o) }}"{#- -#}
@@ -180,8 +216,8 @@
       {%- if create %}
         <tr>
           <td colspan="{{ GTW.len (fields) + GTW.bool (actions) }}">
-            {{- action_button
-                ( "#" + create.name, create.icon
+            {{- action_button_create
+                ( db_type, create
                 , text = (GTW._T (create.msg) % (TN, "")).strip ()
                 )
             -}}

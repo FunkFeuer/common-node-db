@@ -24,6 +24,7 @@
 //     3-Sep-2014 (MB) Focus map to filtered node - added focus_map_cb
 //                     Move Map to JS
 //                     Map now filters nodes and vice versa
+//     3-Sep-2014 (CT) Add `create_p_cb` and `create_t_cb`
 //    ««revision-date»»···
 //--
 
@@ -34,6 +35,8 @@
             ( { app_div          : "[id^=\"app-D:\"]"
               , app_div_edit     : "[id=\"app-D:edit\"]"
               , create_button    : "[href=#create]"
+              , create_button_p  : "[href=#create-partial]"
+              , create_button_t  : "[href=#create-type]"
               , delete_button    : "[href=#delete]"
               , edit_button      : "[href=#edit]"
               , filter_button    : "[href=#filter]"
@@ -75,11 +78,12 @@
         var closest_el_id = function closest_el_id (self, selector) {
             return $(self).closest (selector).prop ("id");
         };
-        var create_cb = function create_cb (ev) {
+        var create_cb = function create_cb (ev, sub_typ) {
             var afs   = $.param       (active_filters);
             var sid   = closest_el_id (this, "section");
             var typ   = sid.match     (pat_typ_name) [1];
-            var url   = options.urls.page + typ + "/create";
+            var midd  = (! sub_typ) ? "" : ("/" + sub_typ);
+            var url   = options.urls.page + typ + midd + "/create";
             if (afs.length > 0) {
                 url   = url + "?" + afs;
             };
@@ -90,24 +94,23 @@
                 , 0
                 );
             return false;
-            $.gtw_ajax_2json
-                ( { type        : "GET"
-                  , url         : url
-                  , success     : function (response, status) {
-                        if (! response ["error"]) {
-                            // XXX TBD
-                            // hide "#overview"
-                            // fill and display "#edit" with response.html...
-                            $GTW.show_message (response);
-                        } else {
-                            $GTW.show_message
-                                ("Ajax Error: " + response ["error"]);
-                        };
-                    }
-                  }
-                , "Create"
-                );
+        };
+        var create_p_cb = function create_p_cb (ev) {
+            var target$ = $(ev.delegateTarget);
+            var menu$   = target$.next ();
+            if (menu$.is (":visible")) {
+                menu$.hide ();
+            } else {
+                menu$.show ();
+            };
             return false;
+        };
+        var create_t_cb = function create_t_cb (ev) {
+            var target$ = $(ev.target);
+            var sub_typ = target$.data ("etn");
+            var menu$   = target$.closest (".partial-type-menu");
+            menu$.hide ();
+            return create_cb.call (this, ev, sub_typ);
         };
         var delete_cb = function delete_cb (ev) {
             var obj   = obj_of_row (this);
@@ -294,7 +297,7 @@
             var groups = id.match (pat_pid);
             return groups [1];
         };
-        
+
         var focus_map_cb = function(e) {
             var id=$(e.target).parent().parent().parent().attr("class");
             var pid=id.match(/node-([0-9]+)-/)[1]
@@ -312,18 +315,20 @@
         selectors.filter_active_button =
             "." + options.active_button_class + selectors.filter_button;
         $(selectors.create_button    ).on ("click", create_cb);
+        $(selectors.create_button_p  ).on ("click", create_p_cb);
+        $(selectors.create_button_t  ).on ("click", create_t_cb);
         $(selectors.delete_button    ).on ("click", delete_cb);
         $(selectors.edit_button      ).on ("click", edit_cb);
         $(selectors.filter_button    ).on ("click", filter_cb);
         $(selectors.firmware_button  ).on ("click", firmware_cb);
         //$(selectors.graph_button_if  ).on ("click", graph_interface_cb);
         $(selectors.graph_button_node).on ("click", graph_cb);
-        
+
 
         // initialize the map
         $(document).ready(function() {
             var ms = $(".map[data-markers]");
-            L.Icon.Default.imagePath = "/media/GTW/css/images"; 
+            L.Icon.Default.imagePath = "/media/GTW/css/images";
             for (var j=0;j<ms.length;j++) {
                 var el = $(ms[j]);
                 var node_data = JSON.parse(el.data("markers"));
@@ -353,19 +358,19 @@
                                                 $(all).hide();
                                                 $(sel).show();}}(n.pid)
                                         )
-                                    .on("popupclose", 
+                                    .on("popupclose",
                                         function(p) {
                                             var pid=p;
                                             return function() {
                                                 $("#node-"+pid+" a[href='#filter']")
                                                     .removeClass(options.active_button_class);
-                                                var all = obj_rows_selector_all ("node-"+pid); 
+                                                var all = obj_rows_selector_all ("node-"+pid);
                                                 $(all).show();}}(n.pid)
                                          );
-                    }; 
+                    };
                 node_map.fitBounds(markers.getBounds(),
                     {padding: [20,20]
-                    , maxZoom: 15});    
+                    , maxZoom: 15});
                     };
             });
         return this;
