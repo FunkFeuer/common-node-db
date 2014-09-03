@@ -322,7 +322,7 @@
 
         // initialize the map
         $(document).ready(function() {
-            var ms = $(".map");
+            var ms = $(".map[data-markers]");
             L.Icon.Default.imagePath = "/media/GTW/css/images"; 
             for (var j=0;j<ms.length;j++) {
                 var el = $(ms[j]);
