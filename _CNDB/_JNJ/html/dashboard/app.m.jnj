@@ -155,11 +155,12 @@
               {% if f.css_class == 'owner' %}
                 <i class="fa
                 {% if o.owner.pid == page.user.person.pid %}
-                    fa-check-circle-o 
+                    fa-check-square-o " title="Owned by you"
                 {% else %}
-                    fa-circle-o
+                    fa-square-o " title="Owned by {{o.owner.last_name | title }}
+                    {{o.owner.first_name | title }}"
                 {% endif %}
-                "></i>
+                ></i>
               {% else %}
               {{- f.as_html (o, f.value (o)) -}}
               {% endif %}
