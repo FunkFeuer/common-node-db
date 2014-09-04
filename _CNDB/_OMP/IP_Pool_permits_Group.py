@@ -27,6 +27,7 @@
 #
 # Revision Dates
 #     3-Jul-2014 (RS) Creation
+#     4-Sep-2014 (RS) `_Mixin` `CNDB.OMP.Entity` (tnx CT)
 #    ««revision-date»»···
 #--
 
@@ -42,9 +43,10 @@ from   _CNDB._OMP.Attr_Type         import *
 import _CNDB._OMP.IP_Network
 import _GTW._OMP._PAP.Id_Entity_permits_Group
 
+_Mixin            = CNDB.OMP.Entity
 _Ancestor_Essence = PAP.Id_Entity_permits_Group
 
-class IP_Pool_permits_Group (_Ancestor_Essence) :
+class IP_Pool_permits_Group (_Mixin, _Ancestor_Essence) :
     """Permission to reserve IP_Network from IP_Pool"""
 
     is_partial  = True
