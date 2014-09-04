@@ -28,6 +28,8 @@
 //     3-Sep-2014 (MB) Added map to edit of node
 //     4-Sep-2014 (MB) Allow setting and dragging of markers
 //     4-Sep-2014 (MB) Add geolocate button
+//                     Remove Zip code from fields - seems to mess with
+//                     geolocation some times
 //    ««revision-date»»···
 //--
 
@@ -470,7 +472,7 @@
                 $("input[name *='position.']").on("change",function() { show_marker()});    
                 $("button#geolocate").on("click", function() {
                     $("button#geolocate").addClass("pure-button-disabled");
-                    var fields=["street","zip","city","country"];
+                    var fields=["street","city","country"];
                     var address = fields.map(function(x) {
                         return $("input[name='"+x+"']").val() }).join(", ");
                     $.getJSON("http://nominatim.openstreetmap.org/search/?q='"+
