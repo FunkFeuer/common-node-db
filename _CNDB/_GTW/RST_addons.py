@@ -275,7 +275,34 @@ class User_Entity (_Ancestor) :
     def query_filters_restricted (self) :
         person = self.user_restriction
         if person is not None :
+            ### XXX remove when query expression below the `return` works
             return Q.my_person == person
+
+            ### ATM, Q.my_group.member_links... doesn't work in QX
+            ###
+            ### - fix MOM.DBW.SAW.QX.Kind_Query to pass along
+            ###   the `E_Type` of the query attribute `my_group`,
+            ###   `my_person`, ...
+            ###
+            ### - additionally, maybe implement a Q-operator to restrict
+            ###   the type of an `A_Id_Entity` expression to a subtype
+            ###   to avoud the multiple definitions of `my_group` and
+            ###   `my_person`
+            ###
+            ###   For instance::
+            ###       Q.TYP.PAP.Group(Q.my_group)
+            ###   or::
+            ###       Q.my_group["PAP.Group"]
+            ###
+            ### Q.OR (Q.my_node.manager, Q.my_node.owner)["PAP.Person"]
+            ###
+            ### Q.TYP.PAP.Group (Q.OR (Q.my_node.manager, Q.my_node.owner))
+            ###
+            result = Q.OR \
+                ( Q.my_person == person
+                , Q.my_group.member_links.left == person
+                )
+            return result
     # end def query_filters_restricted
 
 # end class User_Entity

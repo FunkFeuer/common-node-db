@@ -41,6 +41,7 @@
 #     1-Oct-2013 (CT) Rename from `_Belongs_to_Node_` to `Belongs_to_Node`
 #     1-Oct-2013 (CT) Remove `belongs_to_node.hidden = True`
 #    14-Apr-2014 (CT) Rename `belongs_to_node` to `my_node`
+#     4-Sep-2014 (CT) Add query attribute `my_group`
 #    ««revision-date»»···
 #--
 
@@ -60,6 +61,17 @@ class Belongs_to_Node (_Ancestor_Essence) :
     class _Attributes (_Ancestor_Essence._Attributes) :
 
         _Ancestor = _Ancestor_Essence._Attributes
+
+        class my_group (A_Id_Entity) :
+            """Group this %(ui_type_name)s is managed or owned by."""
+
+            kind                = Attr.Query
+            P_Type              = "PAP.Group"
+            query               = \
+                Q.OR (Q.my_node.manager.my_group, Q.my_node.owner.my_group)
+            hidden              = True
+
+        # end class my_group
 
         class my_node (A_Id_Entity) :
             """Node this %(ui_type_name)s belongs to."""

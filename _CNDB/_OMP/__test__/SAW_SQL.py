@@ -50,7 +50,7 @@ from   __future__ import division, print_function
 from   __future__ import absolute_import, unicode_literals
 
 from   _GTW.__test__._SAW_test_functions import *
-from   _CNDB._OMP.__test__.model               import *
+from   _CNDB._OMP.__test__.model         import *
 from   _MOM.import_MOM                   import Q
 
 from   _TFL.Context                      import attr_let
@@ -1188,6 +1188,77 @@ _test_q_result = """
     Parameters:
          node_1               : 42
 
+    ### XXX the `Q.my_group` query is wrong
+    ###     it should join to the group table
+    ###     (or the tables of relevant children),
+    ###     NOT to the MOM.Id_Entity table
+    >>> show_query (CNDB.Antenna.query (Q.my_group == 23))
+    SQL: SELECT
+           cndb_antenna."desc" AS cndb_antenna_desc,
+           cndb_antenna."left" AS cndb_antenna_left,
+           cndb_antenna.__raw_azimuth AS cndb_antenna___raw_azimuth,
+           cndb_antenna.__raw_name AS cndb_antenna___raw_name,
+           cndb_antenna.azimuth AS cndb_antenna_azimuth,
+           cndb_antenna.elevation_angle AS cndb_antenna_elevation_angle,
+           cndb_antenna.gain AS cndb_antenna_gain,
+           cndb_antenna.name AS cndb_antenna_name,
+           cndb_antenna.pid AS cndb_antenna_pid,
+           cndb_antenna.polarization AS cndb_antenna_polarization,
+           mom_id_entity.electric AS mom_id_entity_electric,
+           mom_id_entity.last_cid AS mom_id_entity_last_cid,
+           mom_id_entity.pid AS mom_id_entity_pid,
+           mom_id_entity.type_name AS mom_id_entity_type_name,
+           mom_id_entity.x_locked AS mom_id_entity_x_locked
+         FROM mom_id_entity
+           JOIN cndb_antenna ON mom_id_entity.pid = cndb_antenna.pid
+           LEFT OUTER JOIN cndb_wireless_interface_uses_antenna AS cndb_wireless_interface_uses_antenna__1 ON cndb_wireless_interface_uses_antenna__1."right" = cndb_antenna.pid
+           LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__1 ON cndb_wireless_interface__1.pid = cndb_wireless_interface_uses_antenna__1."left"
+           JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
+           JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
+           JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
+           JOIN mom_id_entity AS mom_id_entity__5 ON mom_id_entity__5.pid = cndb_node__1.manager
+           JOIN mom_id_entity AS mom_id_entity__6 ON mom_id_entity__6.pid = cndb_node__1.owner
+         WHERE mom_id_entity__5.pid = :pid_1
+            OR mom_id_entity__6.pid = :pid_2
+    Parameters:
+         pid_1                : 23
+         pid_2                : 23
+
+    ### XXX the `Q.my_person` query is wrong
+    ###     it should join to the person table,
+    ###     NOT to the MOM.Id_Entity table
+    >>> show_query (CNDB.Antenna.query (Q.my_person == 23))
+    SQL: SELECT
+           cndb_antenna."desc" AS cndb_antenna_desc,
+           cndb_antenna."left" AS cndb_antenna_left,
+           cndb_antenna.__raw_azimuth AS cndb_antenna___raw_azimuth,
+           cndb_antenna.__raw_name AS cndb_antenna___raw_name,
+           cndb_antenna.azimuth AS cndb_antenna_azimuth,
+           cndb_antenna.elevation_angle AS cndb_antenna_elevation_angle,
+           cndb_antenna.gain AS cndb_antenna_gain,
+           cndb_antenna.name AS cndb_antenna_name,
+           cndb_antenna.pid AS cndb_antenna_pid,
+           cndb_antenna.polarization AS cndb_antenna_polarization,
+           mom_id_entity.electric AS mom_id_entity_electric,
+           mom_id_entity.last_cid AS mom_id_entity_last_cid,
+           mom_id_entity.pid AS mom_id_entity_pid,
+           mom_id_entity.type_name AS mom_id_entity_type_name,
+           mom_id_entity.x_locked AS mom_id_entity_x_locked
+         FROM mom_id_entity
+           JOIN cndb_antenna ON mom_id_entity.pid = cndb_antenna.pid
+           LEFT OUTER JOIN cndb_wireless_interface_uses_antenna AS cndb_wireless_interface_uses_antenna__1 ON cndb_wireless_interface_uses_antenna__1."right" = cndb_antenna.pid
+           LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__1 ON cndb_wireless_interface__1.pid = cndb_wireless_interface_uses_antenna__1."left"
+           JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
+           JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
+           JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
+           JOIN mom_id_entity AS mom_id_entity__5 ON mom_id_entity__5.pid = cndb_node__1.manager
+           JOIN mom_id_entity AS mom_id_entity__6 ON mom_id_entity__6.pid = cndb_node__1.owner
+         WHERE mom_id_entity__5.pid = :pid_1
+            OR mom_id_entity__6.pid = :pid_2
+    Parameters:
+         pid_1                : 23
+         pid_2                : 23
+
     >>> show_query (CNDB.Net_Device.query (Q.my_node == 42))
     SQL: SELECT
            cndb_net_device."desc" AS cndb_net_device_desc,
@@ -1780,6 +1851,48 @@ _test_q_result = """
          WHERE cndb_regulatory_permission.band____raw_lower > :band____raw_lower_1
     Parameters:
          band____raw_lower_1  : u'28 MHz'
+
+    >>> ET  = CNDB.Node.E_Type
+    >>> QX  = MOM.DBW.SAW.QX
+    >>> qrt = scope.app_type.DBW.PNS.Q_Result.E_Type (ET, _strict = False)
+    >>> qxp = QX.Mapper (qrt)
+
+    ### XXX the `Q.my_person` query is wrong
+    ###     it should refer to `PAP.Person`,
+    ###     NOT to `PAP.Subject`
+    >>> print (QX.display (qxp (Q.my_person == 23)))
+    :OR:
+      Bin:__eq__:
+        <PAP.Subject | QX._NIL_ for SELF>
+            <PAP.Subject | QX.Kind_Query for
+                 <SAW : Entity `my_person`>>
+                <CNDB.Node | QX.Kind_EPK for
+                     <SAW : Entity `manager` [cndb_node.manager]>>
+        23
+      Bin:__eq__:
+        <PAP.Subject | QX._NIL_ for SELF>
+            <PAP.Subject | QX.Kind_Query for
+                 <SAW : Entity `my_person`>>
+                <CNDB.Node | QX.Kind_EPK for
+                     <SAW : Entity `owner` [cndb_node.owner]>>
+        23
+
+    >>> print (QX.display (qxp (Q.my_group == 137)))
+    :OR:
+      Bin:__eq__:
+        <PAP.Subject | QX._NIL_ for SELF>
+            <PAP.Subject | QX.Kind_Query for
+                 <SAW : Entity `my_group`>>
+                <CNDB.Node | QX.Kind_EPK for
+                     <SAW : Entity `manager` [cndb_node.manager]>>
+        137
+      Bin:__eq__:
+        <PAP.Subject | QX._NIL_ for SELF>
+            <PAP.Subject | QX.Kind_Query for
+                 <SAW : Entity `my_group`>>
+                <CNDB.Node | QX.Kind_EPK for
+                     <SAW : Entity `owner` [cndb_node.owner]>>
+        137
 
 """
 
