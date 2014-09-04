@@ -290,16 +290,14 @@ _test_refuse_e_types = """
     ...     for a in ET.id_entity_attr :
     ...         if getattr (a, "refuse_e_types", None) :
     ...             print (ET.type_name, a.name, sorted (a.refuse_e_types))
-    CNDB.Node owner ['CNDB.Node']
 
     >>> for ET in scope.app_type._T_Extension :
     ...     for a in ET.id_entity_attr :
     ...         if getattr (a, "refuse_e_types", None) :
     ...             print (ET.type_name, a.name, sorted (a.refuse_e_types_transitive))
-    CNDB.Node owner ['CNDB.Node']
 
     >>> sorted (CNDB.Node.manager.eligible_e_types)
-    ['PAP.Person']
+    ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
     >>> sorted (CNDB.Node.owner.eligible_e_types)
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
@@ -326,102 +324,132 @@ _test_refuse_e_types = """
     , Record
       ( Class = 'Entity'
       , attr = Entity `manager`
-      , attrs =
+      , children_np =
           [ Record
-            ( attr = String `last_name`
-            , full_name = 'manager.last_name'
-            , id = 'manager__last_name'
-            , name = 'last_name'
-            , sig_key = 3
-            , ui_name = 'Manager/Last name'
-            )
-          , Record
-            ( attr = String `first_name`
-            , full_name = 'manager.first_name'
-            , id = 'manager__first_name'
-            , name = 'first_name'
-            , sig_key = 3
-            , ui_name = 'Manager/First name'
-            )
-          , Record
-            ( attr = String `middle_name`
-            , full_name = 'manager.middle_name'
-            , id = 'manager__middle_name'
-            , name = 'middle_name'
-            , sig_key = 3
-            , ui_name = 'Manager/Middle name'
-            )
-          , Record
-            ( attr = String `title`
-            , full_name = 'manager.title'
-            , id = 'manager__title'
-            , name = 'title'
-            , sig_key = 3
-            , ui_name = 'Manager/Academic title'
-            )
-          , Record
-            ( attr = Date_Interval `lifetime`
+            ( Class = 'Entity'
+            , attr = Entity `manager`
             , attrs =
                 [ Record
-                  ( attr = Date `start`
-                  , full_name = 'manager.lifetime.start'
-                  , id = 'manager__lifetime__start'
-                  , name = 'start'
-                  , sig_key = 0
-                  , ui_name = 'Manager/Lifetime/Start'
-                  )
-                , Record
-                  ( attr = Date `finish`
-                  , full_name = 'manager.lifetime.finish'
-                  , id = 'manager__lifetime__finish'
-                  , name = 'finish'
-                  , sig_key = 0
-                  , ui_name = 'Manager/Lifetime/Finish'
-                  )
-                , Record
-                  ( attr = Boolean `alive`
-                  , choices =
-                      [ 'no'
-                      , 'yes'
-                      ]
-                  , full_name = 'manager.lifetime.alive'
-                  , id = 'manager__lifetime__alive'
-                  , name = 'alive'
-                  , sig_key = 1
-                  , ui_name = 'Manager/Lifetime/Alive'
+                  ( attr = String `name`
+                  , full_name = 'manager.name'
+                  , id = 'manager__name'
+                  , name = 'name'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Adhoc_Group]/Name'
                   )
                 ]
-            , full_name = 'manager.lifetime'
-            , id = 'manager__lifetime'
-            , name = 'lifetime'
-            , ui_name = 'Manager/Lifetime'
+            , full_name = 'manager'
+            , id = 'manager'
+            , name = 'manager'
+            , sig_key = 2
+            , type_name = 'PAP.Adhoc_Group'
+            , ui_name = 'Manager[Adhoc_Group]'
+            , ui_type_name = 'Adhoc_Group'
             )
           , Record
-            ( attr = Sex `sex`
-            , choices =
-                [
-                  ( 'F'
-                  , 'Female'
-                  )
-                ,
-                  ( 'M'
-                  , 'Male'
+            ( Class = 'Entity'
+            , attr = Entity `manager`
+            , attrs =
+                [ Record
+                  ( attr = String `name`
+                  , full_name = 'manager.name'
+                  , id = 'manager__name'
+                  , name = 'name'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Association]/Name'
                   )
                 ]
-            , full_name = 'manager.sex'
-            , id = 'manager__sex'
-            , name = 'sex'
-            , sig_key = 0
-            , ui_name = 'Manager/Sex'
+            , full_name = 'manager'
+            , id = 'manager'
+            , name = 'manager'
+            , sig_key = 2
+            , type_name = 'PAP.Association'
+            , ui_name = 'Manager[Association]'
+            , ui_type_name = 'Association'
+            )
+          , Record
+            ( Class = 'Entity'
+            , attr = Entity `manager`
+            , attrs =
+                [ Record
+                  ( attr = String `name`
+                  , full_name = 'manager.name'
+                  , id = 'manager__name'
+                  , name = 'name'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Company]/Name'
+                  )
+                , Record
+                  ( attr = String `registered_in`
+                  , full_name = 'manager.registered_in'
+                  , id = 'manager__registered_in'
+                  , name = 'registered_in'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Company]/Registered in'
+                  )
+                ]
+            , full_name = 'manager'
+            , id = 'manager'
+            , name = 'manager'
+            , sig_key = 2
+            , type_name = 'PAP.Company'
+            , ui_name = 'Manager[Company]'
+            , ui_type_name = 'Company'
+            )
+          , Record
+            ( Class = 'Entity'
+            , attr = Entity `manager`
+            , attrs =
+                [ Record
+                  ( attr = String `last_name`
+                  , full_name = 'manager.last_name'
+                  , id = 'manager__last_name'
+                  , name = 'last_name'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Person]/Last name'
+                  )
+                , Record
+                  ( attr = String `first_name`
+                  , full_name = 'manager.first_name'
+                  , id = 'manager__first_name'
+                  , name = 'first_name'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Person]/First name'
+                  )
+                , Record
+                  ( attr = String `middle_name`
+                  , full_name = 'manager.middle_name'
+                  , id = 'manager__middle_name'
+                  , name = 'middle_name'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Person]/Middle name'
+                  )
+                , Record
+                  ( attr = String `title`
+                  , full_name = 'manager.title'
+                  , id = 'manager__title'
+                  , name = 'title'
+                  , sig_key = 3
+                  , ui_name = 'Manager[Person]/Academic title'
+                  )
+                ]
+            , full_name = 'manager'
+            , id = 'manager'
+            , name = 'manager'
+            , sig_key = 2
+            , type_name = 'PAP.Person'
+            , ui_name = 'Manager[Person]'
+            , ui_type_name = 'Person'
             )
           ]
+      , default_child = 'PAP.Person'
       , full_name = 'manager'
       , id = 'manager'
       , name = 'manager'
       , sig_key = 2
-      , type_name = 'PAP.Person'
+      , type_name = 'PAP.Subject'
       , ui_name = 'Manager'
-      , ui_type_name = 'Person'
+      , ui_type_name = 'Subject'
       )
     , Record
       ( Class = 'Entity'

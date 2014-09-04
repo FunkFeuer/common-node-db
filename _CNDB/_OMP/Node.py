@@ -51,6 +51,7 @@
 #     5-Jun-2014 (RS) Remove duplicate `my_node`, add `desc`
 #    13-Jun-2014 (RS) Add `ui_name` for `desc`
 #    13-Jun-2014 (RS) `Node` is no longer a `PAP.Subject`
+#     4-Sep-2014 (RS) Change `manager` from `PAP.Person` to `PAP.Subject`
 #    ««revision-date»»···
 #--
 
@@ -111,7 +112,7 @@ class Node (_Mixin, _Ancestor_Essence) :
             """Manager of the node"""
 
             kind               = Attr.Required
-            P_Type             = PAP.Person
+            P_Type             = PAP.Subject
             ui_allow_new       = False
 
         # end class manager
@@ -134,7 +135,6 @@ class Node (_Mixin, _Ancestor_Essence) :
             kind               = Attr.Optional
             Kind_Mixins        = (Attr.Computed_Set_Mixin, )
             P_Type             = PAP.Subject
-            refuse_e_types     = (str ("CNDB.Node"), )
             ui_allow_new       = False
 
             def computed (self, obj) :

@@ -926,16 +926,7 @@ _test_AQ = """
     <ip_pool.cool_down_period.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <ip_pool.node.name.AQ [Attr.Type.Querier String]> -----
-    <ip_pool.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <ip_pool.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <ip_pool.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <ip_pool.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <ip_pool.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <ip_pool.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <ip_pool.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <ip_pool.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <ip_pool.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <ip_pool.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <ip_pool.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <ip_pool.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <ip_pool.node.address.street.AQ [Attr.Type.Querier String]> -----
     <ip_pool.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -969,16 +960,7 @@ _test_AQ = """
     <wired_interface.left.left.desc.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.left.node.name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wired_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.left.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wired_interface.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wired_interface.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wired_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wired_interface.left.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wired_interface.left.node.address.street.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -997,16 +979,7 @@ _test_AQ = """
     <wired_interface.left.desc.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.left.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wired_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.left.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wired_interface.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wired_interface.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wired_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wired_interface.left.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wired_interface.left.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <wired_interface.left.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1027,16 +1000,7 @@ _test_AQ = """
     <wired_interface.desc.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wired_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wired_interface.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wired_interface.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wired_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wired_interface.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wired_interface.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1059,16 +1023,7 @@ _test_AQ = """
     <wired_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wired_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wired_interface.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wired_interface.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wired_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wired_interface.my_net_device.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wired_interface.my_net_device.node.address.street.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1087,16 +1042,7 @@ _test_AQ = """
     <wired_interface.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wired_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wired_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wired_interface.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wired_interface.my_net_device.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wired_interface.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wired_interface.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wired_interface.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wired_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wired_interface.my_net_device.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wired_interface.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <wired_interface.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1120,16 +1066,7 @@ _test_AQ = """
     <wireless_interface.left.left.desc.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.left.node.name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wireless_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.left.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wireless_interface.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wireless_interface.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wireless_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wireless_interface.left.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wireless_interface.left.node.address.street.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1148,16 +1085,7 @@ _test_AQ = """
     <wireless_interface.left.desc.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.left.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wireless_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.left.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wireless_interface.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wireless_interface.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wireless_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wireless_interface.left.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wireless_interface.left.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.left.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1185,16 +1113,7 @@ _test_AQ = """
     <wireless_interface.txpower.AQ [Attr.Type.Querier Raw]> -----
     <wireless_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wireless_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wireless_interface.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wireless_interface.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wireless_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wireless_interface.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wireless_interface.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1217,16 +1136,7 @@ _test_AQ = """
     <wireless_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wireless_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wireless_interface.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wireless_interface.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wireless_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wireless_interface.my_net_device.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wireless_interface.my_net_device.node.address.street.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1245,16 +1155,7 @@ _test_AQ = """
     <wireless_interface.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <wireless_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <wireless_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <wireless_interface.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <wireless_interface.my_net_device.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <wireless_interface.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <wireless_interface.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <wireless_interface.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <wireless_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <wireless_interface.my_net_device.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <wireless_interface.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <wireless_interface.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1278,16 +1179,7 @@ _test_AQ = """
     <virtual_wireless_interface.left.left.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.left.node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.left.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.left.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.left.node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1306,16 +1198,7 @@ _test_AQ = """
     <virtual_wireless_interface.left.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.left.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.left.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.left.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.left.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.left.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1339,16 +1222,7 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.left.left.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.left.node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.hardware.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.hardware.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.hardware.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.hardware.left.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.hardware.left.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.hardware.left.node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1367,16 +1241,7 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.left.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.left.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.hardware.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.hardware.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.hardware.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.hardware.left.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.hardware.left.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.hardware.left.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.left.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1404,16 +1269,7 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.txpower.AQ [Attr.Type.Querier Raw]> -----
     <virtual_wireless_interface.hardware.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.hardware.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.hardware.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.hardware.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.hardware.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.hardware.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.hardware.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1436,16 +1292,7 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.hardware.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.hardware.my_net_device.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.hardware.my_net_device.node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1464,16 +1311,7 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.hardware.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.hardware.my_net_device.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.hardware.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.hardware.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1497,16 +1335,7 @@ _test_AQ = """
     <virtual_wireless_interface.bssid.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1529,16 +1358,7 @@ _test_AQ = """
     <virtual_wireless_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.my_net_device.node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.my_net_device.node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.my_net_device.node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1557,16 +1377,7 @@ _test_AQ = """
     <virtual_wireless_interface.my_net_device.desc.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.my_node.AQ [Attr.Type.Querier Id_Entity]> CNDB.Node
     <virtual_wireless_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Person
-    <virtual_wireless_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.lifetime.AQ [Attr.Type.Querier Composite]> MOM.Date_Interval
-    <virtual_wireless_interface.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]> -----
-    <virtual_wireless_interface.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]> -----
+    <virtual_wireless_interface.my_net_device.my_node.manager.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <virtual_wireless_interface.my_net_device.my_node.address.AQ [Attr.Type.Querier Id_Entity]> PAP.Address
     <virtual_wireless_interface.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]> -----
     <virtual_wireless_interface.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]> -----
@@ -1633,15 +1444,6 @@ _test_AQ = """
     'Ip pool/Node'
     'Ip pool/Node/Name'
     'Ip pool/Node/Manager'
-    'Ip pool/Node/Manager/Last name'
-    'Ip pool/Node/Manager/First name'
-    'Ip pool/Node/Manager/Middle name'
-    'Ip pool/Node/Manager/Academic title'
-    'Ip pool/Node/Manager/Lifetime'
-    'Ip pool/Node/Manager/Lifetime/Start'
-    'Ip pool/Node/Manager/Lifetime/Finish'
-    'Ip pool/Node/Manager/Lifetime/Alive'
-    'Ip pool/Node/Manager/Sex'
     'Ip pool/Node/Address'
     'Ip pool/Node/Address/Street'
     'Ip pool/Node/Address/Zip code'
@@ -1676,15 +1478,6 @@ _test_AQ = """
     'Wired interface/Net device/Node'
     'Wired interface/Net device/Node/Name'
     'Wired interface/Net device/Node/Manager'
-    'Wired interface/Net device/Node/Manager/Last name'
-    'Wired interface/Net device/Node/Manager/First name'
-    'Wired interface/Net device/Node/Manager/Middle name'
-    'Wired interface/Net device/Node/Manager/Academic title'
-    'Wired interface/Net device/Node/Manager/Lifetime'
-    'Wired interface/Net device/Node/Manager/Lifetime/Start'
-    'Wired interface/Net device/Node/Manager/Lifetime/Finish'
-    'Wired interface/Net device/Node/Manager/Lifetime/Alive'
-    'Wired interface/Net device/Node/Manager/Sex'
     'Wired interface/Net device/Node/Address'
     'Wired interface/Net device/Node/Address/Street'
     'Wired interface/Net device/Node/Address/Zip code'
@@ -1704,15 +1497,6 @@ _test_AQ = """
     'Wired interface/Net device/My node'
     'Wired interface/Net device/My node/Name'
     'Wired interface/Net device/My node/Manager'
-    'Wired interface/Net device/My node/Manager/Last name'
-    'Wired interface/Net device/My node/Manager/First name'
-    'Wired interface/Net device/My node/Manager/Middle name'
-    'Wired interface/Net device/My node/Manager/Academic title'
-    'Wired interface/Net device/My node/Manager/Lifetime'
-    'Wired interface/Net device/My node/Manager/Lifetime/Start'
-    'Wired interface/Net device/My node/Manager/Lifetime/Finish'
-    'Wired interface/Net device/My node/Manager/Lifetime/Alive'
-    'Wired interface/Net device/My node/Manager/Sex'
     'Wired interface/Net device/My node/Address'
     'Wired interface/Net device/My node/Address/Street'
     'Wired interface/Net device/My node/Address/Zip code'
@@ -1734,15 +1518,6 @@ _test_AQ = """
     'Wired interface/My node'
     'Wired interface/My node/Name'
     'Wired interface/My node/Manager'
-    'Wired interface/My node/Manager/Last name'
-    'Wired interface/My node/Manager/First name'
-    'Wired interface/My node/Manager/Middle name'
-    'Wired interface/My node/Manager/Academic title'
-    'Wired interface/My node/Manager/Lifetime'
-    'Wired interface/My node/Manager/Lifetime/Start'
-    'Wired interface/My node/Manager/Lifetime/Finish'
-    'Wired interface/My node/Manager/Lifetime/Alive'
-    'Wired interface/My node/Manager/Sex'
     'Wired interface/My node/Address'
     'Wired interface/My node/Address/Street'
     'Wired interface/My node/Address/Zip code'
@@ -1766,15 +1541,6 @@ _test_AQ = """
     'Wired interface/My net device/Node'
     'Wired interface/My net device/Node/Name'
     'Wired interface/My net device/Node/Manager'
-    'Wired interface/My net device/Node/Manager/Last name'
-    'Wired interface/My net device/Node/Manager/First name'
-    'Wired interface/My net device/Node/Manager/Middle name'
-    'Wired interface/My net device/Node/Manager/Academic title'
-    'Wired interface/My net device/Node/Manager/Lifetime'
-    'Wired interface/My net device/Node/Manager/Lifetime/Start'
-    'Wired interface/My net device/Node/Manager/Lifetime/Finish'
-    'Wired interface/My net device/Node/Manager/Lifetime/Alive'
-    'Wired interface/My net device/Node/Manager/Sex'
     'Wired interface/My net device/Node/Address'
     'Wired interface/My net device/Node/Address/Street'
     'Wired interface/My net device/Node/Address/Zip code'
@@ -1794,15 +1560,6 @@ _test_AQ = """
     'Wired interface/My net device/My node'
     'Wired interface/My net device/My node/Name'
     'Wired interface/My net device/My node/Manager'
-    'Wired interface/My net device/My node/Manager/Last name'
-    'Wired interface/My net device/My node/Manager/First name'
-    'Wired interface/My net device/My node/Manager/Middle name'
-    'Wired interface/My net device/My node/Manager/Academic title'
-    'Wired interface/My net device/My node/Manager/Lifetime'
-    'Wired interface/My net device/My node/Manager/Lifetime/Start'
-    'Wired interface/My net device/My node/Manager/Lifetime/Finish'
-    'Wired interface/My net device/My node/Manager/Lifetime/Alive'
-    'Wired interface/My net device/My node/Manager/Sex'
     'Wired interface/My net device/My node/Address'
     'Wired interface/My net device/My node/Address/Street'
     'Wired interface/My net device/My node/Address/Zip code'
@@ -1827,15 +1584,6 @@ _test_AQ = """
     'Wireless interface/Net device/Node'
     'Wireless interface/Net device/Node/Name'
     'Wireless interface/Net device/Node/Manager'
-    'Wireless interface/Net device/Node/Manager/Last name'
-    'Wireless interface/Net device/Node/Manager/First name'
-    'Wireless interface/Net device/Node/Manager/Middle name'
-    'Wireless interface/Net device/Node/Manager/Academic title'
-    'Wireless interface/Net device/Node/Manager/Lifetime'
-    'Wireless interface/Net device/Node/Manager/Lifetime/Start'
-    'Wireless interface/Net device/Node/Manager/Lifetime/Finish'
-    'Wireless interface/Net device/Node/Manager/Lifetime/Alive'
-    'Wireless interface/Net device/Node/Manager/Sex'
     'Wireless interface/Net device/Node/Address'
     'Wireless interface/Net device/Node/Address/Street'
     'Wireless interface/Net device/Node/Address/Zip code'
@@ -1855,15 +1603,6 @@ _test_AQ = """
     'Wireless interface/Net device/My node'
     'Wireless interface/Net device/My node/Name'
     'Wireless interface/Net device/My node/Manager'
-    'Wireless interface/Net device/My node/Manager/Last name'
-    'Wireless interface/Net device/My node/Manager/First name'
-    'Wireless interface/Net device/My node/Manager/Middle name'
-    'Wireless interface/Net device/My node/Manager/Academic title'
-    'Wireless interface/Net device/My node/Manager/Lifetime'
-    'Wireless interface/Net device/My node/Manager/Lifetime/Start'
-    'Wireless interface/Net device/My node/Manager/Lifetime/Finish'
-    'Wireless interface/Net device/My node/Manager/Lifetime/Alive'
-    'Wireless interface/Net device/My node/Manager/Sex'
     'Wireless interface/Net device/My node/Address'
     'Wireless interface/Net device/My node/Address/Street'
     'Wireless interface/Net device/My node/Address/Zip code'
@@ -1892,15 +1631,6 @@ _test_AQ = """
     'Wireless interface/My node'
     'Wireless interface/My node/Name'
     'Wireless interface/My node/Manager'
-    'Wireless interface/My node/Manager/Last name'
-    'Wireless interface/My node/Manager/First name'
-    'Wireless interface/My node/Manager/Middle name'
-    'Wireless interface/My node/Manager/Academic title'
-    'Wireless interface/My node/Manager/Lifetime'
-    'Wireless interface/My node/Manager/Lifetime/Start'
-    'Wireless interface/My node/Manager/Lifetime/Finish'
-    'Wireless interface/My node/Manager/Lifetime/Alive'
-    'Wireless interface/My node/Manager/Sex'
     'Wireless interface/My node/Address'
     'Wireless interface/My node/Address/Street'
     'Wireless interface/My node/Address/Zip code'
@@ -1924,15 +1654,6 @@ _test_AQ = """
     'Wireless interface/My net device/Node'
     'Wireless interface/My net device/Node/Name'
     'Wireless interface/My net device/Node/Manager'
-    'Wireless interface/My net device/Node/Manager/Last name'
-    'Wireless interface/My net device/Node/Manager/First name'
-    'Wireless interface/My net device/Node/Manager/Middle name'
-    'Wireless interface/My net device/Node/Manager/Academic title'
-    'Wireless interface/My net device/Node/Manager/Lifetime'
-    'Wireless interface/My net device/Node/Manager/Lifetime/Start'
-    'Wireless interface/My net device/Node/Manager/Lifetime/Finish'
-    'Wireless interface/My net device/Node/Manager/Lifetime/Alive'
-    'Wireless interface/My net device/Node/Manager/Sex'
     'Wireless interface/My net device/Node/Address'
     'Wireless interface/My net device/Node/Address/Street'
     'Wireless interface/My net device/Node/Address/Zip code'
@@ -1952,15 +1673,6 @@ _test_AQ = """
     'Wireless interface/My net device/My node'
     'Wireless interface/My net device/My node/Name'
     'Wireless interface/My net device/My node/Manager'
-    'Wireless interface/My net device/My node/Manager/Last name'
-    'Wireless interface/My net device/My node/Manager/First name'
-    'Wireless interface/My net device/My node/Manager/Middle name'
-    'Wireless interface/My net device/My node/Manager/Academic title'
-    'Wireless interface/My net device/My node/Manager/Lifetime'
-    'Wireless interface/My net device/My node/Manager/Lifetime/Start'
-    'Wireless interface/My net device/My node/Manager/Lifetime/Finish'
-    'Wireless interface/My net device/My node/Manager/Lifetime/Alive'
-    'Wireless interface/My net device/My node/Manager/Sex'
     'Wireless interface/My net device/My node/Address'
     'Wireless interface/My net device/My node/Address/Street'
     'Wireless interface/My net device/My node/Address/Zip code'
@@ -1985,15 +1697,6 @@ _test_AQ = """
     'Virtual wireless interface/Net device/Node'
     'Virtual wireless interface/Net device/Node/Name'
     'Virtual wireless interface/Net device/Node/Manager'
-    'Virtual wireless interface/Net device/Node/Manager/Last name'
-    'Virtual wireless interface/Net device/Node/Manager/First name'
-    'Virtual wireless interface/Net device/Node/Manager/Middle name'
-    'Virtual wireless interface/Net device/Node/Manager/Academic title'
-    'Virtual wireless interface/Net device/Node/Manager/Lifetime'
-    'Virtual wireless interface/Net device/Node/Manager/Lifetime/Start'
-    'Virtual wireless interface/Net device/Node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/Net device/Node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/Net device/Node/Manager/Sex'
     'Virtual wireless interface/Net device/Node/Address'
     'Virtual wireless interface/Net device/Node/Address/Street'
     'Virtual wireless interface/Net device/Node/Address/Zip code'
@@ -2013,15 +1716,6 @@ _test_AQ = """
     'Virtual wireless interface/Net device/My node'
     'Virtual wireless interface/Net device/My node/Name'
     'Virtual wireless interface/Net device/My node/Manager'
-    'Virtual wireless interface/Net device/My node/Manager/Last name'
-    'Virtual wireless interface/Net device/My node/Manager/First name'
-    'Virtual wireless interface/Net device/My node/Manager/Middle name'
-    'Virtual wireless interface/Net device/My node/Manager/Academic title'
-    'Virtual wireless interface/Net device/My node/Manager/Lifetime'
-    'Virtual wireless interface/Net device/My node/Manager/Lifetime/Start'
-    'Virtual wireless interface/Net device/My node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/Net device/My node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/Net device/My node/Manager/Sex'
     'Virtual wireless interface/Net device/My node/Address'
     'Virtual wireless interface/Net device/My node/Address/Street'
     'Virtual wireless interface/Net device/My node/Address/Zip code'
@@ -2046,15 +1740,6 @@ _test_AQ = """
     'Virtual wireless interface/Hardware/Net device/Node'
     'Virtual wireless interface/Hardware/Net device/Node/Name'
     'Virtual wireless interface/Hardware/Net device/Node/Manager'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Last name'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/First name'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Middle name'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Academic title'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime/Start'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/Hardware/Net device/Node/Manager/Sex'
     'Virtual wireless interface/Hardware/Net device/Node/Address'
     'Virtual wireless interface/Hardware/Net device/Node/Address/Street'
     'Virtual wireless interface/Hardware/Net device/Node/Address/Zip code'
@@ -2074,15 +1759,6 @@ _test_AQ = """
     'Virtual wireless interface/Hardware/Net device/My node'
     'Virtual wireless interface/Hardware/Net device/My node/Name'
     'Virtual wireless interface/Hardware/Net device/My node/Manager'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Last name'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/First name'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Middle name'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Academic title'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime/Start'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/Hardware/Net device/My node/Manager/Sex'
     'Virtual wireless interface/Hardware/Net device/My node/Address'
     'Virtual wireless interface/Hardware/Net device/My node/Address/Street'
     'Virtual wireless interface/Hardware/Net device/My node/Address/Zip code'
@@ -2111,15 +1787,6 @@ _test_AQ = """
     'Virtual wireless interface/Hardware/My node'
     'Virtual wireless interface/Hardware/My node/Name'
     'Virtual wireless interface/Hardware/My node/Manager'
-    'Virtual wireless interface/Hardware/My node/Manager/Last name'
-    'Virtual wireless interface/Hardware/My node/Manager/First name'
-    'Virtual wireless interface/Hardware/My node/Manager/Middle name'
-    'Virtual wireless interface/Hardware/My node/Manager/Academic title'
-    'Virtual wireless interface/Hardware/My node/Manager/Lifetime'
-    'Virtual wireless interface/Hardware/My node/Manager/Lifetime/Start'
-    'Virtual wireless interface/Hardware/My node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/Hardware/My node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/Hardware/My node/Manager/Sex'
     'Virtual wireless interface/Hardware/My node/Address'
     'Virtual wireless interface/Hardware/My node/Address/Street'
     'Virtual wireless interface/Hardware/My node/Address/Zip code'
@@ -2143,15 +1810,6 @@ _test_AQ = """
     'Virtual wireless interface/Hardware/My net device/Node'
     'Virtual wireless interface/Hardware/My net device/Node/Name'
     'Virtual wireless interface/Hardware/My net device/Node/Manager'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Last name'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/First name'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Middle name'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Academic title'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime/Start'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/Hardware/My net device/Node/Manager/Sex'
     'Virtual wireless interface/Hardware/My net device/Node/Address'
     'Virtual wireless interface/Hardware/My net device/Node/Address/Street'
     'Virtual wireless interface/Hardware/My net device/Node/Address/Zip code'
@@ -2171,15 +1829,6 @@ _test_AQ = """
     'Virtual wireless interface/Hardware/My net device/My node'
     'Virtual wireless interface/Hardware/My net device/My node/Name'
     'Virtual wireless interface/Hardware/My net device/My node/Manager'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Last name'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/First name'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Middle name'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Academic title'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime/Start'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/Hardware/My net device/My node/Manager/Sex'
     'Virtual wireless interface/Hardware/My net device/My node/Address'
     'Virtual wireless interface/Hardware/My net device/My node/Address/Street'
     'Virtual wireless interface/Hardware/My net device/My node/Address/Zip code'
@@ -2204,15 +1853,6 @@ _test_AQ = """
     'Virtual wireless interface/My node'
     'Virtual wireless interface/My node/Name'
     'Virtual wireless interface/My node/Manager'
-    'Virtual wireless interface/My node/Manager/Last name'
-    'Virtual wireless interface/My node/Manager/First name'
-    'Virtual wireless interface/My node/Manager/Middle name'
-    'Virtual wireless interface/My node/Manager/Academic title'
-    'Virtual wireless interface/My node/Manager/Lifetime'
-    'Virtual wireless interface/My node/Manager/Lifetime/Start'
-    'Virtual wireless interface/My node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/My node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/My node/Manager/Sex'
     'Virtual wireless interface/My node/Address'
     'Virtual wireless interface/My node/Address/Street'
     'Virtual wireless interface/My node/Address/Zip code'
@@ -2236,15 +1876,6 @@ _test_AQ = """
     'Virtual wireless interface/My net device/Node'
     'Virtual wireless interface/My net device/Node/Name'
     'Virtual wireless interface/My net device/Node/Manager'
-    'Virtual wireless interface/My net device/Node/Manager/Last name'
-    'Virtual wireless interface/My net device/Node/Manager/First name'
-    'Virtual wireless interface/My net device/Node/Manager/Middle name'
-    'Virtual wireless interface/My net device/Node/Manager/Academic title'
-    'Virtual wireless interface/My net device/Node/Manager/Lifetime'
-    'Virtual wireless interface/My net device/Node/Manager/Lifetime/Start'
-    'Virtual wireless interface/My net device/Node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/My net device/Node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/My net device/Node/Manager/Sex'
     'Virtual wireless interface/My net device/Node/Address'
     'Virtual wireless interface/My net device/Node/Address/Street'
     'Virtual wireless interface/My net device/Node/Address/Zip code'
@@ -2264,15 +1895,6 @@ _test_AQ = """
     'Virtual wireless interface/My net device/My node'
     'Virtual wireless interface/My net device/My node/Name'
     'Virtual wireless interface/My net device/My node/Manager'
-    'Virtual wireless interface/My net device/My node/Manager/Last name'
-    'Virtual wireless interface/My net device/My node/Manager/First name'
-    'Virtual wireless interface/My net device/My node/Manager/Middle name'
-    'Virtual wireless interface/My net device/My node/Manager/Academic title'
-    'Virtual wireless interface/My net device/My node/Manager/Lifetime'
-    'Virtual wireless interface/My net device/My node/Manager/Lifetime/Start'
-    'Virtual wireless interface/My net device/My node/Manager/Lifetime/Finish'
-    'Virtual wireless interface/My net device/My node/Manager/Lifetime/Alive'
-    'Virtual wireless interface/My net device/My node/Manager/Sex'
     'Virtual wireless interface/My net device/My node/Address'
     'Virtual wireless interface/My net device/My node/Address/Street'
     'Virtual wireless interface/My net device/My node/Address/Zip code'
@@ -2324,14 +1946,6 @@ _test_AQ = """
     <ip_pool.name.AQ [Attr.Type.Querier String]>
     <ip_pool.cool_down_period.AQ [Attr.Type.Querier Ckd]>
     <ip_pool.node.name.AQ [Attr.Type.Querier String]>
-    <ip_pool.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <ip_pool.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <ip_pool.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <ip_pool.node.manager.title.AQ [Attr.Type.Querier String]>
-    <ip_pool.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <ip_pool.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <ip_pool.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <ip_pool.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <ip_pool.node.address.street.AQ [Attr.Type.Querier String]>
     <ip_pool.node.address.zip.AQ [Attr.Type.Querier String]>
     <ip_pool.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2355,14 +1969,6 @@ _test_AQ = """
     <wired_interface.left.left.revision.AQ [Attr.Type.Querier String]>
     <wired_interface.left.left.desc.AQ [Attr.Type.Querier String]>
     <wired_interface.left.node.name.AQ [Attr.Type.Querier String]>
-    <wired_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.left.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wired_interface.left.node.manager.title.AQ [Attr.Type.Querier String]>
-    <wired_interface.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wired_interface.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wired_interface.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wired_interface.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wired_interface.left.node.address.street.AQ [Attr.Type.Querier String]>
     <wired_interface.left.node.address.zip.AQ [Attr.Type.Querier String]>
     <wired_interface.left.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2377,14 +1983,6 @@ _test_AQ = """
     <wired_interface.left.name.AQ [Attr.Type.Querier String]>
     <wired_interface.left.desc.AQ [Attr.Type.Querier String]>
     <wired_interface.left.my_node.name.AQ [Attr.Type.Querier String]>
-    <wired_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wired_interface.left.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <wired_interface.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wired_interface.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wired_interface.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wired_interface.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wired_interface.left.my_node.address.street.AQ [Attr.Type.Querier String]>
     <wired_interface.left.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <wired_interface.left.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2401,14 +1999,6 @@ _test_AQ = """
     <wired_interface.is_active.AQ [Attr.Type.Querier Boolean]>
     <wired_interface.desc.AQ [Attr.Type.Querier String]>
     <wired_interface.my_node.name.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wired_interface.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wired_interface.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wired_interface.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wired_interface.my_node.address.street.AQ [Attr.Type.Querier String]>
     <wired_interface.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <wired_interface.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2425,14 +2015,6 @@ _test_AQ = """
     <wired_interface.my_net_device.left.revision.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wired_interface.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wired_interface.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wired_interface.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wired_interface.my_net_device.node.address.street.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2447,14 +2029,6 @@ _test_AQ = """
     <wired_interface.my_net_device.name.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.desc.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wired_interface.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <wired_interface.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wired_interface.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wired_interface.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wired_interface.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wired_interface.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <wired_interface.my_net_device.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2471,14 +2045,6 @@ _test_AQ = """
     <wireless_interface.left.left.revision.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.left.desc.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.node.name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.left.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.left.node.manager.title.AQ [Attr.Type.Querier String]>
-    <wireless_interface.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wireless_interface.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wireless_interface.left.node.address.street.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.node.address.zip.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2493,14 +2059,6 @@ _test_AQ = """
     <wireless_interface.left.name.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.desc.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.my_node.name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.left.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <wireless_interface.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wireless_interface.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wireless_interface.left.my_node.address.street.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <wireless_interface.left.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2523,14 +2081,6 @@ _test_AQ = """
     <wireless_interface.standard.bandwidth.AQ [Attr.Type.Querier Raw]>
     <wireless_interface.txpower.AQ [Attr.Type.Querier Raw]>
     <wireless_interface.my_node.name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wireless_interface.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wireless_interface.my_node.address.street.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2547,14 +2097,6 @@ _test_AQ = """
     <wireless_interface.my_net_device.left.revision.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wireless_interface.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wireless_interface.my_net_device.node.address.street.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2569,14 +2111,6 @@ _test_AQ = """
     <wireless_interface.my_net_device.name.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.desc.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <wireless_interface.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <wireless_interface.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <wireless_interface.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <wireless_interface.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <wireless_interface.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <wireless_interface.my_net_device.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2593,14 +2127,6 @@ _test_AQ = """
     <virtual_wireless_interface.left.left.revision.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.left.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.left.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.left.node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.left.node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2615,14 +2141,6 @@ _test_AQ = """
     <virtual_wireless_interface.left.name.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.my_node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.left.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.left.my_node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.left.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2639,14 +2157,6 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.left.left.revision.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.left.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.left.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.left.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.left.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.left.node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.left.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.left.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.left.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.hardware.left.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.hardware.left.node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2661,14 +2171,6 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.left.name.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.my_node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.hardware.left.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.hardware.left.my_node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.left.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2691,14 +2193,6 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.standard.bandwidth.AQ [Attr.Type.Querier Raw]>
     <virtual_wireless_interface.hardware.txpower.AQ [Attr.Type.Querier Raw]>
     <virtual_wireless_interface.hardware.my_node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.hardware.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.hardware.my_node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2715,14 +2209,6 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.my_net_device.left.revision.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.left.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.hardware.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.hardware.my_net_device.node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2737,14 +2223,6 @@ _test_AQ = """
     <virtual_wireless_interface.hardware.my_net_device.name.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.my_node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.hardware.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.hardware.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.hardware.my_net_device.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2764,14 +2242,6 @@ _test_AQ = """
     <virtual_wireless_interface.essid.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.bssid.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.my_node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -2788,14 +2258,6 @@ _test_AQ = """
     <virtual_wireless_interface.my_net_device.left.revision.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.left.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_net_device.node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.my_net_device.node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.my_net_device.node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_net_device.node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_net_device.node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.my_net_device.node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.my_net_device.node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.my_net_device.node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.my_net_device.node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.node.address.city.AQ [Attr.Type.Querier String]>
@@ -2810,14 +2272,6 @@ _test_AQ = """
     <virtual_wireless_interface.my_net_device.name.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.desc.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.my_node.name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.last_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.first_name.AQ [Attr.Type.Querier String_FL]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.middle_name.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.title.AQ [Attr.Type.Querier String]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.lifetime.start.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.lifetime.finish.AQ [Attr.Type.Querier Date]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.lifetime.alive.AQ [Attr.Type.Querier Boolean]>
-    <virtual_wireless_interface.my_net_device.my_node.manager.sex.AQ [Attr.Type.Querier Ckd]>
     <virtual_wireless_interface.my_net_device.my_node.address.street.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.my_node.address.zip.AQ [Attr.Type.Querier String]>
     <virtual_wireless_interface.my_net_device.my_node.address.city.AQ [Attr.Type.Querier String]>
@@ -3404,45 +2858,77 @@ _test_AQ = """
                       , 'ui_name' : 'Name'
                       }
                     , { 'Class' : 'Entity'
-                      , 'attrs' :
-                          [ { 'name' : 'last_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Last name'
-                            }
-                          , { 'name' : 'first_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'First name'
-                            }
-                          , { 'name' : 'middle_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Middle name'
-                            }
-                          , { 'name' : 'title'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Academic title'
-                            }
-                          , { 'attrs' :
-                                [ { 'name' : 'start'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Start'
-                                  }
-                                , { 'name' : 'finish'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Finish'
-                                  }
-                                , { 'name' : 'alive'
-                                  , 'sig_key' : 1
-                                  , 'ui_name' : 'Alive'
+                      , 'children_np' :
+                          [ { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
                                   }
                                 ]
-                            , 'name' : 'lifetime'
-                            , 'ui_name' : 'Lifetime'
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Adhoc_Group'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Adhoc_Group'
                             }
-                          , { 'name' : 'sex'
-                            , 'sig_key' : 0
-                            , 'ui_name' : 'Sex'
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Association'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Association'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                , { 'name' : 'registered_in'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Registered in'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Company'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Company'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'last_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Last name'
+                                  }
+                                , { 'name' : 'first_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'First name'
+                                  }
+                                , { 'name' : 'middle_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Middle name'
+                                  }
+                                , { 'name' : 'title'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Academic title'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Person'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Person'
                             }
                           ]
+                      , 'default_child' : 'PAP.Person'
                       , 'name' : 'manager'
                       , 'sig_key' : 2
                       , 'ui_name' : 'Manager'
@@ -3668,45 +3154,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -3863,45 +3381,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -4071,45 +3621,77 @@ _test_AQ = """
                       , 'ui_name' : 'Name'
                       }
                     , { 'Class' : 'Entity'
-                      , 'attrs' :
-                          [ { 'name' : 'last_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Last name'
-                            }
-                          , { 'name' : 'first_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'First name'
-                            }
-                          , { 'name' : 'middle_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Middle name'
-                            }
-                          , { 'name' : 'title'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Academic title'
-                            }
-                          , { 'attrs' :
-                                [ { 'name' : 'start'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Start'
-                                  }
-                                , { 'name' : 'finish'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Finish'
-                                  }
-                                , { 'name' : 'alive'
-                                  , 'sig_key' : 1
-                                  , 'ui_name' : 'Alive'
+                      , 'children_np' :
+                          [ { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
                                   }
                                 ]
-                            , 'name' : 'lifetime'
-                            , 'ui_name' : 'Lifetime'
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Adhoc_Group'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Adhoc_Group'
                             }
-                          , { 'name' : 'sex'
-                            , 'sig_key' : 0
-                            , 'ui_name' : 'Sex'
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Association'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Association'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                , { 'name' : 'registered_in'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Registered in'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Company'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Company'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'last_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Last name'
+                                  }
+                                , { 'name' : 'first_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'First name'
+                                  }
+                                , { 'name' : 'middle_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Middle name'
+                                  }
+                                , { 'name' : 'title'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Academic title'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Person'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Person'
                             }
                           ]
+                      , 'default_child' : 'PAP.Person'
                       , 'name' : 'manager'
                       , 'sig_key' : 2
                       , 'ui_name' : 'Manager'
@@ -4283,45 +3865,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -4478,45 +4092,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -4702,45 +4348,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -4897,45 +4575,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -5136,45 +4846,77 @@ _test_AQ = """
                       , 'ui_name' : 'Name'
                       }
                     , { 'Class' : 'Entity'
-                      , 'attrs' :
-                          [ { 'name' : 'last_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Last name'
-                            }
-                          , { 'name' : 'first_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'First name'
-                            }
-                          , { 'name' : 'middle_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Middle name'
-                            }
-                          , { 'name' : 'title'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Academic title'
-                            }
-                          , { 'attrs' :
-                                [ { 'name' : 'start'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Start'
-                                  }
-                                , { 'name' : 'finish'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Finish'
-                                  }
-                                , { 'name' : 'alive'
-                                  , 'sig_key' : 1
-                                  , 'ui_name' : 'Alive'
+                      , 'children_np' :
+                          [ { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
                                   }
                                 ]
-                            , 'name' : 'lifetime'
-                            , 'ui_name' : 'Lifetime'
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Adhoc_Group'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Adhoc_Group'
                             }
-                          , { 'name' : 'sex'
-                            , 'sig_key' : 0
-                            , 'ui_name' : 'Sex'
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Association'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Association'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                , { 'name' : 'registered_in'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Registered in'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Company'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Company'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'last_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Last name'
+                                  }
+                                , { 'name' : 'first_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'First name'
+                                  }
+                                , { 'name' : 'middle_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Middle name'
+                                  }
+                                , { 'name' : 'title'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Academic title'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Person'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Person'
                             }
                           ]
+                      , 'default_child' : 'PAP.Person'
                       , 'name' : 'manager'
                       , 'sig_key' : 2
                       , 'ui_name' : 'Manager'
@@ -5348,45 +5090,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -5543,45 +5317,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -5767,45 +5573,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -5962,45 +5800,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -6181,45 +6051,77 @@ _test_AQ = """
                                   , 'ui_name' : 'Name'
                                   }
                                 , { 'Class' : 'Entity'
-                                  , 'attrs' :
-                                      [ { 'name' : 'last_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Last name'
-                                        }
-                                      , { 'name' : 'first_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'First name'
-                                        }
-                                      , { 'name' : 'middle_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Middle name'
-                                        }
-                                      , { 'name' : 'title'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Academic title'
-                                        }
-                                      , { 'attrs' :
-                                            [ { 'name' : 'start'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Start'
-                                              }
-                                            , { 'name' : 'finish'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Finish'
-                                              }
-                                            , { 'name' : 'alive'
-                                              , 'sig_key' : 1
-                                              , 'ui_name' : 'Alive'
+                                  , 'children_np' :
+                                      [ { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
                                               }
                                             ]
-                                        , 'name' : 'lifetime'
-                                        , 'ui_name' : 'Lifetime'
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Adhoc_Group'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Adhoc_Group'
                                         }
-                                      , { 'name' : 'sex'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Sex'
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Association'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Association'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            , { 'name' : 'registered_in'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Registered in'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Company'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Company'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'last_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Last name'
+                                              }
+                                            , { 'name' : 'first_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'First name'
+                                              }
+                                            , { 'name' : 'middle_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Middle name'
+                                              }
+                                            , { 'name' : 'title'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Academic title'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Person'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Person'
                                         }
                                       ]
+                                  , 'default_child' : 'PAP.Person'
                                   , 'name' : 'manager'
                                   , 'sig_key' : 2
                                   , 'ui_name' : 'Manager'
@@ -6376,45 +6278,77 @@ _test_AQ = """
                                   , 'ui_name' : 'Name'
                                   }
                                 , { 'Class' : 'Entity'
-                                  , 'attrs' :
-                                      [ { 'name' : 'last_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Last name'
-                                        }
-                                      , { 'name' : 'first_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'First name'
-                                        }
-                                      , { 'name' : 'middle_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Middle name'
-                                        }
-                                      , { 'name' : 'title'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Academic title'
-                                        }
-                                      , { 'attrs' :
-                                            [ { 'name' : 'start'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Start'
-                                              }
-                                            , { 'name' : 'finish'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Finish'
-                                              }
-                                            , { 'name' : 'alive'
-                                              , 'sig_key' : 1
-                                              , 'ui_name' : 'Alive'
+                                  , 'children_np' :
+                                      [ { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
                                               }
                                             ]
-                                        , 'name' : 'lifetime'
-                                        , 'ui_name' : 'Lifetime'
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Adhoc_Group'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Adhoc_Group'
                                         }
-                                      , { 'name' : 'sex'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Sex'
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Association'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Association'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            , { 'name' : 'registered_in'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Registered in'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Company'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Company'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'last_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Last name'
+                                              }
+                                            , { 'name' : 'first_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'First name'
+                                              }
+                                            , { 'name' : 'middle_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Middle name'
+                                              }
+                                            , { 'name' : 'title'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Academic title'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Person'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Person'
                                         }
                                       ]
+                                  , 'default_child' : 'PAP.Person'
                                   , 'name' : 'manager'
                                   , 'sig_key' : 2
                                   , 'ui_name' : 'Manager'
@@ -6615,45 +6549,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -6827,45 +6793,77 @@ _test_AQ = """
                                   , 'ui_name' : 'Name'
                                   }
                                 , { 'Class' : 'Entity'
-                                  , 'attrs' :
-                                      [ { 'name' : 'last_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Last name'
-                                        }
-                                      , { 'name' : 'first_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'First name'
-                                        }
-                                      , { 'name' : 'middle_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Middle name'
-                                        }
-                                      , { 'name' : 'title'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Academic title'
-                                        }
-                                      , { 'attrs' :
-                                            [ { 'name' : 'start'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Start'
-                                              }
-                                            , { 'name' : 'finish'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Finish'
-                                              }
-                                            , { 'name' : 'alive'
-                                              , 'sig_key' : 1
-                                              , 'ui_name' : 'Alive'
+                                  , 'children_np' :
+                                      [ { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
                                               }
                                             ]
-                                        , 'name' : 'lifetime'
-                                        , 'ui_name' : 'Lifetime'
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Adhoc_Group'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Adhoc_Group'
                                         }
-                                      , { 'name' : 'sex'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Sex'
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Association'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Association'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            , { 'name' : 'registered_in'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Registered in'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Company'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Company'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'last_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Last name'
+                                              }
+                                            , { 'name' : 'first_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'First name'
+                                              }
+                                            , { 'name' : 'middle_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Middle name'
+                                              }
+                                            , { 'name' : 'title'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Academic title'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Person'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Person'
                                         }
                                       ]
+                                  , 'default_child' : 'PAP.Person'
                                   , 'name' : 'manager'
                                   , 'sig_key' : 2
                                   , 'ui_name' : 'Manager'
@@ -7022,45 +7020,77 @@ _test_AQ = """
                                   , 'ui_name' : 'Name'
                                   }
                                 , { 'Class' : 'Entity'
-                                  , 'attrs' :
-                                      [ { 'name' : 'last_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Last name'
-                                        }
-                                      , { 'name' : 'first_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'First name'
-                                        }
-                                      , { 'name' : 'middle_name'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Middle name'
-                                        }
-                                      , { 'name' : 'title'
-                                        , 'sig_key' : 3
-                                        , 'ui_name' : 'Academic title'
-                                        }
-                                      , { 'attrs' :
-                                            [ { 'name' : 'start'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Start'
-                                              }
-                                            , { 'name' : 'finish'
-                                              , 'sig_key' : 0
-                                              , 'ui_name' : 'Finish'
-                                              }
-                                            , { 'name' : 'alive'
-                                              , 'sig_key' : 1
-                                              , 'ui_name' : 'Alive'
+                                  , 'children_np' :
+                                      [ { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
                                               }
                                             ]
-                                        , 'name' : 'lifetime'
-                                        , 'ui_name' : 'Lifetime'
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Adhoc_Group'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Adhoc_Group'
                                         }
-                                      , { 'name' : 'sex'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Sex'
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Association'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Association'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Name'
+                                              }
+                                            , { 'name' : 'registered_in'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Registered in'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Company'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Company'
+                                        }
+                                      , { 'Class' : 'Entity'
+                                        , 'attrs' :
+                                            [ { 'name' : 'last_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Last name'
+                                              }
+                                            , { 'name' : 'first_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'First name'
+                                              }
+                                            , { 'name' : 'middle_name'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Middle name'
+                                              }
+                                            , { 'name' : 'title'
+                                              , 'sig_key' : 3
+                                              , 'ui_name' : 'Academic title'
+                                              }
+                                            ]
+                                        , 'name' : 'manager'
+                                        , 'sig_key' : 2
+                                        , 'type_name' : 'PAP.Person'
+                                        , 'ui_name' : 'Manager'
+                                        , 'ui_type_name' : 'Person'
                                         }
                                       ]
+                                  , 'default_child' : 'PAP.Person'
                                   , 'name' : 'manager'
                                   , 'sig_key' : 2
                                   , 'ui_name' : 'Manager'
@@ -7247,45 +7277,77 @@ _test_AQ = """
                       , 'ui_name' : 'Name'
                       }
                     , { 'Class' : 'Entity'
-                      , 'attrs' :
-                          [ { 'name' : 'last_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Last name'
-                            }
-                          , { 'name' : 'first_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'First name'
-                            }
-                          , { 'name' : 'middle_name'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Middle name'
-                            }
-                          , { 'name' : 'title'
-                            , 'sig_key' : 3
-                            , 'ui_name' : 'Academic title'
-                            }
-                          , { 'attrs' :
-                                [ { 'name' : 'start'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Start'
-                                  }
-                                , { 'name' : 'finish'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Finish'
-                                  }
-                                , { 'name' : 'alive'
-                                  , 'sig_key' : 1
-                                  , 'ui_name' : 'Alive'
+                      , 'children_np' :
+                          [ { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
                                   }
                                 ]
-                            , 'name' : 'lifetime'
-                            , 'ui_name' : 'Lifetime'
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Adhoc_Group'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Adhoc_Group'
                             }
-                          , { 'name' : 'sex'
-                            , 'sig_key' : 0
-                            , 'ui_name' : 'Sex'
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Association'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Association'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Name'
+                                  }
+                                , { 'name' : 'registered_in'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Registered in'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Company'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Company'
+                            }
+                          , { 'Class' : 'Entity'
+                            , 'attrs' :
+                                [ { 'name' : 'last_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Last name'
+                                  }
+                                , { 'name' : 'first_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'First name'
+                                  }
+                                , { 'name' : 'middle_name'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Middle name'
+                                  }
+                                , { 'name' : 'title'
+                                  , 'sig_key' : 3
+                                  , 'ui_name' : 'Academic title'
+                                  }
+                                ]
+                            , 'name' : 'manager'
+                            , 'sig_key' : 2
+                            , 'type_name' : 'PAP.Person'
+                            , 'ui_name' : 'Manager'
+                            , 'ui_type_name' : 'Person'
                             }
                           ]
+                      , 'default_child' : 'PAP.Person'
                       , 'name' : 'manager'
                       , 'sig_key' : 2
                       , 'ui_name' : 'Manager'
@@ -7459,45 +7521,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -7654,45 +7748,77 @@ _test_AQ = """
                             , 'ui_name' : 'Name'
                             }
                           , { 'Class' : 'Entity'
-                            , 'attrs' :
-                                [ { 'name' : 'last_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Last name'
-                                  }
-                                , { 'name' : 'first_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'First name'
-                                  }
-                                , { 'name' : 'middle_name'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Middle name'
-                                  }
-                                , { 'name' : 'title'
-                                  , 'sig_key' : 3
-                                  , 'ui_name' : 'Academic title'
-                                  }
-                                , { 'attrs' :
-                                      [ { 'name' : 'start'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Start'
-                                        }
-                                      , { 'name' : 'finish'
-                                        , 'sig_key' : 0
-                                        , 'ui_name' : 'Finish'
-                                        }
-                                      , { 'name' : 'alive'
-                                        , 'sig_key' : 1
-                                        , 'ui_name' : 'Alive'
+                            , 'children_np' :
+                                [ { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
                                         }
                                       ]
-                                  , 'name' : 'lifetime'
-                                  , 'ui_name' : 'Lifetime'
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Adhoc_Group'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Adhoc_Group'
                                   }
-                                , { 'name' : 'sex'
-                                  , 'sig_key' : 0
-                                  , 'ui_name' : 'Sex'
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Association'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Association'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Name'
+                                        }
+                                      , { 'name' : 'registered_in'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Registered in'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Company'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Company'
+                                  }
+                                , { 'Class' : 'Entity'
+                                  , 'attrs' :
+                                      [ { 'name' : 'last_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Last name'
+                                        }
+                                      , { 'name' : 'first_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'First name'
+                                        }
+                                      , { 'name' : 'middle_name'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Middle name'
+                                        }
+                                      , { 'name' : 'title'
+                                        , 'sig_key' : 3
+                                        , 'ui_name' : 'Academic title'
+                                        }
+                                      ]
+                                  , 'name' : 'manager'
+                                  , 'sig_key' : 2
+                                  , 'type_name' : 'PAP.Person'
+                                  , 'ui_name' : 'Manager'
+                                  , 'ui_type_name' : 'Person'
                                   }
                                 ]
+                            , 'default_child' : 'PAP.Person'
                             , 'name' : 'manager'
                             , 'sig_key' : 2
                             , 'ui_name' : 'Manager'
@@ -9005,102 +9131,132 @@ _test_AQ = """
                 , Record
                   ( Class = 'Entity'
                   , attr = Entity `manager`
-                  , attrs =
+                  , children_np =
                       [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'ip_pool.node.manager.last_name'
-                        , id = 'ip_pool__node__manager__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'Ip pool/Node/Manager/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'ip_pool.node.manager.first_name'
-                        , id = 'ip_pool__node__manager__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'Ip pool/Node/Manager/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'ip_pool.node.manager.middle_name'
-                        , id = 'ip_pool__node__manager__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'Ip pool/Node/Manager/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'ip_pool.node.manager.title'
-                        , id = 'ip_pool__node__manager__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'Ip pool/Node/Manager/Academic title'
-                        )
-                      , Record
-                        ( attr = Date_Interval `lifetime`
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
                         , attrs =
                             [ Record
-                              ( attr = Date `start`
-                              , full_name = 'ip_pool.node.manager.lifetime.start'
-                              , id = 'ip_pool__node__manager__lifetime__start'
-                              , name = 'start'
-                              , sig_key = 0
-                              , ui_name = 'Ip pool/Node/Manager/Lifetime/Start'
-                              )
-                            , Record
-                              ( attr = Date `finish`
-                              , full_name = 'ip_pool.node.manager.lifetime.finish'
-                              , id = 'ip_pool__node__manager__lifetime__finish'
-                              , name = 'finish'
-                              , sig_key = 0
-                              , ui_name = 'Ip pool/Node/Manager/Lifetime/Finish'
-                              )
-                            , Record
-                              ( attr = Boolean `alive`
-                              , choices =
-                                  [ 'no'
-                                  , 'yes'
-                                  ]
-                              , full_name = 'ip_pool.node.manager.lifetime.alive'
-                              , id = 'ip_pool__node__manager__lifetime__alive'
-                              , name = 'alive'
-                              , sig_key = 1
-                              , ui_name = 'Ip pool/Node/Manager/Lifetime/Alive'
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Adhoc_Group]/Name'
                               )
                             ]
-                        , full_name = 'ip_pool.node.manager.lifetime'
-                        , id = 'ip_pool__node__manager__lifetime'
-                        , name = 'lifetime'
-                        , ui_name = 'Ip pool/Node/Manager/Lifetime'
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Adhoc_Group'
+                        , ui_name = 'Manager[Adhoc_Group]'
+                        , ui_type_name = 'Adhoc_Group'
                         )
                       , Record
-                        ( attr = Sex `sex`
-                        , choices =
-                            [
-                              ( 'F'
-                              , 'Female'
-                              )
-                            ,
-                              ( 'M'
-                              , 'Male'
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Association]/Name'
                               )
                             ]
-                        , full_name = 'ip_pool.node.manager.sex'
-                        , id = 'ip_pool__node__manager__sex'
-                        , name = 'sex'
-                        , sig_key = 0
-                        , ui_name = 'Ip pool/Node/Manager/Sex'
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Association'
+                        , ui_name = 'Manager[Association]'
+                        , ui_type_name = 'Association'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Name'
+                              )
+                            , Record
+                              ( attr = String `registered_in`
+                              , full_name = 'manager.registered_in'
+                              , id = 'manager__registered_in'
+                              , name = 'registered_in'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Registered in'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Company'
+                        , ui_name = 'Manager[Company]'
+                        , ui_type_name = 'Company'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `last_name`
+                              , full_name = 'manager.last_name'
+                              , id = 'manager__last_name'
+                              , name = 'last_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Last name'
+                              )
+                            , Record
+                              ( attr = String `first_name`
+                              , full_name = 'manager.first_name'
+                              , id = 'manager__first_name'
+                              , name = 'first_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/First name'
+                              )
+                            , Record
+                              ( attr = String `middle_name`
+                              , full_name = 'manager.middle_name'
+                              , id = 'manager__middle_name'
+                              , name = 'middle_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Middle name'
+                              )
+                            , Record
+                              ( attr = String `title`
+                              , full_name = 'manager.title'
+                              , id = 'manager__title'
+                              , name = 'title'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Academic title'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Person'
+                        , ui_name = 'Manager[Person]'
+                        , ui_type_name = 'Person'
                         )
                       ]
+                  , default_child = 'PAP.Person'
                   , full_name = 'ip_pool.node.manager'
                   , id = 'ip_pool__node__manager'
                   , name = 'manager'
                   , sig_key = 2
-                  , type_name = 'PAP.Person'
+                  , type_name = 'PAP.Subject'
                   , ui_name = 'Ip pool/Node/Manager'
-                  , ui_type_name = 'Person'
+                  , ui_type_name = 'Subject'
                   )
                 , Record
                   ( Class = 'Entity'
@@ -9521,90 +9677,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wired_interface.left.node.manager.last_name'
-                              , id = 'wired_interface__left__node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/Node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wired_interface.left.node.manager.first_name'
-                              , id = 'wired_interface__left__node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/Node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wired_interface.left.node.manager.middle_name'
-                              , id = 'wired_interface__left__node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/Node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wired_interface.left.node.manager.title'
-                              , id = 'wired_interface__left__node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/Node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wired_interface.left.node.manager.lifetime.start'
-                                    , id = 'wired_interface__left__node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/Net device/Node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wired_interface.left.node.manager.lifetime.finish'
-                                    , id = 'wired_interface__left__node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/Net device/Node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wired_interface.left.node.manager.lifetime.alive'
-                                    , id = 'wired_interface__left__node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wired interface/Net device/Node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wired_interface.left.node.manager.lifetime'
-                              , id = 'wired_interface__left__node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wired interface/Net device/Node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wired_interface.left.node.manager.sex'
-                              , id = 'wired_interface__left__node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wired interface/Net device/Node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wired_interface.left.node.manager'
                         , id = 'wired_interface__left__node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wired interface/Net device/Node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -9887,90 +10085,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wired_interface.left.my_node.manager.last_name'
-                              , id = 'wired_interface__left__my_node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/My node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wired_interface.left.my_node.manager.first_name'
-                              , id = 'wired_interface__left__my_node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/My node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wired_interface.left.my_node.manager.middle_name'
-                              , id = 'wired_interface__left__my_node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/My node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wired_interface.left.my_node.manager.title'
-                              , id = 'wired_interface__left__my_node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/Net device/My node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wired_interface.left.my_node.manager.lifetime.start'
-                                    , id = 'wired_interface__left__my_node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/Net device/My node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wired_interface.left.my_node.manager.lifetime.finish'
-                                    , id = 'wired_interface__left__my_node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/Net device/My node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wired_interface.left.my_node.manager.lifetime.alive'
-                                    , id = 'wired_interface__left__my_node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wired interface/Net device/My node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wired_interface.left.my_node.manager.lifetime'
-                              , id = 'wired_interface__left__my_node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wired interface/Net device/My node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wired_interface.left.my_node.manager.sex'
-                              , id = 'wired_interface__left__my_node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wired interface/Net device/My node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wired_interface.left.my_node.manager'
                         , id = 'wired_interface__left__my_node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wired interface/Net device/My node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -10282,90 +10522,132 @@ _test_AQ = """
                 , Record
                   ( Class = 'Entity'
                   , attr = Entity `manager`
-                  , attrs =
+                  , children_np =
                       [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'wired_interface.my_node.manager.last_name'
-                        , id = 'wired_interface__my_node__manager__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'Wired interface/My node/Manager/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'wired_interface.my_node.manager.first_name'
-                        , id = 'wired_interface__my_node__manager__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'Wired interface/My node/Manager/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'wired_interface.my_node.manager.middle_name'
-                        , id = 'wired_interface__my_node__manager__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'Wired interface/My node/Manager/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'wired_interface.my_node.manager.title'
-                        , id = 'wired_interface__my_node__manager__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'Wired interface/My node/Manager/Academic title'
-                        )
-                      , Record
-                        ( attr = Date_Interval `lifetime`
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
                         , attrs =
                             [ Record
-                              ( attr = Date `start`
-                              , full_name = 'wired_interface.my_node.manager.lifetime.start'
-                              , id = 'wired_interface__my_node__manager__lifetime__start'
-                              , name = 'start'
-                              , sig_key = 0
-                              , ui_name = 'Wired interface/My node/Manager/Lifetime/Start'
-                              )
-                            , Record
-                              ( attr = Date `finish`
-                              , full_name = 'wired_interface.my_node.manager.lifetime.finish'
-                              , id = 'wired_interface__my_node__manager__lifetime__finish'
-                              , name = 'finish'
-                              , sig_key = 0
-                              , ui_name = 'Wired interface/My node/Manager/Lifetime/Finish'
-                              )
-                            , Record
-                              ( attr = Boolean `alive`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wired_interface.my_node.manager.lifetime.alive'
-                              , id = 'wired_interface__my_node__manager__lifetime__alive'
-                              , name = 'alive'
-                              , sig_key = 1
-                              , ui_name = 'Wired interface/My node/Manager/Lifetime/Alive'
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Adhoc_Group]/Name'
                               )
                             ]
-                        , full_name = 'wired_interface.my_node.manager.lifetime'
-                        , id = 'wired_interface__my_node__manager__lifetime'
-                        , name = 'lifetime'
-                        , ui_name = 'Wired interface/My node/Manager/Lifetime'
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Adhoc_Group'
+                        , ui_name = 'Manager[Adhoc_Group]'
+                        , ui_type_name = 'Adhoc_Group'
                         )
                       , Record
-                        ( attr = Sex `sex`
-                        , choices = <Recursion on list...>
-                        , full_name = 'wired_interface.my_node.manager.sex'
-                        , id = 'wired_interface__my_node__manager__sex'
-                        , name = 'sex'
-                        , sig_key = 0
-                        , ui_name = 'Wired interface/My node/Manager/Sex'
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Association]/Name'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Association'
+                        , ui_name = 'Manager[Association]'
+                        , ui_type_name = 'Association'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Name'
+                              )
+                            , Record
+                              ( attr = String `registered_in`
+                              , full_name = 'manager.registered_in'
+                              , id = 'manager__registered_in'
+                              , name = 'registered_in'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Registered in'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Company'
+                        , ui_name = 'Manager[Company]'
+                        , ui_type_name = 'Company'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `last_name`
+                              , full_name = 'manager.last_name'
+                              , id = 'manager__last_name'
+                              , name = 'last_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Last name'
+                              )
+                            , Record
+                              ( attr = String `first_name`
+                              , full_name = 'manager.first_name'
+                              , id = 'manager__first_name'
+                              , name = 'first_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/First name'
+                              )
+                            , Record
+                              ( attr = String `middle_name`
+                              , full_name = 'manager.middle_name'
+                              , id = 'manager__middle_name'
+                              , name = 'middle_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Middle name'
+                              )
+                            , Record
+                              ( attr = String `title`
+                              , full_name = 'manager.title'
+                              , id = 'manager__title'
+                              , name = 'title'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Academic title'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Person'
+                        , ui_name = 'Manager[Person]'
+                        , ui_type_name = 'Person'
                         )
                       ]
+                  , default_child = 'PAP.Person'
                   , full_name = 'wired_interface.my_node.manager'
                   , id = 'wired_interface__my_node__manager'
                   , name = 'manager'
                   , sig_key = 2
-                  , type_name = 'PAP.Person'
+                  , type_name = 'PAP.Subject'
                   , ui_name = 'Wired interface/My node/Manager'
-                  , ui_type_name = 'Person'
+                  , ui_type_name = 'Subject'
                   )
                 , Record
                   ( Class = 'Entity'
@@ -10681,90 +10963,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wired_interface.my_net_device.node.manager.last_name'
-                              , id = 'wired_interface__my_net_device__node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/Node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wired_interface.my_net_device.node.manager.first_name'
-                              , id = 'wired_interface__my_net_device__node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/Node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wired_interface.my_net_device.node.manager.middle_name'
-                              , id = 'wired_interface__my_net_device__node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/Node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wired_interface.my_net_device.node.manager.title'
-                              , id = 'wired_interface__my_net_device__node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/Node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wired_interface.my_net_device.node.manager.lifetime.start'
-                                    , id = 'wired_interface__my_net_device__node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/My net device/Node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wired_interface.my_net_device.node.manager.lifetime.finish'
-                                    , id = 'wired_interface__my_net_device__node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/My net device/Node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wired_interface.my_net_device.node.manager.lifetime.alive'
-                                    , id = 'wired_interface__my_net_device__node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wired interface/My net device/Node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wired_interface.my_net_device.node.manager.lifetime'
-                              , id = 'wired_interface__my_net_device__node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wired interface/My net device/Node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wired_interface.my_net_device.node.manager.sex'
-                              , id = 'wired_interface__my_net_device__node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wired interface/My net device/Node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wired_interface.my_net_device.node.manager'
                         , id = 'wired_interface__my_net_device__node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wired interface/My net device/Node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -11047,90 +11371,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wired_interface.my_net_device.my_node.manager.last_name'
-                              , id = 'wired_interface__my_net_device__my_node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/My node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wired_interface.my_net_device.my_node.manager.first_name'
-                              , id = 'wired_interface__my_net_device__my_node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/My node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wired_interface.my_net_device.my_node.manager.middle_name'
-                              , id = 'wired_interface__my_net_device__my_node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/My node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wired_interface.my_net_device.my_node.manager.title'
-                              , id = 'wired_interface__my_net_device__my_node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wired interface/My net device/My node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wired_interface.my_net_device.my_node.manager.lifetime.start'
-                                    , id = 'wired_interface__my_net_device__my_node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/My net device/My node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wired_interface.my_net_device.my_node.manager.lifetime.finish'
-                                    , id = 'wired_interface__my_net_device__my_node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wired interface/My net device/My node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wired_interface.my_net_device.my_node.manager.lifetime.alive'
-                                    , id = 'wired_interface__my_net_device__my_node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wired interface/My net device/My node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wired_interface.my_net_device.my_node.manager.lifetime'
-                              , id = 'wired_interface__my_net_device__my_node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wired interface/My net device/My node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wired_interface.my_net_device.my_node.manager.sex'
-                              , id = 'wired_interface__my_net_device__my_node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wired interface/My net device/My node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wired_interface.my_net_device.my_node.manager'
                         , id = 'wired_interface__my_net_device__my_node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wired interface/My net device/My node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -11468,90 +11834,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wireless_interface.left.node.manager.last_name'
-                              , id = 'wireless_interface__left__node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/Node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wireless_interface.left.node.manager.first_name'
-                              , id = 'wireless_interface__left__node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/Node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wireless_interface.left.node.manager.middle_name'
-                              , id = 'wireless_interface__left__node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/Node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wireless_interface.left.node.manager.title'
-                              , id = 'wireless_interface__left__node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/Node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wireless_interface.left.node.manager.lifetime.start'
-                                    , id = 'wireless_interface__left__node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/Net device/Node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wireless_interface.left.node.manager.lifetime.finish'
-                                    , id = 'wireless_interface__left__node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/Net device/Node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wireless_interface.left.node.manager.lifetime.alive'
-                                    , id = 'wireless_interface__left__node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wireless interface/Net device/Node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wireless_interface.left.node.manager.lifetime'
-                              , id = 'wireless_interface__left__node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wireless interface/Net device/Node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wireless_interface.left.node.manager.sex'
-                              , id = 'wireless_interface__left__node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wireless interface/Net device/Node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wireless_interface.left.node.manager'
                         , id = 'wireless_interface__left__node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wireless interface/Net device/Node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -11834,90 +12242,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wireless_interface.left.my_node.manager.last_name'
-                              , id = 'wireless_interface__left__my_node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/My node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wireless_interface.left.my_node.manager.first_name'
-                              , id = 'wireless_interface__left__my_node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/My node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wireless_interface.left.my_node.manager.middle_name'
-                              , id = 'wireless_interface__left__my_node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/My node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wireless_interface.left.my_node.manager.title'
-                              , id = 'wireless_interface__left__my_node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/Net device/My node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wireless_interface.left.my_node.manager.lifetime.start'
-                                    , id = 'wireless_interface__left__my_node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/Net device/My node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wireless_interface.left.my_node.manager.lifetime.finish'
-                                    , id = 'wireless_interface__left__my_node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/Net device/My node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wireless_interface.left.my_node.manager.lifetime.alive'
-                                    , id = 'wireless_interface__left__my_node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wireless interface/Net device/My node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wireless_interface.left.my_node.manager.lifetime'
-                              , id = 'wireless_interface__left__my_node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wireless interface/Net device/My node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wireless_interface.left.my_node.manager.sex'
-                              , id = 'wireless_interface__left__my_node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wireless interface/Net device/My node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wireless_interface.left.my_node.manager'
                         , id = 'wireless_interface__left__my_node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wireless interface/Net device/My node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -12301,90 +12751,132 @@ _test_AQ = """
                 , Record
                   ( Class = 'Entity'
                   , attr = Entity `manager`
-                  , attrs =
+                  , children_np =
                       [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'wireless_interface.my_node.manager.last_name'
-                        , id = 'wireless_interface__my_node__manager__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'Wireless interface/My node/Manager/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'wireless_interface.my_node.manager.first_name'
-                        , id = 'wireless_interface__my_node__manager__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'Wireless interface/My node/Manager/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'wireless_interface.my_node.manager.middle_name'
-                        , id = 'wireless_interface__my_node__manager__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'Wireless interface/My node/Manager/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'wireless_interface.my_node.manager.title'
-                        , id = 'wireless_interface__my_node__manager__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'Wireless interface/My node/Manager/Academic title'
-                        )
-                      , Record
-                        ( attr = Date_Interval `lifetime`
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
                         , attrs =
                             [ Record
-                              ( attr = Date `start`
-                              , full_name = 'wireless_interface.my_node.manager.lifetime.start'
-                              , id = 'wireless_interface__my_node__manager__lifetime__start'
-                              , name = 'start'
-                              , sig_key = 0
-                              , ui_name = 'Wireless interface/My node/Manager/Lifetime/Start'
-                              )
-                            , Record
-                              ( attr = Date `finish`
-                              , full_name = 'wireless_interface.my_node.manager.lifetime.finish'
-                              , id = 'wireless_interface__my_node__manager__lifetime__finish'
-                              , name = 'finish'
-                              , sig_key = 0
-                              , ui_name = 'Wireless interface/My node/Manager/Lifetime/Finish'
-                              )
-                            , Record
-                              ( attr = Boolean `alive`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wireless_interface.my_node.manager.lifetime.alive'
-                              , id = 'wireless_interface__my_node__manager__lifetime__alive'
-                              , name = 'alive'
-                              , sig_key = 1
-                              , ui_name = 'Wireless interface/My node/Manager/Lifetime/Alive'
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Adhoc_Group]/Name'
                               )
                             ]
-                        , full_name = 'wireless_interface.my_node.manager.lifetime'
-                        , id = 'wireless_interface__my_node__manager__lifetime'
-                        , name = 'lifetime'
-                        , ui_name = 'Wireless interface/My node/Manager/Lifetime'
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Adhoc_Group'
+                        , ui_name = 'Manager[Adhoc_Group]'
+                        , ui_type_name = 'Adhoc_Group'
                         )
                       , Record
-                        ( attr = Sex `sex`
-                        , choices = <Recursion on list...>
-                        , full_name = 'wireless_interface.my_node.manager.sex'
-                        , id = 'wireless_interface__my_node__manager__sex'
-                        , name = 'sex'
-                        , sig_key = 0
-                        , ui_name = 'Wireless interface/My node/Manager/Sex'
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Association]/Name'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Association'
+                        , ui_name = 'Manager[Association]'
+                        , ui_type_name = 'Association'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Name'
+                              )
+                            , Record
+                              ( attr = String `registered_in`
+                              , full_name = 'manager.registered_in'
+                              , id = 'manager__registered_in'
+                              , name = 'registered_in'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Registered in'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Company'
+                        , ui_name = 'Manager[Company]'
+                        , ui_type_name = 'Company'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `last_name`
+                              , full_name = 'manager.last_name'
+                              , id = 'manager__last_name'
+                              , name = 'last_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Last name'
+                              )
+                            , Record
+                              ( attr = String `first_name`
+                              , full_name = 'manager.first_name'
+                              , id = 'manager__first_name'
+                              , name = 'first_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/First name'
+                              )
+                            , Record
+                              ( attr = String `middle_name`
+                              , full_name = 'manager.middle_name'
+                              , id = 'manager__middle_name'
+                              , name = 'middle_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Middle name'
+                              )
+                            , Record
+                              ( attr = String `title`
+                              , full_name = 'manager.title'
+                              , id = 'manager__title'
+                              , name = 'title'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Academic title'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Person'
+                        , ui_name = 'Manager[Person]'
+                        , ui_type_name = 'Person'
                         )
                       ]
+                  , default_child = 'PAP.Person'
                   , full_name = 'wireless_interface.my_node.manager'
                   , id = 'wireless_interface__my_node__manager'
                   , name = 'manager'
                   , sig_key = 2
-                  , type_name = 'PAP.Person'
+                  , type_name = 'PAP.Subject'
                   , ui_name = 'Wireless interface/My node/Manager'
-                  , ui_type_name = 'Person'
+                  , ui_type_name = 'Subject'
                   )
                 , Record
                   ( Class = 'Entity'
@@ -12700,90 +13192,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wireless_interface.my_net_device.node.manager.last_name'
-                              , id = 'wireless_interface__my_net_device__node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/Node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wireless_interface.my_net_device.node.manager.first_name'
-                              , id = 'wireless_interface__my_net_device__node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/Node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wireless_interface.my_net_device.node.manager.middle_name'
-                              , id = 'wireless_interface__my_net_device__node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/Node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wireless_interface.my_net_device.node.manager.title'
-                              , id = 'wireless_interface__my_net_device__node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/Node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wireless_interface.my_net_device.node.manager.lifetime.start'
-                                    , id = 'wireless_interface__my_net_device__node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/My net device/Node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wireless_interface.my_net_device.node.manager.lifetime.finish'
-                                    , id = 'wireless_interface__my_net_device__node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/My net device/Node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wireless_interface.my_net_device.node.manager.lifetime.alive'
-                                    , id = 'wireless_interface__my_net_device__node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wireless interface/My net device/Node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wireless_interface.my_net_device.node.manager.lifetime'
-                              , id = 'wireless_interface__my_net_device__node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wireless interface/My net device/Node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wireless_interface.my_net_device.node.manager.sex'
-                              , id = 'wireless_interface__my_net_device__node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wireless interface/My net device/Node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wireless_interface.my_net_device.node.manager'
                         , id = 'wireless_interface__my_net_device__node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wireless interface/My net device/Node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -13066,90 +13600,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'wireless_interface.my_net_device.my_node.manager.last_name'
-                              , id = 'wireless_interface__my_net_device__my_node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/My node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'wireless_interface.my_net_device.my_node.manager.first_name'
-                              , id = 'wireless_interface__my_net_device__my_node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/My node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'wireless_interface.my_net_device.my_node.manager.middle_name'
-                              , id = 'wireless_interface__my_net_device__my_node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/My node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'wireless_interface.my_net_device.my_node.manager.title'
-                              , id = 'wireless_interface__my_net_device__my_node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Wireless interface/My net device/My node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'wireless_interface.my_net_device.my_node.manager.lifetime.start'
-                                    , id = 'wireless_interface__my_net_device__my_node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/My net device/My node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'wireless_interface.my_net_device.my_node.manager.lifetime.finish'
-                                    , id = 'wireless_interface__my_net_device__my_node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Wireless interface/My net device/My node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'wireless_interface.my_net_device.my_node.manager.lifetime.alive'
-                                    , id = 'wireless_interface__my_net_device__my_node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Wireless interface/My net device/My node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'wireless_interface.my_net_device.my_node.manager.lifetime'
-                              , id = 'wireless_interface__my_net_device__my_node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Wireless interface/My net device/My node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'wireless_interface.my_net_device.my_node.manager.sex'
-                              , id = 'wireless_interface__my_net_device__my_node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Wireless interface/My net device/My node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'wireless_interface.my_net_device.my_node.manager'
                         , id = 'wireless_interface__my_net_device__my_node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Wireless interface/My net device/My node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -13487,90 +14063,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'virtual_wireless_interface.left.node.manager.last_name'
-                              , id = 'virtual_wireless_interface__left__node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'virtual_wireless_interface.left.node.manager.first_name'
-                              , id = 'virtual_wireless_interface__left__node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/Node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'virtual_wireless_interface.left.node.manager.middle_name'
-                              , id = 'virtual_wireless_interface__left__node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'virtual_wireless_interface.left.node.manager.title'
-                              , id = 'virtual_wireless_interface__left__node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'virtual_wireless_interface.left.node.manager.lifetime.start'
-                                    , id = 'virtual_wireless_interface__left__node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'virtual_wireless_interface.left.node.manager.lifetime.finish'
-                                    , id = 'virtual_wireless_interface__left__node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.left.node.manager.lifetime.alive'
-                                    , id = 'virtual_wireless_interface__left__node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'virtual_wireless_interface.left.node.manager.lifetime'
-                              , id = 'virtual_wireless_interface__left__node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'virtual_wireless_interface.left.node.manager.sex'
-                              , id = 'virtual_wireless_interface__left__node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Virtual wireless interface/Net device/Node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'virtual_wireless_interface.left.node.manager'
                         , id = 'virtual_wireless_interface__left__node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Virtual wireless interface/Net device/Node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -13853,90 +14471,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'virtual_wireless_interface.left.my_node.manager.last_name'
-                              , id = 'virtual_wireless_interface__left__my_node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'virtual_wireless_interface.left.my_node.manager.first_name'
-                              , id = 'virtual_wireless_interface__left__my_node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/My node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'virtual_wireless_interface.left.my_node.manager.middle_name'
-                              , id = 'virtual_wireless_interface__left__my_node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'virtual_wireless_interface.left.my_node.manager.title'
-                              , id = 'virtual_wireless_interface__left__my_node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'virtual_wireless_interface.left.my_node.manager.lifetime.start'
-                                    , id = 'virtual_wireless_interface__left__my_node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'virtual_wireless_interface.left.my_node.manager.lifetime.finish'
-                                    , id = 'virtual_wireless_interface__left__my_node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.left.my_node.manager.lifetime.alive'
-                                    , id = 'virtual_wireless_interface__left__my_node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'virtual_wireless_interface.left.my_node.manager.lifetime'
-                              , id = 'virtual_wireless_interface__left__my_node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'virtual_wireless_interface.left.my_node.manager.sex'
-                              , id = 'virtual_wireless_interface__left__my_node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Virtual wireless interface/Net device/My node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'virtual_wireless_interface.left.my_node.manager'
                         , id = 'virtual_wireless_interface__left__my_node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Virtual wireless interface/Net device/My node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -14265,90 +14925,132 @@ _test_AQ = """
                             , Record
                               ( Class = 'Entity'
                               , attr = Entity `manager`
-                              , attrs =
+                              , children_np =
                                   [ Record
-                                    ( attr = String `last_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.node.manager.last_name'
-                                    , id = 'virtual_wireless_interface__hardware__left__node__manager__last_name'
-                                    , name = 'last_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Last name'
-                                    )
-                                  , Record
-                                    ( attr = String `first_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.node.manager.first_name'
-                                    , id = 'virtual_wireless_interface__hardware__left__node__manager__first_name'
-                                    , name = 'first_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/First name'
-                                    )
-                                  , Record
-                                    ( attr = String `middle_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.node.manager.middle_name'
-                                    , id = 'virtual_wireless_interface__hardware__left__node__manager__middle_name'
-                                    , name = 'middle_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Middle name'
-                                    )
-                                  , Record
-                                    ( attr = String `title`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.node.manager.title'
-                                    , id = 'virtual_wireless_interface__hardware__left__node__manager__title'
-                                    , name = 'title'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Academic title'
-                                    )
-                                  , Record
-                                    ( attr = Date_Interval `lifetime`
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
                                     , attrs =
                                         [ Record
-                                          ( attr = Date `start`
-                                          , full_name = 'virtual_wireless_interface.hardware.left.node.manager.lifetime.start'
-                                          , id = 'virtual_wireless_interface__hardware__left__node__manager__lifetime__start'
-                                          , name = 'start'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime/Start'
-                                          )
-                                        , Record
-                                          ( attr = Date `finish`
-                                          , full_name = 'virtual_wireless_interface.hardware.left.node.manager.lifetime.finish'
-                                          , id = 'virtual_wireless_interface__hardware__left__node__manager__lifetime__finish'
-                                          , name = 'finish'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime/Finish'
-                                          )
-                                        , Record
-                                          ( attr = Boolean `alive`
-                                          , choices = <Recursion on list...>
-                                          , full_name = 'virtual_wireless_interface.hardware.left.node.manager.lifetime.alive'
-                                          , id = 'virtual_wireless_interface__hardware__left__node__manager__lifetime__alive'
-                                          , name = 'alive'
-                                          , sig_key = 1
-                                          , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime/Alive'
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Adhoc_Group]/Name'
                                           )
                                         ]
-                                    , full_name = 'virtual_wireless_interface.hardware.left.node.manager.lifetime'
-                                    , id = 'virtual_wireless_interface__hardware__left__node__manager__lifetime'
-                                    , name = 'lifetime'
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Lifetime'
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Adhoc_Group'
+                                    , ui_name = 'Manager[Adhoc_Group]'
+                                    , ui_type_name = 'Adhoc_Group'
                                     )
                                   , Record
-                                    ( attr = Sex `sex`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.hardware.left.node.manager.sex'
-                                    , id = 'virtual_wireless_interface__hardware__left__node__manager__sex'
-                                    , name = 'sex'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager/Sex'
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Association]/Name'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Association'
+                                    , ui_name = 'Manager[Association]'
+                                    , ui_type_name = 'Association'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Name'
+                                          )
+                                        , Record
+                                          ( attr = String `registered_in`
+                                          , full_name = 'manager.registered_in'
+                                          , id = 'manager__registered_in'
+                                          , name = 'registered_in'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Registered in'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Company'
+                                    , ui_name = 'Manager[Company]'
+                                    , ui_type_name = 'Company'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `last_name`
+                                          , full_name = 'manager.last_name'
+                                          , id = 'manager__last_name'
+                                          , name = 'last_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Last name'
+                                          )
+                                        , Record
+                                          ( attr = String `first_name`
+                                          , full_name = 'manager.first_name'
+                                          , id = 'manager__first_name'
+                                          , name = 'first_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/First name'
+                                          )
+                                        , Record
+                                          ( attr = String `middle_name`
+                                          , full_name = 'manager.middle_name'
+                                          , id = 'manager__middle_name'
+                                          , name = 'middle_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Middle name'
+                                          )
+                                        , Record
+                                          ( attr = String `title`
+                                          , full_name = 'manager.title'
+                                          , id = 'manager__title'
+                                          , name = 'title'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Academic title'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Person'
+                                    , ui_name = 'Manager[Person]'
+                                    , ui_type_name = 'Person'
                                     )
                                   ]
+                              , default_child = 'PAP.Person'
                               , full_name = 'virtual_wireless_interface.hardware.left.node.manager'
                               , id = 'virtual_wireless_interface__hardware__left__node__manager'
                               , name = 'manager'
                               , sig_key = 2
-                              , type_name = 'PAP.Person'
+                              , type_name = 'PAP.Subject'
                               , ui_name = 'Virtual wireless interface/Hardware/Net device/Node/Manager'
-                              , ui_type_name = 'Person'
+                              , ui_type_name = 'Subject'
                               )
                             , Record
                               ( Class = 'Entity'
@@ -14631,90 +15333,132 @@ _test_AQ = """
                             , Record
                               ( Class = 'Entity'
                               , attr = Entity `manager`
-                              , attrs =
+                              , children_np =
                                   [ Record
-                                    ( attr = String `last_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.last_name'
-                                    , id = 'virtual_wireless_interface__hardware__left__my_node__manager__last_name'
-                                    , name = 'last_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Last name'
-                                    )
-                                  , Record
-                                    ( attr = String `first_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.first_name'
-                                    , id = 'virtual_wireless_interface__hardware__left__my_node__manager__first_name'
-                                    , name = 'first_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/First name'
-                                    )
-                                  , Record
-                                    ( attr = String `middle_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.middle_name'
-                                    , id = 'virtual_wireless_interface__hardware__left__my_node__manager__middle_name'
-                                    , name = 'middle_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Middle name'
-                                    )
-                                  , Record
-                                    ( attr = String `title`
-                                    , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.title'
-                                    , id = 'virtual_wireless_interface__hardware__left__my_node__manager__title'
-                                    , name = 'title'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Academic title'
-                                    )
-                                  , Record
-                                    ( attr = Date_Interval `lifetime`
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
                                     , attrs =
                                         [ Record
-                                          ( attr = Date `start`
-                                          , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.lifetime.start'
-                                          , id = 'virtual_wireless_interface__hardware__left__my_node__manager__lifetime__start'
-                                          , name = 'start'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime/Start'
-                                          )
-                                        , Record
-                                          ( attr = Date `finish`
-                                          , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.lifetime.finish'
-                                          , id = 'virtual_wireless_interface__hardware__left__my_node__manager__lifetime__finish'
-                                          , name = 'finish'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime/Finish'
-                                          )
-                                        , Record
-                                          ( attr = Boolean `alive`
-                                          , choices = <Recursion on list...>
-                                          , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.lifetime.alive'
-                                          , id = 'virtual_wireless_interface__hardware__left__my_node__manager__lifetime__alive'
-                                          , name = 'alive'
-                                          , sig_key = 1
-                                          , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime/Alive'
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Adhoc_Group]/Name'
                                           )
                                         ]
-                                    , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.lifetime'
-                                    , id = 'virtual_wireless_interface__hardware__left__my_node__manager__lifetime'
-                                    , name = 'lifetime'
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Lifetime'
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Adhoc_Group'
+                                    , ui_name = 'Manager[Adhoc_Group]'
+                                    , ui_type_name = 'Adhoc_Group'
                                     )
                                   , Record
-                                    ( attr = Sex `sex`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager.sex'
-                                    , id = 'virtual_wireless_interface__hardware__left__my_node__manager__sex'
-                                    , name = 'sex'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager/Sex'
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Association]/Name'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Association'
+                                    , ui_name = 'Manager[Association]'
+                                    , ui_type_name = 'Association'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Name'
+                                          )
+                                        , Record
+                                          ( attr = String `registered_in`
+                                          , full_name = 'manager.registered_in'
+                                          , id = 'manager__registered_in'
+                                          , name = 'registered_in'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Registered in'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Company'
+                                    , ui_name = 'Manager[Company]'
+                                    , ui_type_name = 'Company'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `last_name`
+                                          , full_name = 'manager.last_name'
+                                          , id = 'manager__last_name'
+                                          , name = 'last_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Last name'
+                                          )
+                                        , Record
+                                          ( attr = String `first_name`
+                                          , full_name = 'manager.first_name'
+                                          , id = 'manager__first_name'
+                                          , name = 'first_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/First name'
+                                          )
+                                        , Record
+                                          ( attr = String `middle_name`
+                                          , full_name = 'manager.middle_name'
+                                          , id = 'manager__middle_name'
+                                          , name = 'middle_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Middle name'
+                                          )
+                                        , Record
+                                          ( attr = String `title`
+                                          , full_name = 'manager.title'
+                                          , id = 'manager__title'
+                                          , name = 'title'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Academic title'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Person'
+                                    , ui_name = 'Manager[Person]'
+                                    , ui_type_name = 'Person'
                                     )
                                   ]
+                              , default_child = 'PAP.Person'
                               , full_name = 'virtual_wireless_interface.hardware.left.my_node.manager'
                               , id = 'virtual_wireless_interface__hardware__left__my_node__manager'
                               , name = 'manager'
                               , sig_key = 2
-                              , type_name = 'PAP.Person'
+                              , type_name = 'PAP.Subject'
                               , ui_name = 'Virtual wireless interface/Hardware/Net device/My node/Manager'
-                              , ui_type_name = 'Person'
+                              , ui_type_name = 'Subject'
                               )
                             , Record
                               ( Class = 'Entity'
@@ -15085,90 +15829,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'virtual_wireless_interface.hardware.my_node.manager.last_name'
-                              , id = 'virtual_wireless_interface__hardware__my_node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'virtual_wireless_interface.hardware.my_node.manager.first_name'
-                              , id = 'virtual_wireless_interface__hardware__my_node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'virtual_wireless_interface.hardware.my_node.manager.middle_name'
-                              , id = 'virtual_wireless_interface__hardware__my_node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'virtual_wireless_interface.hardware.my_node.manager.title'
-                              , id = 'virtual_wireless_interface__hardware__my_node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_node.manager.lifetime.start'
-                                    , id = 'virtual_wireless_interface__hardware__my_node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_node.manager.lifetime.finish'
-                                    , id = 'virtual_wireless_interface__hardware__my_node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.hardware.my_node.manager.lifetime.alive'
-                                    , id = 'virtual_wireless_interface__hardware__my_node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'virtual_wireless_interface.hardware.my_node.manager.lifetime'
-                              , id = 'virtual_wireless_interface__hardware__my_node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'virtual_wireless_interface.hardware.my_node.manager.sex'
-                              , id = 'virtual_wireless_interface__hardware__my_node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Virtual wireless interface/Hardware/My node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'virtual_wireless_interface.hardware.my_node.manager'
                         , id = 'virtual_wireless_interface__hardware__my_node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Virtual wireless interface/Hardware/My node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -15484,90 +16270,132 @@ _test_AQ = """
                             , Record
                               ( Class = 'Entity'
                               , attr = Entity `manager`
-                              , attrs =
+                              , children_np =
                                   [ Record
-                                    ( attr = String `last_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.last_name'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__last_name'
-                                    , name = 'last_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Last name'
-                                    )
-                                  , Record
-                                    ( attr = String `first_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.first_name'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__first_name'
-                                    , name = 'first_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/First name'
-                                    )
-                                  , Record
-                                    ( attr = String `middle_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.middle_name'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__middle_name'
-                                    , name = 'middle_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Middle name'
-                                    )
-                                  , Record
-                                    ( attr = String `title`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.title'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__title'
-                                    , name = 'title'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Academic title'
-                                    )
-                                  , Record
-                                    ( attr = Date_Interval `lifetime`
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
                                     , attrs =
                                         [ Record
-                                          ( attr = Date `start`
-                                          , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.start'
-                                          , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__lifetime__start'
-                                          , name = 'start'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime/Start'
-                                          )
-                                        , Record
-                                          ( attr = Date `finish`
-                                          , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.finish'
-                                          , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__lifetime__finish'
-                                          , name = 'finish'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime/Finish'
-                                          )
-                                        , Record
-                                          ( attr = Boolean `alive`
-                                          , choices = <Recursion on list...>
-                                          , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime.alive'
-                                          , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__lifetime__alive'
-                                          , name = 'alive'
-                                          , sig_key = 1
-                                          , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime/Alive'
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Adhoc_Group]/Name'
                                           )
                                         ]
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.lifetime'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__lifetime'
-                                    , name = 'lifetime'
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Lifetime'
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Adhoc_Group'
+                                    , ui_name = 'Manager[Adhoc_Group]'
+                                    , ui_type_name = 'Adhoc_Group'
                                     )
                                   , Record
-                                    ( attr = Sex `sex`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager.sex'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager__sex'
-                                    , name = 'sex'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager/Sex'
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Association]/Name'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Association'
+                                    , ui_name = 'Manager[Association]'
+                                    , ui_type_name = 'Association'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Name'
+                                          )
+                                        , Record
+                                          ( attr = String `registered_in`
+                                          , full_name = 'manager.registered_in'
+                                          , id = 'manager__registered_in'
+                                          , name = 'registered_in'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Registered in'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Company'
+                                    , ui_name = 'Manager[Company]'
+                                    , ui_type_name = 'Company'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `last_name`
+                                          , full_name = 'manager.last_name'
+                                          , id = 'manager__last_name'
+                                          , name = 'last_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Last name'
+                                          )
+                                        , Record
+                                          ( attr = String `first_name`
+                                          , full_name = 'manager.first_name'
+                                          , id = 'manager__first_name'
+                                          , name = 'first_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/First name'
+                                          )
+                                        , Record
+                                          ( attr = String `middle_name`
+                                          , full_name = 'manager.middle_name'
+                                          , id = 'manager__middle_name'
+                                          , name = 'middle_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Middle name'
+                                          )
+                                        , Record
+                                          ( attr = String `title`
+                                          , full_name = 'manager.title'
+                                          , id = 'manager__title'
+                                          , name = 'title'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Academic title'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Person'
+                                    , ui_name = 'Manager[Person]'
+                                    , ui_type_name = 'Person'
                                     )
                                   ]
+                              , default_child = 'PAP.Person'
                               , full_name = 'virtual_wireless_interface.hardware.my_net_device.node.manager'
                               , id = 'virtual_wireless_interface__hardware__my_net_device__node__manager'
                               , name = 'manager'
                               , sig_key = 2
-                              , type_name = 'PAP.Person'
+                              , type_name = 'PAP.Subject'
                               , ui_name = 'Virtual wireless interface/Hardware/My net device/Node/Manager'
-                              , ui_type_name = 'Person'
+                              , ui_type_name = 'Subject'
                               )
                             , Record
                               ( Class = 'Entity'
@@ -15850,90 +16678,132 @@ _test_AQ = """
                             , Record
                               ( Class = 'Entity'
                               , attr = Entity `manager`
-                              , attrs =
+                              , children_np =
                                   [ Record
-                                    ( attr = String `last_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.last_name'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__last_name'
-                                    , name = 'last_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Last name'
-                                    )
-                                  , Record
-                                    ( attr = String `first_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.first_name'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__first_name'
-                                    , name = 'first_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/First name'
-                                    )
-                                  , Record
-                                    ( attr = String `middle_name`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.middle_name'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__middle_name'
-                                    , name = 'middle_name'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Middle name'
-                                    )
-                                  , Record
-                                    ( attr = String `title`
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.title'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__title'
-                                    , name = 'title'
-                                    , sig_key = 3
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Academic title'
-                                    )
-                                  , Record
-                                    ( attr = Date_Interval `lifetime`
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
                                     , attrs =
                                         [ Record
-                                          ( attr = Date `start`
-                                          , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.start'
-                                          , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__lifetime__start'
-                                          , name = 'start'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime/Start'
-                                          )
-                                        , Record
-                                          ( attr = Date `finish`
-                                          , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.finish'
-                                          , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__lifetime__finish'
-                                          , name = 'finish'
-                                          , sig_key = 0
-                                          , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime/Finish'
-                                          )
-                                        , Record
-                                          ( attr = Boolean `alive`
-                                          , choices = <Recursion on list...>
-                                          , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime.alive'
-                                          , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__lifetime__alive'
-                                          , name = 'alive'
-                                          , sig_key = 1
-                                          , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime/Alive'
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Adhoc_Group]/Name'
                                           )
                                         ]
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.lifetime'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__lifetime'
-                                    , name = 'lifetime'
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Lifetime'
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Adhoc_Group'
+                                    , ui_name = 'Manager[Adhoc_Group]'
+                                    , ui_type_name = 'Adhoc_Group'
                                     )
                                   , Record
-                                    ( attr = Sex `sex`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager.sex'
-                                    , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager__sex'
-                                    , name = 'sex'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager/Sex'
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Association]/Name'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Association'
+                                    , ui_name = 'Manager[Association]'
+                                    , ui_type_name = 'Association'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `name`
+                                          , full_name = 'manager.name'
+                                          , id = 'manager__name'
+                                          , name = 'name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Name'
+                                          )
+                                        , Record
+                                          ( attr = String `registered_in`
+                                          , full_name = 'manager.registered_in'
+                                          , id = 'manager__registered_in'
+                                          , name = 'registered_in'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Company]/Registered in'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Company'
+                                    , ui_name = 'Manager[Company]'
+                                    , ui_type_name = 'Company'
+                                    )
+                                  , Record
+                                    ( Class = 'Entity'
+                                    , attr = Entity `manager`
+                                    , attrs =
+                                        [ Record
+                                          ( attr = String `last_name`
+                                          , full_name = 'manager.last_name'
+                                          , id = 'manager__last_name'
+                                          , name = 'last_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Last name'
+                                          )
+                                        , Record
+                                          ( attr = String `first_name`
+                                          , full_name = 'manager.first_name'
+                                          , id = 'manager__first_name'
+                                          , name = 'first_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/First name'
+                                          )
+                                        , Record
+                                          ( attr = String `middle_name`
+                                          , full_name = 'manager.middle_name'
+                                          , id = 'manager__middle_name'
+                                          , name = 'middle_name'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Middle name'
+                                          )
+                                        , Record
+                                          ( attr = String `title`
+                                          , full_name = 'manager.title'
+                                          , id = 'manager__title'
+                                          , name = 'title'
+                                          , sig_key = 3
+                                          , ui_name = 'Manager[Person]/Academic title'
+                                          )
+                                        ]
+                                    , full_name = 'manager'
+                                    , id = 'manager'
+                                    , name = 'manager'
+                                    , sig_key = 2
+                                    , type_name = 'PAP.Person'
+                                    , ui_name = 'Manager[Person]'
+                                    , ui_type_name = 'Person'
                                     )
                                   ]
+                              , default_child = 'PAP.Person'
                               , full_name = 'virtual_wireless_interface.hardware.my_net_device.my_node.manager'
                               , id = 'virtual_wireless_interface__hardware__my_net_device__my_node__manager'
                               , name = 'manager'
                               , sig_key = 2
-                              , type_name = 'PAP.Person'
+                              , type_name = 'PAP.Subject'
                               , ui_name = 'Virtual wireless interface/Hardware/My net device/My node/Manager'
-                              , ui_type_name = 'Person'
+                              , ui_type_name = 'Subject'
                               )
                             , Record
                               ( Class = 'Entity'
@@ -16289,90 +17159,132 @@ _test_AQ = """
                 , Record
                   ( Class = 'Entity'
                   , attr = Entity `manager`
-                  , attrs =
+                  , children_np =
                       [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'virtual_wireless_interface.my_node.manager.last_name'
-                        , id = 'virtual_wireless_interface__my_node__manager__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'Virtual wireless interface/My node/Manager/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'virtual_wireless_interface.my_node.manager.first_name'
-                        , id = 'virtual_wireless_interface__my_node__manager__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'Virtual wireless interface/My node/Manager/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'virtual_wireless_interface.my_node.manager.middle_name'
-                        , id = 'virtual_wireless_interface__my_node__manager__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'Virtual wireless interface/My node/Manager/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'virtual_wireless_interface.my_node.manager.title'
-                        , id = 'virtual_wireless_interface__my_node__manager__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'Virtual wireless interface/My node/Manager/Academic title'
-                        )
-                      , Record
-                        ( attr = Date_Interval `lifetime`
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
                         , attrs =
                             [ Record
-                              ( attr = Date `start`
-                              , full_name = 'virtual_wireless_interface.my_node.manager.lifetime.start'
-                              , id = 'virtual_wireless_interface__my_node__manager__lifetime__start'
-                              , name = 'start'
-                              , sig_key = 0
-                              , ui_name = 'Virtual wireless interface/My node/Manager/Lifetime/Start'
-                              )
-                            , Record
-                              ( attr = Date `finish`
-                              , full_name = 'virtual_wireless_interface.my_node.manager.lifetime.finish'
-                              , id = 'virtual_wireless_interface__my_node__manager__lifetime__finish'
-                              , name = 'finish'
-                              , sig_key = 0
-                              , ui_name = 'Virtual wireless interface/My node/Manager/Lifetime/Finish'
-                              )
-                            , Record
-                              ( attr = Boolean `alive`
-                              , choices = <Recursion on list...>
-                              , full_name = 'virtual_wireless_interface.my_node.manager.lifetime.alive'
-                              , id = 'virtual_wireless_interface__my_node__manager__lifetime__alive'
-                              , name = 'alive'
-                              , sig_key = 1
-                              , ui_name = 'Virtual wireless interface/My node/Manager/Lifetime/Alive'
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Adhoc_Group]/Name'
                               )
                             ]
-                        , full_name = 'virtual_wireless_interface.my_node.manager.lifetime'
-                        , id = 'virtual_wireless_interface__my_node__manager__lifetime'
-                        , name = 'lifetime'
-                        , ui_name = 'Virtual wireless interface/My node/Manager/Lifetime'
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Adhoc_Group'
+                        , ui_name = 'Manager[Adhoc_Group]'
+                        , ui_type_name = 'Adhoc_Group'
                         )
                       , Record
-                        ( attr = Sex `sex`
-                        , choices = <Recursion on list...>
-                        , full_name = 'virtual_wireless_interface.my_node.manager.sex'
-                        , id = 'virtual_wireless_interface__my_node__manager__sex'
-                        , name = 'sex'
-                        , sig_key = 0
-                        , ui_name = 'Virtual wireless interface/My node/Manager/Sex'
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Association]/Name'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Association'
+                        , ui_name = 'Manager[Association]'
+                        , ui_type_name = 'Association'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `name`
+                              , full_name = 'manager.name'
+                              , id = 'manager__name'
+                              , name = 'name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Name'
+                              )
+                            , Record
+                              ( attr = String `registered_in`
+                              , full_name = 'manager.registered_in'
+                              , id = 'manager__registered_in'
+                              , name = 'registered_in'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Company]/Registered in'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Company'
+                        , ui_name = 'Manager[Company]'
+                        , ui_type_name = 'Company'
+                        )
+                      , Record
+                        ( Class = 'Entity'
+                        , attr = Entity `manager`
+                        , attrs =
+                            [ Record
+                              ( attr = String `last_name`
+                              , full_name = 'manager.last_name'
+                              , id = 'manager__last_name'
+                              , name = 'last_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Last name'
+                              )
+                            , Record
+                              ( attr = String `first_name`
+                              , full_name = 'manager.first_name'
+                              , id = 'manager__first_name'
+                              , name = 'first_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/First name'
+                              )
+                            , Record
+                              ( attr = String `middle_name`
+                              , full_name = 'manager.middle_name'
+                              , id = 'manager__middle_name'
+                              , name = 'middle_name'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Middle name'
+                              )
+                            , Record
+                              ( attr = String `title`
+                              , full_name = 'manager.title'
+                              , id = 'manager__title'
+                              , name = 'title'
+                              , sig_key = 3
+                              , ui_name = 'Manager[Person]/Academic title'
+                              )
+                            ]
+                        , full_name = 'manager'
+                        , id = 'manager'
+                        , name = 'manager'
+                        , sig_key = 2
+                        , type_name = 'PAP.Person'
+                        , ui_name = 'Manager[Person]'
+                        , ui_type_name = 'Person'
                         )
                       ]
+                  , default_child = 'PAP.Person'
                   , full_name = 'virtual_wireless_interface.my_node.manager'
                   , id = 'virtual_wireless_interface__my_node__manager'
                   , name = 'manager'
                   , sig_key = 2
-                  , type_name = 'PAP.Person'
+                  , type_name = 'PAP.Subject'
                   , ui_name = 'Virtual wireless interface/My node/Manager'
-                  , ui_type_name = 'Person'
+                  , ui_type_name = 'Subject'
                   )
                 , Record
                   ( Class = 'Entity'
@@ -16688,90 +17600,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'virtual_wireless_interface.my_net_device.node.manager.last_name'
-                              , id = 'virtual_wireless_interface__my_net_device__node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'virtual_wireless_interface.my_net_device.node.manager.first_name'
-                              , id = 'virtual_wireless_interface__my_net_device__node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/Node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'virtual_wireless_interface.my_net_device.node.manager.middle_name'
-                              , id = 'virtual_wireless_interface__my_net_device__node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'virtual_wireless_interface.my_net_device.node.manager.title'
-                              , id = 'virtual_wireless_interface__my_net_device__node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'virtual_wireless_interface.my_net_device.node.manager.lifetime.start'
-                                    , id = 'virtual_wireless_interface__my_net_device__node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'virtual_wireless_interface.my_net_device.node.manager.lifetime.finish'
-                                    , id = 'virtual_wireless_interface__my_net_device__node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.my_net_device.node.manager.lifetime.alive'
-                                    , id = 'virtual_wireless_interface__my_net_device__node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'virtual_wireless_interface.my_net_device.node.manager.lifetime'
-                              , id = 'virtual_wireless_interface__my_net_device__node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'virtual_wireless_interface.my_net_device.node.manager.sex'
-                              , id = 'virtual_wireless_interface__my_net_device__node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Virtual wireless interface/My net device/Node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'virtual_wireless_interface.my_net_device.node.manager'
                         , id = 'virtual_wireless_interface__my_net_device__node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Virtual wireless interface/My net device/Node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -17054,90 +18008,132 @@ _test_AQ = """
                       , Record
                         ( Class = 'Entity'
                         , attr = Entity `manager`
-                        , attrs =
+                        , children_np =
                             [ Record
-                              ( attr = String `last_name`
-                              , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.last_name'
-                              , id = 'virtual_wireless_interface__my_net_device__my_node__manager__last_name'
-                              , name = 'last_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Last name'
-                              )
-                            , Record
-                              ( attr = String `first_name`
-                              , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.first_name'
-                              , id = 'virtual_wireless_interface__my_net_device__my_node__manager__first_name'
-                              , name = 'first_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/My node/Manager/First name'
-                              )
-                            , Record
-                              ( attr = String `middle_name`
-                              , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.middle_name'
-                              , id = 'virtual_wireless_interface__my_net_device__my_node__manager__middle_name'
-                              , name = 'middle_name'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Middle name'
-                              )
-                            , Record
-                              ( attr = String `title`
-                              , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.title'
-                              , id = 'virtual_wireless_interface__my_net_device__my_node__manager__title'
-                              , name = 'title'
-                              , sig_key = 3
-                              , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Academic title'
-                              )
-                            , Record
-                              ( attr = Date_Interval `lifetime`
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
                               , attrs =
                                   [ Record
-                                    ( attr = Date `start`
-                                    , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.lifetime.start'
-                                    , id = 'virtual_wireless_interface__my_net_device__my_node__manager__lifetime__start'
-                                    , name = 'start'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Lifetime/Start'
-                                    )
-                                  , Record
-                                    ( attr = Date `finish`
-                                    , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.lifetime.finish'
-                                    , id = 'virtual_wireless_interface__my_net_device__my_node__manager__lifetime__finish'
-                                    , name = 'finish'
-                                    , sig_key = 0
-                                    , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Lifetime/Finish'
-                                    )
-                                  , Record
-                                    ( attr = Boolean `alive`
-                                    , choices = <Recursion on list...>
-                                    , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.lifetime.alive'
-                                    , id = 'virtual_wireless_interface__my_net_device__my_node__manager__lifetime__alive'
-                                    , name = 'alive'
-                                    , sig_key = 1
-                                    , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Lifetime/Alive'
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Adhoc_Group]/Name'
                                     )
                                   ]
-                              , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.lifetime'
-                              , id = 'virtual_wireless_interface__my_net_device__my_node__manager__lifetime'
-                              , name = 'lifetime'
-                              , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Lifetime'
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Adhoc_Group'
+                              , ui_name = 'Manager[Adhoc_Group]'
+                              , ui_type_name = 'Adhoc_Group'
                               )
                             , Record
-                              ( attr = Sex `sex`
-                              , choices = <Recursion on list...>
-                              , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager.sex'
-                              , id = 'virtual_wireless_interface__my_net_device__my_node__manager__sex'
-                              , name = 'sex'
-                              , sig_key = 0
-                              , ui_name = 'Virtual wireless interface/My net device/My node/Manager/Sex'
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Association]/Name'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Association'
+                              , ui_name = 'Manager[Association]'
+                              , ui_type_name = 'Association'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `name`
+                                    , full_name = 'manager.name'
+                                    , id = 'manager__name'
+                                    , name = 'name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Name'
+                                    )
+                                  , Record
+                                    ( attr = String `registered_in`
+                                    , full_name = 'manager.registered_in'
+                                    , id = 'manager__registered_in'
+                                    , name = 'registered_in'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Company]/Registered in'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Company'
+                              , ui_name = 'Manager[Company]'
+                              , ui_type_name = 'Company'
+                              )
+                            , Record
+                              ( Class = 'Entity'
+                              , attr = Entity `manager`
+                              , attrs =
+                                  [ Record
+                                    ( attr = String `last_name`
+                                    , full_name = 'manager.last_name'
+                                    , id = 'manager__last_name'
+                                    , name = 'last_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Last name'
+                                    )
+                                  , Record
+                                    ( attr = String `first_name`
+                                    , full_name = 'manager.first_name'
+                                    , id = 'manager__first_name'
+                                    , name = 'first_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/First name'
+                                    )
+                                  , Record
+                                    ( attr = String `middle_name`
+                                    , full_name = 'manager.middle_name'
+                                    , id = 'manager__middle_name'
+                                    , name = 'middle_name'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Middle name'
+                                    )
+                                  , Record
+                                    ( attr = String `title`
+                                    , full_name = 'manager.title'
+                                    , id = 'manager__title'
+                                    , name = 'title'
+                                    , sig_key = 3
+                                    , ui_name = 'Manager[Person]/Academic title'
+                                    )
+                                  ]
+                              , full_name = 'manager'
+                              , id = 'manager'
+                              , name = 'manager'
+                              , sig_key = 2
+                              , type_name = 'PAP.Person'
+                              , ui_name = 'Manager[Person]'
+                              , ui_type_name = 'Person'
                               )
                             ]
+                        , default_child = 'PAP.Person'
                         , full_name = 'virtual_wireless_interface.my_net_device.my_node.manager'
                         , id = 'virtual_wireless_interface__my_net_device__my_node__manager'
                         , name = 'manager'
                         , sig_key = 2
-                        , type_name = 'PAP.Person'
+                        , type_name = 'PAP.Subject'
                         , ui_name = 'Virtual wireless interface/My net device/My node/Manager'
-                        , ui_type_name = 'Person'
+                        , ui_type_name = 'Subject'
                         )
                       , Record
                         ( Class = 'Entity'
@@ -17520,15 +18516,6 @@ _test_AQ = """
     ...     print (aq._ui_name_T)
     Name
     Manager
-    Manager/Last name
-    Manager/First name
-    Manager/Middle name
-    Manager/Academic title
-    Manager/Lifetime
-    Manager/Lifetime/Start
-    Manager/Lifetime/Finish
-    Manager/Lifetime/Alive
-    Manager/Sex
     Address
     Address/Street
     Address/Zip code
@@ -17574,15 +18561,6 @@ _test_AQ = """
     Device/Node
     Device/Node/Name
     Device/Node/Manager
-    Device/Node/Manager/Last name
-    Device/Node/Manager/First name
-    Device/Node/Manager/Middle name
-    Device/Node/Manager/Academic title
-    Device/Node/Manager/Lifetime
-    Device/Node/Manager/Lifetime/Start
-    Device/Node/Manager/Lifetime/Finish
-    Device/Node/Manager/Lifetime/Alive
-    Device/Node/Manager/Sex
     Device/Node/Address
     Device/Node/Address/Street
     Device/Node/Address/Zip code
@@ -17602,15 +18580,6 @@ _test_AQ = """
     Device/My node
     Device/My node/Name
     Device/My node/Manager
-    Device/My node/Manager/Last name
-    Device/My node/Manager/First name
-    Device/My node/Manager/Middle name
-    Device/My node/Manager/Academic title
-    Device/My node/Manager/Lifetime
-    Device/My node/Manager/Lifetime/Start
-    Device/My node/Manager/Lifetime/Finish
-    Device/My node/Manager/Lifetime/Alive
-    Device/My node/Manager/Sex
     Device/My node/Address
     Device/My node/Address/Street
     Device/My node/Address/Zip code
@@ -17647,15 +18616,6 @@ _test_AQ = """
     My node
     My node/Name
     My node/Manager
-    My node/Manager/Last name
-    My node/Manager/First name
-    My node/Manager/Middle name
-    My node/Manager/Academic title
-    My node/Manager/Lifetime
-    My node/Manager/Lifetime/Start
-    My node/Manager/Lifetime/Finish
-    My node/Manager/Lifetime/Alive
-    My node/Manager/Sex
     My node/Address
     My node/Address/Street
     My node/Address/Zip code
@@ -17679,15 +18639,6 @@ _test_AQ = """
     My net device/Node
     My net device/Node/Name
     My net device/Node/Manager
-    My net device/Node/Manager/Last name
-    My net device/Node/Manager/First name
-    My net device/Node/Manager/Middle name
-    My net device/Node/Manager/Academic title
-    My net device/Node/Manager/Lifetime
-    My net device/Node/Manager/Lifetime/Start
-    My net device/Node/Manager/Lifetime/Finish
-    My net device/Node/Manager/Lifetime/Alive
-    My net device/Node/Manager/Sex
     My net device/Node/Address
     My net device/Node/Address/Street
     My net device/Node/Address/Zip code
@@ -17707,15 +18658,6 @@ _test_AQ = """
     My net device/My node
     My net device/My node/Name
     My net device/My node/Manager
-    My net device/My node/Manager/Last name
-    My net device/My node/Manager/First name
-    My net device/My node/Manager/Middle name
-    My net device/My node/Manager/Academic title
-    My net device/My node/Manager/Lifetime
-    My net device/My node/Manager/Lifetime/Start
-    My net device/My node/Manager/Lifetime/Finish
-    My net device/My node/Manager/Lifetime/Alive
-    My net device/My node/Manager/Sex
     My net device/My node/Address
     My net device/My node/Address/Street
     My net device/My node/Address/Zip code
@@ -17734,15 +18676,6 @@ _test_AQ = """
     Credentials 1/My node
     Credentials 1/My node/Name
     Credentials 1/My node/Manager
-    Credentials 1/My node/Manager/Last name
-    Credentials 1/My node/Manager/First name
-    Credentials 1/My node/Manager/Middle name
-    Credentials 1/My node/Manager/Academic title
-    Credentials 1/My node/Manager/Lifetime
-    Credentials 1/My node/Manager/Lifetime/Start
-    Credentials 1/My node/Manager/Lifetime/Finish
-    Credentials 1/My node/Manager/Lifetime/Alive
-    Credentials 1/My node/Manager/Sex
     Credentials 1/My node/Address
     Credentials 1/My node/Address/Street
     Credentials 1/My node/Address/Zip code
@@ -17766,15 +18699,6 @@ _test_AQ = """
     Credentials 1/My net device/Node
     Credentials 1/My net device/Node/Name
     Credentials 1/My net device/Node/Manager
-    Credentials 1/My net device/Node/Manager/Last name
-    Credentials 1/My net device/Node/Manager/First name
-    Credentials 1/My net device/Node/Manager/Middle name
-    Credentials 1/My net device/Node/Manager/Academic title
-    Credentials 1/My net device/Node/Manager/Lifetime
-    Credentials 1/My net device/Node/Manager/Lifetime/Start
-    Credentials 1/My net device/Node/Manager/Lifetime/Finish
-    Credentials 1/My net device/Node/Manager/Lifetime/Alive
-    Credentials 1/My net device/Node/Manager/Sex
     Credentials 1/My net device/Node/Address
     Credentials 1/My net device/Node/Address/Street
     Credentials 1/My net device/Node/Address/Zip code
