@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Project 0.9\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2014-08-31 12:44+0200\n"
+"POT-Creation-Date: 2014-09-04 09:33+0200\n"
 "PO-Revision-Date: 2014-08-31 12:46+0200\n"
 "Last-Translator: Christian Tanzer <tanzer@swing.co.at>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -1788,136 +1788,136 @@ msgstr "Gültiges  Netzwerk"
 #~ msgstr ""
 
 #~ msgid "Client_Modes"
-#~ msgstr "AP-Modi"
+#~ msgstr ""
 
 #~ msgid "IP Address"
-#~ msgstr "Ad-Hoc Mode"
+#~ msgstr "AP-Modi"
 
 #~ msgid "IP Address in this IP Network."
-#~ msgstr "Ad-Hoc Modi"
+#~ msgstr "Ad-Hoc Mode"
 
 #~ msgid "IP4_Address"
-#~ msgstr "Klientenmode"
+#~ msgstr "Ad-Hoc Modi"
 
 #~ msgid "IP4_Addresses"
-#~ msgstr "Klientenmodi"
+#~ msgstr "Klientenmode"
 
 #~ msgid "IP6_Address"
-#~ msgstr "IP Adresse"
+#~ msgstr "Klientenmodi"
 
 #~ msgid "IP6_Addresses"
-#~ msgstr "IP Adresse in diesem IP Netzwerk"
+#~ msgstr "IP Adresse"
 
 #~ msgid "IP_Address"
-#~ msgstr "IP4 Adresse"
+#~ msgstr "IP Adresse in diesem IP Netzwerk"
 
 #~ msgid "IP_Addresses"
-#~ msgstr "IP4 Adressen"
+#~ msgstr "IP4 Adresse"
 
 #~ msgid "IPv4 Address"
-#~ msgstr "IP6 Adresse"
+#~ msgstr "IP4 Adressen"
 
 #~ msgid "IPv4 Address in this IPv4 Network."
-#~ msgstr "IP6 Adressen"
+#~ msgstr "IP6 Adresse"
 
 #~ msgid "IPv4 Network"
-#~ msgstr "IP Adresse"
+#~ msgstr "IP6 Adressen"
 
 #~ msgid "IPv6 Address"
-#~ msgstr "IP Adressen"
-
-#~ msgid "IPv6 Network"
-#~ msgstr "IPv4 Adresse"
-
-#~ msgid "Ip address"
-#~ msgstr "IPv4 Adresse in diesem IPv4 Netzwerk."
-
-#~ msgid "Is hidden"
-#~ msgstr "IPv4 Netzwerk"
-
-#~ msgid "Link between two wireless network interfaces."
-#~ msgstr "IPv6 Adresse"
-
-#~ msgid "Map p"
-#~ msgstr "IPv6 Netzwerk"
-
-#~ msgid "Model a network interface of a FFM device"
 #~ msgstr "IP Adresse"
 
+#~ msgid "IPv6 Network"
+#~ msgstr "IP Adressen"
+
+#~ msgid "Ip address"
+#~ msgstr "IPv4 Adresse"
+
+#~ msgid "Is hidden"
+#~ msgstr "IPv4 Adresse in diesem IPv4 Netzwerk."
+
+#~ msgid "Link between two wireless network interfaces."
+#~ msgstr "IPv4 Netzwerk"
+
+#~ msgid "Map p"
+#~ msgstr "IPv6 Adresse"
+
+#~ msgid "Model a network interface of a FFM device"
+#~ msgstr "IPv6 Netzwerk"
+
 #~ msgid "Model an IPv4 Address (without netmask)."
-#~ msgstr "Ist verborgen"
+#~ msgstr "IP Adresse"
 
 #~ msgid "Model an IPv4 Network with netmask."
-#~ msgstr "Link zwischen zwei drahtlosen Netzwerkschnittstellen"
+#~ msgstr "Ist verborgen"
 
 #~ msgid "Model an IPv6 Address (without netmask)."
-#~ msgstr "Karte"
+#~ msgstr "Link zwischen zwei drahtlosen Netzwerkschnittstellen"
 
 #~ msgid "Model an IPv6 Network with netmask."
-#~ msgstr "Netzwerkschnittstelle eines Netzwerkgeräts"
+#~ msgstr "Karte"
 
 #~ msgid "Model an abstract IP Address."
-#~ msgstr "IPv4 Addresse (ohne Maske)."
+#~ msgstr "Netzwerkschnittstelle eines Netzwerkgeräts"
 
 #~ msgid "Model the mode `access point`."
-#~ msgstr "IPv4 Netzwerk mit Maske."
+#~ msgstr "IPv4 Addresse (ohne Maske)."
 
 #~ msgid "Model the mode `ad hoc`."
-#~ msgstr "IPv6 Addresse (ohne Maske)."
+#~ msgstr "IPv4 Netzwerk mit Maske."
 
 #~ msgid "Model the mode `client`."
-#~ msgstr "IPv6 Netzwerk mit Maske."
+#~ msgstr "IPv6 Addresse (ohne Maske)."
 
 #~ msgid "Net interface in IPv4 network"
-#~ msgstr "IP Addresse."
+#~ msgstr "IPv6 Netzwerk mit Maske."
 
 #~ msgid "Node owned by Subject"
-#~ msgstr "Mode `Access Point`."
+#~ msgstr "IP Addresse."
 
 #~ msgid "Node."
-#~ msgstr "Mode `Ad Hoc`."
+#~ msgstr "Mode `Access Point`."
 
 #~ msgid "Orientation in degrees relative to standard orientation."
-#~ msgstr "Mode `Klient`."
+#~ msgstr "Mode `Ad Hoc`."
 
 #~ msgid "Subject."
-#~ msgstr "Netzwerkschnittstelle in IPv4 Netzwerk"
+#~ msgstr "Mode `Klient`."
 
 #~ msgid "Subject_owns_Node"
-#~ msgstr ""
+#~ msgstr "Netzwerkschnittstelle in IPv4 Netzwerk"
 
 #~ msgid "Subject_owns_Nodes"
-#~ msgstr "Knoten."
+#~ msgstr ""
 
 #~ msgid "The wireless device operating in this mode."
-#~ msgstr "Orientierung in Grad relativ zur Standardorientierung."
+#~ msgstr "Knoten."
 
 #~ msgid "Wired_Link"
-#~ msgstr "Subjekt."
+#~ msgstr "Orientierung in Grad relativ zur Standardorientierung."
 
 #~ msgid "Wired_Links"
-#~ msgstr ""
+#~ msgstr "Subjekt."
 
 #~ msgid "Wireless_Link"
 #~ msgstr ""
 
 #~ msgid "Wireless_Links"
-#~ msgstr "In diesem Mode arbeitendes Netzwerkgerät."
+#~ msgstr ""
 
 #~ msgid "`left.mode` and `right.mode` must be linkable to each other."
-#~ msgstr ""
+#~ msgstr "In diesem Mode arbeitendes Netzwerkgerät."
 
 #~ msgid "valid_modes"
 #~ msgstr ""
 
 #~ msgid "Association linked to Address"
-#~ msgstr "Drahtlose Verbindung"
+#~ msgstr ""
 
 #~ msgid "Association linked to IM_Handle"
-#~ msgstr "Adresse des Vereins"
+#~ msgstr "Drahtlose Verbindung"
 
 #~ msgid "Association linked to Nickname"
-#~ msgstr ""
+#~ msgstr "Adresse des Vereins"
 
 #~ msgid "Association_has_Address"
 #~ msgstr ""
@@ -2016,10 +2016,10 @@ msgstr "Gültiges  Netzwerk"
 #~ msgstr ""
 
 #~ msgid "Nickname of person"
-#~ msgstr "Kürzel des Knotens"
+#~ msgstr ""
 
 #~ msgid "Node linked to IM_Handle"
-#~ msgstr ""
+#~ msgstr "Kürzel des Knotens"
 
 #~ msgid "Node linked to Nickname"
 #~ msgstr ""
@@ -2065,3 +2065,4 @@ msgstr "Gültiges  Netzwerk"
 
 #~ msgid "owner_or_cool_down"
 #~ msgstr ""
+

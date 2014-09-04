@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2014-08-31 12:44+0200\n"
+"POT-Creation-Date: 2014-09-04 09:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,19 +22,19 @@ msgstr ""
 msgid "%s Knotendatenbank"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:222
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:265
 msgid "About"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:144
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:176
 msgid "Action"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:228
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:271
 msgid "Development"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:233
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:276
 msgid "Documentation"
 msgstr ""
 
@@ -58,13 +58,8 @@ msgstr ""
 msgid "Log into website"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:200
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:243
 msgid "Logout"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:280
-#, python-format
-msgid "Number of %s belonging to %s"
 msgstr ""
 
 #: _CNDB/_JNJ/html/navigation.jnj:48
@@ -75,11 +70,11 @@ msgstr ""
 msgid "Password of your account"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:264
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:307
 msgid "Personal settings"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:240
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:283
 msgid "RESTful API"
 msgstr ""
 

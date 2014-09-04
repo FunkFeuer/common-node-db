@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2014-08-31 12:02+0200\n"
+"POT-Creation-Date: 2014-09-04 09:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -17,1897 +17,1453 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: _CNDB/_JNJ/html/base.jnj:39
-#, python-format
-msgid "%s Knotendatenbank"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:885
-#, python-format
-msgid "%ss managed/owned by %%s"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:940
-#, python-format
-msgid "%ss used by %%s"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "A bundle of binaries for firmware."
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:222
-msgid "About"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:144
-msgid "Action"
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Address of the node (if stationary)."
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:971
-#, python-format
-msgid "Addresses used by %s"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Adhoc group"
-msgstr ""
-
-#: _GTW._OMP._PAP.Adhoc_Group:0
-msgid "Adhoc group of persons."
-msgstr ""
-
-#: _GTW._OMP._PAP.Adhoc_Group:0
-msgid "Adhoc_Group"
-msgid_plural "Adhoc_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Adhoc_Group of person"
-msgstr ""
-
-#: _CNDB/_OMP/__test__/model.py:64
-msgid "Administration of node database"
-msgstr ""
-
-#: _CNDB/_OMP/__test__/model.py:70
-msgid "Administration of persons/addresses..."
-msgstr ""
-
-#: _CNDB/_OMP/__test__/model.py:76
-msgid "Administration of user accounts and groups"
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0 _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-msgid "Antenna"
-msgid_plural "Antennas"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Antenna_Type:0
-msgid "Antenna polarization."
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid ""
-"Antenna polarization. Per default,\n"
-"`antenna_type.polarization` is used, but can be overriden here."
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0 _CNDB._OMP.Antenna_Band:0
-msgid "Antenna type"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-msgid "Antenna used by a wireless interface"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-msgid "Antenna."
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Band:0
-msgid "Antenna_Band"
-msgid_plural "Antenna_Bands"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Antenna_Type:0
-msgid "Antenna_Type"
-msgid_plural "Antenna_Types"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Person_mentors_Person:0
-msgid "Apprentice"
-msgstr ""
-
-#: _GTW._OMP._PAP.Association:0 _GTW._OMP._PAP.Person_in_Group:0
-msgid "Association"
-msgid_plural "Associations"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Association of person"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0
-msgid ""
-"At most one of `owner` and `expiration_date` can be\n"
-"defined at one time."
-msgstr ""
-
-#: _CNDB._OMP.IP4_Pool:0
-msgid "Attributes of an IPv4 network pool."
-msgstr ""
-
-#: _CNDB._OMP.IP6_Pool:0
-msgid "Attributes of an IPv6 network pool."
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid "Azimuth"
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid "Azimuth of antenna orientation (in degrees)."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "BSSID"
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Band:0 _CNDB._OMP.Regulatory_Permission:0
-msgid "Band"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Band needs dynamic frequency selection."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0 _CNDB._OMP.Wireless_Standard:0
-msgid "Bandwidth"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Standard:0
-msgid "Bandwidth of a channel"
-msgstr ""
-
-#: _CNDB._OMP.Belongs_to_Net_Device:0
-msgid "Belongs_to_Net_Device"
-msgid_plural "Belongs_to_Net_Devices"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Belongs_to_Net_Device:0
-msgid "Belongs_to_Net_Device_Left"
-msgid_plural "Belongs_to_Net_Device_Lefts"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Belongs_to_Node:0
-msgid "Belongs_to_Node"
-msgid_plural "Belongs_to_Nodes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Belongs_to_Node:0
-msgid "Belongs_to_Node_Left"
-msgid_plural "Belongs_to_Node_Lefts"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Binary for firmware."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Binary."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Bundle."
-msgstr ""
-
-#: _CNDB/_OMP/graph.py:166
-msgid "CNDB graph"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Cell name."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Channel:0
-msgid "Center frequency of this channel"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:619
-#, python-format
-msgid "Change password of %s %s"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
-msgid "Channel"
-msgstr ""
-
-#: _CNDB._OMP.Device_Type_made_by_Company:0
-msgid "Company manufacturing the device-type."
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Company of person"
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Cool down period"
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Cool down period for this String `type_name`."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Domain:0
-msgid "Countrycode"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:624
-#, python-format
-msgid "Create a new %s %s"
-msgstr ""
-
-#: _CNDB._OMP.IP4_DNS_Alias:0
-msgid "DNS alias for IPv4 address"
-msgstr ""
-
-#: _CNDB._OMP.IP6_DNS_Alias:0
-msgid "DNS alias for IPv6 address"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "DNS name for this IP Network."
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:629
-#, python-format
-msgid "Delete %s %s"
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Type:0
-msgid ""
-"Describes how well the antenna converts input power into radio\n"
-"waves headed in a specified direction (in dBi)."
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid ""
-"Describes how well the antenna converts input power into radio\n"
-"waves headed in a specified direction (in dBi). Per default,\n"
-"`antenna_type.gain` is used, but can be overriden here."
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0
-msgid "Description of and remarks about the IP_Network"
-msgstr ""
-
-#: _CNDB._OMP.Device:0
-msgid "Description of device"
-msgstr ""
-
-#: _CNDB._OMP.Device_Type:0
-msgid "Description of device type"
-msgstr ""
-
-#: _MOM.Document:0
-msgid "Description of document."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "Description of interface"
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Description of the node"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:228
-msgid "Development"
-msgstr ""
-
-#: _CNDB._OMP.Device:0 _CNDB._OMP.Net_Interface:0
-msgid "Device"
-msgid_plural "Devices"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Device_Type_made_by_Company:0
-msgid "Device type"
-msgstr ""
-
-#: _CNDB._OMP.Device_Type_made_by_Company:0
-msgid "Device type."
-msgstr ""
-
-#: _CNDB._OMP.Device_Type:0
-msgid "Device_Type"
-msgid_plural "Device_Types"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Device_Type_made_by_Company:0
-msgid "Device_Type_made_by_Company"
-msgid_plural "Device_Type_made_by_Companys"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _MOM.Document:0
-msgid "Document"
-msgid_plural "Documents"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:233
-msgid "Documentation"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Domain"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "ESSID"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:634
-#, python-format
-msgid "Edit %s %s"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Eirp"
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid "Elevation angle"
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid ""
-"Elevation angle of the beam from the horizontal plane\n"
-"(in degrees)."
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:74
-msgid "Email address of your account"
-msgstr ""
-
-#: _MOM.Document:0
-msgid "Entity the document applies to."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware binary"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware bundle"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware for which binary was built."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware type"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware version"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware version usable by some devices."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware_Bin"
-msgid_plural "Firmware_Bins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware_Binary"
-msgid_plural "Firmware_Binarys"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware_Binary_in_Firmware_Bundle"
-msgid_plural "Firmware_Binary_in_Firmware_Bundles"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware_Bundle"
-msgid_plural "Firmware_Bundles"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware_Type"
-msgid_plural "Firmware_Types"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Firmware_Version"
-msgid_plural "Firmware_Versions"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Float_Interval"
-msgid_plural "Float_Intervals"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Floating-point attribute."
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Band:0
-msgid "Frequency Band of an antenna type"
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Band:0
-msgid "Frequency range an antenna type supports."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Frequency range for which transmission is allowed."
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Frequency with unit information (e.g. 2.437 GHz)."
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Frequency_Interval"
-msgid_plural "Frequency_Intervals"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Node:0
-msgid "GPS position and optional height of the node"
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Type:0 _CNDB._OMP.Antenna:0
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Gain"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:645
-#, python-format
-msgid "Generate firmware for %s %s"
-msgstr ""
-
-#: _CNDB/_OMP/graph.py:165
-msgid "Graph displaying Funkfeuer object model"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Group of person"
-msgstr ""
-
-#: _GTW._OMP._PAP.IM_Handle:0
-msgid "Handle of a subject for an instant messaging system"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Hardware"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Hardware interface used by virtual interface."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-msgid "Height relative to device the antenna is connected to."
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:118
-msgid "I forgot my password"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:655
-#, python-format
-msgid "I forgot my password; reset password of %s %s"
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:114
-msgid "I forgot my password; send me a temporary one to my email address"
-msgstr ""
-
-#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
-msgid "ID_Entity for which the permission exists"
-msgstr ""
-
-#: _GTW._OMP._PAP.IM_Handle:0
-msgid "IM Protocol of handle"
-msgstr ""
-
-#: _GTW._OMP._PAP.IM_Handle:0
-msgid "IM address (excluding protocol)"
-msgstr ""
-
-#: _GTW._OMP._PAP.IM_Handle:0
-msgid "IM_Handle"
-msgid_plural "IM_Handles"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "IP Network."
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "IP Pool."
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:719
-msgid "IP addresses"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:713
-msgid "IP addresses assigned to interface"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network_in_IP_Pool:0 _CNDB._OMP.IP4_Network_in_IP4_Pool:0
-#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
-msgid "IP network."
-msgstr ""
-
-#: _CNDB._OMP.IP_Network_in_IP_Pool:0 _CNDB._OMP.IP4_Network_in_IP4_Pool:0
-#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
-msgid "IP pool."
-msgstr ""
-
-#: _CNDB._OMP.IP4_DNS_Alias:0
-msgid "IP4_DNS_Alias"
-msgid_plural "IP4_DNS_Aliases"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP4_Network:0
-msgid "IP4_Network"
-msgid_plural "IP4_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0
-msgid "IP4_Network_in_IP4_Pool"
-msgid_plural "IP4_Network_in_IP4_Pools"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP4_Pool:0
-msgid "IP4_Pool"
-msgid_plural "IP4_Pools"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP4_Pool_permits_Group:0
-msgid "IP4_Pool_permits_Group"
-msgid_plural "IP4_Pool_permits_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP6_DNS_Alias:0
-msgid "IP6_DNS_Alias"
-msgid_plural "IP6_DNS_Aliases"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP6_Network:0
-msgid "IP6_Network"
-msgid_plural "IP6_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
-msgid "IP6_Network_in_IP6_Pool"
-msgid_plural "IP6_Network_in_IP6_Pools"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP6_Pool:0
-msgid "IP6_Pool"
-msgid_plural "IP6_Pools"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "IP6_Pool_permits_Group"
-msgid_plural "IP6_Pool_permits_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_DNS_Alias:0
-msgid "IP_DNS_Alias"
-msgid_plural "IP_DNS_Aliases"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_Network:0
-msgid "IP_Network"
-msgid_plural "IP_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_Network_in_IP_Pool:0
-msgid "IP_Network_in_IP_Pool"
-msgid_plural "IP_Network_in_IP_Pools"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_Pool:0
-msgid "IP_Pool"
-msgid_plural "IP_Pools"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0
-msgid "IP_Pool_permits_Group"
-msgid_plural "IP_Pool_permits_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP4_Network:0
-msgid "IPv4 Network address."
-msgstr ""
-
-#: _CNDB._OMP.IP4_Network:0
-msgid "IPv4 Network of CNDB"
-msgstr ""
-
-#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0
-msgid "IPv4 networks in an IPv4 pool."
-msgstr ""
-
-#: _CNDB._OMP.IP6_Network:0
-msgid "IPv6 Network address."
-msgstr ""
-
-#: _CNDB._OMP.IP6_Network:0
-msgid "IPv6 Network of CNDB"
-msgstr ""
-
-#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
-msgid "IPv6 networks in an IPv6 pool."
-msgstr ""
-
-#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
-msgid "Id entity"
-msgstr ""
-
-#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
-msgid "Id_Entity_permits_Group"
-msgid_plural "Id_Entity_permits_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "Iface quota"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "Indicates if this interface is active."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Indoor only"
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Int_Interval"
-msgid_plural "Int_Intervals"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Int_Interval_C"
-msgid_plural "Int_Interval_Cs"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Integer attribute."
-msgstr ""
-
-#: _CNDB._OMP.Net_Credentials:0
-#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
-msgid "Interface"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0 _CNDB._OMP.IP_Network_in_IP_Pool:0
-msgid "Ip network"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network_in_IP_Pool:0 _CNDB._OMP.IP_Pool_permits_Group:0
-msgid "Ip pool"
-msgstr ""
-
-#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid "Ip4 network"
-msgstr ""
-
-#: _CNDB._OMP.IP4_Network_in_IP4_Pool:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-msgid "Ip4 pool"
-msgstr ""
-
-#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "Ip6 network"
-msgstr ""
-
-#: _CNDB._OMP.IP6_Network_in_IP6_Pool:0 _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "Ip6 pool"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "Is active"
-msgstr ""
-
-#: _CNDB._OMP.Net_Credentials:0
-msgid "Key"
-msgstr ""
-
-#: _CNDB._OMP.Net_Credentials:0
-msgid "Key used for WPA authentication."
-msgstr ""
-
-#: _CNDB/_JNJ/html/base.jnj:62
-msgid "Last change"
-msgstr ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid "Left network interface"
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Limit netmasks to allocate from this String `type_name`."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Link Firmware_Binary to Firmware_Bundle."
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Link a person to a adhoc_group"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Link a person to a association"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Link a person to a company"
-msgstr ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid "Link between two network interfaces."
-msgstr ""
-
-#: _MOM.Document:0
-msgid "Location of document."
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:104
-msgid "Log into website"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:200
-msgid "Logout"
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Lower"
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Lower bound of interval."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "MAC address of interface."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "Mac address"
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Manager"
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Manager of the node"
-msgstr ""
-
-#: _CNDB._OMP.Device_Type_made_by_Company:0
-msgid "Manufacturer"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Mask len"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Maximum allowed TX power in dBm, dBW or units of W."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Maximum allowed antenna gain in dB."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Maximum allowed bandwidth."
-msgstr ""
-
-#: _CNDB._OMP.Person_mentors_Person:0
-msgid "Mentor"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Mode"
-msgstr ""
-
-#: _MOM.Document:0
-msgid "Model a document linked to some other entity."
-msgstr ""
-
-#: _CNDB._OMP.Net_Device:0
-msgid "Model a network device of CNDB.OMP."
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Model a node of CNDB"
-msgstr ""
-
-#: _CNDB._OMP.Zone:0
-msgid "Model a routing zone of CNDB.OMP."
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid "Model an antenna used by a CNDB node."
-msgstr ""
-
-#: _GTW._OMP._PAP.Association:0
-msgid "Model an association."
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Model an interval of float values (lower, upper)."
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Model an interval of frequency values (lower, upper)."
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Model an interval of int values (lower, upper)."
-msgstr ""
-
-#: _CNDB._OMP.Net_Credentials:0
-msgid "Model credentials necessary for WPA authentication."
-msgstr ""
-
-#: _CNDB._OMP.Device_Type_made_by_Company:0
-msgid "Model manufacturer of device-type."
-msgstr ""
-
-#: _CNDB._OMP.Device_Type:0
-msgid "Model no"
-msgstr ""
-
-#: _CNDB._OMP.Device_Type:0
-msgid "Model number identifying the device type"
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Type:0
-msgid "Model the type of antennas in CNDB.OMP."
-msgstr ""
-
-#: _CNDB._OMP.Net_Device_Type:0
-msgid "Model the type of network devices in CNDB.OMP."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Name identifying the firmware bundle."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Name identifying the firmware type."
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid "Name of Antenna"
-msgstr ""
-
-#: _CNDB._OMP.Device:0
-msgid "Name of Device"
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool:0
-msgid "Name of IP_Pool"
-msgstr ""
-
-#: _CNDB._OMP.Net_Device:0
-msgid "Name of Net_Device"
-msgstr ""
-
-#: _GTW._OMP._PAP.Adhoc_Group:0
-msgid "Name of adhoc_group."
-msgstr ""
-
-#: _GTW._OMP._PAP.Association:0
-msgid "Name of association."
-msgstr ""
-
-#: _CNDB._OMP.Device_Type:0
-msgid "Name of device type"
-msgstr ""
-
-#: _CNDB._OMP.IP_DNS_Alias:0
-msgid "Name of the alias."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "Name of the interface."
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Name of the node"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Standard:0
-msgid "Name of the standard"
-msgstr ""
-
-#: _CNDB._OMP.Zone:0
-msgid "Name of the zone"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Need dfs"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
-msgid "Net address"
-msgstr ""
-
-#: _CNDB._OMP.Wired_Interface:0 _CNDB._OMP.Wireless_Interface:0
-msgid "Net device"
-msgstr ""
-
-#: _CNDB._OMP.Net_Device:0
-msgid "Net device type"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Net interface"
-msgstr ""
-
-#: _CNDB._OMP.Net_Device:0
-msgid "Net_Device"
-msgid_plural "Net_Devices"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Device_Type:0
-msgid "Net_Device_Type"
-msgid_plural "Net_Device_Types"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "Net_Interface"
-msgid_plural "Net_Interfaces"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid "Net_Interface_in_IP4_Network"
-msgid_plural "Net_Interface_in_IP4_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "Net_Interface_in_IP6_Network"
-msgid_plural "Net_Interface_in_IP6_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Net_Interface_in_IP_Network"
-msgid_plural "Net_Interface_in_IP_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid "Net_Link"
-msgid_plural "Net_Links"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Netmask interval"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0
-msgid "Network address."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface:0
-msgid "Network device the interface is connected to."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid "Network interface."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Network mask used for this IP Network."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Network name."
-msgstr ""
-
-#: _GTW._OMP._PAP.Nickname:0
-msgid "Nickname"
-msgid_plural "Nicknames"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Nickname:0
-msgid "Nickname of a subject"
-msgstr ""
-
-#: _CNDB._OMP.Node:0 _CNDB._OMP.Net_Device:0 _CNDB._OMP.IP_Pool:0
-#: _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Node"
-msgid_plural "Nodes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Node for which this `String `type_name`` is reserved."
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "Node quota"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:779 _CNDB/_JNJ/html/dashboard/app.m.jnj:280
-#, python-format
-msgid "Number of %s belonging to %s"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Only indoor TX allowed."
-msgstr ""
-
-#: _CNDB/_JNJ/html/navigation.jnj:48
-msgid "Open wireless networks"
-msgstr ""
-
-#: _CNDB._OMP.Node:0 _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0
-#: _CNDB._OMP.IP6_Network:0
-msgid "Owner"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
-msgid "Owner of the `String `type_name``."
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Owner of the node, defaults to manager"
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:89
-msgid "Password of your account"
-msgstr ""
-
-#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
-msgid "Permission of a group on id_entity."
-msgstr ""
-
-#: _CNDB._OMP.IP4_Pool_permits_Group:0
-msgid "Permission of a group on ip4_pool."
-msgstr ""
-
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "Permission of a group on ip6_pool."
-msgstr ""
-
-#: _GTW._OMP._PAP.Id_Entity_permits_Group:0
-msgid "Permitted Group"
-msgstr ""
-
-#: _CNDB._OMP.Person_mentors_Person:0
-msgid "Person is the mentor of another person."
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person linked to Adhoc_Group"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person linked to Association"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person linked to Company"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person linked to Group"
-msgstr ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person_in_Adhoc_Group"
-msgid_plural "Person_in_Adhoc_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person_in_Association"
-msgid_plural "Person_in_Associations"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person_in_Company"
-msgid_plural "Person_in_Companys"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person_in_Group"
-msgid_plural "Person_in_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Person_mentors_Person:0
-msgid "Person_mentors_Person"
-msgid_plural "Person_mentors_Persons"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB/_GTW/RST_addons.py:1220
-#, python-format
-msgid "Personal data of %s"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:264
-msgid "Personal settings"
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Type:0 _CNDB._OMP.Antenna:0
-msgid "Polarization"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
-msgid "Pool"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
-msgid "Pool to which this `String `type_name`` belongs."
-msgstr ""
-
-#: _GTW._OMP._PAP.IM_Handle:0
-msgid "Protocol"
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid ""
-"Quota of IP allocations from this IP pool for a single\n"
-"network interface."
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "Quota of IP allocations from this IP pool per node."
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "Quota of IP allocations from this IP pool per user."
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:240
-msgid "RESTful API"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Regulatory transmit permission"
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Domain:0
-msgid "Regulatory_Domain"
-msgid_plural "Regulatory_Domains"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "Regulatory_Permission"
-msgid_plural "Regulatory_Permissions"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-msgid "Relative height"
-msgstr ""
-
-#: _CNDB._OMP.Device_Type:0
-msgid "Revision"
-msgstr ""
-
-#: _CNDB._OMP.Device_Type:0
-msgid "Revision of hardware of device type"
-msgstr ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid "Right network interface"
-msgstr ""
-
-#: _CNDB._OMP.Routing_Zone:0
-msgid "Routing zone using the OLSR routing protocol."
-msgstr ""
-
-#: _CNDB._OMP.Routing_Zone:0
-msgid "Routing_Zone"
-msgid_plural "Routing_Zones"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Routing_Zone:0
-msgid "Routing_Zone_OLSR"
-msgid_plural "Routing_Zone_OLSRs"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.IM_Handle:0
-msgid "Short description of the im_handle"
-msgstr ""
-
-#: _GTW._OMP._PAP.Nickname:0
-msgid "Short description of the nickname"
-msgstr ""
-
-#: _GTW._OMP._PAP.Adhoc_Group:0
-msgid "Short name of adhoc_group."
-msgstr ""
-
-#: _GTW._OMP._PAP.Association:0
-msgid "Short name of association."
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:650
-#, python-format
-msgid "Show graphs and statistics about %s %s"
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Show in map"
-msgstr ""
-
-#: _CNDB._OMP.Node:0
-msgid "Show in map."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Channel:0 _CNDB._OMP.Wireless_Interface:0
-msgid "Standard"
-msgstr ""
-
-#: _CNDB/_OMP/Attr_Type.py:88
-msgid "TX Power"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "TX power"
-msgstr ""
-
-#: _CNDB._OMP.Person_mentors_Person:0
-msgid "The Person being mentored."
-msgstr ""
-
-#: _CNDB._OMP.Person_mentors_Person:0
-msgid "The Person mentoring another person."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"The `mask_len` must match the one of `right` or of any\n"
-"network containing `right`."
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0
-msgid "The `net_address` must be contained in the `parent`."
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Band:0
-msgid "The antenna type for this band"
-msgstr ""
-
-#: _CNDB._OMP.IP_DNS_Alias:0
-msgid "The assigned IP Address"
-msgstr ""
-
-#: _CNDB._OMP.IP4_DNS_Alias:0 _CNDB._OMP.IP6_DNS_Alias:0
-msgid "The name must be unique for this type of address."
-msgstr ""
-
-#: _CNDB._OMP.Net_Credentials:0
-msgid "The network interface using these credentials."
-msgstr ""
-
-#: _GTW._OMP._PAP.Nickname:0
-msgid "The nickname."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Permission:0
-msgid "The regulatory domain that gives this permission."
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "The upper bound must be greater than the lower bound."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Channel:0
-msgid "The wireless standard for this channel"
-msgstr ""
-
-#: _CNDB._OMP.Routing_Zone:0
-msgid "The zone that's routed for."
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Type:0
-msgid "There must be at least one frequency band for the antenna."
-msgstr ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid ""
-"There must not be a second link with `left` and `right`\n"
-"swapped."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`net_interface_in_ip4_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`net_interface_in_ip4_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`net_interface_in_ip6_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`net_interface_in_ip6_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`net_interface_in_ip_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`net_interface_in_ip_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`virtual_wireless_interface_in_ip4_network` `left`, the network `right` "
-"must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`virtual_wireless_interface_in_ip4_network` `left`, the network `right` "
-"must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`virtual_wireless_interface_in_ip6_network` `left`, the network `right` "
-"must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`virtual_wireless_interface_in_ip6_network` `left`, the network `right` "
-"must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`virtual_wireless_interface_in_ip_network` `left`, the network `right` "
-"must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`virtual_wireless_interface_in_ip_network` `left`, the network `right` "
-"must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wired_interface_in_ip4_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wired_interface_in_ip4_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wired_interface_in_ip6_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wired_interface_in_ip6_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wired_interface_in_ip_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wired_interface_in_ip_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wireless_interface_in_ip4_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wireless_interface_in_ip4_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wireless_interface_in_ip6_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wireless_interface_in_ip6_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wireless_interface_in_ip_network` `left`, the network `right` must\n"
-"have been explicitly allocated to an `owner`."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid ""
-"To be eligible to be assigned to the\n"
-"`wireless_interface_in_ip_network` `left`, the network `right` must\n"
-"not be split into sub-networks."
-msgstr ""
-
-#: _CNDB/_JNJ/html/base.jnj:57
-msgid "Top of page"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Transmit power with unit (units of dBW or W)."
-msgstr ""
-
-#: _CNDB._OMP.Regulatory_Domain:0
-msgid "Two-letter country-code"
-msgstr ""
-
-#: _CNDB._OMP.Device:0 _MOM.Document:0
-msgid "Type"
-msgstr ""
-
-#: _CNDB._OMP.Antenna:0
-msgid "Type of Antenna"
-msgstr ""
-
-#: _CNDB._OMP.Device:0
-msgid "Type of Device"
-msgstr ""
-
-#: _CNDB._OMP.Net_Device:0
-msgid "Type of Net_Device"
-msgstr ""
-
-#: _MOM.Document:0
-msgid "Type of document (e.g., picture, user manual)."
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Type of firmware"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Type of firmware usable by some devices."
-msgstr ""
-
-#: _CNDB._OMP.Wired_Interface:0 _CNDB._OMP.Wireless_Interface:0
-msgid "Type of net device"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "URL for Firmware_Type"
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Upper"
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "Upper bound of interval."
-msgstr ""
-
-#: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
-#: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "User quota"
-msgstr ""
-
-#: _CNDB/_OMP/__test__/model.py:75
-msgid "Users"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Version"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Version of the firmware"
-msgstr ""
-
-#: _CNDB._OMP.Firmware:0
-msgid "Version of the firmware bundle."
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Virtual wireless interface"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Virtual wireless interface of a CNDB device"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Virtual_Wireless_Interface"
-msgid_plural "Virtual_Wireless_Interfaces"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid "Virtual_Wireless_Interface_in_IP4_Network"
-msgid_plural "Virtual_Wireless_Interface_in_IP4_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "Virtual_Wireless_Interface_in_IP6_Network"
-msgid_plural "Virtual_Wireless_Interface_in_IP6_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Virtual_Wireless_Interface_in_IP_Network"
-msgid_plural "Virtual_Wireless_Interface_in_IP_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Credentials:0
-msgid "WPA_Credentials"
-msgid_plural "WPA_Credentialses"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Wired interface"
-msgstr ""
-
-#: _CNDB._OMP.Wired_Interface:0
-msgid "Wired interface of a CNDB device"
-msgstr ""
-
-#: _CNDB._OMP.Wired_Interface:0
-msgid "Wired_Interface"
-msgid_plural "Wired_Interfaces"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid "Wired_Interface_in_IP4_Network"
-msgid_plural "Wired_Interface_in_IP4_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "Wired_Interface_in_IP6_Network"
-msgid_plural "Wired_Interface_in_IP6_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Wired_Interface_in_IP_Network"
-msgid_plural "Wired_Interface_in_IP_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Regulatory_Domain:0
-msgid "Wireless Regulatory Domain"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Channel:0
-msgid "Wireless channel of a wireless standard"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
-msgid "Wireless channel used by a wireless interface"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
-msgid "Wireless channel."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Wireless interface"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Wireless interface of a CNDB device"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
-msgid "Wireless interface."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Wireless mode to use for Virtual_Wireless_Interface"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Wireless mode to use for Wireless_Interface"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Wireless mode to use for _Wireless_Interface_"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Standard:0
-msgid "Wireless standard"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Wireless standard used by the wireless interface."
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Channel:0
-msgid "Wireless_Channel"
-msgid_plural "Wireless_Channels"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "Wireless_Interface"
-msgid_plural "Wireless_Interfaces"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid "Wireless_Interface_in_IP4_Network"
-msgid_plural "Wireless_Interface_in_IP4_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "Wireless_Interface_in_IP6_Network"
-msgid_plural "Wireless_Interface_in_IP6_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Wireless_Interface_in_IP_Network"
-msgid_plural "Wireless_Interface_in_IP_Networks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-msgid "Wireless_Interface_uses_Antenna"
-msgid_plural "Wireless_Interface_uses_Antennas"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
-msgid "Wireless_Interface_uses_Wireless_Channel"
-msgid_plural "Wireless_Interface_uses_Wireless_Channels"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Wireless_Standard:0
-msgid "Wireless_Standard"
-msgid_plural "Wireless_Standards"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB/_GTW/RST_addons.py:128
-#, python-format
-msgid ""
-"You are not allowed to change %s unless afterwards you [%s] are still "
-"either manager or owner"
-msgstr ""
-
-#: _CNDB._OMP.Zone:0 _CNDB._OMP.Routing_Zone:0
-msgid "Zone"
-msgid_plural "Zones"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _CNDB._OMP.Net_Device:0
-msgid "`Node` to which the `net_device` is connected."
-msgstr ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid "`left` and `right` must be different objects!"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "`left` must be equal to `hardware.left`"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:131
-msgid "and"
-msgstr ""
-
-#: _CNDB._OMP.Antenna_Type:0
-msgid "band_exists"
-msgstr ""
-
-#: _MOM._Attr.Number_Interval:0
-msgid "is_valid"
-msgstr ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid "left_not_right"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0
-msgid "net_address_in_parent"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "network_not_split"
-msgstr ""
-
-#: _CNDB._OMP.Net_Link:0
-msgid "not_inverse"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Channel:0
-msgid "number of this channel"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:226
-msgid "owned/managed by"
-msgstr ""
-
-#: _CNDB._OMP.IP_Network:0
-msgid "owner_or_expiration"
-msgstr ""
-
-#: _CNDB/_GTW/RST_addons.py:133
-msgid "to"
-msgstr ""
-
-#: _CNDB._OMP.IP4_DNS_Alias:0 _CNDB._OMP.IP6_DNS_Alias:0
-msgid "unique_name"
-msgstr ""
-
-#: _CNDB._OMP.Wireless_Interface:0
-msgid "valid_left"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "valid_mask_len"
-msgstr ""
-
-#: _CNDB._OMP.Net_Interface_in_IP_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-#: _CNDB._OMP.Net_Interface_in_IP6_Network:0
-msgid "valid_network"
-msgstr ""
+#~ msgid "%s Knotendatenbank"
+#~ msgstr ""
+
+#~ msgid "%ss managed/owned by %%s"
+#~ msgstr ""
+
+#~ msgid "%ss used by %%s"
+#~ msgstr ""
+
+#~ msgid "A bundle of binaries for firmware."
+#~ msgstr ""
+
+#~ msgid "About"
+#~ msgstr ""
+
+#~ msgid "Action"
+#~ msgstr ""
+
+#~ msgid "Address of the node (if stationary)."
+#~ msgstr ""
+
+#~ msgid "Addresses used by %s"
+#~ msgstr ""
+
+#~ msgid "Adhoc group"
+#~ msgstr ""
+
+#~ msgid "Adhoc group of persons."
+#~ msgstr ""
+
+#~ msgid "Adhoc_Group"
+#~ msgid_plural "Adhoc_Groups"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Adhoc_Group of person"
+#~ msgstr ""
+
+#~ msgid "Administration of node database"
+#~ msgstr ""
+
+#~ msgid "Administration of persons/addresses..."
+#~ msgstr ""
+
+#~ msgid "Administration of user accounts and groups"
+#~ msgstr ""
+
+#~ msgid "Antenna"
+#~ msgid_plural "Antennas"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Antenna polarization."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Antenna polarization. Per default,\n"
+#~ "`antenna_type.polarization` is used, but can be overriden here."
+#~ msgstr ""
+
+#~ msgid "Antenna type"
+#~ msgstr ""
+
+#~ msgid "Antenna used by a wireless interface"
+#~ msgstr ""
+
+#~ msgid "Antenna."
+#~ msgstr ""
+
+#~ msgid "Antenna_Band"
+#~ msgid_plural "Antenna_Bands"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Antenna_Type"
+#~ msgid_plural "Antenna_Types"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Apprentice"
+#~ msgstr ""
+
+#~ msgid "Association"
+#~ msgid_plural "Associations"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Association of person"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "At most one of `owner` and `expiration_date` can be\n"
+#~ "defined at one time."
+#~ msgstr ""
+
+#~ msgid "Attributes of an IPv4 network pool."
+#~ msgstr ""
+
+#~ msgid "Attributes of an IPv6 network pool."
+#~ msgstr ""
+
+#~ msgid "Azimuth"
+#~ msgstr ""
+
+#~ msgid "Azimuth of antenna orientation (in degrees)."
+#~ msgstr ""
+
+#~ msgid "BSSID"
+#~ msgstr ""
+
+#~ msgid "Band"
+#~ msgstr ""
+
+#~ msgid "Band needs dynamic frequency selection."
+#~ msgstr ""
+
+#~ msgid "Bandwidth"
+#~ msgstr ""
+
+#~ msgid "Bandwidth of a channel"
+#~ msgstr ""
+
+#~ msgid "Belongs_to_Net_Device"
+#~ msgid_plural "Belongs_to_Net_Devices"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Belongs_to_Net_Device_Left"
+#~ msgid_plural "Belongs_to_Net_Device_Lefts"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Belongs_to_Node"
+#~ msgid_plural "Belongs_to_Nodes"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Belongs_to_Node_Left"
+#~ msgid_plural "Belongs_to_Node_Lefts"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Binary for firmware."
+#~ msgstr ""
+
+#~ msgid "Binary."
+#~ msgstr ""
+
+#~ msgid "Bundle."
+#~ msgstr ""
+
+#~ msgid "CNDB graph"
+#~ msgstr ""
+
+#~ msgid "Cell name."
+#~ msgstr ""
+
+#~ msgid "Center frequency of this channel"
+#~ msgstr ""
+
+#~ msgid "Change password of %s %s"
+#~ msgstr ""
+
+#~ msgid "Channel"
+#~ msgstr ""
+
+#~ msgid "Company manufacturing the device-type."
+#~ msgstr ""
+
+#~ msgid "Company of person"
+#~ msgstr ""
+
+#~ msgid "Cool down period"
+#~ msgstr ""
+
+#~ msgid "Cool down period for this String `type_name`."
+#~ msgstr ""
+
+#~ msgid "Countrycode"
+#~ msgstr ""
+
+#~ msgid "Create a new %s %s"
+#~ msgstr ""
+
+#~ msgid "DNS alias for IPv4 address"
+#~ msgstr ""
+
+#~ msgid "DNS alias for IPv6 address"
+#~ msgstr ""
+
+#~ msgid "DNS name for this IP Network."
+#~ msgstr ""
+
+#~ msgid "Delete %s %s"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Describes how well the antenna converts input power into radio\n"
+#~ "waves headed in a specified direction (in dBi)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Describes how well the antenna converts input power into radio\n"
+#~ "waves headed in a specified direction (in dBi). Per default,\n"
+#~ "`antenna_type.gain` is used, but can be overriden here."
+#~ msgstr ""
+
+#~ msgid "Description of and remarks about the IP_Network"
+#~ msgstr ""
+
+#~ msgid "Description of device"
+#~ msgstr ""
+
+#~ msgid "Description of device type"
+#~ msgstr ""
+
+#~ msgid "Description of document."
+#~ msgstr ""
+
+#~ msgid "Description of interface"
+#~ msgstr ""
+
+#~ msgid "Description of the node"
+#~ msgstr ""
+
+#~ msgid "Development"
+#~ msgstr ""
+
+#~ msgid "Device"
+#~ msgid_plural "Devices"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Device type"
+#~ msgstr ""
+
+#~ msgid "Device type."
+#~ msgstr ""
+
+#~ msgid "Device_Type"
+#~ msgid_plural "Device_Types"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Device_Type_made_by_Company"
+#~ msgid_plural "Device_Type_made_by_Companys"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Document"
+#~ msgid_plural "Documents"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Documentation"
+#~ msgstr ""
+
+#~ msgid "Domain"
+#~ msgstr ""
+
+#~ msgid "ESSID"
+#~ msgstr ""
+
+#~ msgid "Edit %s %s"
+#~ msgstr ""
+
+#~ msgid "Eirp"
+#~ msgstr ""
+
+#~ msgid "Elevation angle"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Elevation angle of the beam from the horizontal plane\n"
+#~ "(in degrees)."
+#~ msgstr ""
+
+#~ msgid "Email address of your account"
+#~ msgstr ""
+
+#~ msgid "Entity the document applies to."
+#~ msgstr ""
+
+#~ msgid "Firmware binary"
+#~ msgstr ""
+
+#~ msgid "Firmware bundle"
+#~ msgstr ""
+
+#~ msgid "Firmware for which binary was built."
+#~ msgstr ""
+
+#~ msgid "Firmware type"
+#~ msgstr ""
+
+#~ msgid "Firmware version"
+#~ msgstr ""
+
+#~ msgid "Firmware version usable by some devices."
+#~ msgstr ""
+
+#~ msgid "Firmware_Bin"
+#~ msgid_plural "Firmware_Bins"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Firmware_Binary"
+#~ msgid_plural "Firmware_Binarys"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Firmware_Binary_in_Firmware_Bundle"
+#~ msgid_plural "Firmware_Binary_in_Firmware_Bundles"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Firmware_Bundle"
+#~ msgid_plural "Firmware_Bundles"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Firmware_Type"
+#~ msgid_plural "Firmware_Types"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Firmware_Version"
+#~ msgid_plural "Firmware_Versions"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Float_Interval"
+#~ msgid_plural "Float_Intervals"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Floating-point attribute."
+#~ msgstr ""
+
+#~ msgid "Frequency Band of an antenna type"
+#~ msgstr ""
+
+#~ msgid "Frequency range an antenna type supports."
+#~ msgstr ""
+
+#~ msgid "Frequency range for which transmission is allowed."
+#~ msgstr ""
+
+#~ msgid "Frequency with unit information (e.g. 2.437 GHz)."
+#~ msgstr ""
+
+#~ msgid "Frequency_Interval"
+#~ msgid_plural "Frequency_Intervals"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "GPS position and optional height of the node"
+#~ msgstr ""
+
+#~ msgid "Gain"
+#~ msgstr ""
+
+#~ msgid "Generate firmware for %s %s"
+#~ msgstr ""
+
+#~ msgid "Graph displaying Funkfeuer object model"
+#~ msgstr ""
+
+#~ msgid "Group of person"
+#~ msgstr ""
+
+#~ msgid "Handle of a subject for an instant messaging system"
+#~ msgstr ""
+
+#~ msgid "Hardware"
+#~ msgstr ""
+
+#~ msgid "Hardware interface used by virtual interface."
+#~ msgstr ""
+
+#~ msgid "Height relative to device the antenna is connected to."
+#~ msgstr ""
+
+#~ msgid "I forgot my password"
+#~ msgstr ""
+
+#~ msgid "I forgot my password; reset password of %s %s"
+#~ msgstr ""
+
+#~ msgid "I forgot my password; send me a temporary one to my email address"
+#~ msgstr ""
+
+#~ msgid "ID_Entity for which the permission exists"
+#~ msgstr ""
+
+#~ msgid "IM Protocol of handle"
+#~ msgstr ""
+
+#~ msgid "IM address (excluding protocol)"
+#~ msgstr ""
+
+#~ msgid "IM_Handle"
+#~ msgid_plural "IM_Handles"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP Network."
+#~ msgstr ""
+
+#~ msgid "IP Pool."
+#~ msgstr ""
+
+#~ msgid "IP addresses"
+#~ msgstr ""
+
+#~ msgid "IP addresses assigned to interface"
+#~ msgstr ""
+
+#~ msgid "IP network."
+#~ msgstr ""
+
+#~ msgid "IP pool."
+#~ msgstr ""
+
+#~ msgid "IP4_DNS_Alias"
+#~ msgid_plural "IP4_DNS_Aliases"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP4_Network"
+#~ msgid_plural "IP4_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP4_Network_in_IP4_Pool"
+#~ msgid_plural "IP4_Network_in_IP4_Pools"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP4_Pool"
+#~ msgid_plural "IP4_Pools"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP4_Pool_permits_Group"
+#~ msgid_plural "IP4_Pool_permits_Groups"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP6_DNS_Alias"
+#~ msgid_plural "IP6_DNS_Aliases"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP6_Network"
+#~ msgid_plural "IP6_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP6_Network_in_IP6_Pool"
+#~ msgid_plural "IP6_Network_in_IP6_Pools"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP6_Pool"
+#~ msgid_plural "IP6_Pools"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP6_Pool_permits_Group"
+#~ msgid_plural "IP6_Pool_permits_Groups"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP_DNS_Alias"
+#~ msgid_plural "IP_DNS_Aliases"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP_Network"
+#~ msgid_plural "IP_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP_Network_in_IP_Pool"
+#~ msgid_plural "IP_Network_in_IP_Pools"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP_Pool"
+#~ msgid_plural "IP_Pools"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IP_Pool_permits_Group"
+#~ msgid_plural "IP_Pool_permits_Groups"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "IPv4 Network address."
+#~ msgstr ""
+
+#~ msgid "IPv4 Network of CNDB"
+#~ msgstr ""
+
+#~ msgid "IPv4 networks in an IPv4 pool."
+#~ msgstr ""
+
+#~ msgid "IPv6 Network address."
+#~ msgstr ""
+
+#~ msgid "IPv6 Network of CNDB"
+#~ msgstr ""
+
+#~ msgid "IPv6 networks in an IPv6 pool."
+#~ msgstr ""
+
+#~ msgid "Id entity"
+#~ msgstr ""
+
+#~ msgid "Id_Entity_permits_Group"
+#~ msgid_plural "Id_Entity_permits_Groups"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Iface quota"
+#~ msgstr ""
+
+#~ msgid "Indicates if this interface is active."
+#~ msgstr ""
+
+#~ msgid "Indoor only"
+#~ msgstr ""
+
+#~ msgid "Int_Interval"
+#~ msgid_plural "Int_Intervals"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Int_Interval_C"
+#~ msgid_plural "Int_Interval_Cs"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Integer attribute."
+#~ msgstr ""
+
+#~ msgid "Interface"
+#~ msgstr ""
+
+#~ msgid "Ip network"
+#~ msgstr ""
+
+#~ msgid "Ip pool"
+#~ msgstr ""
+
+#~ msgid "Ip4 network"
+#~ msgstr ""
+
+#~ msgid "Ip4 pool"
+#~ msgstr ""
+
+#~ msgid "Ip6 network"
+#~ msgstr ""
+
+#~ msgid "Ip6 pool"
+#~ msgstr ""
+
+#~ msgid "Is active"
+#~ msgstr ""
+
+#~ msgid "Key"
+#~ msgstr ""
+
+#~ msgid "Key used for WPA authentication."
+#~ msgstr ""
+
+#~ msgid "Last change"
+#~ msgstr ""
+
+#~ msgid "Left network interface"
+#~ msgstr ""
+
+#~ msgid "Limit netmasks to allocate from this String `type_name`."
+#~ msgstr ""
+
+#~ msgid "Link Firmware_Binary to Firmware_Bundle."
+#~ msgstr ""
+
+#~ msgid "Link a person to a adhoc_group"
+#~ msgstr ""
+
+#~ msgid "Link a person to a association"
+#~ msgstr ""
+
+#~ msgid "Link a person to a company"
+#~ msgstr ""
+
+#~ msgid "Link between two network interfaces."
+#~ msgstr ""
+
+#~ msgid "Location of document."
+#~ msgstr ""
+
+#~ msgid "Log into website"
+#~ msgstr ""
+
+#~ msgid "Logout"
+#~ msgstr ""
+
+#~ msgid "Lower"
+#~ msgstr ""
+
+#~ msgid "Lower bound of interval."
+#~ msgstr ""
+
+#~ msgid "MAC address of interface."
+#~ msgstr ""
+
+#~ msgid "Mac address"
+#~ msgstr ""
+
+#~ msgid "Manager"
+#~ msgstr ""
+
+#~ msgid "Manager of the node"
+#~ msgstr ""
+
+#~ msgid "Manufacturer"
+#~ msgstr ""
+
+#~ msgid "Mask len"
+#~ msgstr ""
+
+#~ msgid "Maximum allowed TX power in dBm, dBW or units of W."
+#~ msgstr ""
+
+#~ msgid "Maximum allowed antenna gain in dB."
+#~ msgstr ""
+
+#~ msgid "Maximum allowed bandwidth."
+#~ msgstr ""
+
+#~ msgid "Mentor"
+#~ msgstr ""
+
+#~ msgid "Mode"
+#~ msgstr ""
+
+#~ msgid "Model a document linked to some other entity."
+#~ msgstr ""
+
+#~ msgid "Model a network device of CNDB.OMP."
+#~ msgstr ""
+
+#~ msgid "Model a node of CNDB"
+#~ msgstr ""
+
+#~ msgid "Model a routing zone of CNDB.OMP."
+#~ msgstr ""
+
+#~ msgid "Model an antenna used by a CNDB node."
+#~ msgstr ""
+
+#~ msgid "Model an association."
+#~ msgstr ""
+
+#~ msgid "Model an interval of float values (lower, upper)."
+#~ msgstr ""
+
+#~ msgid "Model an interval of frequency values (lower, upper)."
+#~ msgstr ""
+
+#~ msgid "Model an interval of int values (lower, upper)."
+#~ msgstr ""
+
+#~ msgid "Model credentials necessary for WPA authentication."
+#~ msgstr ""
+
+#~ msgid "Model manufacturer of device-type."
+#~ msgstr ""
+
+#~ msgid "Model no"
+#~ msgstr ""
+
+#~ msgid "Model number identifying the device type"
+#~ msgstr ""
+
+#~ msgid "Model the type of antennas in CNDB.OMP."
+#~ msgstr ""
+
+#~ msgid "Model the type of network devices in CNDB.OMP."
+#~ msgstr ""
+
+#~ msgid "Name identifying the firmware bundle."
+#~ msgstr ""
+
+#~ msgid "Name identifying the firmware type."
+#~ msgstr ""
+
+#~ msgid "Name of Antenna"
+#~ msgstr ""
+
+#~ msgid "Name of Device"
+#~ msgstr ""
+
+#~ msgid "Name of IP_Pool"
+#~ msgstr ""
+
+#~ msgid "Name of Net_Device"
+#~ msgstr ""
+
+#~ msgid "Name of adhoc_group."
+#~ msgstr ""
+
+#~ msgid "Name of association."
+#~ msgstr ""
+
+#~ msgid "Name of device type"
+#~ msgstr ""
+
+#~ msgid "Name of the alias."
+#~ msgstr ""
+
+#~ msgid "Name of the interface."
+#~ msgstr ""
+
+#~ msgid "Name of the node"
+#~ msgstr ""
+
+#~ msgid "Name of the standard"
+#~ msgstr ""
+
+#~ msgid "Name of the zone"
+#~ msgstr ""
+
+#~ msgid "Need dfs"
+#~ msgstr ""
+
+#~ msgid "Net address"
+#~ msgstr ""
+
+#~ msgid "Net device"
+#~ msgstr ""
+
+#~ msgid "Net device type"
+#~ msgstr ""
+
+#~ msgid "Net interface"
+#~ msgstr ""
+
+#~ msgid "Net_Device"
+#~ msgid_plural "Net_Devices"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Net_Device_Type"
+#~ msgid_plural "Net_Device_Types"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Net_Interface"
+#~ msgid_plural "Net_Interfaces"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Net_Interface_in_IP4_Network"
+#~ msgid_plural "Net_Interface_in_IP4_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Net_Interface_in_IP6_Network"
+#~ msgid_plural "Net_Interface_in_IP6_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Net_Interface_in_IP_Network"
+#~ msgid_plural "Net_Interface_in_IP_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Net_Link"
+#~ msgid_plural "Net_Links"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Netmask interval"
+#~ msgstr ""
+
+#~ msgid "Network address."
+#~ msgstr ""
+
+#~ msgid "Network device the interface is connected to."
+#~ msgstr ""
+
+#~ msgid "Network interface."
+#~ msgstr ""
+
+#~ msgid "Network mask used for this IP Network."
+#~ msgstr ""
+
+#~ msgid "Network name."
+#~ msgstr ""
+
+#~ msgid "Nickname"
+#~ msgid_plural "Nicknames"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Nickname of a subject"
+#~ msgstr ""
+
+#~ msgid "Node"
+#~ msgid_plural "Nodes"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Node for which this `String `type_name`` is reserved."
+#~ msgstr ""
+
+#~ msgid "Node quota"
+#~ msgstr ""
+
+#~ msgid "Number of %s belonging to %s"
+#~ msgstr ""
+
+#~ msgid "Only indoor TX allowed."
+#~ msgstr ""
+
+#~ msgid "Open wireless networks"
+#~ msgstr ""
+
+#~ msgid "Owner"
+#~ msgstr ""
+
+#~ msgid "Owner of the `String `type_name``."
+#~ msgstr ""
+
+#~ msgid "Owner of the node, defaults to manager"
+#~ msgstr ""
+
+#~ msgid "Password of your account"
+#~ msgstr ""
+
+#~ msgid "Permission of a group on id_entity."
+#~ msgstr ""
+
+#~ msgid "Permission of a group on ip4_pool."
+#~ msgstr ""
+
+#~ msgid "Permission of a group on ip6_pool."
+#~ msgstr ""
+
+#~ msgid "Permitted Group"
+#~ msgstr ""
+
+#~ msgid "Person is the mentor of another person."
+#~ msgstr ""
+
+#~ msgid "Person linked to Adhoc_Group"
+#~ msgstr ""
+
+#~ msgid "Person linked to Association"
+#~ msgstr ""
+
+#~ msgid "Person linked to Company"
+#~ msgstr ""
+
+#~ msgid "Person linked to Group"
+#~ msgstr ""
+
+#~ msgid "Person_in_Adhoc_Group"
+#~ msgid_plural "Person_in_Adhoc_Groups"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Person_in_Association"
+#~ msgid_plural "Person_in_Associations"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Person_in_Company"
+#~ msgid_plural "Person_in_Companys"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Person_in_Group"
+#~ msgid_plural "Person_in_Groups"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Person_mentors_Person"
+#~ msgid_plural "Person_mentors_Persons"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Personal data of %s"
+#~ msgstr ""
+
+#~ msgid "Personal settings"
+#~ msgstr ""
+
+#~ msgid "Polarization"
+#~ msgstr ""
+
+#~ msgid "Pool"
+#~ msgstr ""
+
+#~ msgid "Pool to which this `String `type_name`` belongs."
+#~ msgstr ""
+
+#~ msgid "Protocol"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Quota of IP allocations from this IP pool for a single\n"
+#~ "network interface."
+#~ msgstr ""
+
+#~ msgid "Quota of IP allocations from this IP pool per node."
+#~ msgstr ""
+
+#~ msgid "Quota of IP allocations from this IP pool per user."
+#~ msgstr ""
+
+#~ msgid "RESTful API"
+#~ msgstr ""
+
+#~ msgid "Regulatory transmit permission"
+#~ msgstr ""
+
+#~ msgid "Regulatory_Domain"
+#~ msgid_plural "Regulatory_Domains"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Regulatory_Permission"
+#~ msgid_plural "Regulatory_Permissions"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Relative height"
+#~ msgstr ""
+
+#~ msgid "Revision"
+#~ msgstr ""
+
+#~ msgid "Revision of hardware of device type"
+#~ msgstr ""
+
+#~ msgid "Right network interface"
+#~ msgstr ""
+
+#~ msgid "Routing zone using the OLSR routing protocol."
+#~ msgstr ""
+
+#~ msgid "Routing_Zone"
+#~ msgid_plural "Routing_Zones"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Routing_Zone_OLSR"
+#~ msgid_plural "Routing_Zone_OLSRs"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Short description of the im_handle"
+#~ msgstr ""
+
+#~ msgid "Short description of the nickname"
+#~ msgstr ""
+
+#~ msgid "Short name of adhoc_group."
+#~ msgstr ""
+
+#~ msgid "Short name of association."
+#~ msgstr ""
+
+#~ msgid "Show graphs and statistics about %s %s"
+#~ msgstr ""
+
+#~ msgid "Show in map"
+#~ msgstr ""
+
+#~ msgid "Show in map."
+#~ msgstr ""
+
+#~ msgid "Standard"
+#~ msgstr ""
+
+#~ msgid "TX Power"
+#~ msgstr ""
+
+#~ msgid "TX power"
+#~ msgstr ""
+
+#~ msgid "The Person being mentored."
+#~ msgstr ""
+
+#~ msgid "The Person mentoring another person."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The `mask_len` must match the one of `right` or of any\n"
+#~ "network containing `right`."
+#~ msgstr ""
+
+#~ msgid "The `net_address` must be contained in the `parent`."
+#~ msgstr ""
+
+#~ msgid "The antenna type for this band"
+#~ msgstr ""
+
+#~ msgid "The assigned IP Address"
+#~ msgstr ""
+
+#~ msgid "The name must be unique for this type of address."
+#~ msgstr ""
+
+#~ msgid "The network interface using these credentials."
+#~ msgstr ""
+
+#~ msgid "The nickname."
+#~ msgstr ""
+
+#~ msgid "The regulatory domain that gives this permission."
+#~ msgstr ""
+
+#~ msgid "The upper bound must be greater than the lower bound."
+#~ msgstr ""
+
+#~ msgid "The wireless standard for this channel"
+#~ msgstr ""
+
+#~ msgid "The zone that's routed for."
+#~ msgstr ""
+
+#~ msgid "There must be at least one frequency band for the antenna."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There must not be a second link with `left` and `right`\n"
+#~ "swapped."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`net_interface_in_ip4_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`net_interface_in_ip4_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`net_interface_in_ip6_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`net_interface_in_ip6_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`net_interface_in_ip_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`net_interface_in_ip_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`virtual_wireless_interface_in_ip4_network` `left`, the"
+#~ " network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`virtual_wireless_interface_in_ip4_network` `left`, the"
+#~ " network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`virtual_wireless_interface_in_ip6_network` `left`, the"
+#~ " network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`virtual_wireless_interface_in_ip6_network` `left`, the"
+#~ " network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`virtual_wireless_interface_in_ip_network` `left`, the "
+#~ "network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`virtual_wireless_interface_in_ip_network` `left`, the "
+#~ "network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wired_interface_in_ip4_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wired_interface_in_ip4_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wired_interface_in_ip6_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wired_interface_in_ip6_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wired_interface_in_ip_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wired_interface_in_ip_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wireless_interface_in_ip4_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wireless_interface_in_ip4_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wireless_interface_in_ip6_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wireless_interface_in_ip6_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wireless_interface_in_ip_network` `left`, the network `right` must\n"
+#~ "have been explicitly allocated to an `owner`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To be eligible to be assigned to the\n"
+#~ "`wireless_interface_in_ip_network` `left`, the network `right` must\n"
+#~ "not be split into sub-networks."
+#~ msgstr ""
+
+#~ msgid "Top of page"
+#~ msgstr ""
+
+#~ msgid "Transmit power with unit (units of dBW or W)."
+#~ msgstr ""
+
+#~ msgid "Two-letter country-code"
+#~ msgstr ""
+
+#~ msgid "Type"
+#~ msgstr ""
+
+#~ msgid "Type of Antenna"
+#~ msgstr ""
+
+#~ msgid "Type of Device"
+#~ msgstr ""
+
+#~ msgid "Type of Net_Device"
+#~ msgstr ""
+
+#~ msgid "Type of document (e.g., picture, user manual)."
+#~ msgstr ""
+
+#~ msgid "Type of firmware"
+#~ msgstr ""
+
+#~ msgid "Type of firmware usable by some devices."
+#~ msgstr ""
+
+#~ msgid "Type of net device"
+#~ msgstr ""
+
+#~ msgid "URL for Firmware_Type"
+#~ msgstr ""
+
+#~ msgid "Upper"
+#~ msgstr ""
+
+#~ msgid "Upper bound of interval."
+#~ msgstr ""
+
+#~ msgid "User quota"
+#~ msgstr ""
+
+#~ msgid "Users"
+#~ msgstr ""
+
+#~ msgid "Version"
+#~ msgstr ""
+
+#~ msgid "Version of the firmware"
+#~ msgstr ""
+
+#~ msgid "Version of the firmware bundle."
+#~ msgstr ""
+
+#~ msgid "Virtual wireless interface"
+#~ msgstr ""
+
+#~ msgid "Virtual wireless interface of a CNDB device"
+#~ msgstr ""
+
+#~ msgid "Virtual_Wireless_Interface"
+#~ msgid_plural "Virtual_Wireless_Interfaces"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Virtual_Wireless_Interface_in_IP4_Network"
+#~ msgid_plural "Virtual_Wireless_Interface_in_IP4_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Virtual_Wireless_Interface_in_IP6_Network"
+#~ msgid_plural "Virtual_Wireless_Interface_in_IP6_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Virtual_Wireless_Interface_in_IP_Network"
+#~ msgid_plural "Virtual_Wireless_Interface_in_IP_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "WPA_Credentials"
+#~ msgid_plural "WPA_Credentialses"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wired interface"
+#~ msgstr ""
+
+#~ msgid "Wired interface of a CNDB device"
+#~ msgstr ""
+
+#~ msgid "Wired_Interface"
+#~ msgid_plural "Wired_Interfaces"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wired_Interface_in_IP4_Network"
+#~ msgid_plural "Wired_Interface_in_IP4_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wired_Interface_in_IP6_Network"
+#~ msgid_plural "Wired_Interface_in_IP6_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wired_Interface_in_IP_Network"
+#~ msgid_plural "Wired_Interface_in_IP_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless Regulatory Domain"
+#~ msgstr ""
+
+#~ msgid "Wireless channel of a wireless standard"
+#~ msgstr ""
+
+#~ msgid "Wireless channel used by a wireless interface"
+#~ msgstr ""
+
+#~ msgid "Wireless channel."
+#~ msgstr ""
+
+#~ msgid "Wireless interface"
+#~ msgstr ""
+
+#~ msgid "Wireless interface of a CNDB device"
+#~ msgstr ""
+
+#~ msgid "Wireless interface."
+#~ msgstr ""
+
+#~ msgid "Wireless mode to use for Virtual_Wireless_Interface"
+#~ msgstr ""
+
+#~ msgid "Wireless mode to use for Wireless_Interface"
+#~ msgstr ""
+
+#~ msgid "Wireless mode to use for _Wireless_Interface_"
+#~ msgstr ""
+
+#~ msgid "Wireless standard"
+#~ msgstr ""
+
+#~ msgid "Wireless standard used by the wireless interface."
+#~ msgstr ""
+
+#~ msgid "Wireless_Channel"
+#~ msgid_plural "Wireless_Channels"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless_Interface"
+#~ msgid_plural "Wireless_Interfaces"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless_Interface_in_IP4_Network"
+#~ msgid_plural "Wireless_Interface_in_IP4_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless_Interface_in_IP6_Network"
+#~ msgid_plural "Wireless_Interface_in_IP6_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless_Interface_in_IP_Network"
+#~ msgid_plural "Wireless_Interface_in_IP_Networks"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless_Interface_uses_Antenna"
+#~ msgid_plural "Wireless_Interface_uses_Antennas"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless_Interface_uses_Wireless_Channel"
+#~ msgid_plural "Wireless_Interface_uses_Wireless_Channels"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Wireless_Standard"
+#~ msgid_plural "Wireless_Standards"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid ""
+#~ "You are not allowed to change %s"
+#~ " unless afterwards you [%s] are still"
+#~ " either manager or owner"
+#~ msgstr ""
+
+#~ msgid "Zone"
+#~ msgid_plural "Zones"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "`Node` to which the `net_device` is connected."
+#~ msgstr ""
+
+#~ msgid "`left` and `right` must be different objects!"
+#~ msgstr ""
+
+#~ msgid "`left` must be equal to `hardware.left`"
+#~ msgstr ""
+
+#~ msgid "and"
+#~ msgstr ""
+
+#~ msgid "band_exists"
+#~ msgstr ""
+
+#~ msgid "is_valid"
+#~ msgstr ""
+
+#~ msgid "left_not_right"
+#~ msgstr ""
+
+#~ msgid "net_address_in_parent"
+#~ msgstr ""
+
+#~ msgid "network_not_split"
+#~ msgstr ""
+
+#~ msgid "not_inverse"
+#~ msgstr ""
+
+#~ msgid "number of this channel"
+#~ msgstr ""
+
+#~ msgid "owned/managed by"
+#~ msgstr ""
+
+#~ msgid "owner_or_expiration"
+#~ msgstr ""
+
+#~ msgid "to"
+#~ msgstr ""
+
+#~ msgid "unique_name"
+#~ msgstr ""
+
+#~ msgid "valid_left"
+#~ msgstr ""
+
+#~ msgid "valid_mask_len"
+#~ msgstr ""
+
+#~ msgid "valid_network"
+#~ msgstr ""
 

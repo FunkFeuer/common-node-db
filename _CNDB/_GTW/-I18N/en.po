@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2014-08-31 12:44+0200\n"
+"POT-Creation-Date: 2014-09-04 09:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -17,90 +17,90 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: _CNDB/_GTW/RST_addons.py:885
+#: _CNDB/_GTW/RST_addons.py:951
 #, python-format
 msgid "%ss managed/owned by %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:940
+#: _CNDB/_GTW/RST_addons.py:1002
 #, python-format
 msgid "%ss used by %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:971
+#: _CNDB/_GTW/RST_addons.py:1033
 #, python-format
 msgid "Addresses used by %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:619
+#: _CNDB/_GTW/RST_addons.py:660
 #, python-format
 msgid "Change password of %s %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:624
+#: _CNDB/_GTW/RST_addons.py:665
 #, python-format
 msgid "Create a new %s %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:629
+#: _CNDB/_GTW/RST_addons.py:670
 #, python-format
 msgid "Delete %s %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:634
+#: _CNDB/_GTW/RST_addons.py:675
 #, python-format
 msgid "Edit %s %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:645
+#: _CNDB/_GTW/RST_addons.py:686
 #, python-format
 msgid "Generate firmware for %s %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:655
+#: _CNDB/_GTW/RST_addons.py:696
 #, python-format
 msgid "I forgot my password; reset password of %s %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:719
+#: _CNDB/_GTW/RST_addons.py:760
 msgid "IP addresses"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:713
+#: _CNDB/_GTW/RST_addons.py:754
 msgid "IP addresses assigned to interface"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:779
+#: _CNDB/_GTW/RST_addons.py:820
 #, python-format
 msgid "Number of %s belonging to %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:1220
+#: _CNDB/_GTW/RST_addons.py:1293
 #, python-format
 msgid "Personal data of %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:650
+#: _CNDB/_GTW/RST_addons.py:691
 #, python-format
 msgid "Show graphs and statistics about %s %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:128
+#: _CNDB/_GTW/RST_addons.py:142
 #, python-format
 msgid ""
 "You are not allowed to change %s unless afterwards you [%s] are still "
 "either manager or owner"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:131
+#: _CNDB/_GTW/RST_addons.py:145
 msgid "and"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:226
+#: _CNDB/_GTW/RST_addons.py:241
 msgid "owned/managed by"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:133
+#: _CNDB/_GTW/RST_addons.py:147
 msgid "to"
 msgstr ""
 
