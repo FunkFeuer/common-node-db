@@ -25,6 +25,8 @@
 //                     Move Map to JS
 //                     Map now filters nodes and vice versa
 //     3-Sep-2014 (CT) Add `create_p_cb` and `create_t_cb`
+//     3-Sep-2014 (MB) Added map to edit of node
+//     4-Sep-2014 (MB) Allow setting and dragging of markers
 //    ««revision-date»»···
 //--
 
@@ -373,6 +375,97 @@
                     , maxZoom: 15});
                     };
             });
+        
+        // make position editing more interesting...
+        // ... by adding a map!
+        $(document).ready(function() {
+            var form="form[action *='node']";
+            if ($(form).length) {
+                
+                var poslat="input[name='position.lat']";
+                var poslon="input[name='position.lon']";
+                var marker;
+                var show_marker = function() { 
+                    // show a marker based on the position in the form
+
+                    var degreeToFloat = function (s) {
+                        // convert degrees, minutes, seconds to float
+                        if (! s.match(/[^0-9. ]/)) {
+                            return parseFloat(s) };
+                        var dms= s.match(/([0-9]{2}).*?([0-9]{2}).*?([0-9.]+)/).slice(1)
+                        dms = dms.map(function(x) { return parseFloat(x) });
+                        return dms.reduce(function(x,y,i) { return x+(y/Math.pow(60,i)) });
+                        };
+                    
+                    // let's see whether we have positions
+                    var lat = $(poslat).val();
+                    var lon = $(poslon).val();
+
+                    if (lat && lon) {
+                        lat=degreeToFloat(lat);
+                        lon=degreeToFloat(lon);
+                        console.log([lat,lon]);
+                        if (marker == undefined) {  
+                            marker = L.marker([lat,lon],
+                                    {"draggable": true})
+                                    .addTo(position_map)
+                                    .on("dragend", function(e) {
+                                        var ll=e.target._latlng;
+                                        $(poslat).val(ll.lat);
+                                        $(poslon).val(ll.lng);
+                                        });
+                                    }
+                        else {
+                            marker.setLatLng([lat, lon])
+                                .update();
+                            }
+                        position_map.setView([lat,lon],
+                            Math.max(position_map.getZoom(),15));
+                        }
+                    };
+
+                var field = $(poslat).parent().parent();
+
+                // let's restructure the Dom for a bit!
+                var d = $("div",field);
+                $("div",field).remove();
+                field.append("<div class='pure-g-r'></div>");
+                $("div",field).append("<div class='pure-u-1-2'></div>");
+                $("div > div",field).append(d);
+                $("div.pure-g-r",field).append("<div class='map pure-u-1-2' id='position-map'></div>");
+
+                // add and initialize the map
+                L.Icon.Default.imagePath = "/media/GTW/css/images";
+                var position_map= L.map('position-map',
+                                    {"doubleClickZoom": false})
+                                    .setView([48.2083537,16.3725042],10)
+                                    .on("dblclick", function(e) {
+                                        var ll = e.latlng;
+                                        $(poslat).val(ll.lat);
+                                        $(poslon).val(ll.lng);
+                                        show_marker();
+                                        });
+
+
+                L.tileLayer ( 'https://\{s\}.tile.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
+                            , { maxZoom: 18
+                            , attribution: 'Map data &copy; ' +
+                              '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 
+                              '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
+                               }
+                ).addTo (position_map);
+                
+
+                // show marker on load
+                show_marker();
+
+                //bind change in input fields to show marker
+                $("input[name *='position.']").on("change",function() { show_marker()});    
+
+                }
+
+            });
+
         return this;
     };
   } (jQuery)
