@@ -27,6 +27,7 @@
 //     3-Sep-2014 (CT) Add `create_p_cb` and `create_t_cb`
 //     3-Sep-2014 (MB) Added map to edit of node
 //     4-Sep-2014 (MB) Allow setting and dragging of markers
+//     4-Sep-2014 (MB) Add geolocate button
 //    ««revision-date»»···
 //--
 
@@ -384,6 +385,11 @@
                 
                 var poslat="input[name='position.lat']";
                 var poslon="input[name='position.lon']";
+
+                var update_position = function(p) {
+                    $(poslat).val(p[0]).trigger("change");
+                    $(poslon).val(p[1]).trigger("change");
+                    }
                 var marker;
                 var show_marker = function() { 
                     // show a marker based on the position in the form
@@ -404,15 +410,13 @@
                     if (lat && lon) {
                         lat=degreeToFloat(lat);
                         lon=degreeToFloat(lon);
-                        console.log([lat,lon]);
                         if (marker == undefined) {  
                             marker = L.marker([lat,lon],
                                     {"draggable": true})
                                     .addTo(position_map)
                                     .on("dragend", function(e) {
                                         var ll=e.target._latlng;
-                                        $(poslat).val(ll.lat);
-                                        $(poslon).val(ll.lng);
+                                        update_position([ll.lat,ll.lng]);
                                         });
                                     }
                         else {
@@ -428,10 +432,15 @@
 
                 // let's restructure the Dom for a bit!
                 var d = $("div",field);
-                $("div",field).remove();
+                //$("div",field).detach();
                 field.append("<div class='pure-g-r'></div>");
-                $("div",field).append("<div class='pure-u-1-2'></div>");
-                $("div > div",field).append(d);
+                $("div:last",field).append("<div id='posfields' class='pure-u-1-2'></div>");
+                d.appendTo($("#posfields"));
+                $("div > div:first",field).append("<div class='Field pure-control-group'>" +
+                    "<label></label>" +
+                    "<button name='geolocate' class='pure-button' id='geolocate'>" +
+                    "<i class='fa fa-globe' title='geolocate address'></i>" +
+                    "</button>");
                 $("div.pure-g-r",field).append("<div class='map pure-u-1-2' id='position-map'></div>");
 
                 // add and initialize the map
@@ -441,9 +450,7 @@
                                     .setView([48.2083537,16.3725042],10)
                                     .on("dblclick", function(e) {
                                         var ll = e.latlng;
-                                        $(poslat).val(ll.lat);
-                                        $(poslon).val(ll.lng);
-                                        show_marker();
+                                        update_position([ll.lat,ll.lng]);
                                         });
 
 
@@ -461,6 +468,34 @@
 
                 //bind change in input fields to show marker
                 $("input[name *='position.']").on("change",function() { show_marker()});    
+                $("button#geolocate").on("click", function() {
+                    $("button#geolocate").addClass("pure-button-disabled");
+                    var fields=["street","zip","city","country"];
+                    var address = fields.map(function(x) {
+                        return $("input[name='"+x+"']").val() }).join(", ");
+                    $.getJSON("http://nominatim.openstreetmap.org/search/?q='"+
+                        address+"'&format=json",
+                        function(d) {
+                            if (d.length) {
+                                var lat;
+                                var lon;
+                                var p = d.filter(function(x) {
+                                    return x.class == "place";
+                                    });
+                                if (p.length) {
+                                    lat = p[0].lat;
+                                    lon = p[0].lon;
+                                    }
+                                else {
+                                    lat = d[0].lat;
+                                    lon = d[0].lon;
+                                    }
+                                update_position([lat,lon]);    
+                                };
+                            $("button#geolocate").removeClass("pure-button-disabled");    
+                            })
+                    return false;
+                    });
 
                 }
 
