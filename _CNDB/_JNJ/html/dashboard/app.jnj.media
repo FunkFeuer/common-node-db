@@ -32,6 +32,7 @@
 #    14-Jul-2014 (CT) Add rule for `max_height`, `min_height` of `.map`
 #     2-Sep-2014 (MB) Change Z-Index of nav
 #     3-Sep-2014 (CT) Add rule for ".partial-type-menu"
+#     4-Sep-2014 (MB) Add fixed height for map - fixes displaying in ff
 #    ««revision-date»»···
 #--
 
@@ -505,6 +506,10 @@ style_sheet = Style_Sheet \
     , Rule
         ( ".status-warning"
         , background_color     = P.color_status_missing
+        )
+    , Rule
+        ( ".map"
+        , height     = "200px"
         )
     , Media.Rule
         ( Media.Query ("screen", P.breakpoint.narrow)
