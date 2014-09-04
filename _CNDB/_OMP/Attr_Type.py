@@ -42,6 +42,7 @@
 #    24-Jun-2014 (RS) Undo latest change now that `A_Int_Interval_C` works
 #     3-Jul-2014 (RS) Add `_A_IP_Netmask_`, `_A_IP_Quota_` and derivatives,
 #                     model _A_IP_Netmask_Interval_ after same scheme
+#     4-Sep-2014 (RS) Set `max_value` of `A_IP6_Netmask` to 128
 #    ««revision-date»»···
 #--
 
@@ -138,7 +139,7 @@ class A_IP4_Netmask (_A_IP_Netmask_) :
 
 class A_IP6_Netmask (_A_IP_Netmask_) :
 
-    max_value   = 32
+    max_value   = 128
 
 # end class A_IP6_Netmask
 
