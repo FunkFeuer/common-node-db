@@ -58,6 +58,9 @@
 #     4-Jul-2014 (RS) `IP_Pool_permits_Group`, `IP_Network_in_IP_Pool`,
 #                     changes to `IP_Pool`
 #    11-Jul-2014 (CT) Add tests to `_test_partial`; clear ballast from it
+#     5-Sep-2014 (RS) Garbage collector now frees networks with maximum
+#                     netmask, to avoid garbage collection now all IPs
+#                     have an associated `Net_Interface`.
 #    ««revision-date»»···
 #--
 
@@ -87,6 +90,11 @@ _test_alloc = """
     >>> ct  = PAP.Person ("Tanzer", "Christian", raw = True)
     >>> lt  = PAP.Person ("Tanzer", "Laurens", raw = True)
     >>> osc = PAP.Company ("Open Source Consulting", raw = True)
+
+    >>> nod = CNDB.Node (name = "Test-Node", manager = ff, raw = True)
+    >>> dt  = CNDB.Net_Device_Type (name = "Generic", raw = True)
+    >>> dev = CNDB.Net_Device (left = dt, node = nod, name = "dev", raw = True)
+    >>> ifc = CNDB.Wired_Interface (left = dev, name = "iface", raw = True)
 
     >>> ETM = scope.CNDB.IP4_Network
     >>> show_networks (scope, ETM) ### nothing allocated yet
@@ -221,6 +229,7 @@ _test_alloc = """
     CNDB.IP4_Network count: 45
 
     >>> mg_addr = ct_pool.reserve ('10.0.0.1/32', owner = mg)
+    >>> ni = CNDB.Net_Interface_in_IP_Network (ifc, mg_addr, mask_len = 32)
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.1/32
     10.0.0.0/28        Schlatterbeck Ralf       : electric = F, children = T
     10.0.0.0/30        Tanzer Christian         : electric = F, children = T
@@ -233,6 +242,7 @@ _test_alloc = """
     10.0.0.2/31        Tanzer Christian         : electric = T, children = F
 
     >>> lt_addr = ct_pool.reserve ('10.0.0.2/32', owner = lt)
+    >>> ni = CNDB.Net_Interface_in_IP_Network (ifc, lt_addr, mask_len = 32)
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.2/32
     10.0.0.0/28        Schlatterbeck Ralf       : electric = F, children = T
     10.0.0.0/30        Tanzer Christian         : electric = F, children = T
@@ -247,9 +257,11 @@ _test_alloc = """
     10.0.0.3           Tanzer Christian         : electric = T, children = F
 
     >>> rs_addr = ct_pool.reserve ('10.0.0.0/32', owner = rs)
+    >>> ni = CNDB.Net_Interface_in_IP_Network (ifc, rs_addr, mask_len = 32)
     >>> rs_addr.pool
     CNDB.IP4_Network ("10.0.0.0/30")
     >>> ct_addr = ct_pool.reserve (Adr ('10.0.0.3/32'), owner = ct)
+    >>> ni = CNDB.Net_Interface_in_IP_Network (ifc, ct_addr, mask_len = 32)
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.3/32
     10.0.0.0/28        Schlatterbeck Ralf       : electric = F, children = T
     10.0.0.0/30        Tanzer Christian         : electric = F, children = T
@@ -280,6 +292,7 @@ _test_alloc = """
     10.0.0.12/30       Glueck Martin            : electric = T, children = F
 
     >>> ct_addr2 = ff_pool.reserve (Adr ('10.42.137.1/32'), owner = ct)
+    >>> ni = CNDB.Net_Interface_in_IP_Network (ifc, ct_addr2, mask_len = 32)
     >>> show_networks (scope, ETM) ### 10.42.137.1/32
     10.0.0.0/8         Funkfeuer                : electric = F, children = T
     10.0.0.0/16        Open Source Consulting   : electric = F, children = T
@@ -487,23 +500,29 @@ _test_alloc = """
     >>> print ("mg_addr", mg_addr)
     mg_addr ("10.0.0.1")
     >>> mg_addr.free ()
+    >>> mg_addr.net_interface_link
     >>> print ("lt_addr", lt_addr)
     lt_addr ("10.0.0.2")
     >>> lt_addr.free ()
+    >>> lt_addr.net_interface_link
     >>> print ("rs_addr", rs_addr, rs_addr.pool)
     rs_addr ("10.0.0.0") ("10.0.0.0/30")
     >>> rs_addr.free ()
+    >>> rs_addr.net_interface_link
     >>> print ("mg_pool_2", mg_pool_2)
     mg_pool_2 ("10.0.0.8/30")
     >>> mg_pool_2.free ()
     >>> print ("ct_addr", ct_addr)
     ct_addr ("10.0.0.3")
     >>> ct_addr.free ()
+    >>> ct_addr.net_interface_link
+    >>> lt_addr.net_interface_link
     >>> print ("lt_addr", lt_addr)
     lt_addr ("10.0.0.2")
     >>> lt_addr.free ()
     >>> print ("mg_addr", mg_addr)
     mg_addr ("10.0.0.1")
+    >>> mg_addr.net_interface_link
     >>> mg_addr.free ()
     >>> print ("ct_pool", ct_pool)
     ct_pool ("10.0.0.0/30")
@@ -519,7 +538,9 @@ _test_alloc = """
     >>> rs_pool.free ()
     >>> print ("ct_addr2", ct_addr2)
     ct_addr2 ("10.42.137.1")
-    >>> ct_addr2.free ()
+
+    # Don't free but destroy link. Picked up by garbage collector
+    >>> ct_addr2.net_interface_link.destroy ()
 
     >>> show_networks (scope, ETM) # After free
     10.0.0.0/8         Funkfeuer                : electric = F, children = T
@@ -533,7 +554,7 @@ _test_alloc = """
     10.0.0.3           expiring                 : electric = F, children = F
     10.0.0.4/30        expiring                 : electric = F, children = F
     10.0.0.8/30        expiring                 : electric = F, children = F
-    10.42.137.1        expiring                 : electric = F, children = F
+    10.42.137.1        Tanzer Christian         : electric = F, children = F
     10.0.0.0/9         Funkfeuer                : electric = T, children = T
     10.0.0.0/10        Funkfeuer                : electric = T, children = T
     10.0.0.0/11        Funkfeuer                : electric = T, children = T
@@ -618,14 +639,17 @@ _test_alloc = """
     10.64.0.0/10       Funkfeuer                : electric = T, children = F
     10.128.0.0/9       Funkfeuer                : electric = T, children = F
 
+    >>> show_networks (scope, ETM, pool = ct_addr2) ### 10.42.137.1
+    10.42.137.1        Tanzer Christian         : electric = F, children = F
+    >>> mg_pool.collect_garbage ()
+    >>> show_networks (scope, ETM, pool = ct_addr2) ### 10.42.137.1
+    10.42.137.1        Tanzer Christian         : electric = F, children = F
+    >>> ff_pool.collect_garbage ()
+    >>> show_networks (scope, ETM, pool = ct_addr2) ### 10.42.137.1
+    10.42.137.1        expiring                 : electric = F, children = F
     >>> now = datetime.now ()
     >>> ct_addr2.set (expiration_date = now)
     1
-    >>> show_networks (scope, ETM, pool = ct_addr2) ### 10.42.137.1
-    10.42.137.1        free                     : electric = F, children = F
-    >>> mg_pool.collect_garbage ()
-    >>> show_networks (scope, ETM, pool = ct_addr2) ### 10.42.137.1
-    10.42.137.1        free                     : electric = F, children = F
     >>> ff_pool.collect_garbage ()
     >>> show_networks (scope, ETM) # After collect_garbage
     10.0.0.0/8         Funkfeuer                : electric = F, children = T

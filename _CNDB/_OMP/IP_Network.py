@@ -64,6 +64,9 @@
 #    24-Jun-2014 (CT) Fix `ip_pool` query in `min_cooldown_period`
 #    24-Jun-2014 (RS) Remove obsolete code from `min_cooldown_period`
 #     4-Jul-2014 (RS) Fix query in `min_cooldown_period` for new `IP_Pool`
+#     5-Sep-2014 (RS) `free` now destroys a `net_interface_link` if existing;
+#                     `collect_garbage` now frees /32 or /128 networks
+#                     without a `net_interface_link`
 #    ««revision-date»»···
 #--
 
@@ -269,7 +272,10 @@ class IP_Network (_Ancestor_Essence) :
     # end def allocate
 
     def collect_garbage (self) :
-        """ First update expiration dates: All children of an expired
+        """ First search for single IP addresses that are not allocated
+            to a Network_Interface and free() them.
+
+            Then update expiration dates: All children of an expired
             Node must have an expiration date <= the parent. In addition
             check the cool_down_period of the pools: If a pool has a
             cool_down_period and now + cool_down_period is smaller than
@@ -282,6 +288,17 @@ class IP_Network (_Ancestor_Essence) :
             After this first step, we loop over all now-free nodes with
             an expiration_date < now and free them.
         """
+        # Find allocated networks with maximum netmask
+        # and no associated interface
+        nw = self.ETM.query \
+            ( Q.net_address.mask_len == self.net_address.bitlen
+            , Q.net_address.IN (self.net_address)
+            , ~ Q.net_interface_link
+            , ~ Q.electric
+            , ~ ~ Q.owner
+            ).distinct ()
+        for n in nw :
+            n.free ()
         now = datetime.now ()
         nw = self.ETM.query \
             ( Q.expiration_date
@@ -378,6 +395,9 @@ class IP_Network (_Ancestor_Essence) :
         if cooldown is not None :
             expiration += cooldown
         self.set (expiration_date = expiration, owner = None)
+        # Remove network link if any
+        if self.net_interface_link :
+            self.net_interface_link.destroy ()
     # end def free
 
     def min_cooldown_period (self, cool_down_period = None) :
