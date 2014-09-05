@@ -85,6 +85,10 @@
 #     5-Sep-2014 (CT) Add `User_Net_Interface_in_IP_Network`
 #     5-Sep-2014 (CT) Add `DB_Interface_in_IP_Network`
 #     5-Sep-2014 (CT) Remove fake IP allocation
+#     5-Sep-2014 (CT) Add `tr_instance_css_class` to
+#                     `DB_Interface_in_IP_Network`
+#     5-Sep-2014 (CT) Add action `allocate_ip`, factor `create_action_name`
+#                     add `_DB_E_Type_` property `is_partial`
 #    ««revision-date»»···
 #--
 
@@ -612,6 +616,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     add_css_classes       = []
     app_div_prefix        = _Ancestor.app_typ_prefix
     et_map_name           = "dash"
+    create_action_name    = "create"
     fill_edit             = True
     fill_user             = False
     fill_view             = False
@@ -692,6 +697,11 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     _action_map           = dict \
         ( (r.name, r) for r in
             ( Record
+                ( name = "allocate_ip"
+                , msg  = _ ("Allocate an IP address for %s %s")
+                , icon = "plus-circle"
+                )
+            , Record
                 ( name = "change_password"
                 , msg  = _ ("Change password of %s %s")
                 , icon = "key"
@@ -890,7 +900,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     class _Field_Type_ (_Field_Ref_) :
 
         icon_map = dict \
-            ( W  = """<i class="fa fa-rss rotate-45-left"></i>"""
+            ( W  = """<i class="fa fa-wifi"></i>"""
             , L  = """<i class="fa fa-sitemap"></i>"""
             )
 
@@ -954,7 +964,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     @getattr_safe
     def create_action (self) :
         if self.ui_allow_new :
-            return self._action_map ["create"]
+            return self._action_map [self.create_action_name]
     # end def create_action
 
     @Once_Property
@@ -974,6 +984,12 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     def E_Type (self) :
         return self.admin.E_Type
     # end def E_Type
+
+    @Once_Property
+    @getattr_safe
+    def is_partial (self) :
+        return self.E_Type.is_partial
+    # end def is_partial
 
     @property
     @getattr_safe
@@ -1163,7 +1179,7 @@ class _DB_Interface_ (_Ancestor) :
 
         def _commit_scope_fv (self, scope, form_value, request, response) :
             ### Here, one could do special actions like automatically
-            ### allocationg an IP address for the interface
+            ### allocation an IP address for the interface
             self.__super._commit_scope_fv (scope, form_value, request, response)
         # end def _commit_scope_fv
 
@@ -1244,6 +1260,7 @@ class DB_Interface_in_IP_Network (_Ancestor) :
        displayed by, and managed via, dashboard.
     """
 
+    create_action_name    = "allocate_ip"
     view_action_names     = ("delete", )
     type_name             = "CNDB.Net_Interface_in_IP_Network"
 
@@ -1259,6 +1276,20 @@ class DB_Interface_in_IP_Network (_Ancestor) :
              , "right.pool.net_address" : _DB_E_Type_._Field_IP_Network_
              }
         )
+
+    @Once_Property
+    @getattr_safe
+    def is_partial (self) :
+        return False
+    # end def is_partial
+
+    def tr_instance_css_class (self, o) :
+        fmt = " ".join \
+            ( (x + "-%d-") for x in
+                ["node", "device", "interface", "interface_in_ip_network"]
+            )
+        return fmt % (o.my_node.pid, o.my_net_device.pid, o.left.pid, o.pid)
+    # end def tr_instance_css_class
 
 # end class DB_Interface_in_IP_Network
 

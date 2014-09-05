@@ -70,7 +70,7 @@
   {%- set kw          = GTW.dict (kwargs) %}
   {%- set a_cls       = kw.get ("a_cls", "pure-button") %}
   {%- set action_name = create.name %}
-  {%- onion ET.is_partial %}
+  {%- onion db_type.is_partial %}
     {%- head %}
       {%- set action_name = action_name + "-partial" %}
       {%- do kw.update (a_cls = " ".join ((a_cls, "partial-type"))) %}
@@ -155,7 +155,7 @@
   <h2>
     {{- db_type.view_title -}}
     {%- if create and GTW.len (objects) > 10 %}
-      {%- if not db_type.E_Type.is_partial  %}
+      {%- if not db_type.is_partial  %}
         {{- action_button_create
             ( db_type, create
             , title = (GTW._T (create.msg) % (TN, "")).strip ()
