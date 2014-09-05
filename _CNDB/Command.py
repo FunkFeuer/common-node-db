@@ -27,6 +27,7 @@
 #
 # Revision Dates
 #     5-Sep-2014 (CT) Creation (factored from FFW)
+#     5-Sep-2014 (MB) Added garbage collect command
 #    ««revision-date»»···
 #--
 
@@ -98,7 +99,8 @@ class CNDB_Command (CNDB._Base_Command_, GTW.Werkzeug.Command) :
 
     def _handle_collect_garbage (self, cmd) :
         scope = self._handle_load (cmd)
-        print ("collect_garbage not yet implemented!")
+        for ipn in scope.CNDB.IP_Network.query (~MOM.Q.parent) :
+            ipn.garbage_collect ()
     # end def _handle_collect_garbage
 
 Command = CNDB_Command # end class
