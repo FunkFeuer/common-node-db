@@ -100,7 +100,7 @@ class CNDB_Command (CNDB._Base_Command_, GTW.Werkzeug.Command) :
     def _handle_collect_garbage (self, cmd) :
         scope = self._handle_load (cmd)
         for ipn in scope.CNDB.IP_Network.query (~MOM.Q.parent) :
-            ipn.garbage_collect ()
+            ipn.collect_garbage ()
     # end def _handle_collect_garbage
 
 Command = CNDB_Command # end class
