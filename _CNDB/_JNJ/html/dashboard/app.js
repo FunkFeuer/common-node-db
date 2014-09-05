@@ -30,6 +30,7 @@
 //     4-Sep-2014 (MB) Add geolocate button
 //                     Remove Zip code from fields - seems to mess with
 //                     geolocation some times
+//     5-Sep-2015 (MB) toggle visibility of interface ip list
 //    ««revision-date»»···
 //--
 
@@ -47,6 +48,7 @@
               , filter_button    : "[href=#filter]"
               , firmware_button  : "[href=#firmware]"
               , graph_button     : "[href=#graphs]"
+              , manage_ip_button : "[href=#manage_ip]"
               , graph_button_if  : ".interface-table [href=#graphs]"
               , graph_button_node: ".node-table [href=#graphs]"
               , obj_row          : "tr"
@@ -310,7 +312,19 @@
                 nodes[pid].openPopup();
                 };
             };
+        
+        var manage_ip_cb = function(e) {
+            var a$ = $(this);
+            var l$ = $("#app-T\\:interface_in_ip_network");
+            if (a$.hasClass (options.active_button_class)) {
+                l$.hide ();
+                }
+            else {
+                l$.show ();
+                }
+            //a$.toggleClass (options.active_button_class);
 
+            }
         // Define custom actions on filter here
         var filter_typ_cb = {
             //interface : graph_interface_cb
@@ -328,7 +342,13 @@
         $(selectors.firmware_button  ).on ("click", firmware_cb);
         //$(selectors.graph_button_if  ).on ("click", graph_interface_cb);
         $(selectors.graph_button_node).on ("click", graph_cb);
+        $(selectors.manage_ip_button ).on ("click", manage_ip_cb);
+        $(selectors.manage_ip_button ).on ("click", filter_cb);
 
+        // hide the ip in interface list on ready
+        $(document).ready(function() {
+            $("#app-T\\:interface_in_ip_network").hide();
+            });
 
         // initialize the map
         $(document).ready(function() {
