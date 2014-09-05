@@ -82,6 +82,9 @@
 #     3-Sep-2014 (CT) Move `_get_child` from `_DB_Div_Base_` to `_DB_Base_`
 #     3-Sep-2014 (CT) Add `children_np` for partial `_DB_E_Type_` instances
 #     3-Sep-2014 (CT) Add `DB_Wired_Interface`, `DB_Wireless_Interface`
+#     5-Sep-2014 (CT) Add `User_Net_Interface_in_IP_Network`
+#     5-Sep-2014 (CT) Add `DB_Interface_in_IP_Network`
+#     5-Sep-2014 (CT) Remove fake IP allocation
 #    ««revision-date»»···
 #--
 
@@ -388,6 +391,12 @@ class User_Net_Interface (User_Node_Dependent) :
 
     ET_depends            = "CNDB.Net_Device"
     _ETM                  = "CNDB.Net_Interface"
+
+# end class User_Net_Interface
+
+class User_Net_Interface_in_IP_Network (User_Node_Dependent) :
+
+    _ETM                  = "CNDB.Net_Interface_in_IP_Network"
 
 # end class User_Net_Interface
 
@@ -719,6 +728,11 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
                 , icon = "bar-chart-o"
                 )
             , Record
+                ( name = "manage_ip"
+                , msg  = _ ("Manage IP addresses of %s %s")
+                , icon = "eye"
+                )
+            , Record
                 ( name = "reset_password"
                 , msg  = _ ("I forgot my password; reset password of %s %s")
                 , icon = "exclamation"
@@ -767,6 +781,16 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     # end class _Field_Device_
 
+    class _Field_IP_Address_ (Field) :
+
+        @property ### depends on currently selected language (I18N/L10N)
+        @getattr_safe
+        def ui_name (self) :
+            return _T ("IP address")
+        # end def ui_name
+
+    # end class _Field_IP_Address_
+
     class _Field_IP_Addresses_ (Field) :
 
         @Once_Property
@@ -799,6 +823,16 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         # end def value
 
     # end class _Field_IP_Addresses_
+
+    class _Field_IP_Network_ (Field) :
+
+        @property ### depends on currently selected language (I18N/L10N)
+        @getattr_safe
+        def ui_name (self) :
+            return _T ("IP network")
+        # end def ui_name
+
+    # end class _Field_IP_Network_
 
     class _Field_Node_ (_Field_Ref_) :
 
@@ -857,6 +891,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
         icon_map = dict \
             ( W  = """<i class="fa fa-rss rotate-45-left"></i>"""
+            , L  = """<i class="fa fa-sitemap"></i>"""
             )
 
         ref_name = "type"
@@ -1119,49 +1154,18 @@ _Ancestor = _DB_E_Type_
 
 class _DB_Interface_ (_Ancestor) :
 
+    view_action_names     = ("manage_ip", "edit", "delete")
     _MF3_Attr_Spec        = dict \
         ( left            = dict (restrict_completion = True)
         )
 
     class _DBI_Action_Override_ (_Ancestor._Action_Override_) :
 
-        # Freenet networks according to Wiki dokumentation (from call_convert)
-        # This may be old info, ask Aaron
-        # FIXME: in the future we will have permissions and don't need
-        # to search by IP of network.
-        freenet_networks = \
-            [ '193.238.156.0/24'
-            , '193.238.157.128/25'
-            , '193.238.158.0/24'
-            , '193.238.159.0/24'
-            , '78.41.112.0/24'
-            , '78.41.113.0/24'
-            ]
-
         def _commit_scope_fv (self, scope, form_value, request, response) :
-            iface = form_value.essence
-            if not iface.ip4_networks :
-                person = self.user.person ### XXX ??? iface.my_node.manager...
-                try :
-                    self._get_ip_for_interface (scope, person, iface)
-                except Exception as exc :
-                    logging.exception ("_get_ip_for_interface")
+            ### Here, one could do special actions like automatically
+            ### allocationg an IP address for the interface
             self.__super._commit_scope_fv (scope, form_value, request, response)
         # end def _commit_scope_fv
-
-        def _get_ip_for_interface (self, scope, owner, iface) :
-            from rsclib.IP_Address import IP4_Address
-            CNDB = scope.CNDB
-            for ip in self.freenet_networks :
-                ip  = IP4_Address (ip)
-                net = CNDB.IP4_Network.instance (ip)
-                try :
-                    adr = net.allocate (32, owner)
-                except CNDB.OMP.Error.No_Free_Address_Range :
-                    continue
-                CNDB.Net_Interface_in_IP4_Network (iface, adr, mask_len = 32)
-                return adr
-        # end def _get_ip_for_interface
 
     # end class _DBI_Action_Override_
 
@@ -1232,6 +1236,31 @@ if 0 : ### Add this when there is an instance of User_Virtual_Wireless_Interface
         type_name             = "CNDB.Virtual_Wireless_Interface"
 
     # end class DB_Virtual_Wireless_Interface
+
+_Ancestor = _DB_E_Type_
+
+class DB_Interface_in_IP_Network (_Ancestor) :
+    """CNDB.Net_Interface_in_IP_Network links for a single Net_Interface
+       displayed by, and managed via, dashboard.
+    """
+
+    view_action_names     = ("delete", )
+    type_name             = "CNDB.Net_Interface_in_IP_Network"
+
+    view_field_names      = \
+        ( "right.net_address"
+        , "right.pool.net_address"
+        , "creation_date"
+        )
+
+    _field_type_map       = dict \
+        ( _DB_E_Type_._field_type_map
+        , ** { "right.net_address"      : _DB_E_Type_._Field_IP_Address_
+             , "right.pool.net_address" : _DB_E_Type_._Field_IP_Network_
+             }
+        )
+
+# end class DB_Interface_in_IP_Network
 
 class DB_Node (_DB_E_Type_) :
     """CNDB.Node displayed by, and managed via, dashboard."""
@@ -1354,6 +1383,7 @@ class DB_View (_DB_Div_) :
         ( DB_Node
         , DB_Device
         , DB_Interface
+        , DB_Interface_in_IP_Network
         )
 
 # end class DB_View

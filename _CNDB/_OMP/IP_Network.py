@@ -67,6 +67,7 @@
 #     5-Sep-2014 (RS) `free` now destroys a `net_interface_link` if existing;
 #                     `collect_garbage` now frees /32 or /128 networks
 #                     without a `net_interface_link`
+#     5-Sep-2014 (CT) Add missing `pool.P_Type`
 #    ««revision-date»»···
 #--
 
@@ -218,6 +219,7 @@ class IP_Network (_Ancestor_Essence) :
 
             kind               = Attr.Optional
             Kind_Mixins        = (Attr.Computed_Set_Mixin, )
+            P_Type             = "CNDB.IP_Network"
             ui_allow_new       = False
 
             def computed (self, obj) :

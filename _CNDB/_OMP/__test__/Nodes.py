@@ -42,7 +42,7 @@
 #     7-Aug-2013 (CT) Adapt to major surgery of GTW.OMP.NET.Attr_Type
 #    30-Sep-2013 (CT) Adapt to uplift of `belongs_to_node`
 #    14-Apr-2014 (CT) Rename `belongs_to_node` to `my_node`
-#    13-Jun-2014 (RS) Fixes for new `PAP` objects, `Node` no longer derived 
+#    13-Jun-2014 (RS) Fixes for new `PAP` objects, `Node` no longer derived
 #                     from `Subject`, addition of `Node.desc`, `ui_name`
 #                     for `desc`
 #    ««revision-date»»···
@@ -150,7 +150,7 @@ _test_code = """
     1
 
     >>> CNDB.Belongs_to_Node.query (Q.my_node == node3).count ()
-    6
+    10
 
     >>> CNDB.Net_Device.query (Q.my_node == node3).count ()
     1

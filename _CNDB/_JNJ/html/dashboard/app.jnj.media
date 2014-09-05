@@ -302,6 +302,7 @@ style_sheet = Style_Sheet \
                                                 , color        = "#0078E7"
                                                 , float        = "left"
                                                 , height       = Em (1.0)
+                                                , margin_right = Em (0.5)
                                                 , width        = Em (1.0)
                                                 )
                                             ]

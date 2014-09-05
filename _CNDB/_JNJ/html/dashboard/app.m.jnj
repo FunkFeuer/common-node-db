@@ -47,6 +47,8 @@
 ##     3-Sep-2014 (MB) If column owner exists, check if owner of object is
 ##                     Logged in user and show checkmark (or empty circle)
 ##     3-Sep-2014 (CT) Factor `action_button_create`, support `is_partial`
+##     5-Sep-2014 (CT) Rewrite `owner` column code to improve readability
+###                    (and placate emacs syntax colorizer :-)
 ##    ««revision-date»»···
 ##--
 #}
@@ -143,12 +145,13 @@
 {%- endmacro -%} {#- db_node_map -#}
 
 {%- macro e_type_table (db_type) -%}
+  {%- set TN      = db_type.Div_Name %}
   {%- set actions = db_type.view_actions %}
+  {%- set create  = db_type.create_action %}
   {%- set fields  = db_type.view_fields %}
   {%- set objects = db_type.objects %}
   {%- set tn      = db_type.div_name %}
-  {%- set TN      = db_type.Div_Name %}
-  {%- set create  = db_type.create_action %}
+  {%- set user    = db_type.user_restriction %}
   <h2>
     {{- db_type.view_title -}}
     {%- if create and GTW.len (objects) > 10 %}
@@ -180,6 +183,13 @@
     <tbody>
       {%- for o in objects %}
         {%- set name = db_type.view_name_instance (o) %}
+        {%- if o.owner == user %}
+          {%- set own_icon  = "fa-check-square-o" %}
+          {%- set own_title = GTW._T ("Owned by you") %}
+        {%- else %}
+          {%- set own_icon  = "fa-square-o" %}
+          {%- set own_title = GTW._T ("Owned by %s") % user.FO %}
+        {% endif -%}
         <tr id="{{ tn }}-{{ o.pid }}" {# -#}
             class="{{ db_type.tr_instance_css_class (o) }}"{#- -#}
         >
@@ -189,14 +199,7 @@
             -%}
             <td{{ css_class }}>
               {% if f.css_class == 'owner' %}
-                <i class="fa
-                {% if o.owner.pid == page.user.person.pid %}
-                    fa-check-square-o " title="Owned by you"
-                {% else %}
-                    fa-square-o " title="Owned by {{o.owner.last_name | title }}
-                    {{o.owner.first_name | title }}"
-                {% endif %}
-                ></i>
+                <i class="fa {{ own_icon }}" title="{{ own_title }}"></i>
               {% else %}
               {{- f.as_html (o, f.value (o)) -}}
               {% endif %}

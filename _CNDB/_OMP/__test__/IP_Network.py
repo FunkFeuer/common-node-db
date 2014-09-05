@@ -18820,6 +18820,10 @@ _test_net_fixtures = """
     28  : Net_Device                Generic, node2, dev
     29  : Wired_Interface           Generic, node2, dev, wr
     30  : Wireless_Interface        Generic, node2, dev, wl
+    31  : Wired_Interface_in_IP4_Network Generic, node2, dev, wr, 192.168.23.1
+    32  : Wireless_Interface_in_IP4_Network Generic, node2, dev, wl, 192.168.23.2
+    33  : Wired_Interface_in_IP4_Network Generic, node2, dev, wr, 192.168.23.3
+    34  : Wireless_Interface_in_IP4_Network Generic, node2, dev, wl, 192.168.23.4
 
     >>> show_query_by_pid (scope.CNDB.Belongs_to_Node.query (Q.RAW.my_node.name == "Node-net1"))
     38  : Node                      Node-net1
@@ -19035,6 +19039,10 @@ _test_std_fixtures = """
     28  : Net_Device                Generic, node2, dev
     29  : Wired_Interface           Generic, node2, dev, wr
     30  : Wireless_Interface        Generic, node2, dev, wl
+    31  : Wired_Interface_in_IP4_Network Generic, node2, dev, wr, 192.168.23.1
+    32  : Wireless_Interface_in_IP4_Network Generic, node2, dev, wl, 192.168.23.2
+    33  : Wired_Interface_in_IP4_Network Generic, node2, dev, wr, 192.168.23.3
+    34  : Wireless_Interface_in_IP4_Network Generic, node2, dev, wl, 192.168.23.4
 
 """
 

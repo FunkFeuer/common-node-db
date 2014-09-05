@@ -37,6 +37,7 @@
 #    13-Aug-2013 (CT) Set `Net_Interface_in_IP_Network.is_relevant` to `True`
 #     7-Apr-2014 (CT) Remove `~ electric` from `valid_mask_len` query
 #    13-Jun-2014 (RS) Add `name`
+#     5-Sep-2014 (CT) Mixin `Belongs_to_Node_Left`, `Belongs_to_Net_Device_Left`
 #    ««revision-date»»···
 #--
 
@@ -52,15 +53,21 @@ from   _GTW._OMP._DNS.Attr_Type import A_DNS_Label
 import _CNDB._OMP.Net_Interface
 import _CNDB._OMP.IP_Network
 
+_Mixin_1 = CNDB.OMP.Belongs_to_Node_Left
+_Mixin_2 = CNDB.OMP.Belongs_to_Net_Device_Left
 _Ancestor_Essence = CNDB.OMP.Link2
 
-class Net_Interface_in_IP_Network (_Ancestor_Essence) :
+class Net_Interface_in_IP_Network (_Mixin_1, _Mixin_2, _Ancestor_Essence) :
     """Net interface in IP network"""
 
     is_partial  = True
     is_relevant = True
 
-    class _Attributes (_Ancestor_Essence._Attributes) :
+    class _Attributes \
+              ( _Mixin_1._Attributes
+              , _Mixin_2._Attributes
+              , _Ancestor_Essence._Attributes
+              ) :
 
         _Ancestor = _Ancestor_Essence._Attributes
 
