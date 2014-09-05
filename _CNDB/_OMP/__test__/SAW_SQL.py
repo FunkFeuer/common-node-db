@@ -43,6 +43,7 @@
 #     1-Jul-2014 (RS) `IP_DNS_Alias` and derivatives
 #     4-Jul-2014 (RS) `IP_Pool_permits_Group`, `IP_Network_in_IP_Pool`,
 #                     changes to `IP_Pool`
+#     5-Sep-2014 (RS) Fixes for `IP_Pool_permits_Group` and derivatives
 #    ««revision-date»»···
 #--
 
@@ -956,6 +957,42 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Pool `right` [cndb_ip6_network_in_ip6_pool.right]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
+    <SAW : CNDB.IP_Pool_permits_Group [cndb_ip_pool_permits_group : pap_id_entity_permits_group : mom_id_entity]>
+      <SAW : Rev_Ref `creation`>
+      <SAW : Link_Ref_List `documents`>
+      <SAW : Int `iface_quota` [cndb_ip_pool_permits_group.iface_quota]>
+      <SAW : Rev_Ref `last_change`>
+      <SAW : Int `last_cid` [mom_id_entity.last_cid]>
+      <SAW : IP_Pool `left` [pap_id_entity_permits_group.left]>
+      <SAW : Int `node_quota` [cndb_ip_pool_permits_group.node_quota]>
+      <SAW : Surrogate `pid` [mom_id_entity.pid]>
+      <SAW : Group `right` [pap_id_entity_permits_group.right]>
+      <SAW : String `type_name` [mom_id_entity.type_name]>
+      <SAW : Int `user_quota` [cndb_ip_pool_permits_group.user_quota]>
+    <SAW : CNDB.IP4_Pool_permits_Group [cndb_ip4_pool_permits_group : cndb_ip_pool_permits_group : pap_id_entity_permits_group : mom_id_entity]>
+      <SAW : Rev_Ref `creation`>
+      <SAW : Link_Ref_List `documents`>
+      <SAW : Int `iface_quota` [cndb_ip_pool_permits_group.iface_quota]>
+      <SAW : Rev_Ref `last_change`>
+      <SAW : Int `last_cid` [mom_id_entity.last_cid]>
+      <SAW : IP4_Pool `left` [pap_id_entity_permits_group.left]>
+      <SAW : Int `node_quota` [cndb_ip_pool_permits_group.node_quota]>
+      <SAW : Surrogate `pid` [mom_id_entity.pid]>
+      <SAW : Group `right` [pap_id_entity_permits_group.right]>
+      <SAW : String `type_name` [mom_id_entity.type_name]>
+      <SAW : Int `user_quota` [cndb_ip_pool_permits_group.user_quota]>
+    <SAW : CNDB.IP6_Pool_permits_Group [cndb_ip6_pool_permits_group : cndb_ip_pool_permits_group : pap_id_entity_permits_group : mom_id_entity]>
+      <SAW : Rev_Ref `creation`>
+      <SAW : Link_Ref_List `documents`>
+      <SAW : Int `iface_quota` [cndb_ip_pool_permits_group.iface_quota]>
+      <SAW : Rev_Ref `last_change`>
+      <SAW : Int `last_cid` [mom_id_entity.last_cid]>
+      <SAW : IP6_Pool `left` [pap_id_entity_permits_group.left]>
+      <SAW : Int `node_quota` [cndb_ip_pool_permits_group.node_quota]>
+      <SAW : Surrogate `pid` [mom_id_entity.pid]>
+      <SAW : Group `right` [pap_id_entity_permits_group.right]>
+      <SAW : String `type_name` [mom_id_entity.type_name]>
+      <SAW : Int `user_quota` [cndb_ip_pool_permits_group.user_quota]>
     <SAW : CNDB.Net_Interface_in_IP4_Network [cndb_net_interface_in_ip_network : mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
@@ -4371,6 +4408,58 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_ip6_network_in_ip6_pool ON mom_id_entity.pid = cndb_ip6_network_in_ip6_pool.pid
+    CNDB.IP_Pool_permits_Group PAP.Id_Entity_permits_Group
+        SELECT cndb_ip_pool_permits_group.iface_quota AS cndb_ip_pool_permits_group_iface_quota,
+               cndb_ip_pool_permits_group.node_quota AS cndb_ip_pool_permits_group_node_quota,
+               cndb_ip_pool_permits_group.pid AS cndb_ip_pool_permits_group_pid,
+               cndb_ip_pool_permits_group.user_quota AS cndb_ip_pool_permits_group_user_quota,
+               mom_id_entity.electric AS mom_id_entity_electric,
+               mom_id_entity.last_cid AS mom_id_entity_last_cid,
+               mom_id_entity.pid AS mom_id_entity_pid,
+               mom_id_entity.type_name AS mom_id_entity_type_name,
+               mom_id_entity.x_locked AS mom_id_entity_x_locked,
+               pap_id_entity_permits_group."left" AS pap_id_entity_permits_group_left,
+               pap_id_entity_permits_group."right" AS pap_id_entity_permits_group_right,
+               pap_id_entity_permits_group.pid AS pap_id_entity_permits_group_pid
+        FROM mom_id_entity
+           JOIN pap_id_entity_permits_group ON mom_id_entity.pid = pap_id_entity_permits_group.pid
+           JOIN cndb_ip_pool_permits_group ON pap_id_entity_permits_group.pid = cndb_ip_pool_permits_group.pid
+    CNDB.IP4_Pool_permits_Group
+        SELECT cndb_ip4_pool_permits_group.pid AS cndb_ip4_pool_permits_group_pid,
+               cndb_ip_pool_permits_group.iface_quota AS cndb_ip_pool_permits_group_iface_quota,
+               cndb_ip_pool_permits_group.node_quota AS cndb_ip_pool_permits_group_node_quota,
+               cndb_ip_pool_permits_group.pid AS cndb_ip_pool_permits_group_pid,
+               cndb_ip_pool_permits_group.user_quota AS cndb_ip_pool_permits_group_user_quota,
+               mom_id_entity.electric AS mom_id_entity_electric,
+               mom_id_entity.last_cid AS mom_id_entity_last_cid,
+               mom_id_entity.pid AS mom_id_entity_pid,
+               mom_id_entity.type_name AS mom_id_entity_type_name,
+               mom_id_entity.x_locked AS mom_id_entity_x_locked,
+               pap_id_entity_permits_group."left" AS pap_id_entity_permits_group_left,
+               pap_id_entity_permits_group."right" AS pap_id_entity_permits_group_right,
+               pap_id_entity_permits_group.pid AS pap_id_entity_permits_group_pid
+        FROM mom_id_entity
+           JOIN pap_id_entity_permits_group ON mom_id_entity.pid = pap_id_entity_permits_group.pid
+           JOIN cndb_ip_pool_permits_group ON pap_id_entity_permits_group.pid = cndb_ip_pool_permits_group.pid
+           JOIN cndb_ip4_pool_permits_group ON cndb_ip_pool_permits_group.pid = cndb_ip4_pool_permits_group.pid
+    CNDB.IP6_Pool_permits_Group
+        SELECT cndb_ip6_pool_permits_group.pid AS cndb_ip6_pool_permits_group_pid,
+               cndb_ip_pool_permits_group.iface_quota AS cndb_ip_pool_permits_group_iface_quota,
+               cndb_ip_pool_permits_group.node_quota AS cndb_ip_pool_permits_group_node_quota,
+               cndb_ip_pool_permits_group.pid AS cndb_ip_pool_permits_group_pid,
+               cndb_ip_pool_permits_group.user_quota AS cndb_ip_pool_permits_group_user_quota,
+               mom_id_entity.electric AS mom_id_entity_electric,
+               mom_id_entity.last_cid AS mom_id_entity_last_cid,
+               mom_id_entity.pid AS mom_id_entity_pid,
+               mom_id_entity.type_name AS mom_id_entity_type_name,
+               mom_id_entity.x_locked AS mom_id_entity_x_locked,
+               pap_id_entity_permits_group."left" AS pap_id_entity_permits_group_left,
+               pap_id_entity_permits_group."right" AS pap_id_entity_permits_group_right,
+               pap_id_entity_permits_group.pid AS pap_id_entity_permits_group_pid
+        FROM mom_id_entity
+           JOIN pap_id_entity_permits_group ON mom_id_entity.pid = pap_id_entity_permits_group.pid
+           JOIN cndb_ip_pool_permits_group ON pap_id_entity_permits_group.pid = cndb_ip_pool_permits_group.pid
+           JOIN cndb_ip6_pool_permits_group ON cndb_ip_pool_permits_group.pid = cndb_ip6_pool_permits_group.pid
     CNDB.Net_Interface_in_IP4_Network CNDB.Net_Interface_in_IP_Network
         SELECT cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
                cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
@@ -6084,73 +6173,76 @@ _test_tables = """
     >>> for k, w in sorted (pyk.iteritems (apt._SAW.et_map)) :
     ...   if k.startswith ("CNDB.") :
     ...     print ("%%-40s : %%s" %% (k, w.sa_table))
-    CNDB.Antenna                              : cndb_antenna
-    CNDB.Antenna_Band                         : cndb_antenna_band
-    CNDB.Antenna_Type                         : cndb_antenna_type
-    CNDB.Belongs_to_Net_Device                : None
-    CNDB.Belongs_to_Net_Device_Left           : None
-    CNDB.Belongs_to_Node                      : None
-    CNDB.Belongs_to_Node_Left                 : None
-    CNDB.Device                               : None
-    CNDB.Device_Type                          : None
-    CNDB.Device_Type_made_by_Company          : cndb_device_type_made_by_company
-    CNDB.Firmware_Bin                         : None
-    CNDB.Firmware_Binary                      : cndb_firmware_binary
-    CNDB.Firmware_Binary_in_Firmware_Bundle   : cndb_firmware_binary_in_firmware_bundle
-    CNDB.Firmware_Bundle                      : cndb_firmware_bundle
-    CNDB.Firmware_Type                        : cndb_firmware_type
-    CNDB.Firmware_Version                     : cndb_firmware_version
-    CNDB.IP4_DNS_Alias                        : cndb_ip4_dns_alias
-    CNDB.IP4_Network                          : cndb_ip4_network
-    CNDB.IP4_Network_in_IP4_Pool              : cndb_ip4_network_in_ip4_pool
-    CNDB.IP4_Pool                             : cndb_ip4_pool
-    CNDB.IP6_DNS_Alias                        : cndb_ip6_dns_alias
-    CNDB.IP6_Network                          : cndb_ip6_network
-    CNDB.IP6_Network_in_IP6_Pool              : cndb_ip6_network_in_ip6_pool
-    CNDB.IP6_Pool                             : cndb_ip6_pool
-    CNDB.IP_DNS_Alias                         : None
-    CNDB.IP_Network                           : None
-    CNDB.IP_Network_in_IP_Pool                : None
-    CNDB.IP_Pool                              : None
-    CNDB.Id_Entity                            : None
-    CNDB.Link                                 : None
-    CNDB.Link1                                : None
-    CNDB.Link2                                : None
-    CNDB.Net_Device                           : cndb_net_device
-    CNDB.Net_Device_Type                      : cndb_net_device_type
-    CNDB.Net_Interface                        : cndb_net_interface
-    CNDB.Net_Interface_in_IP4_Network         : None
-    CNDB.Net_Interface_in_IP6_Network         : None
-    CNDB.Net_Interface_in_IP_Network          : cndb_net_interface_in_ip_network
-    CNDB.Net_Link                             : cndb_net_link
-    CNDB.Node                                 : cndb_node
-    CNDB.Object                               : None
-    CNDB.Person_mentors_Person                : cndb_person_mentors_person
-    CNDB.Regulatory_Domain                    : cndb_regulatory_domain
-    CNDB.Regulatory_Permission                : cndb_regulatory_permission
-    CNDB.Routing_Zone                         : None
-    CNDB.Routing_Zone_OLSR                    : cndb_routing_zone_olsr
-    CNDB.Virtual_Wireless_Interface           : cndb_virtual_wireless_interface
+    CNDB.Antenna                             : cndb_antenna
+    CNDB.Antenna_Band                        : cndb_antenna_band
+    CNDB.Antenna_Type                        : cndb_antenna_type
+    CNDB.Belongs_to_Net_Device               : None
+    CNDB.Belongs_to_Net_Device_Left          : None
+    CNDB.Belongs_to_Node                     : None
+    CNDB.Belongs_to_Node_Left                : None
+    CNDB.Device                              : None
+    CNDB.Device_Type                         : None
+    CNDB.Device_Type_made_by_Company         : cndb_device_type_made_by_company
+    CNDB.Firmware_Bin                        : None
+    CNDB.Firmware_Binary                     : cndb_firmware_binary
+    CNDB.Firmware_Binary_in_Firmware_Bundle  : cndb_firmware_binary_in_firmware_bundle
+    CNDB.Firmware_Bundle                     : cndb_firmware_bundle
+    CNDB.Firmware_Type                       : cndb_firmware_type
+    CNDB.Firmware_Version                    : cndb_firmware_version
+    CNDB.IP4_DNS_Alias                       : cndb_ip4_dns_alias
+    CNDB.IP4_Network                         : cndb_ip4_network
+    CNDB.IP4_Network_in_IP4_Pool             : cndb_ip4_network_in_ip4_pool
+    CNDB.IP4_Pool                            : cndb_ip4_pool
+    CNDB.IP4_Pool_permits_Group              : cndb_ip4_pool_permits_group
+    CNDB.IP6_DNS_Alias                       : cndb_ip6_dns_alias
+    CNDB.IP6_Network                         : cndb_ip6_network
+    CNDB.IP6_Network_in_IP6_Pool             : cndb_ip6_network_in_ip6_pool
+    CNDB.IP6_Pool                            : cndb_ip6_pool
+    CNDB.IP6_Pool_permits_Group              : cndb_ip6_pool_permits_group
+    CNDB.IP_DNS_Alias                        : None
+    CNDB.IP_Network                          : None
+    CNDB.IP_Network_in_IP_Pool               : None
+    CNDB.IP_Pool                             : None
+    CNDB.IP_Pool_permits_Group               : cndb_ip_pool_permits_group
+    CNDB.Id_Entity                           : None
+    CNDB.Link                                : None
+    CNDB.Link1                               : None
+    CNDB.Link2                               : None
+    CNDB.Net_Device                          : cndb_net_device
+    CNDB.Net_Device_Type                     : cndb_net_device_type
+    CNDB.Net_Interface                       : cndb_net_interface
+    CNDB.Net_Interface_in_IP4_Network        : None
+    CNDB.Net_Interface_in_IP6_Network        : None
+    CNDB.Net_Interface_in_IP_Network         : cndb_net_interface_in_ip_network
+    CNDB.Net_Link                            : cndb_net_link
+    CNDB.Node                                : cndb_node
+    CNDB.Object                              : None
+    CNDB.Person_mentors_Person               : cndb_person_mentors_person
+    CNDB.Regulatory_Domain                   : cndb_regulatory_domain
+    CNDB.Regulatory_Permission               : cndb_regulatory_permission
+    CNDB.Routing_Zone                        : None
+    CNDB.Routing_Zone_OLSR                   : cndb_routing_zone_olsr
+    CNDB.Virtual_Wireless_Interface          : cndb_virtual_wireless_interface
     CNDB.Virtual_Wireless_Interface_in_IP4_Network : cndb_virtual_wireless_interface_in_ip4_network
     CNDB.Virtual_Wireless_Interface_in_IP6_Network : cndb_virtual_wireless_interface_in_ip6_network
     CNDB.Virtual_Wireless_Interface_in_IP_Network : None
-    CNDB.WPA_Credentials                      : cndb_wpa_credentials
-    CNDB.Wired_Interface                      : cndb_wired_interface
-    CNDB.Wired_Interface_in_IP4_Network       : cndb_wired_interface_in_ip4_network
-    CNDB.Wired_Interface_in_IP6_Network       : cndb_wired_interface_in_ip6_network
-    CNDB.Wired_Interface_in_IP_Network        : None
-    CNDB.Wireless_Channel                     : cndb_wireless_channel
-    CNDB.Wireless_Interface                   : cndb_wireless_interface
-    CNDB.Wireless_Interface_in_IP4_Network    : cndb_wireless_interface_in_ip4_network
-    CNDB.Wireless_Interface_in_IP6_Network    : cndb_wireless_interface_in_ip6_network
-    CNDB.Wireless_Interface_in_IP_Network     : None
-    CNDB.Wireless_Interface_uses_Antenna      : cndb_wireless_interface_uses_antenna
+    CNDB.WPA_Credentials                     : cndb_wpa_credentials
+    CNDB.Wired_Interface                     : cndb_wired_interface
+    CNDB.Wired_Interface_in_IP4_Network      : cndb_wired_interface_in_ip4_network
+    CNDB.Wired_Interface_in_IP6_Network      : cndb_wired_interface_in_ip6_network
+    CNDB.Wired_Interface_in_IP_Network       : None
+    CNDB.Wireless_Channel                    : cndb_wireless_channel
+    CNDB.Wireless_Interface                  : cndb_wireless_interface
+    CNDB.Wireless_Interface_in_IP4_Network   : cndb_wireless_interface_in_ip4_network
+    CNDB.Wireless_Interface_in_IP6_Network   : cndb_wireless_interface_in_ip6_network
+    CNDB.Wireless_Interface_in_IP_Network    : None
+    CNDB.Wireless_Interface_uses_Antenna     : cndb_wireless_interface_uses_antenna
     CNDB.Wireless_Interface_uses_Wireless_Channel : cndb_wireless_interface_uses_wireless_channel
-    CNDB.Wireless_Standard                    : cndb_wireless_standard
-    CNDB.Zone                                 : cndb_zone
-    CNDB._MOM_Link_n_                         : None
-    CNDB._Net_Credentials_                    : None
-    CNDB._Wireless_Interface_                 : cndb__wireless_interface_
+    CNDB.Wireless_Standard                   : cndb_wireless_standard
+    CNDB.Zone                                : cndb_zone
+    CNDB._MOM_Link_n_                        : None
+    CNDB._Net_Credentials_                   : None
+    CNDB._Wireless_Interface_                : cndb__wireless_interface_
 
     >>> show_tables (apt, pred = cndb_pred)
     CNDB.Antenna_Type (MOM.Id_Entity) <Table cndb_antenna_type>
@@ -6356,6 +6448,15 @@ _test_tables = """
         Column left                      : Integer              Link_Role IP6_Network left Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey(u'mom_id_entity.pid')
         Column right                     : Integer              Link_Role IP6_Pool right Id_Entity()
+    CNDB.IP_Pool_permits_Group (PAP.Id_Entity_permits_Group) PAP.Id_Entity_permits_Group <Table cndb_ip_pool_permits_group>
+        Column iface_quota               : Integer              Optional Int iface_quota
+        Column node_quota                : Integer              Optional Int node_quota
+        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey(u'pap_id_entity_permits_group.pid')
+        Column user_quota                : Integer              Optional Int user_quota
+    CNDB.IP4_Pool_permits_Group (CNDB.IP_Pool_permits_Group) <Table cndb_ip4_pool_permits_group>
+        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey(u'cndb_ip_pool_permits_group.pid')
+    CNDB.IP6_Pool_permits_Group (CNDB.IP_Pool_permits_Group) <Table cndb_ip6_pool_permits_group>
+        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey(u'cndb_ip_pool_permits_group.pid')
     CNDB.Net_Link (MOM.Id_Entity) <Table cndb_net_link>
         Column left                      : Integer              Link_Role Net_Interface left Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey(u'mom_id_entity.pid')
