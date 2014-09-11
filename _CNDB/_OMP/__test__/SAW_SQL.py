@@ -44,6 +44,7 @@
 #     4-Jul-2014 (RS) `IP_Pool_permits_Group`, `IP_Network_in_IP_Pool`,
 #                     changes to `IP_Pool`
 #     5-Sep-2014 (RS) Fixes for `IP_Pool_permits_Group` and derivatives
+#    11-Sep-2014 (CT) Adapt to new mixins of `Net_Interface_in_IP_Network`
 #    ««revision-date»»···
 #--
 
@@ -55,7 +56,8 @@ from   _CNDB._OMP.__test__.model         import *
 from   _MOM.import_MOM                   import Q
 
 from   _TFL.Context                      import attr_let
-from   _TFL.Regexp                       import Multi_Re_Replacer, Re_Replacer, re
+from   _TFL.Regexp                       import \
+    Multi_Re_Replacer, Re_Replacer, re
 
 import _TFL.Decorator
 
@@ -415,7 +417,7 @@ _test_q_able = """
       <SAW : Link_Ref_List `documents`>
       <SAW : Rev_Ref `last_change`>
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
-      <SAW : Entity `my_node` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.Node | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
+      <SAW : Entity `my_node` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.Net_Interface_in_IP_Network | CNDB.Node | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
     <SAW : CNDB.Belongs_to_Node_Left [mom_id_entity]>
@@ -423,7 +425,7 @@ _test_q_able = """
       <SAW : Link_Ref_List `documents`>
       <SAW : Rev_Ref `last_change`>
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
-      <SAW : Left `left` (CNDB.Net_Interface | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
+      <SAW : Left `left` (CNDB.Net_Interface | CNDB.Net_Interface_in_IP_Network | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
       <SAW : Entity `my_node`>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
@@ -446,7 +448,7 @@ _test_q_able = """
       <SAW : Link_Ref_List `documents`>
       <SAW : Rev_Ref `last_change`>
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
-      <SAW : Entity `my_net_device` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
+      <SAW : Entity `my_net_device` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.Net_Interface_in_IP_Network | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
     <SAW : CNDB.Belongs_to_Net_Device_Left [mom_id_entity]>
@@ -454,7 +456,7 @@ _test_q_able = """
       <SAW : Link_Ref_List `documents`>
       <SAW : Rev_Ref `last_change`>
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
-      <SAW : Left `left` (CNDB.Net_Interface | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
+      <SAW : Left `left` (CNDB.Net_Interface | CNDB.Net_Interface_in_IP_Network | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>
       <SAW : Entity `my_net_device`>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
@@ -634,6 +636,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Net_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1003,6 +1007,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Net_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP4_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1017,6 +1023,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Net_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1072,6 +1080,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Wired_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1086,6 +1096,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Wireless_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1100,6 +1112,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Virtual_Wireless_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1114,6 +1128,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Wired_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP4_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1128,6 +1144,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Wireless_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP4_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1142,6 +1160,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Virtual_Wireless_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP4_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1156,6 +1176,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Wired_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1170,6 +1192,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Wireless_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1184,6 +1208,8 @@ _test_q_able = """
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : Virtual_Wireless_Interface `left` [cndb_net_interface_in_ip_network.left]>
       <SAW : Int `mask_len` [cndb_net_interface_in_ip_network.mask_len]>
+      <SAW : Entity `my_net_device`>
+      <SAW : Entity `my_node`>
       <SAW : String `name` [cndb_net_interface_in_ip_network.name, cndb_net_interface_in_ip_network.__raw_name]>
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP_Network `right` [cndb_net_interface_in_ip_network.right]>
@@ -1525,6 +1551,12 @@ _test_q_result = """
            cndb_net_interface.mac_address AS cndb_net_interface_mac_address,
            cndb_net_interface.name AS cndb_net_interface_name,
            cndb_net_interface.pid AS cndb_net_interface_pid,
+           cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
+           cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
+           cndb_net_interface_in_ip_network.__raw_name AS cndb_net_interface_in_ip_network___raw_name,
+           cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
+           cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
+           cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
            cndb_node."desc" AS cndb_node_desc,
            cndb_node.__raw_name AS cndb_node___raw_name,
            cndb_node.address AS cndb_node_address,
@@ -1562,6 +1594,7 @@ _test_q_result = """
            LEFT OUTER JOIN cndb_net_interface ON mom_id_entity.pid = cndb_net_interface.pid
            LEFT OUTER JOIN cndb__wireless_interface_ ON cndb_net_interface.pid = cndb__wireless_interface_.pid
            LEFT OUTER JOIN cndb_virtual_wireless_interface ON cndb__wireless_interface_.pid = cndb_virtual_wireless_interface.pid
+           LEFT OUTER JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
            LEFT OUTER JOIN cndb_wpa_credentials ON mom_id_entity.pid = cndb_wpa_credentials.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna ON mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_wireless_channel ON mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
@@ -1570,6 +1603,8 @@ _test_q_result = """
            LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
            LEFT OUTER JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
            LEFT OUTER JOIN cndb_net_device AS cndb_net_device__2 ON cndb_net_device__2.pid = cndb_net_interface."left"
+           LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__5 ON cndb_net_interface__5.pid = cndb_net_interface_in_ip_network."left"
+           LEFT OUTER JOIN cndb_net_device AS cndb_net_device__8 ON cndb_net_device__8.pid = cndb_net_interface__5."left"
            LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__4 ON cndb_net_interface__4.pid = cndb_wpa_credentials."left"
            LEFT OUTER JOIN cndb_net_device AS cndb_net_device__7 ON cndb_net_device__7.pid = cndb_net_interface__4."left"
            LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__2 ON cndb_wireless_interface__2.pid = cndb_wireless_interface_uses_antenna."left"
@@ -1584,6 +1619,7 @@ _test_q_result = """
             OR mom_id_entity.pid = cndb_net_interface.pid
             OR mom_id_entity.pid = cndb__wireless_interface_.pid
             OR mom_id_entity.pid = cndb_virtual_wireless_interface.pid
+            OR mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
             OR mom_id_entity.pid = cndb_wpa_credentials.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid)
@@ -1591,9 +1627,10 @@ _test_q_result = """
             OR cndb_net_device__1.node = :node_1
             OR cndb_net_device.node = :node_2
             OR cndb_net_device__2.node = :node_3
-            OR cndb_net_device__7.node = :node_4
-            OR cndb_net_device__5.node = :node_5
-            OR cndb_net_device__6.node = :node_6)
+            OR cndb_net_device__8.node = :node_4
+            OR cndb_net_device__7.node = :node_5
+            OR cndb_net_device__5.node = :node_6
+            OR cndb_net_device__6.node = :node_7)
     Parameters:
          node_1               : 42
          node_2               : 42
@@ -1601,6 +1638,7 @@ _test_q_result = """
          node_4               : 42
          node_5               : 42
          node_6               : 42
+         node_7               : 42
          pid_1                : 42
 
     >>> show_query (CNDB.Belongs_to_Node.query (Q.my_node.pid == 42))
@@ -1635,6 +1673,12 @@ _test_q_result = """
            cndb_net_interface.mac_address AS cndb_net_interface_mac_address,
            cndb_net_interface.name AS cndb_net_interface_name,
            cndb_net_interface.pid AS cndb_net_interface_pid,
+           cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
+           cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
+           cndb_net_interface_in_ip_network.__raw_name AS cndb_net_interface_in_ip_network___raw_name,
+           cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
+           cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
+           cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
            cndb_node."desc" AS cndb_node_desc,
            cndb_node.__raw_name AS cndb_node___raw_name,
            cndb_node.address AS cndb_node_address,
@@ -1672,6 +1716,7 @@ _test_q_result = """
            LEFT OUTER JOIN cndb_net_interface ON mom_id_entity.pid = cndb_net_interface.pid
            LEFT OUTER JOIN cndb__wireless_interface_ ON cndb_net_interface.pid = cndb__wireless_interface_.pid
            LEFT OUTER JOIN cndb_virtual_wireless_interface ON cndb__wireless_interface_.pid = cndb_virtual_wireless_interface.pid
+           LEFT OUTER JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
            LEFT OUTER JOIN cndb_wpa_credentials ON mom_id_entity.pid = cndb_wpa_credentials.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna ON mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_wireless_channel ON mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
@@ -1680,6 +1725,8 @@ _test_q_result = """
            LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
            LEFT OUTER JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
            LEFT OUTER JOIN cndb_net_device AS cndb_net_device__2 ON cndb_net_device__2.pid = cndb_net_interface."left"
+           LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__5 ON cndb_net_interface__5.pid = cndb_net_interface_in_ip_network."left"
+           LEFT OUTER JOIN cndb_net_device AS cndb_net_device__8 ON cndb_net_device__8.pid = cndb_net_interface__5."left"
            LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__4 ON cndb_net_interface__4.pid = cndb_wpa_credentials."left"
            LEFT OUTER JOIN cndb_net_device AS cndb_net_device__7 ON cndb_net_device__7.pid = cndb_net_interface__4."left"
            LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__2 ON cndb_wireless_interface__2.pid = cndb_wireless_interface_uses_antenna."left"
@@ -1694,6 +1741,7 @@ _test_q_result = """
             OR mom_id_entity.pid = cndb_net_interface.pid
             OR mom_id_entity.pid = cndb__wireless_interface_.pid
             OR mom_id_entity.pid = cndb_virtual_wireless_interface.pid
+            OR mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
             OR mom_id_entity.pid = cndb_wpa_credentials.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid)
@@ -1701,9 +1749,10 @@ _test_q_result = """
             OR cndb_net_device__1.node = :node_1
             OR cndb_net_device.node = :node_2
             OR cndb_net_device__2.node = :node_3
-            OR cndb_net_device__7.node = :node_4
-            OR cndb_net_device__5.node = :node_5
-            OR cndb_net_device__6.node = :node_6)
+            OR cndb_net_device__8.node = :node_4
+            OR cndb_net_device__7.node = :node_5
+            OR cndb_net_device__5.node = :node_6
+            OR cndb_net_device__6.node = :node_7)
     Parameters:
          node_1               : 42
          node_2               : 42
@@ -1711,6 +1760,7 @@ _test_q_result = """
          node_4               : 42
          node_5               : 42
          node_6               : 42
+         node_7               : 42
          pid_1                : 42
 
     >>> show_query (CNDB.Antenna.query (Q.my_node.manager == 42))
@@ -2601,7 +2651,7 @@ _test_qx = """
     >>> qxb = QX.Mapper (qrb)
     >>> print (QX.display (qxb (qfb)))
     <CNDB.Belongs_to_Node | QX.Kind_Partial for
-         <SAW : Entity `my_node` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.Node | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>>
+         <SAW : Entity `my_node` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.Net_Interface_in_IP_Network | CNDB.Node | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>>
       Bin:__eq__:
         <CNDB.Node | QX._Self_ for SELF>
             <CNDB.Node | QX.Kind_Query for
@@ -2638,12 +2688,22 @@ _test_qx = """
                  <SAW : Entity `my_node`>>
                 <CNDB.Net_Interface | QX.Kind_Query for
                      <SAW : Entity `my_node`>>
-                    <CNDB.WPA_Credentials | QX.Kind_Query for
+                    <CNDB.Net_Interface_in_IP_Network | QX.Kind_Query for
                          <SAW : Entity `my_node`>>
         42
       Bin:__eq__:
         <CNDB.Net_Device | QX.Kind_EPK for
              <SAW : Entity `node` [cndb_net_device__4.node]>>
+            <CNDB.Net_Device | QX.Kind_Query for
+                 <SAW : Entity `my_node`>>
+                <CNDB.Net_Interface | QX.Kind_Query for
+                     <SAW : Entity `my_node`>>
+                    <CNDB.WPA_Credentials | QX.Kind_Query for
+                         <SAW : Entity `my_node`>>
+        42
+      Bin:__eq__:
+        <CNDB.Net_Device | QX.Kind_EPK for
+             <SAW : Entity `node` [cndb_net_device__5.node]>>
             <CNDB.Net_Device | QX.Kind_Query for
                  <SAW : Entity `my_node`>>
                 <CNDB.Wireless_Interface | QX.Kind_Query for
@@ -2653,7 +2713,7 @@ _test_qx = """
         42
       Bin:__eq__:
         <CNDB.Net_Device | QX.Kind_EPK for
-             <SAW : Entity `node` [cndb_net_device__5.node]>>
+             <SAW : Entity `node` [cndb_net_device__6.node]>>
             <CNDB.Net_Device | QX.Kind_Query for
                  <SAW : Entity `my_node`>>
                 <CNDB.Wireless_Interface | QX.Kind_Query for
@@ -2667,7 +2727,7 @@ _test_qx = """
     >>> qxb = QX.Mapper (qrb)
     >>> print (QX.display (qxb (qfb)))
     <CNDB.Belongs_to_Node | QX.Kind_Partial for
-         <SAW : Entity `my_node` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.Node | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>>
+         <SAW : Entity `my_node` (CNDB.Antenna | CNDB.Net_Device | CNDB.Net_Interface | CNDB.Net_Interface_in_IP_Network | CNDB.Node | CNDB.WPA_Credentials | CNDB.Wireless_Interface_uses_Antenna | CNDB.Wireless_Interface_uses_Wireless_Channel)>>
       Bin:__eq__:
         <CNDB.Node | QX._Self_ for SELF>
             <CNDB.Node | QX.Kind_Query for
@@ -2704,12 +2764,22 @@ _test_qx = """
                  <SAW : Entity `my_node`>>
                 <CNDB.Net_Interface | QX.Kind_Query for
                      <SAW : Entity `my_node`>>
-                    <CNDB.WPA_Credentials | QX.Kind_Query for
+                    <CNDB.Net_Interface_in_IP_Network | QX.Kind_Query for
                          <SAW : Entity `my_node`>>
         42
       Bin:__eq__:
         <CNDB.Net_Device | QX.Kind_EPK for
              <SAW : Entity `node` [cndb_net_device__4.node]>>
+            <CNDB.Net_Device | QX.Kind_Query for
+                 <SAW : Entity `my_node`>>
+                <CNDB.Net_Interface | QX.Kind_Query for
+                     <SAW : Entity `my_node`>>
+                    <CNDB.WPA_Credentials | QX.Kind_Query for
+                         <SAW : Entity `my_node`>>
+        42
+      Bin:__eq__:
+        <CNDB.Net_Device | QX.Kind_EPK for
+             <SAW : Entity `node` [cndb_net_device__5.node]>>
             <CNDB.Net_Device | QX.Kind_Query for
                  <SAW : Entity `my_node`>>
                 <CNDB.Wireless_Interface | QX.Kind_Query for
@@ -2719,7 +2789,7 @@ _test_qx = """
         42
       Bin:__eq__:
         <CNDB.Net_Device | QX.Kind_EPK for
-             <SAW : Entity `node` [cndb_net_device__5.node]>>
+             <SAW : Entity `node` [cndb_net_device__6.node]>>
             <CNDB.Net_Device | QX.Kind_Query for
                  <SAW : Entity `my_node`>>
                 <CNDB.Wireless_Interface | QX.Kind_Query for
@@ -3489,6 +3559,12 @@ _test_select = """
                cndb_net_interface.mac_address AS cndb_net_interface_mac_address,
                cndb_net_interface.name AS cndb_net_interface_name,
                cndb_net_interface.pid AS cndb_net_interface_pid,
+               cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
+               cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
+               cndb_net_interface_in_ip_network.__raw_name AS cndb_net_interface_in_ip_network___raw_name,
+               cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
+               cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
+               cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
                cndb_node."desc" AS cndb_node_desc,
                cndb_node.__raw_name AS cndb_node___raw_name,
                cndb_node.address AS cndb_node_address,
@@ -3526,6 +3602,7 @@ _test_select = """
            LEFT OUTER JOIN cndb_net_interface ON mom_id_entity.pid = cndb_net_interface.pid
            LEFT OUTER JOIN cndb__wireless_interface_ ON cndb_net_interface.pid = cndb__wireless_interface_.pid
            LEFT OUTER JOIN cndb_virtual_wireless_interface ON cndb__wireless_interface_.pid = cndb_virtual_wireless_interface.pid
+           LEFT OUTER JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
            LEFT OUTER JOIN cndb_wpa_credentials ON mom_id_entity.pid = cndb_wpa_credentials.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna ON mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_wireless_channel ON mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
@@ -3535,6 +3612,7 @@ _test_select = """
             OR mom_id_entity.pid = cndb_net_interface.pid
             OR mom_id_entity.pid = cndb__wireless_interface_.pid
             OR mom_id_entity.pid = cndb_virtual_wireless_interface.pid
+            OR mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
             OR mom_id_entity.pid = cndb_wpa_credentials.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
@@ -3553,6 +3631,12 @@ _test_select = """
                cndb_net_interface.mac_address AS cndb_net_interface_mac_address,
                cndb_net_interface.name AS cndb_net_interface_name,
                cndb_net_interface.pid AS cndb_net_interface_pid,
+               cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
+               cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
+               cndb_net_interface_in_ip_network.__raw_name AS cndb_net_interface_in_ip_network___raw_name,
+               cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
+               cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
+               cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
                cndb_virtual_wireless_interface.hardware AS cndb_virtual_wireless_interface_hardware,
                cndb_virtual_wireless_interface.pid AS cndb_virtual_wireless_interface_pid,
                cndb_wireless_interface_uses_antenna."left" AS cndb_wireless_interface_uses_antenna_left,
@@ -3574,12 +3658,14 @@ _test_select = """
            LEFT OUTER JOIN cndb_net_interface ON mom_id_entity.pid = cndb_net_interface.pid
            LEFT OUTER JOIN cndb__wireless_interface_ ON cndb_net_interface.pid = cndb__wireless_interface_.pid
            LEFT OUTER JOIN cndb_virtual_wireless_interface ON cndb__wireless_interface_.pid = cndb_virtual_wireless_interface.pid
+           LEFT OUTER JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
            LEFT OUTER JOIN cndb_wpa_credentials ON mom_id_entity.pid = cndb_wpa_credentials.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna ON mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_wireless_channel ON mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
         WHERE mom_id_entity.pid = cndb_net_interface.pid
             OR mom_id_entity.pid = cndb__wireless_interface_.pid
             OR mom_id_entity.pid = cndb_virtual_wireless_interface.pid
+            OR mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
             OR mom_id_entity.pid = cndb_wpa_credentials.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
@@ -3635,6 +3721,12 @@ _test_select = """
                cndb_net_interface.mac_address AS cndb_net_interface_mac_address,
                cndb_net_interface.name AS cndb_net_interface_name,
                cndb_net_interface.pid AS cndb_net_interface_pid,
+               cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
+               cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
+               cndb_net_interface_in_ip_network.__raw_name AS cndb_net_interface_in_ip_network___raw_name,
+               cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
+               cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
+               cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
                cndb_virtual_wireless_interface.hardware AS cndb_virtual_wireless_interface_hardware,
                cndb_virtual_wireless_interface.pid AS cndb_virtual_wireless_interface_pid,
                cndb_wireless_interface_uses_antenna."left" AS cndb_wireless_interface_uses_antenna_left,
@@ -3658,6 +3750,7 @@ _test_select = """
            LEFT OUTER JOIN cndb_net_interface ON mom_id_entity.pid = cndb_net_interface.pid
            LEFT OUTER JOIN cndb__wireless_interface_ ON cndb_net_interface.pid = cndb__wireless_interface_.pid
            LEFT OUTER JOIN cndb_virtual_wireless_interface ON cndb__wireless_interface_.pid = cndb_virtual_wireless_interface.pid
+           LEFT OUTER JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
            LEFT OUTER JOIN cndb_wpa_credentials ON mom_id_entity.pid = cndb_wpa_credentials.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna ON mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_wireless_channel ON mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
@@ -3666,6 +3759,7 @@ _test_select = """
             OR mom_id_entity.pid = cndb_net_interface.pid
             OR mom_id_entity.pid = cndb__wireless_interface_.pid
             OR mom_id_entity.pid = cndb_virtual_wireless_interface.pid
+            OR mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
             OR mom_id_entity.pid = cndb_wpa_credentials.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
@@ -3684,6 +3778,12 @@ _test_select = """
                cndb_net_interface.mac_address AS cndb_net_interface_mac_address,
                cndb_net_interface.name AS cndb_net_interface_name,
                cndb_net_interface.pid AS cndb_net_interface_pid,
+               cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
+               cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
+               cndb_net_interface_in_ip_network.__raw_name AS cndb_net_interface_in_ip_network___raw_name,
+               cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
+               cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
+               cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
                cndb_virtual_wireless_interface.hardware AS cndb_virtual_wireless_interface_hardware,
                cndb_virtual_wireless_interface.pid AS cndb_virtual_wireless_interface_pid,
                cndb_wireless_interface_uses_antenna."left" AS cndb_wireless_interface_uses_antenna_left,
@@ -3705,12 +3805,14 @@ _test_select = """
            LEFT OUTER JOIN cndb_net_interface ON mom_id_entity.pid = cndb_net_interface.pid
            LEFT OUTER JOIN cndb__wireless_interface_ ON cndb_net_interface.pid = cndb__wireless_interface_.pid
            LEFT OUTER JOIN cndb_virtual_wireless_interface ON cndb__wireless_interface_.pid = cndb_virtual_wireless_interface.pid
+           LEFT OUTER JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
            LEFT OUTER JOIN cndb_wpa_credentials ON mom_id_entity.pid = cndb_wpa_credentials.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna ON mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_wireless_channel ON mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
         WHERE mom_id_entity.pid = cndb_net_interface.pid
             OR mom_id_entity.pid = cndb__wireless_interface_.pid
             OR mom_id_entity.pid = cndb_virtual_wireless_interface.pid
+            OR mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
             OR mom_id_entity.pid = cndb_wpa_credentials.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
             OR mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
