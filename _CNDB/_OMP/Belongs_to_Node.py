@@ -42,6 +42,8 @@
 #     1-Oct-2013 (CT) Remove `belongs_to_node.hidden = True`
 #    14-Apr-2014 (CT) Rename `belongs_to_node` to `my_node`
 #     4-Sep-2014 (CT) Add query attribute `my_group`
+#    12-Sep-2014 (CT) Simplify `my_group.query`, `my_person.query`
+#                     (use type restriction in `query`)
 #    ««revision-date»»···
 #--
 
@@ -68,7 +70,7 @@ class Belongs_to_Node (_Ancestor_Essence) :
             kind                = Attr.Query
             P_Type              = "PAP.Group"
             query               = \
-                Q.OR (Q.my_node.manager.my_group, Q.my_node.owner.my_group)
+                Q.my_node.OR (Q.manager, Q.owner) ["PAP.Group"]
             hidden              = True
 
         # end class my_group
@@ -88,7 +90,7 @@ class Belongs_to_Node (_Ancestor_Essence) :
             kind                = Attr.Query
             P_Type              = "PAP.Person"
             query               = \
-                Q.OR (Q.my_node.manager.my_person, Q.my_node.owner.my_person)
+                Q.my_node.OR (Q.manager, Q.owner) ["PAP.Person"]
             hidden              = True
 
         # end class my_person

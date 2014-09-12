@@ -89,6 +89,11 @@
 #                     `DB_Interface_in_IP_Network`
 #     5-Sep-2014 (CT) Add action `allocate_ip`, factor `create_action_name`
 #                     add `_DB_E_Type_` property `is_partial`
+#    12-Sep-2014 (CT) Add `PAP.Person_in_Group` to
+#                     `User_Node.change_query_filters`
+#    12-Sep-2014 (CT) Fix `User_Entity.query_filters_restricted`
+#    12-Sep-2014 (CT) Add `User_Person.query_filters_restricted`,
+#                     `_User_Person_has_Property_.query_filters_restricted`
 #    ««revision-date»»···
 #--
 
@@ -282,32 +287,9 @@ class User_Entity (_Ancestor) :
     def query_filters_restricted (self) :
         person = self.user_restriction
         if person is not None :
-            ### XXX remove when query expression below the `return` works
-            return Q.my_person == person
-
-            ### ATM, Q.my_group.member_links... doesn't work in QX
-            ###
-            ### - fix MOM.DBW.SAW.QX.Kind_Query to pass along
-            ###   the `E_Type` of the query attribute `my_group`,
-            ###   `my_person`, ...
-            ###
-            ### - additionally, maybe implement a Q-operator to restrict
-            ###   the type of an `A_Id_Entity` expression to a subtype
-            ###   to avoud the multiple definitions of `my_group` and
-            ###   `my_person`
-            ###
-            ###   For instance::
-            ###       Q.TYP.PAP.Group(Q.my_group)
-            ###   or::
-            ###       Q.my_group["PAP.Group"]
-            ###
-            ### Q.OR (Q.my_node.manager, Q.my_node.owner)["PAP.Person"]
-            ###
-            ### Q.TYP.PAP.Group (Q.OR (Q.my_node.manager, Q.my_node.owner))
-            ###
             result = Q.OR \
                 ( Q.my_person == person
-                , Q.my_group.member_links.left == person
+                , Q.my_group.members == person
                 )
             return result
     # end def query_filters_restricted
@@ -323,6 +305,16 @@ class User_Node (User_Entity) :
         ( User_Entity.child_postconditions_map
         , change = (_pre_commit_node_check, _pre_commit_entity_check)
         )
+
+    @Once_Property
+    @getattr_safe
+    def change_query_filters (self) :
+        result = Q.OR \
+            ( self.__super.change_query_filters [0]
+            , Q.type_name == b"PAP.Person_in_Group"
+            )
+        return (result, )
+    # end def change_query_filters
 
     @property
     @getattr_safe
@@ -408,11 +400,25 @@ class User_Person (User_Entity) :
 
     _ETM                  = "PAP.Person"
 
+    def query_filters_restricted (self) :
+        person = self.user_restriction
+        if person is not None :
+            result = Q.pid == person.pid
+            return result
+    # end def query_filters_restricted
+
 # end class User_Person
 
 class _User_Person_has_Property_ (User_Entity) :
 
     ET_depends            = "PAP.Person"
+
+    def query_filters_restricted (self) :
+        person = self.user_restriction
+        if person is not None :
+            result = Q.left == person
+            return result
+    # end def query_filters_restricted
 
 # end class _User_Person_has_Property_
 
@@ -625,6 +631,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     view_action_names     = ("filter", "edit", "delete")
     view_field_names      = ()    ### to be defined by subclass
     type_name             = None  ### to be defined by subclass
+
+    change_query_filters  = property \
+        (lambda s : s.admin.change_query_filters)
 
     child_permission_map     = property \
         (lambda s : s.admin.child_permission_map)
