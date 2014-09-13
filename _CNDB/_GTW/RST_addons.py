@@ -94,6 +94,7 @@
 #    12-Sep-2014 (CT) Fix `User_Entity.query_filters_restricted`
 #    12-Sep-2014 (CT) Add `User_Person.query_filters_restricted`,
 #                     `_User_Person_has_Property_.query_filters_restricted`
+#    13-Sep-2014 (CT) Change `change_query_filters` to `change_query_types`
 #    ««revision-date»»···
 #--
 
@@ -308,13 +309,13 @@ class User_Node (User_Entity) :
 
     @Once_Property
     @getattr_safe
-    def change_query_filters (self) :
-        result = Q.OR \
-            ( self.__super.change_query_filters [0]
-            , Q.type_name == b"PAP.Person_in_Group"
-            )
-        return (result, )
-    # end def change_query_filters
+    def change_query_types (self) :
+        scope  = self.scope
+        PiG    = scope.entity_type ("PAP.Person_in_Group")
+        result = set  (self.__super.change_query_types)
+        result.update (self._change_query_types (PiG))
+        return result
+    # end def change_query_types
 
     @property
     @getattr_safe
@@ -340,14 +341,14 @@ class User_Node_Dependent (User_Entity) :
 
     @Once_Property
     @getattr_safe
-    def change_query_filters (self) :
-        result = self.__super.change_query_filters [0]
+    def change_query_types (self) :
+        result = set (self.__super.change_query_types)
         ETd    = getattr \
             (self.top.ET_Map [self.ET_depends], self.et_map_name, None)
         if ETd is not None :
-            result = result | ETd.change_query_filters [0]
-        return (result, )
-    # end def change_query_filters
+            result.update (ETd.change_query_types)
+        return result
+    # end def change_query_types
 
 # end class User_Node_Dependent
 
@@ -619,21 +620,24 @@ _MF3_Mixin = GTW.RST.TOP.MOM.Admin.E_Type_Mixin
 class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     """E_Type displayed by, and managed via, dashboard."""
 
-    add_css_classes       = []
-    app_div_prefix        = _Ancestor.app_typ_prefix
-    et_map_name           = "dash"
-    create_action_name    = "create"
-    fill_edit             = True
-    fill_user             = False
-    fill_view             = False
-    hidden                = True
-    ui_allow_new          = True
-    view_action_names     = ("filter", "edit", "delete")
-    view_field_names      = ()    ### to be defined by subclass
-    type_name             = None  ### to be defined by subclass
+    add_css_classes          = []
+    app_div_prefix           = _Ancestor.app_typ_prefix
+    et_map_name              = "dash"
+    create_action_name       = "create"
+    fill_edit                = True
+    fill_user                = False
+    fill_view                = False
+    hidden                   = True
+    ui_allow_new             = True
+    view_action_names        = ("filter", "edit", "delete")
+    view_field_names         = ()    ### to be defined by subclass
+    type_name                = None  ### to be defined by subclass
 
-    change_query_filters  = property \
+    change_query_filters     = property \
         (lambda s : s.admin.change_query_filters)
+
+    change_query_types       = property \
+        (lambda s : s.admin.change_query_types)
 
     child_permission_map     = property \
         (lambda s : s.admin.child_permission_map)
