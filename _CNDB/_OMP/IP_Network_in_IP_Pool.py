@@ -27,6 +27,7 @@
 #
 # Revision Dates
 #     3-Jul-2014 (RS) Creation
+#    16-Sep-2014 (CT) Add `left.rev_ref_attr_name`
 #    ««revision-date»»···
 #--
 
@@ -56,6 +57,7 @@ class IP_Network_in_IP_Pool (_Ancestor_Essence) :
             """IP network."""
 
             role_type          = CNDB.OMP.IP_Network
+            rev_ref_attr_name  = "ip_network"
             max_links          = 1
 
         # end class left

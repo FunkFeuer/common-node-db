@@ -49,6 +49,11 @@
 ##     3-Sep-2014 (CT) Factor `action_button_create`, support `is_partial`
 ##     5-Sep-2014 (CT) Rewrite `owner` column code to improve readability
 ###                    (and placate emacs syntax colorizer :-)
+##    16-Sep-2014 (CT) Add `action_button_allocate_ip_pool_menu`
+##    16-Sep-2014 (CT) Change action messages to dict-interpolation
+##    16-Sep-2014 (CT) Factor `e_type_object`
+##    23-Sep-2014 (CT) Use `ui_display_x` in
+##                     `action_button_allocate_ip_pool_menu`
 ##    ««revision-date»»···
 ##--
 #}
@@ -81,7 +86,7 @@
         {%- for c_db_type in db_type.children_np %}
           <li>
             {%- set TN = c_db_type.E_Type.ui_name_T %}
-            {%- set msg = (GTW._T (create.msg) % (TN, "")).strip () %}
+            {%- set msg = (GTW._T (create.msg) % GTW.dict (tn = TN, obj = "")).strip () %}
             {%- set kw = GTW.dict
                 ( kwargs
                 , text  = TN
@@ -96,6 +101,28 @@
       </ul>
     {%- endonion %}
 {%- endmacro -%} {#- action_button_create -#}
+
+{%- macro action_button_allocate_ip_pool_menu (db_type, pools) -%}
+  <ul class="partial-type-menu">
+    {%- for p in pools %}
+      <li>
+        {%- set nam = p.ui_display_x %}
+        {%- set msg =
+                GTW._T ("Allocate from pool %(name)s") % GTW.dict (name=nam)
+        %}
+        {%- set kw  = GTW.dict
+            ( kwargs
+            , text  = nam [:40]
+            , title = msg
+            , ** { "data-pool-pid" : p.pid }
+            )
+        %}
+        {{- action_button ("#allocate_ip", "play", ** kw)
+        -}}
+      </li>
+    {% endfor -%}
+  </ul>
+{%- endmacro -%} {#- action_button_allocate_ip_pool_menu -#}
 
 {%- macro db_div_main (db_div) -%}
   {%- for db_type in db_div.entries %}
@@ -144,6 +171,49 @@
   {% endif -%}
 {%- endmacro -%} {#- db_node_map -#}
 
+{%- macro e_type_object (db_type, o) -%}
+  {%- set TN      = db_type.Div_Name %}
+  {%- set actions = db_type.view_actions %}
+  {%- set fields  = db_type.view_fields %}
+  {%- set name    = db_type.view_name_instance (o) %}
+  {%- set tn      = db_type.div_name %}
+  {%- set user    = db_type.user_restriction %}
+  {%- if o.owner == user %}
+    {%- set own_icon  = "fa-check-square-o" %}
+    {%- set own_title = GTW._T ("Owned by you") %}
+  {%- else %}
+    {%- set own_icon  = "fa-square-o" %}
+    {%- set own_title = GTW._T ("Owned by %s") % user.FO %}
+  {% endif -%}
+  <tr id="{{ tn }}-{{ o.pid }}" {# -#}
+      class="{{ db_type.tr_instance_css_class (o) }}"{#- -#}
+  >
+    {%- for f in fields %}
+      {%- set css_class =
+          (" class=\"%s\" " % (f.css_class, )) if f.css_class else ""
+      -%}
+      <td{{ css_class }}>
+        {% if f.css_class == 'owner' %}
+          <i class="fa {{ own_icon }}" title="{{ own_title }}"></i>
+        {% else %}
+        {{- f.as_html (o, f.value (o)) -}}
+        {% endif %}
+      </td>
+    {% endfor -%}
+    {%- if actions %}
+      <td class="action">
+        {%- for a in actions -%}
+          {{- action_button
+              ( "#" + a.name, a.icon
+              , GTW._T (a.msg) % GTW.dict (tn = TN, obj = name)
+              )
+          -}}
+        {%- endfor -%}
+      </td>
+    {% endif -%}
+  </tr>
+{%- endmacro -%} {#- e_type_object -#}
+
 {%- macro e_type_table (db_type) -%}
   {%- set TN      = db_type.Div_Name %}
   {%- set actions = db_type.view_actions %}
@@ -158,7 +228,7 @@
       {%- if not db_type.is_partial  %}
         {{- action_button_create
             ( db_type, create
-            , title = (GTW._T (create.msg) % (TN, "")).strip ()
+            , title = (GTW._T (create.msg) % GTW.dict (tn = TN, obj = "")).strip ()
             )
         -}}
       {% endif -%}
@@ -182,46 +252,14 @@
     </thead>
     <tbody>
       {%- for o in objects %}
-        {%- set name = db_type.view_name_instance (o) %}
-        {%- if o.owner == user %}
-          {%- set own_icon  = "fa-check-square-o" %}
-          {%- set own_title = GTW._T ("Owned by you") %}
-        {%- else %}
-          {%- set own_icon  = "fa-square-o" %}
-          {%- set own_title = GTW._T ("Owned by %s") % user.FO %}
-        {% endif -%}
-        <tr id="{{ tn }}-{{ o.pid }}" {# -#}
-            class="{{ db_type.tr_instance_css_class (o) }}"{#- -#}
-        >
-          {%- for f in fields %}
-            {%- set css_class =
-                (" class=\"%s\" " % (f.css_class, )) if f.css_class else ""
-            -%}
-            <td{{ css_class }}>
-              {% if f.css_class == 'owner' %}
-                <i class="fa {{ own_icon }}" title="{{ own_title }}"></i>
-              {% else %}
-              {{- f.as_html (o, f.value (o)) -}}
-              {% endif %}
-            </td>
-          {% endfor -%}
-          {%- if actions %}
-            <td class="action">
-              {%- for a in actions -%}
-                {{- action_button
-                    ("#" + a.name, a.icon, GTW._T (a.msg) % (TN, name))
-                -}}
-              {%- endfor -%}
-            </td>
-          {% endif -%}
-        </tr>
+        {{ e_type_object (db_type, o) }}
       {% endfor -%}
       {%- if create %}
         <tr>
           <td colspan="{{ GTW.len (fields) + GTW.bool (actions) }}">
             {{- action_button_create
                 ( db_type, create
-                , text = (GTW._T (create.msg) % (TN, "")).strip ()
+                , text = (GTW._T (create.msg) % GTW.dict (tn = TN, obj = "")).strip ()
                 )
             -}}
           </td>

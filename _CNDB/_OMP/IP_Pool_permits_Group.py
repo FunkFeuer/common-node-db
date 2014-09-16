@@ -28,6 +28,7 @@
 # Revision Dates
 #     3-Jul-2014 (RS) Creation
 #     4-Sep-2014 (RS) `_Mixin` `CNDB.OMP.Entity` (tnx CT)
+#    16-Sep-2014 (CT) Add `left.rev_ref_attr_name`
 #    ««revision-date»»···
 #--
 
@@ -61,6 +62,7 @@ class IP_Pool_permits_Group (_Mixin, _Ancestor_Essence) :
             """IP Pool."""
 
             role_type          = CNDB.OMP.IP_Pool
+            rev_ref_attr_name  = "group"
 
         # end class left
 

@@ -31,6 +31,11 @@
 //                     Remove Zip code from fields - seems to mess with
 //                     geolocation some times
 //     5-Sep-2015 (MB) toggle visibility of interface ip list
+//    16-Sep-2014 (CT) Remove action `manage_ip`, use `filter` instead;
+//                     add `filter_typ_remove_cb`, `ip_hide_cb`, `ip_show_cb`
+//    16-Sep-2014 (CT) Add action `allocate_ip`
+//    23-Sep-2014 (CT) Factor `setup_buttons`, use it in `allocate_ip_cb`
+//    23-Sep-2014 (CT) Fix `menu` in `allocate_ip_cb`
 //    ««revision-date»»···
 //--
 
@@ -38,21 +43,22 @@
     "use strict";
     $.fn.cndb_dashboard = function cndb_dashboard (opts) {
         var selectors = $.extend
-            ( { app_div          : "[id^=\"app-D:\"]"
-              , app_div_edit     : "[id=\"app-D:edit\"]"
-              , create_button    : "[href=#create]"
-              , create_button_p  : "[href=#create-partial]"
-              , create_button_t  : "[href=#create-type]"
-              , delete_button    : "[href=#delete]"
-              , edit_button      : "[href=#edit]"
-              , filter_button    : "[href=#filter]"
-              , firmware_button  : "[href=#firmware]"
-              , graph_button     : "[href=#graphs]"
-              , manage_ip_button : "[href=#manage_ip]"
-              , graph_button_if  : ".interface-table [href=#graphs]"
-              , graph_button_node: ".node-table [href=#graphs]"
-              , obj_row          : "tr"
-              , root             : "#app"
+            ( { app_div            : "[id^=\"app-D:\"]"
+              , app_div_edit       : "[id=\"app-D:edit\"]"
+              , app_div_id         : "[id=\"app-T:interface_in_ip_network\"]"
+              , allocate_ip_button : "[href=#allocate_ip]"
+              , create_button      : "[href=#create]"
+              , create_button_p    : "[href=#create-partial]"
+              , create_button_t    : "[href=#create-type]"
+              , delete_button      : "[href=#delete]"
+              , edit_button        : "[href=#edit]"
+              , filter_button      : "[href=#filter]"
+              , firmware_button    : "[href=#firmware]"
+              , graph_button       : "[href=#graphs]"
+              , graph_button_if    : ".interface-table [href=#graphs]"
+              , graph_button_node  : ".node-table [href=#graphs]"
+              , obj_row            : "tr"
+              , root               : "#app"
               }
             , opts && opts ["selectors"] || {}
             );
@@ -74,11 +80,63 @@
               , urls      : urls
               }
             );
-        var active_filters = {};
-        var nodes={};
-        var pat_div_name   = new RegExp (options.app_div_prefix + "(\\w+)$");
-        var pat_pid        = new RegExp ("^([^-]+)-(\\d+)$");
-        var pat_typ_name   = new RegExp (options.app_typ_prefix + "(\\w+)$");
+        var active_filters  = {};
+        var nodes           = {};
+        var pat_div_name    = new RegExp (options.app_div_prefix + "(\\w+)$");
+        var pat_pid         = new RegExp ("^([^-]+)-(\\d+)$");
+        var pat_typ_name    = new RegExp (options.app_typ_prefix + "(\\w+)$");
+        var allocate_ip_cb  = function allocate_ip_cb (ev) {
+            var target$     = $(ev.delegateTarget);
+            var pool_pid    = target$.data ("pool-pid");
+            var t_row$      = target$.closest ("tr");
+            var t_col$      = target$.closest ("td");
+            var afs         = active_filters;
+            var sid         = closest_el_id (this, "section");
+            var typ         = sid.match     (pat_typ_name) [1];
+            var url         = options.urls.page + typ + "/allocate_ip";
+            var success_cb  = function success_cb (response, status) {
+                var row$, menu$;
+                if (! response ["error"]) {
+                    if ("row" in response) {
+                        row$ = $(response.row);
+                        row$.addClass     ("feedback")
+                            .insertBefore (t_row$);
+                        $(".dynamic", t_col$).remove ();
+                        setup_buttons (row$);
+                    } else if ("menu" in response) {
+                        $(".dynamic", t_col$).remove ();
+                        menu$ = $(response.menu);
+                        menu$
+                            .addClass ("dynamic")
+                            .appendTo (t_col$)
+                            .show     ();
+                        setup_buttons (menu$);
+                    } else if ("feedback" in response) {
+                        $GTW.show_message
+                            ("Feedback from server: " + response.feedback);
+                    } else {
+                        $GTW.show_message
+                            ("Unknown response", response);
+                    };
+                } else {
+                    $GTW.show_message
+                        ("Ajax Error: " + response ["error"]);
+                };
+            };
+            $.gtw_ajax_2json
+                ( { type        : "POST"
+                  , data        : $.extend
+                      ( { pool  : pool_pid
+                        }
+                      , active_filters
+                      )
+                  , url         : url
+                  , success     : success_cb
+                  }
+                , "Allocate IP"
+                );
+            return false;
+        };
         var closest_el     = function closest_el (self, selector) {
             return $(self).closest (selector);
         };
@@ -193,15 +251,20 @@
             var pid     = pid_of_obj_id         (id);
             var typ     = type_of_obj_id        (id);
             var all     = obj_rows_selector_all (id);
-            var typ_cb  = filter_typ_cb [typ];
+            var typ_cb;
             var hide$;
             if (a$.hasClass (options.active_button_class)) {
                 // currently filtered --> show all instances
+                typ_cb = filter_typ_remove_cb [typ];
+                if (typ_cb) {
+                    typ_cb.apply (this, arguments);
+                };
                 $(all).show ();
                 delete active_filters [typ];
                 a$.removeClass(options.active_button_class);
             } else {
                 active_filters [typ] = pid;
+                typ_cb = filter_typ_add_cb [typ];
                 if (typ_cb) {
                     typ_cb.apply (this, arguments);
                 };
@@ -312,46 +375,44 @@
                 nodes[pid].openPopup();
                 };
             };
-        
-        var manage_ip_cb = function(e) {
-            var a$ = $(this);
-            var l$ = $("#app-T\\:interface_in_ip_network");
-            if (a$.hasClass (options.active_button_class)) {
-                l$.hide ();
-                }
-            else {
-                l$.show ();
-                }
-            //a$.toggleClass (options.active_button_class);
-
-            }
-        // Define custom actions on filter here
-        var filter_typ_cb = {
-            //interface : graph_interface_cb
-            node: focus_map_cb,
+        var ip_hide_cb = function ip_hide_cb (ev) {
+            var l$ = $(selectors.app_div_id);
+            l$.hide ();
         };
-
+        var ip_show_cb = function ip_show_cb (ev) {
+            var l$ = $(selectors.app_div_id);
+            l$.show ();
+        };
+        var setup_buttons = function setup_buttons (context$) {
+            $(selectors.allocate_ip_button, this).on ("click", allocate_ip_cb);
+            $(selectors.create_button,      this).on ("click", create_cb);
+            $(selectors.create_button_p,    this).on ("click", create_p_cb);
+            $(selectors.create_button_t,    this).on ("click", create_t_cb);
+            $(selectors.delete_button,      this).on ("click", delete_cb);
+            $(selectors.edit_button,        this).on ("click", edit_cb);
+            $(selectors.filter_button,      this).on ("click", filter_cb);
+            $(selectors.firmware_button,    this).on ("click", firmware_cb);
+            //$(selectors.graph_button_if,    this).on ("click", graph_interface_cb);
+            $(selectors.graph_button_node,  this).on ("click", graph_cb);
+        }
+        // Define custom actions on filter here
+        var filter_typ_add_cb =
+            { "interface" : ip_show_cb
+            , node        : focus_map_cb
+            };
+        var filter_typ_remove_cb =
+            { "interface" : ip_hide_cb
+            };
         selectors.filter_active_button =
             "." + options.active_button_class + selectors.filter_button;
-        $(selectors.create_button    ).on ("click", create_cb);
-        $(selectors.create_button_p  ).on ("click", create_p_cb);
-        $(selectors.create_button_t  ).on ("click", create_t_cb);
-        $(selectors.delete_button    ).on ("click", delete_cb);
-        $(selectors.edit_button      ).on ("click", edit_cb);
-        $(selectors.filter_button    ).on ("click", filter_cb);
-        $(selectors.firmware_button  ).on ("click", firmware_cb);
-        //$(selectors.graph_button_if  ).on ("click", graph_interface_cb);
-        $(selectors.graph_button_node).on ("click", graph_cb);
-        $(selectors.manage_ip_button ).on ("click", manage_ip_cb);
-        $(selectors.manage_ip_button ).on ("click", filter_cb);
-
+        setup_buttons (this);
         // hide the ip in interface list on ready
-        $(document).ready(function() {
-            $("#app-T\\:interface_in_ip_network").hide();
-            });
-
+        $(document).ready(function () {
+            $(selectors.app_div_id).hide ();
+            }
+        );
         // initialize the map
-        $(document).ready(function() {
+        $(document).ready(function () {
             var ms = $(".map[data-markers]");
             L.Icon.Default.imagePath = "/media/GTW/css/images";
             for (var j=0;j<ms.length;j++) {
@@ -398,13 +459,13 @@
                     , maxZoom: 15});
                     };
             });
-        
+
         // make position editing more interesting...
         // ... by adding a map!
         $(document).ready(function() {
             var form="form[action *='node']";
             if ($(form).length) {
-                
+
                 var poslat="input[name='position.lat']";
                 var poslon="input[name='position.lon']";
 
@@ -413,7 +474,7 @@
                     $(poslon).val(p[1]).trigger("change");
                     }
                 var marker;
-                var show_marker = function() { 
+                var show_marker = function() {
                     // show a marker based on the position in the form
 
                     var degreeToFloat = function (s) {
@@ -424,7 +485,7 @@
                         dms = dms.map(function(x) { return parseFloat(x) });
                         return dms.reduce(function(x,y,i) { return x+(y/Math.pow(60,i)) });
                         };
-                    
+
                     // let's see whether we have positions
                     var lat = $(poslat).val();
                     var lon = $(poslon).val();
@@ -432,7 +493,7 @@
                     if (lat && lon) {
                         lat=degreeToFloat(lat);
                         lon=degreeToFloat(lon);
-                        if (marker == undefined) {  
+                        if (marker == undefined) {
                             marker = L.marker([lat,lon],
                                     {"draggable": true})
                                     .addTo(position_map)
@@ -479,17 +540,17 @@
                 L.tileLayer ( 'https://\{s\}.tile.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
                             , { maxZoom: 18
                             , attribution: 'Map data &copy; ' +
-                              '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 
+                              '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                               '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
                                }
                 ).addTo (position_map);
-                
+
 
                 // show marker on load
                 show_marker();
 
                 //bind change in input fields to show marker
-                $("input[name *='position.']").on("change",function() { show_marker()});    
+                $("input[name *='position.']").on("change",function() { show_marker()});
                 $("button#geolocate").on("click", function() {
                     $("button#geolocate").addClass("pure-button-disabled");
                     var fields=["street","city","country"];
@@ -512,9 +573,9 @@
                                     lat = d[0].lat;
                                     lon = d[0].lon;
                                     }
-                                update_position([lat,lon]);    
+                                update_position([lat,lon]);
                                 };
-                            $("button#geolocate").removeClass("pure-button-disabled");    
+                            $("button#geolocate").removeClass("pure-button-disabled");
                             })
                     return false;
                     });

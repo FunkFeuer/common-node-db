@@ -684,6 +684,7 @@ _test_q_able = """
       <SAW : Time Delta `cool_down_period` (CNDB.IP4_Pool | CNDB.IP6_Pool)>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
+      <SAW : Role_Ref_Set `ip_networks`>
       <SAW : Rev_Ref `last_change`>
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : String `name` (CNDB.IP4_Pool | CNDB.IP6_Pool)>
@@ -695,6 +696,7 @@ _test_q_able = """
       <SAW : Time Delta `cool_down_period` [cndb_ip4_pool.cool_down_period]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
+      <SAW : Role_Ref_Set `ip_networks`>
       <SAW : Rev_Ref `last_change`>
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : String `name` [cndb_ip4_pool.name, cndb_ip4_pool.__raw_name]>
@@ -737,6 +739,7 @@ _test_q_able = """
       <SAW : Time Delta `cool_down_period` [cndb_ip6_pool.cool_down_period]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
+      <SAW : Role_Ref_Set `ip_networks`>
       <SAW : Rev_Ref `last_change`>
       <SAW : Int `last_cid` [mom_id_entity.last_cid]>
       <SAW : String `name` [cndb_ip6_pool.name, cndb_ip6_pool.__raw_name]>
@@ -1272,9 +1275,9 @@ _test_q_result = """
            JOIN cndb_antenna ON mom_id_entity.pid = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna AS cndb_wireless_interface_uses_antenna__1 ON cndb_wireless_interface_uses_antenna__1."right" = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__1 ON cndb_wireless_interface__1.pid = cndb_wireless_interface_uses_antenna__1."left"
-           JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
-           JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
-           JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
+           LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
+           LEFT OUTER JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
+           LEFT OUTER JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
            LEFT OUTER JOIN pap_association AS pap_association__1 ON pap_association__1.pid = cndb_node__1.manager
            LEFT OUTER JOIN pap_adhoc_group AS pap_adhoc_group__1 ON pap_adhoc_group__1.pid = cndb_node__1.manager
            LEFT OUTER JOIN pap_company AS pap_company__1 ON pap_company__1.pid = cndb_node__1.manager
@@ -1316,9 +1319,9 @@ _test_q_result = """
            JOIN cndb_antenna ON mom_id_entity.pid = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna AS cndb_wireless_interface_uses_antenna__1 ON cndb_wireless_interface_uses_antenna__1."right" = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__1 ON cndb_wireless_interface__1.pid = cndb_wireless_interface_uses_antenna__1."left"
-           JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
-           JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
-           JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
+           LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
+           LEFT OUTER JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
+           LEFT OUTER JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
            LEFT OUTER JOIN pap_association AS pap_association__1 ON pap_association__1.pid = cndb_node__1.manager
            LEFT OUTER JOIN pap_adhoc_group AS pap_adhoc_group__1 ON pap_adhoc_group__1.pid = cndb_node__1.manager
            LEFT OUTER JOIN pap_company AS pap_company__1 ON pap_company__1.pid = cndb_node__1.manager
@@ -1366,9 +1369,9 @@ _test_q_result = """
            JOIN cndb_antenna ON mom_id_entity.pid = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna AS cndb_wireless_interface_uses_antenna__1 ON cndb_wireless_interface_uses_antenna__1."right" = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__1 ON cndb_wireless_interface__1.pid = cndb_wireless_interface_uses_antenna__1."left"
-           JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
-           JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
-           JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
+           LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
+           LEFT OUTER JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
+           LEFT OUTER JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
            LEFT OUTER JOIN pap_association AS pap_association__1 ON pap_association__1.pid = cndb_node__1.manager
            LEFT OUTER JOIN pap_adhoc_group AS pap_adhoc_group__1 ON pap_adhoc_group__1.pid = cndb_node__1.manager
            LEFT OUTER JOIN pap_company AS pap_company__1 ON pap_company__1.pid = cndb_node__1.manager
@@ -1416,9 +1419,9 @@ _test_q_result = """
            JOIN cndb_antenna ON mom_id_entity.pid = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface_uses_antenna AS cndb_wireless_interface_uses_antenna__1 ON cndb_wireless_interface_uses_antenna__1."right" = cndb_antenna.pid
            LEFT OUTER JOIN cndb_wireless_interface AS cndb_wireless_interface__1 ON cndb_wireless_interface__1.pid = cndb_wireless_interface_uses_antenna__1."left"
-           JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
-           JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
-           JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
+           LEFT OUTER JOIN cndb_net_interface AS cndb_net_interface__1 ON cndb_net_interface__1.pid = cndb_wireless_interface__1.pid
+           LEFT OUTER JOIN cndb_net_device AS cndb_net_device__1 ON cndb_net_device__1.pid = cndb_net_interface__1."left"
+           LEFT OUTER JOIN cndb_node AS cndb_node__1 ON cndb_node__1.pid = cndb_net_device__1.node
            LEFT OUTER JOIN pap_person AS pap_person__1 ON pap_person__1.pid = cndb_node__1.manager
            LEFT OUTER JOIN pap_person AS pap_person__2 ON pap_person__2.pid = cndb_node__1.owner
          WHERE pap_person__1.pid = :pid_1

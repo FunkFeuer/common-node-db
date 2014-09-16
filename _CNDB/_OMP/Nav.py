@@ -51,6 +51,7 @@
 #     7-May-2013 (RS) Add IPv6 related classes
 #     8-May-2013 (RS) Add `channels` to `Spec.Entity` for `Wireless_Interface`
 #    27-Aug-2014 (CT) Replace `GTW.AFS` specification by `MF3_Form_Spec`
+#    23-Sep-2014 (CT) Add `IP[46]_Pool`
 #    ««revision-date»»···
 #--
 
@@ -107,6 +108,14 @@ class Admin (object) :
 
     IP6_Network           = dict \
         ( ETM             = "CNDB.OMP.IP6_Network"
+        )
+
+    IP4_Pool              = dict \
+        ( ETM             = "CNDB.OMP.IP4_Pool"
+        )
+
+    IP6_Pool              = dict \
+        ( ETM             = "CNDB.OMP.IP6_Pool"
         )
 
     Net_Credentials       = dict \
@@ -184,6 +193,14 @@ class Admin (object) :
 
     Zone                  = dict \
         ( ETM             = "CNDB.OMP.Zone"
+        )
+
+    IP4_Pool_permits_Group    = dict \
+        ( ETM                 = "CNDB.OMP.IP4_Pool_permits_Group"
+        )
+
+    IP6_Pool_permits_Group    = dict \
+        ( ETM                 = "CNDB.OMP.IP6_Pool_permits_Group"
         )
 
     if False :

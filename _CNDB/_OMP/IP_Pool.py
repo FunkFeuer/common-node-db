@@ -30,6 +30,8 @@
 #    23-Jun-2014 (RS) Add `cool_down_period`, rename `left.link_ref_attr_name`
 #     3-Jul-2014 (RS) `IP_Pool` no longer `Link1`, rename
 #                     `_A_IP_Netmask_Interval_`
+#    16-Sep-2014 (CT) Add `allocate` method
+#    23-Sep-2014 (CT) Add `ui_display_x`
 #    ««revision-date»»···
 #--
 
@@ -89,9 +91,40 @@ class IP_Pool (_Ancestor_Essence) :
             P_Type             = CNDB.OMP.Node
             ui_allow_new       = False
 
-         # end class node
+        # end class node
+
+        class ui_display_x (A_String) :
+            """Extended display in user interface: includes IP_Networks"""
+
+            kind               = Attr.Computed
+            max_length         = 0
+
+            def computed (self, obj) :
+                result = obj.ui_display
+                nws    = obj.ip_networks
+                if nws :
+                    result += " [%s]" % \
+                        (", ".join (sorted (n.ui_display for n in nws)), )
+                return result
+            # end def computed
+
+        # end class ui_display_x
 
     # end class _Attributes
+
+    def allocate (self, mask_len, owner) :
+        errors   = []
+        networks = self.ip_networks
+        if networks :
+            for nw in sorted (networks, key = Q.net_address) :
+                try :
+                    return nw.allocate (mask_len, owner)
+                except CNDB.OMP.Error.No_Free_Address_Range as exc :
+                    errors.append (exc)
+            raise errors [-1]
+        else :
+            raise CNDB.OMP.Error.No_Network_in_Pool (self)
+    # end def allocate
 
 # end class IP_Pool
 

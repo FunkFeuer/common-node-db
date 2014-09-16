@@ -95,6 +95,11 @@
 #    12-Sep-2014 (CT) Add `User_Person.query_filters_restricted`,
 #                     `_User_Person_has_Property_.query_filters_restricted`
 #    13-Sep-2014 (CT) Change `change_query_filters` to `change_query_types`
+#    16-Sep-2014 (CT) Change `msg` of action to dict-interpolation
+#    16-Sep-2014 (CT) Add `_Field_Interface_`,
+#                     augment `DB_Interface_in_IP_Network.view_field_names`
+#    16-Sep-2014 (CT) Add `DB_Interface_in_IP_Network.Allocate_IP`,
+#                     `DB_Interface_in_IP_Network._get_child`
 #    24-Sep-2014 (CT) Add `_Action_Override_.set_request_defaults`
 #    ««revision-date»»···
 #--
@@ -727,53 +732,51 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         ( (r.name, r) for r in
             ( Record
                 ( name = "allocate_ip"
-                , msg  = _ ("Allocate an IP address for %s %s")
+                , msg  = _ ("Allocate an IP address for interface %(obj)s")
                 , icon = "plus-circle"
                 )
             , Record
                 ( name = "change_password"
-                , msg  = _ ("Change password of %s %s")
+                , msg  = _ ("Change password of %(tn)s %(obj)s")
                 , icon = "key"
                 )
             , Record
                 ( name = "create"
-                , msg  = _ ("Create a new %s %s")
+                , msg  = _ ("Create a new %(tn)s %(obj)s")
                 , icon = "plus-circle"
                 )
             , Record
                 ( name = "delete"
-                , msg  = _ ("Delete %s %s")
+                , msg  = _ ("Delete %(tn)s %(obj)s")
                 , icon = "trash-o"
                 )
             , Record
                 ( name = "edit"
-                , msg  = _ ("Edit %s %s")
+                , msg  = _ ("Edit %(tn)s %(obj)s")
                 , icon = "pencil"
                 )
             , Record
                 ( name = "filter"
                 , msg  = _
-                    ("Restrict details below to objects belonging to %s %s")
+                    ( "Restrict details below to objects belonging "
+                      "to %(tn)s %(obj)s"
+                    )
                 , icon = "eye"
                 )
             , Record
                 ( name = "firmware"
-                , msg  = _ ("Generate firmware for %s %s")
+                , msg  = _ ("Generate firmware for %(tn)s %(obj)s")
                 , icon = "magic"
                 )
             , Record
                 ( name = "graphs"
-                , msg  = _ ("Show graphs and statistics about %s %s")
+                , msg  = _ ("Show graphs and statistics about %(tn)s %(obj)s")
                 , icon = "bar-chart-o"
                 )
             , Record
-                ( name = "manage_ip"
-                , msg  = _ ("Manage IP addresses of %s %s")
-                , icon = "eye"
-                )
-            , Record
                 ( name = "reset_password"
-                , msg  = _ ("I forgot my password; reset password of %s %s")
+                , msg  = _
+                    ("I forgot my password; reset password of %(tn)s %(obj)s")
                 , icon = "exclamation"
                 )
             )
@@ -819,6 +822,12 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         ref_name          = "Device"
 
     # end class _Field_Device_
+
+    class _Field_Interface_ (_Field_Ref_) :
+
+        ref_name          = "Interface"
+
+    # end class _Field_Interface_
 
     class _Field_IP_Address_ (Field) :
 
@@ -954,6 +963,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     _field_type_map       = dict \
         ( { "my_net_device.name"    : _Field_Device_
           , "my_node.name"          : _Field_Node_
+          , "net_interface.name"    : _Field_Interface_
           }
         , creation_date   = _Field_Created_
         , type_name       = _Field_Type_
@@ -1199,7 +1209,6 @@ _Ancestor = _DB_E_Type_
 
 class _DB_Interface_ (_Ancestor) :
 
-    view_action_names     = ("manage_ip", "edit", "delete")
     _MF3_Attr_Spec        = dict \
         ( left            = dict (restrict_completion = True)
         )
@@ -1294,7 +1303,10 @@ class DB_Interface_in_IP_Network (_Ancestor) :
     type_name             = "CNDB.Net_Interface_in_IP_Network"
 
     view_field_names      = \
-        ( "right.net_address"
+        ( "net_interface.name"
+        , "my_net_device.name"
+        , "my_node.name"
+        , "right.net_address"
         , "right.pool.net_address"
         , "creation_date"
         )
@@ -1305,6 +1317,99 @@ class DB_Interface_in_IP_Network (_Ancestor) :
              , "right.pool.net_address" : _DB_E_Type_._Field_IP_Network_
              }
         )
+
+    class Allocate_IP (GTW.RST.TOP.Page) :
+        """Resource to allocate a single IP address for the selected
+           interface.
+        """
+
+        class _AIP_POST_ (GTW.RST.POST) :
+
+            _real_name             = "POST"
+            _renderers             = (GTW.RST.Mime_Type.JSON, )
+
+            def _response_body (self, resource, request, response) :
+                Bad_Req   = resource.Status.Bad_Request
+                req_data  = request.req_data
+                result    = {}
+                user      = resource.user_restriction
+                scope     = resource.scope
+                CNDB      = scope.CNDB
+                ipid      = req_data.get ("interface")
+                ppid      = req_data.get ("pool")
+                if ipid is None :
+                    raise Bad_Req (_T ("Request must include interface pid"))
+                try :
+                    iface = scope.pid_query (ipid)
+                except LookupError as exc :
+                    raise (Bad_Req (str (exc)))
+                node      = iface.my_node
+                if ppid is not None :
+                    try :
+                        pool = scope.pid_query (ppid)
+                    except LookupError as exc :
+                        raise (Bad_Req (str (exc)))
+                    else :
+                        pools = [pool]
+                else :
+                    def _query (ETM, node, user) :
+                        bitlen = ETM.left.net_address.P_Type.bitlen
+                        return ETM.query \
+                            ( Q.OR
+                                ( Q.right.node == node
+                                , Q.AND
+                                    ( ~ Q.right.node
+                                    , Q.right.group_links.right.member_links
+                                        .left == user
+                                    # possibly,
+                                    # a Q-expression checking various quotas
+                                    )
+                                )
+                            & Q.OR
+                                ( ~ Q.right.netmask_interval.upper
+                                , Q.right.netmask_interval.upper == bitlen
+                                )
+                            ).attr (Q.right).distinct ()
+                    pools = list \
+                        ( ichain
+                            ( _query (CNDB.IP4_Network_in_IP4_Pool, node, user)
+                            , _query (CNDB.IP6_Network_in_IP6_Pool, node, user)
+                            )
+                        )
+                n_pools   = len (pools)
+                ### XXX
+                ### filter pools by quota
+                ### if none remain
+                ###   --> send feedback about the full pools available
+                template = resource.top.Templateer.get_template \
+                    ("html/dashboard/app.m.jnj")
+                if not n_pools :
+                    result ["feedback"] = _T \
+                        ( "No pools available that allow allocation "
+                          "by user %(user)s and node %(node)s"
+                        % dict (user = user, node = node)
+                        )
+                elif n_pools == 1 :
+                    pool = TFL.first (pools)
+                    nw0  = TFL.first (pool.ip_networks)
+                    try :
+                        ipa  = pool.allocate (nw0.net_address.bitlen, user)
+                    except Exception as exc :
+                        result ["feedback"] = str (exc)
+                    else :
+                        iii  = scope.CNDB.Net_Interface_in_IP_Network \
+                            (iface, ipa, mask_len = ipa.pool.net_address.mask)
+                        result ["row"] = template.call_macro \
+                            ("e_type_object", resource, iii)
+                else :
+                    result ["menu"] = template.call_macro \
+                        ("action_button_allocate_ip_pool_menu", resource, pools)
+                return result
+            # end def _response_body
+
+        POST = _AIP_POST_ # end class
+
+    # end class Allocate_IP
 
     @Once_Property
     @getattr_safe
@@ -1319,6 +1424,21 @@ class DB_Interface_in_IP_Network (_Ancestor) :
             )
         return fmt % (o.my_node.pid, o.my_net_device.pid, o.left.pid, o.pid)
     # end def tr_instance_css_class
+
+    def _get_child (self, child, * grandchildren) :
+        if child == "allocate_ip" :
+            result = self.Allocate_IP \
+                ( name   = child
+                , parent = self
+                , hidden = True
+                )
+            if grandchildren :
+                result = result._get_child \
+                    (grandchildren [0], * grandchildren [1:])
+        else :
+            result = self.__super._get_child (child, * grandchildren)
+        return result
+    # end def _get_child
 
 # end class DB_Interface_in_IP_Network
 

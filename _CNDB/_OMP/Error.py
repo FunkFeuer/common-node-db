@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2013-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
@@ -28,6 +28,7 @@
 # Revision Dates
 #     1-Mar-2013 (CT) Creation
 #    20-Jun-2014 (RS) Add `Cannot_Expire_Network`
+#    16-Sep-2014 (CT) Add `No_Network_in_Pool`
 #    ««revision-date»»···
 #--
 
@@ -39,6 +40,8 @@ from   _TFL                     import TFL
 from   _MOM                     import MOM
 
 import _MOM.Error
+
+from   _TFL.I18N                import _, _T, _Tn
 
 class _CNDB_Error_ (MOM.Error.Error) :
     """Root class of CNDB exceptions"""
@@ -80,6 +83,19 @@ class No_Free_Address_Range (Error, ValueError) :
     # end def __init__
 
 # end class No_Free_Address_Range
+
+class No_Network_in_Pool (Error, ValueError) :
+    """Pool doesn't have any networks."""
+
+    def __init__ (self, pool) :
+        self.__super.__init__ \
+            ( _T ("Pool %(pool)s doesn't have any networks")
+            % dict (pool = pool)
+            )
+        self.pool = pool
+    # end def __init__
+
+# end class No_Network_in_Pool
 
 class Cannot_Free_Network (Error, ValueError) :
     """Can't free IP_Network object"""
