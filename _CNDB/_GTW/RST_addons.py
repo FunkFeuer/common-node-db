@@ -95,6 +95,7 @@
 #    12-Sep-2014 (CT) Add `User_Person.query_filters_restricted`,
 #                     `_User_Person_has_Property_.query_filters_restricted`
 #    13-Sep-2014 (CT) Change `change_query_filters` to `change_query_types`
+#    24-Sep-2014 (CT) Add `_Action_Override_.set_request_defaults`
 #    ««revision-date»»···
 #--
 
@@ -105,6 +106,7 @@ from   _GTW                     import GTW
 from   _JNJ                     import JNJ
 from   _MOM                     import MOM
 from   _TFL                     import TFL
+from   _TFL.pyk                 import pyk
 
 import _CNDB._GTW
 import _CNDB._OMP.import_CNDB
@@ -659,6 +661,20 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         fill_edit          = True
         name_postfix       = "FF"
         page_template_name = "html/dashboard/app.jnj"
+
+        _name_map          = dict \
+            ( device       = "net_device"
+            , interface    = "net_interface"
+            )
+
+        def set_request_defaults (self, form, req_data, scope) :
+            def _fixed (self, req_data) :
+                map = self._name_map
+                for k, v in pyk.iteritems (req_data) :
+                    yield map.get (k, k), v
+            req_data_x = dict (_fixed (self, req_data))
+            self.__super.set_request_defaults (form, req_data_x, scope)
+        # end def set_request_defaults
 
     # end class _Action_Override_
 
