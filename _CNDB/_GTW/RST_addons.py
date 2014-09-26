@@ -101,6 +101,8 @@
 #    16-Sep-2014 (CT) Add `DB_Interface_in_IP_Network.Allocate_IP`,
 #                     `DB_Interface_in_IP_Network._get_child`
 #    24-Sep-2014 (CT) Add `_Action_Override_.set_request_defaults`
+#    26-Sep-2014 (CT) Remove action `edit` from `_DB_Person_Property_`
+#    26-Sep-2014 (CT) Set `DB_Account.ui_allow_new` to `False`
 #    ««revision-date»»···
 #--
 
@@ -1092,7 +1094,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
 class _DB_Person_Property_ (_DB_E_Type_) :
 
-    view_action_names     = ("edit", "delete")
+    view_action_names     = ("delete", )
     view_field_names      = \
         ( "desc"
         , "right"
@@ -1129,8 +1131,8 @@ class DB_Account (_DB_Person_Property_) :
     """PAP.Person_has_Account displayed by, and managed via, dashboard."""
 
     type_name             = "PAP.Person_has_Account"
-    view_action_names     = \
-        ("edit", "change_password", "reset_password")
+    ui_allow_new          = False
+    view_action_names     = ("change_password", "reset_password")
 
     view_field_names      = \
         ( "right"
