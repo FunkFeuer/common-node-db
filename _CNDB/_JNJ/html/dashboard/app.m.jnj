@@ -55,6 +55,7 @@
 ##    23-Sep-2014 (CT) Use `ui_display_x` in
 ##                     `action_button_allocate_ip_pool_menu`
 ##    26-Sep-2014 (CT) Fix documentation URL
+##    26-Sep-2014 (CT) Move `.owner` into if-clause
 ##    ««revision-date»»···
 ##--
 #}
@@ -179,13 +180,6 @@
   {%- set name    = db_type.view_name_instance (o) %}
   {%- set tn      = db_type.div_name %}
   {%- set user    = db_type.user_restriction %}
-  {%- if o.owner == user %}
-    {%- set own_icon  = "fa-check-square-o" %}
-    {%- set own_title = GTW._T ("Owned by you") %}
-  {%- else %}
-    {%- set own_icon  = "fa-square-o" %}
-    {%- set own_title = GTW._T ("Owned by %s") % user.FO %}
-  {% endif -%}
   <tr id="{{ tn }}-{{ o.pid }}" {# -#}
       class="{{ db_type.tr_instance_css_class (o) }}"{#- -#}
   >
@@ -194,7 +188,14 @@
           (" class=\"%s\" " % (f.css_class, )) if f.css_class else ""
       -%}
       <td{{ css_class }}>
-        {% if f.css_class == 'owner' %}
+        {% if f.attr_name == 'owner' %}
+          {%- if o.owner == user %}
+            {%- set own_icon  = "fa-check-square-o" %}
+            {%- set own_title = GTW._T ("Owned by you") %}
+          {%- else %}
+            {%- set own_icon  = "fa-square-o" %}
+            {%- set own_title = GTW._T ("Owned by %s") % user.FO %}
+          {% endif -%}
           <i class="fa {{ own_icon }}" title="{{ own_title }}"></i>
         {% else %}
         {{- f.as_html (o, f.value (o)) -}}
