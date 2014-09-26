@@ -43,6 +43,8 @@
 #     3-Jul-2014 (RS) Add `_A_IP_Netmask_`, `_A_IP_Quota_` and derivatives,
 #                     model _A_IP_Netmask_Interval_ after same scheme
 #     4-Sep-2014 (RS) Set `max_value` of `A_IP6_Netmask` to 128
+#    26-Sep-2014 (CT) Add `A_IP4_Netmask_Interval._Overrides.finish.default`,
+#                     `A_IP6_Netmask_Interval._Overrides.finish.default`
 #    ««revision-date»»···
 #--
 
@@ -181,6 +183,7 @@ class A_IP4_Netmask_Interval (_A_IP_Netmask_Interval_) :
             )
         , finish = dict
             ( max_value = 32
+            , default   = 32
             )
         )
 
@@ -194,6 +197,7 @@ class A_IP6_Netmask_Interval (_A_IP_Netmask_Interval_) :
             )
         , finish = dict
             ( max_value = 128
+            , default   = 128
             )
         )
 

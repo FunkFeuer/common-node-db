@@ -839,7 +839,7 @@ _test_put = r"""
             , 'last_name' : 'Dog'
             , 'lifetime' :
                 { 'start' : '2000-11-22' }
-            , 'middle_name' : 'the'
+            , 'middle_name' : 'The'
             , 'title' : ''
             }
         , 'cid' : 46
