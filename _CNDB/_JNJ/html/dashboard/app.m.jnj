@@ -54,6 +54,7 @@
 ##    16-Sep-2014 (CT) Factor `e_type_object`
 ##    23-Sep-2014 (CT) Use `ui_display_x` in
 ##                     `action_button_allocate_ip_pool_menu`
+##    26-Sep-2014 (CT) Fix documentation URL
 ##    ««revision-date»»···
 ##--
 #}
@@ -313,7 +314,7 @@
       <ul>
         {%- if et_doc %}
           <li>
-            <a href="{{ et_doc.abs_href }}/FFM">
+            <a href="{{ et_doc.abs_href }}/CNDB">
               {{ GTW._T ("Documentation") }}
             </a>
           </li>
