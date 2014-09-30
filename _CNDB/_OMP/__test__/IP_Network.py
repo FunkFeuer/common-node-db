@@ -965,7 +965,7 @@ _test_AQ = """
     <ip_pool.node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <ip_pool.node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <ip_pool.netmask_interval.AQ [Attr.Type.Querier Composite]> MOM.Int_Interval_C
+    <ip_pool.netmask_interval.AQ [Attr.Type.Querier Composite]> MOM.IP4_Netmask_Interval
     <ip_pool.netmask_interval.lower.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.netmask_interval.upper.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.netmask_interval.center.AQ [Attr.Type.Querier Ckd]> -----

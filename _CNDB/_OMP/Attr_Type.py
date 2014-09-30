@@ -43,8 +43,8 @@
 #     3-Jul-2014 (RS) Add `_A_IP_Netmask_`, `_A_IP_Quota_` and derivatives,
 #                     model _A_IP_Netmask_Interval_ after same scheme
 #     4-Sep-2014 (RS) Set `max_value` of `A_IP6_Netmask` to 128
-#    26-Sep-2014 (CT) Add `A_IP4_Netmask_Interval._Overrides.finish.default`,
-#                     `A_IP6_Netmask_Interval._Overrides.finish.default`
+#    30-Sep-2014 (CT) Fix `_A_IP_Netmask_Interval_` overrides
+#                     (needs to nested inside `_Attributes`; attribute names)
 #    ««revision-date»»···
 #--
 
@@ -164,42 +164,52 @@ class A_IP6_Quota (_A_IP_Quota_, A_IP6_Netmask) : pass
 class _A_IP_Netmask_Interval_ (A_Int_Interval_C) :
     """Interval of network masks (upper limit defaults to lower limit)"""
 
-    _Overrides = dict \
-        ( start  = dict
-            ( min_value = 0
+    class _Attributes :
+
+        _Overrides = dict \
+            ( lower    = dict
+                ( min_value = 0
+                )
+            , upper    = dict
+                ( min_value = 0
+                )
             )
-        , finish = dict
-            ( min_value = 0
-            )
-        )
+
+    # end class _Attributes
 
 # end class _A_IP_Netmask_Interval_
 
 class A_IP4_Netmask_Interval (_A_IP_Netmask_Interval_) :
 
-    _Overrides = dict \
-        ( start  = dict
-            ( max_value = 32
+    class _Attributes :
+
+        _Overrides = dict \
+            ( lower    = dict
+                ( max_value = 32
+                )
+            , upper    = dict
+                ( max_value = 32
+                )
             )
-        , finish = dict
-            ( max_value = 32
-            , default   = 32
-            )
-        )
+
+    # end class _Attributes
 
 # end class A_IP4_Netmask_Interval
 
 class A_IP6_Netmask_Interval (_A_IP_Netmask_Interval_) :
 
-    _Overrides = dict \
-        ( start  = dict
-            ( max_value = 128
+    class _Attributes :
+
+        _Overrides = dict \
+            ( lower    = dict
+                ( max_value = 128
+                )
+            , upper    = dict
+                ( max_value = 128
+                )
             )
-        , finish = dict
-            ( max_value = 128
-            , default   = 128
-            )
-        )
+
+    # end class _Attributes
 
 # end class A_IP6_Netmask_Interval
 
