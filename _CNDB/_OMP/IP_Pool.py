@@ -32,6 +32,7 @@
 #                     `_A_IP_Netmask_Interval_`
 #    16-Sep-2014 (CT) Add `allocate` method
 #    23-Sep-2014 (CT) Add `ui_display_x`
+#    30-Sep-2014 (CT) Add `can_allocate`
 #    ««revision-date»»···
 #--
 
@@ -125,6 +126,20 @@ class IP_Pool (_Ancestor_Essence) :
         else :
             raise CNDB.OMP.Error.No_Network_in_Pool (self)
     # end def allocate
+
+    def can_allocate (self, mask_len = None) :
+        Cannot_Allocate = CNDB.OMP.Error.No_Free_Address_Range
+        if mask_len is None :
+            mask_len = self.E_Type.netmask_interval.attr.upper.max_value
+        for nw in self.ip_networks :
+            try :
+                nw.find_closest_mask (mask_len)
+            except Cannot_Allocate :
+                pass
+            else :
+                return True
+        return False
+    # end def can_allocate
 
 # end class IP_Pool
 

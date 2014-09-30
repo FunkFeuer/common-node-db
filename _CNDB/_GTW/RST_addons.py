@@ -103,6 +103,7 @@
 #    24-Sep-2014 (CT) Add `_Action_Override_.set_request_defaults`
 #    26-Sep-2014 (CT) Remove action `edit` from `_DB_Person_Property_`
 #    26-Sep-2014 (CT) Set `DB_Account.ui_allow_new` to `False`
+#    30-Sep-2014 (CT) Change `Allocate_IP` to use `can_allocate`
 #    ««revision-date»»···
 #--
 
@@ -1373,10 +1374,11 @@ class DB_Interface_in_IP_Network (_Ancestor) :
                                 )
                             ).attr (Q.right).distinct ()
                     pools = list \
-                        ( ichain
+                        ( p for p in ichain
                             ( _query (CNDB.IP4_Network_in_IP4_Pool, node, user)
                             , _query (CNDB.IP6_Network_in_IP6_Pool, node, user)
                             )
+                        if p.can_allocate ()
                         )
                 n_pools   = len (pools)
                 ### XXX
