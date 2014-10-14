@@ -2,10 +2,14 @@
 # -*- coding: utf-8 -*-
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   __future__         import print_function
+
+from   _TFL.pyk           import pyk
 
 import re
 from   rsclib.HTML_Parse  import tag, Page_Tree
@@ -86,7 +90,7 @@ class Interface_Config (Parser) :
 
     def __str__ (self) :
         r = []
-        for k, v in self.assignments.iteritems () :
+        for k, v in pyk.iteritems (self.assignments) :
             r.append ("%(k)s = %(v)s" % locals ())
         for b in self.bridges :
             r.append ("Bridge: %s" % str (b))
@@ -192,16 +196,16 @@ class Status (Page_Tree) :
     # end def _check_interface
 
     def parse (self) :
-        #print self.tree_as_string ()
+        #print (self.tree_as_string ())
         root = self.tree.getroot ()
         for pre in root.findall (".//%s" % tag ("pre")) :
             if pre.get ('id') == 'ifconfig' :
                 self.ifconfig = Interface_Config ()
                 self.ifconfig.parse (pre.text.split ('\n'))
-                #print pre.text
+                #print (pre.text)
                 self.if_by_name = {}
                 self.ips        = {}
-                for k, v in self.ifconfig.assignments.iteritems () :
+                for k, v in pyk.iteritems (self.ifconfig.assignments) :
                     v = v.strip ()
                     if not v :
                         continue
@@ -225,7 +229,7 @@ class Status (Page_Tree) :
                         self._check_interface (iface)
                 break
         else :
-            raise ValueError, "No interface config found"
+            raise ValueError ("No interface config found")
         for td in root.findall (".//%s" % tag ("td")) :
             if (not td.text or 'SSID:' not in td.text) :
                 continue
@@ -234,7 +238,7 @@ class Status (Page_Tree) :
             break
         wl_count = 0
         if self.wlan_info :
-            for iface in self.if_by_name.itervalues () :
+            for iface in pyk.itervalues (self.if_by_name) :
                 if iface.is_wlan :
                     iface.wlan_info = self.wlan_info
                     wl_count += 1
@@ -276,4 +280,3 @@ class Freifunk (autosuper) :
     # end def __init__
 
 # end class Freifunk
-

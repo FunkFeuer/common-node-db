@@ -3,7 +3,7 @@
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -62,11 +62,10 @@ _test_code = """
     ...     , polarization = "horizontal"
     ...     , raw          = True
     ...     )
-    >>> scope.commit ()
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (MOM.Error.Invariants) :
+    ...     scope.commit ()
     Invariants: Condition `band_exists` : There must be at least one frequency band for the antenna. (number_of_bands >= 1)
-        bands = ()
+        bands =
         number_of_bands = 0 << len (bands)
 
     >>> args = dict (left = at1, azimuth = "180", elevation_angle = 0, raw = True)
@@ -92,11 +91,11 @@ _test_code = """
 
     >>> akw = dict (polarization = "horizontal")
     >>> CNDB.Antenna.query_s (* CNDB.Antenna.raw_query_attrs (akw, akw)).all ()
-    [CNDB.Antenna ((u'yagi1', u'', u''), u'3'), CNDB.Antenna ((u'yagi2', u'', u''), u'4'), CNDB.Antenna ((u'yagi2', u'', u''), u'6')]
+    [CNDB.Antenna (('yagi1', '', ''), '3'), CNDB.Antenna (('yagi2', '', ''), '4'), CNDB.Antenna (('yagi2', '', ''), '6')]
 
     >>> akw = dict (polarization = "vertical")
     >>> CNDB.Antenna.query_s (* CNDB.Antenna.raw_query_attrs (akw, akw)).all ()
-    [CNDB.Antenna ((u'yagi1', u'', u''), u'1'), CNDB.Antenna ((u'yagi1', u'', u''), u'2')]
+    [CNDB.Antenna (('yagi1', '', ''), '1'), CNDB.Antenna (('yagi1', '', ''), '2')]
 
     >>> mgr = PAP.Person \\
     ...     (first_name = 'Ralf', last_name = 'Schlatterbeck', raw = True)
@@ -121,7 +120,7 @@ _test_code = """
     True
 
     >>> b.my_node
-    CNDB.Node (u'nogps')
+    CNDB.Node ('nogps')
 
     >>> CNDB.Antenna.query (Q.interface == wl).count ()
     1
@@ -134,37 +133,37 @@ _test_code = """
 
     >>> for x in scope.CNDB.Net_Interface.query (Q.my_node.manager == mgr, sort_key = Q.pid) :
     ...     x
-    CNDB.Wireless_Interface (((u'generic', u'', u''), (u'nogps', ), u'dev'), u'', u'wl')
+    CNDB.Wireless_Interface ((('generic', '', ''), ('nogps', ), 'dev'), '', 'wl')
 
     >>> for x in scope.CNDB.Wireless_Interface_uses_Antenna.query (Q.my_node.manager == mgr, sort_key = Q.pid) :
     ...     x
-    CNDB.Wireless_Interface_uses_Antenna ((((u'generic', u'', u''), (u'nogps', ), u'dev'), u'', u'wl'), ((u'yagi2', u'', u''), u'6'))
+    CNDB.Wireless_Interface_uses_Antenna (((('generic', '', ''), ('nogps', ), 'dev'), '', 'wl'), (('yagi2', '', ''), '6'))
 
     >>> for x in scope.CNDB.Net_Device.query (Q.my_node.manager == mgr, sort_key = Q.pid) :
     ...     x
-    CNDB.Net_Device ((u'generic', u'', u''), (u'nogps', ), u'dev')
-    CNDB.Net_Device ((u'generic', u'', u''), (u'node2', ), u'dev2')
+    CNDB.Net_Device (('generic', '', ''), ('nogps', ), 'dev')
+    CNDB.Net_Device (('generic', '', ''), ('node2', ), 'dev2')
 
     >>> for x in scope.CNDB.Net_Device.query (Q.my_node.owner == owner, sort_key = Q.pid) :
     ...     x
-    CNDB.Net_Device ((u'generic', u'', u''), (u'node2', ), u'dev2')
+    CNDB.Net_Device (('generic', '', ''), ('node2', ), 'dev2')
 
     >>> for x in scope.CNDB.Antenna.query (Q.my_node.manager == mgr, sort_key = Q.pid) :
     ...     x
-    CNDB.Antenna ((u'yagi2', u'', u''), u'6')
+    CNDB.Antenna (('yagi2', '', ''), '6')
 
     >>> for x in scope.CNDB.Node.query (Q.manager == mgr, sort_key = Q.pid) :
     ...     x
-    CNDB.Node (u'nogps')
-    CNDB.Node (u'node2')
+    CNDB.Node ('nogps')
+    CNDB.Node ('node2')
 
     >>> for x in scope.CNDB.Node.query (Q.owner == mgr, sort_key = Q.pid) :
     ...     x
-    CNDB.Node (u'nogps')
+    CNDB.Node ('nogps')
 
     >>> for x in scope.CNDB.Node.query (Q.owner == owner, sort_key = Q.pid) :
     ...     x
-    CNDB.Node (u'node2')
+    CNDB.Node ('node2')
 
 """
 

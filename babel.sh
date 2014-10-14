@@ -25,7 +25,7 @@ cmd=${1:?"Specify a command: extract | language | compile"}; shift
 
 default_langs="en,de"
 default_dirs="_CNDB _CNDB/_OMP _CNDB/_GTW _CNDB/_JNJ ."
-lib=$(dirname $(python -c 'from _TFL import sos; print sos.path.dirname (sos.__file__)'))
+lib=$(dirname $(python -c 'from _TFL import sos; print (sos.path.dirname (sos.__file__))'))
 
 export PYTHONPATH=./:$PYTHONPATH
 

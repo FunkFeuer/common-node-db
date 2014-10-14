@@ -2,10 +2,14 @@
 # -*- coding: utf-8 -*-
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   __future__         import print_function
+
+from   _TFL.pyk           import pyk
 
 from   rsclib.HTML_Parse  import tag, Page_Tree
 from   rsclib.autosuper   import autosuper
@@ -114,11 +118,11 @@ class Router_OS (autosuper) :
             interfaces   = {}
             ips          = {}
             base         = 0
-            for count, (ip, ifname) in enumerate (rt.ip_dev.iteritems ()) :
+            for count, (ip, ifname) in enumerate (pyk.iteritems (rt.ip_dev)) :
                 i4 = Inet4 (ip, None, None, iface = ifname)
                 # ignore interfaces with unroutable IPs
                 if unroutable (i4.ip) :
-                    #print "Unroutable: %s" % i4
+                    #print ("Unroutable: %s" % i4)
                     continue
                 ips [i4] = 1
                 iface = Interface (count, ifname, None)
@@ -127,10 +131,10 @@ class Router_OS (autosuper) :
                 iface.append_inet4 (i4)
                 base = count
             base += 1
-            for count, (ip, ifname) in enumerate (dt.ip_dev.iteritems ()) :
+            for count, (ip, ifname) in enumerate (pyk.iteritems (dt.ip_dev)) :
                 i4 = Inet4 (ip, None, None, iface = ifname)
                 is_wlan = sum (x == 1.0 for x in dt.metric [ip]) != 3
-                #print "ip", ip, dt.metric [ip]
+                #print ("ip", ip, dt.metric [ip])
                 if unroutable (i4.ip) :
                     continue
                 if i4 in ips :
@@ -141,7 +145,7 @@ class Router_OS (autosuper) :
                     else :
                         iface = interfaces [ifname]
                         if i4 not in iface.inet4 :
-                            #print "Oops:", ifname, i4, iface.inet4 [0]
+                            #print ("Oops:", ifname, i4, iface.inet4 [0])
                             del iface.inet4 [0]
                             iface.append_inet4 (i4)
                     iface.is_wlan = is_wlan

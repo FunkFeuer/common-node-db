@@ -1,9 +1,13 @@
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   __future__      import print_function
+
+from   _TFL.pyk        import pyk
 
 import os
 
@@ -25,7 +29,7 @@ def get_node_info \
         (result_dict, ip, timeout = timeout, ip_port = ip_port, debug = debug)
     try :
         return w.get_node_info ()
-    except Exception, err :
+    except Exception as err :
         self.log.error ("Error in IP %s:" % ip)
         w.log.log_exception ()
 # end def get_node_info
@@ -65,23 +69,23 @@ class Worker (Log, Timeout) :
                     port = self.ip_port [self.ip]
                 g    = Guess (site = site, ip = self.ip, url = '', port = port)
                 self.log.debug ("%s: after  guess" % self.ip)
-            except ValueError, err :
+            except ValueError as err :
                 self.disable_alarm ()
                 self.log.error ("Error in IP %s:" % self.ip)
                 self.log_exception ()
                 self.result_dict [self.ip] = ('ValueError', err)
                 return
-            except Timeout_Error, err :
+            except Timeout_Error as err :
                 self.disable_alarm ()
                 self.log.debug ("Timeout")
                 self.result_dict [self.ip] = ('Timeout_Error', err)
                 return
-            except Retries_Exceeded, err :
+            except Retries_Exceeded as err :
                 self.disable_alarm ()
                 self.log.debug ("Retries exceeded")
                 self.result_dict [self.ip] = ('Retries_Exceeded', err)
                 return
-            except Exception, err :
+            except Exception as err :
                 self.disable_alarm ()
                 self.log.error ("Error in IP %s:" % self.ip)
                 self.log_exception ()
@@ -89,7 +93,7 @@ class Worker (Log, Timeout) :
                 return
             self.disable_alarm ()
             result = []
-#            for iface_ip in g.ips.iterkeys () :
+#            for iface_ip in pyk.iterkeys (g.ips) :
 #                iface = iface_ip.iface
 #                r = [iface.name]
 #                if iface.is_wlan :
@@ -104,7 +108,7 @@ class Worker (Log, Timeout) :
 #                    r.append (False)
 #                result.append (r)
             self.result_dict [self.ip] = g
-        except Exception, err :
+        except Exception as err :
             self.log.error ("Error in IP %s:" % self.ip)
             self.log_exception ()
             self.result_dict [self.ip] = ("ERROR", err)
@@ -128,14 +132,14 @@ class Spider (Log) :
         olsr = get_olsr_container (olsr_file)
         self.olsr_nodes = {}
         assert len (olsr.topo.forward)
-        for t in olsr.topo.forward.iterkeys () :
+        for t in pyk.iterkeys (olsr.topo.forward) :
             self.olsr_nodes [t] = True
-        for t in olsr.topo.reverse.iterkeys () :
+        for t in pyk.iterkeys (olsr.topo.reverse) :
             self.olsr_nodes [t] = True
         # limit to N elements
         if N :
             self.olsr_nodes = dict \
-                ((k, v) for k, v in islice (self.olsr_nodes.iteritems (), N))
+                ((k, v) for k, v in islice (pyk.iteritems (self.olsr_nodes), N))
         self.pool        = Pool (processes = processes)
         self.mgr         = Manager ()
         self.result_dict = self.mgr.dict ()
@@ -249,9 +253,9 @@ if __name__ == '__main__' :
         f.close ()
         if opt.verbose :
             for k, v in sorted \
-                ( sp.result_dict.iteritems ()
+                ( pyk.iteritems (sp.result_dict)
                 , key = lambda z : IP4_Address (z [0])
                 ) :
-                print k, v
-    except Exception, err :
+                print (k, v)
+    except Exception as err :
         sp.log_exception ()

@@ -3,7 +3,7 @@
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -258,8 +258,8 @@ class IP_Network (_Ancestor_Essence) :
     def allocate (self, mask_len, owner) :
         # FIXME: Don't allocate if self is electric
         #        We need this when checking permissions on pools
-        frm     = self.find_closest_mask   (mask_len)
-        net_addr = frm.net_address.subnets (mask_len).next ()
+        frm      = self.find_closest_mask (mask_len)
+        net_addr = next (frm.net_address.subnets (mask_len))
         return self._reserve (self, frm, net_addr, owner)
     # end def allocate
 

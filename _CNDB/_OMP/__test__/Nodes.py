@@ -3,7 +3,7 @@
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -73,7 +73,7 @@ _test_code = """
     ...     )
     >>> node1.address = adr
     >>> node1.address
-    PAP.Address (u'example 23', u'1010', u'wien', u'austria')
+    PAP.Address ('example 23', '1010', 'wien', 'austria')
 
     >>> gps2 = dict (lat = "48.367088", lon = "16.187672")
     >>> node3 = CNDB.Node \\
@@ -107,9 +107,8 @@ _test_code = """
     >>> ir2 = CNDB.Net_Interface_in_IP4_Network (wr, a3, mask_len = 24)
     >>> il2 = CNDB.Net_Interface_in_IP4_Network (wl, a4, mask_len = 24)
 
-    >>> irx = CNDB.Net_Interface_in_IP4_Network (wr, ax, mask_len = 22) # doctest:+ELLIPSIS
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (MOM.Error.Invariants) :
+    ...     irx = CNDB.Net_Interface_in_IP4_Network (wr, ax, mask_len = 22) # doctest:+ELLIPSIS
     Invariants: Condition `valid_mask_len` : The `mask_len` must match the one of `right` or of any
     network containing `right`. (mask_len in possible_mask_lens)
         mask_len = 22
@@ -120,9 +119,8 @@ _test_code = """
     >>> net2 = CNDB.IP4_Network (net_address = '10.0.0.0/8', owner = mgr, raw = True)
     >>> a2_1 = net2.reserve (Adr ('10.139.187.0/27'))
     >>> a2_2 = net2.reserve (Adr ('10.139.187.2'))
-    >>> a2_f = net2.reserve (Adr ('10.139.187.0/27'))
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.Address_Already_Used) :
+    ...     a2_f = net2.reserve (Adr ('10.139.187.0/27'))
     Address_Already_Used: Address 10.139.187.0/27 already in use by 'Schlatterbeck Ralf'
 
     >>> at1 = CNDB.Antenna_Type \\
@@ -259,11 +257,10 @@ _test_owner = """
 
     >>> node1 = CNDB.Node (name = "nogps", manager = mgr, position = None, raw = True)
     >>> node1.owner
-    PAP.Person (u'schlatterbeck', u'ralf', u'', u'')
+    PAP.Person ('schlatterbeck', 'ralf', '', '')
 
-    >>> node4 = CNDB.Node (name = "node4", manager = mgr, owner = node1)
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (MOM.Error.Wrong_Type) :
+    ...     node4 = CNDB.Node (name = "node4", manager = mgr, owner = node1)
     Wrong_Type: Node 'nogps' not eligible for attribute owner,
         must be instance of Subject
 

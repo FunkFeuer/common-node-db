@@ -3,7 +3,7 @@
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.GTW.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -172,7 +172,7 @@ class Node_Manager_Error (MOM.Error._Invariant_, TypeError) :
 
     @Once_Property
     def head (self) :
-        return unicode (self)
+        return pyk.text_type (self)
     # end def head
 
 # end class Node_Manager_Error

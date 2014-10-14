@@ -3,7 +3,7 @@
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -457,7 +457,7 @@ _test_alloc = """
     ...     , Q.ip_pool.cool_down_period != None
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
     ...     ).distinct ().all ()
-    [CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', )), CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), (u'ff_pool', ))]
+    [CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), ('rs_pool', )), CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), ('ff_pool', ))]
 
     >>> IPP_ETM = rs_pool.home_scope [rs_pool.ETM.ip_pool.P_Type]
     >>> IPP_ETM
@@ -472,14 +472,14 @@ _test_alloc = """
     ...     , Q.ip_pool.cool_down_period != None
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
     ...     ).first ()
-    CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', ))
+    CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), ('rs_pool', ))
 
     >>> CNDB.IP4_Network_in_IP4_Pool.query \\
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
     ...     , Q.ip_pool.cool_down_period != None
     ...     , sort_key = TFL.Sorted_By ("ip_pool.cool_down_period")
     ...     ).distinct ().all ()
-    [CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), (u'rs_pool', )), CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), (u'ff_pool', ))]
+    [CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), ('rs_pool', )), CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), ('ff_pool', ))]
 
     >>> CNDB.IP4_Network_in_IP4_Pool.query \\
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
@@ -856,10 +856,10 @@ _test_partial = """
     >>> id2 = CNDB.Net_Interface_in_IP_Network  (wd, a4, mask_len = 24)
 
     >>> il2
-    CNDB.Wireless_Interface_in_IP4_Network ((((u'g', u'', u''), (u'nogps', ), u'dev'), u'', u'wl'), ("10.0.0.1", ))
+    CNDB.Wireless_Interface_in_IP4_Network (((('g', '', ''), ('nogps', ), 'dev'), '', 'wl'), ("10.0.0.1", ))
 
     >>> id2
-    CNDB.Wired_Interface_in_IP4_Network ((((u'g', u'', u''), (u'nogps', ), u'dev'), u'', u'wd'), ("10.0.0.1", ))
+    CNDB.Wired_Interface_in_IP4_Network (((('g', '', ''), ('nogps', ), 'dev'), '', 'wd'), ("10.0.0.1", ))
 
 """
 

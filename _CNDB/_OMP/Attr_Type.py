@@ -3,7 +3,7 @@
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -38,18 +38,21 @@
 #    ««revision-date»»···
 #--
 
-from   __future__  import absolute_import, division, print_function, unicode_literals
+from   __future__               import absolute_import, division
+from   __future__               import print_function, unicode_literals
 
-from   math                     import log
-
+from   _CNDB                    import CNDB
 from   _MOM.import_MOM          import *
 from   _MOM.import_MOM          import _A_Unit_, _A_Float_, _A_Named_Value_
-from   _CNDB                    import CNDB
-import _CNDB._OMP
-from   _TFL.I18N                import _
-from _MOM._Attr.Number_Interval import A_Int_Interval_C
 
 import _CNDB._OMP.Wireless_Mode
+
+from   _MOM._Attr.Number_Interval import A_Int_Interval_C
+
+from   _TFL.I18N                import _
+from   _TFL.pyk                 import pyk
+
+from   math                     import log
 
 class A_Polarization (_A_Named_Value_) :
     """Antenna polarisation"""
@@ -203,7 +206,7 @@ class A_IP6_Netmask_Interval (_A_IP_Netmask_Interval_) :
 
 # end class A_IP6_Netmask_Interval
 
-__all__ = tuple (k for (k, v) in globals ().iteritems () if is_attr_type (v))
+__all__ = tuple (k for (k, v) in pyk.iteritems (globals ()) if is_attr_type (v))
 
 if __name__ != "__main__" :
     CNDB.OMP._Export ("*")

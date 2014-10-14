@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   _TFL.pyk           import pyk
 
 import re
 from   rsclib.HTML_Parse  import tag, Page_Tree
@@ -64,7 +66,7 @@ class Interfaces (Page_Tree, Version_Mixin) :
                                 self.ips [i4] = True
         self.set_version (root)
         if not self.if_by_name :
-            raise ValueError, "No interface config found"
+            raise ValueError ("No interface config found")
         bfw = Backfire_WLAN_Config (site = self.site)
         for d in bfw.wlans :
             if d.name in self.if_by_name :
@@ -86,8 +88,8 @@ class Backfire_WLAN_Config (Page_Tree) :
     def parse (self) :
         wlo = \
             ( 'Wireless Overview'
-            , 'Drahtlosübersicht'.decode ('utf-8')
-            , 'WLAN Übersicht'.decode ('utf-8')
+            , pyk.decoded ('Drahtlosübersicht', 'utf-8')
+            , pyk.decoded ('WLAN Übersicht',    'utf-8')
             )
         root = self.tree.getroot ()
         self.wlans = []
@@ -113,7 +115,7 @@ class Backfire_WLAN_Config (Page_Tree) :
                         # the necessary info in a title attribute :-(
                         if k == 'signal' and not td.text :
                             if td [0].tag == tag ('img') :
-                                title = td [0].get ('title') 
+                                title = td [0].get ('title')
                                 m = self.title_re.search (title)
                                 if m :
                                     d.set \
@@ -223,7 +225,7 @@ class Backfire (autosuper) :
             self.request ['ips']        = bfi.ips
             self.request ['interfaces'] = bfi.if_by_name
             self.request ['version']    = bfi.version
-        for k, v in self.parsers.iteritems () :
+        for k, v in pyk.iteritems (self.parsers) :
             if k in self.request :
                 v (site = self.site, content = self.request [k])
     # end def __init__

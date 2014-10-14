@@ -2,10 +2,14 @@
 # -*- coding: utf-8 -*-
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   __future__           import print_function
+
+from   _TFL.pyk             import pyk
 
 import os
 import re
@@ -50,7 +54,7 @@ class First_Guess (Page_Tree) :
     def parse (self) :
         self.backend = None
         root  = self.tree.getroot ()
-        #print self.tree_as_string (root)
+        #print (self.tree_as_string (root))
         title = root.find (".//%s" % tag ("title"))
         t     = 'olsr.org httpinfo plugin'
         if title is not None and title.text and title.text.strip () == t :
@@ -60,7 +64,7 @@ class First_Guess (Page_Tree) :
             if not self.backend :
                 trial (root)
         if not self.backend :
-            #print self.tree_as_string (root)
+            #print (self.tree_as_string (root))
             raise ValueError ("Unknown Web Frontend")
     # end def parse
 
@@ -144,7 +148,7 @@ class Luci_Guess (Page_Tree) :
     def parse (self) :
         self.backend = 'Backfire'
         root  = self.tree.getroot ()
-        #print self.tree_as_string (root)
+        #print (self.tree_as_string (root))
         for h in root.findall (".//%s" % tag ('div')) :
             if h.get ('id') == 'header' :
                 for p in h :
@@ -190,19 +194,19 @@ class Guess (Compare_Mixin) :
     def as_json (self) :
         d = dict (type = self.type, version = self.version)
         iface = d ['interfaces'] = []
-        for i in self.interfaces.itervalues () :
-            iface.append (i.as_dict) 
+        for i in pyk.itervalues (self.interfaces) :
+            iface.append (i.as_dict)
         ips = d ['ips'] = []
-        for i in self.ips.iterkeys () :
+        for i in pyk.iterkeys (self.ips) :
             ips.append (str (i))
         return json.dumps (d)
     # end def as_json
 
     def verbose_repr (self) :
         r = [str (self)]
-        for v in self.interfaces.itervalues () :
+        for v in pyk.itervalues (self.interfaces) :
             r.append (str (v))
-        for v in self.ips.iterkeys () :
+        for v in pyk.iterkeys (self.ips) :
             r.append (str (v))
         return '\n'.join (r)
     # end def verbose_repr
@@ -215,8 +219,8 @@ class Guess (Compare_Mixin) :
 
     def __hash__ (self) :
         return hash \
-            (( tuple (self.ips.iterkeys ())
-             , tuple (self.interfaces.itervalues ())
+            (( tuple (pyk.iterkeys (self.ips))
+             , tuple (pyk.itervalues (self.interfaces))
             ))
     # end def __hash__
 
@@ -225,7 +229,7 @@ class Guess (Compare_Mixin) :
             raise AttributeError ("my 'rqinfo' attribute vanished: %s" % name)
         try :
             r = self.rqinfo [name]
-        except KeyError, cause :
+        except KeyError as cause :
             raise AttributeError (cause)
         setattr (self, name, r)
         return r
@@ -298,8 +302,8 @@ def main () :
     ipdict = {}
     for fn in opt.read_pickle :
         if opt.debug :
-            print "Processing pickle dump %s" % fn
-        keys = dict.fromkeys (ipdict.iterkeys ())
+            print ("Processing pickle dump %s" % fn)
+        keys = dict.fromkeys (pyk.iterkeys (ipdict))
         mt   = None
         if fn == '-' :
             f = sys.stdin
@@ -310,7 +314,7 @@ def main () :
             else :
                 f = open (fn, 'r')
         obj = pickle.load (f)
-        for k, v in obj.iteritems () :
+        for k, v in pyk.iteritems (obj) :
             # Fixup of object
             if isinstance (v, Guess) :
                 if not hasattr (v, 'rqinfo') :
@@ -333,28 +337,28 @@ def main () :
                     elif v [0] == 'ValueError' :
                         overwrite = True
                     if overwrite :
-                        #print opt.debug, istuple, v, ov [0]
+                        #print (opt.debug, istuple, v, ov [0])
                         if (opt.debug and (not istuple or v [0] != ov [0])) :
-                            print "%s: overwriting %s with %s" % (k, ov, v)
+                            print ("%s: overwriting %s with %s" % (k, ov, v))
                         ipdict [k] = v
                     elif istuple and ov [0] != v [0] and opt.debug :
-                        print "%s: Not overwriting %s with %s" % (k, ov, v)
+                        print ("%s: Not overwriting %s with %s" % (k, ov, v))
                 else :
                     assert isinstance (ov, Guess)
                     if istuple :
                         if opt.debug :
-                            print "%s: Not overwriting %s with %s" % (k, ov, v)
+                            print ("%s: Not overwriting %s with %s" % (k, ov, v))
                     else :
                         assert isinstance (v, Guess)
                         ipdict [k] = v
             else :
                 if opt.debug :
-                    print "%s: new: %s" % (k, v)
+                    print ("%s: new: %s" % (k, v))
                 ipdict [k] = v
         if opt.debug :
-            for k, v in keys.iteritems () :
+            for k, v in pyk.iteritems (keys) :
                 if not v :
-                    print "%s: not existing in dump %s" % (k, fn)
+                    print ("%s: not existing in dump %s" % (k, fn))
 
     for ip in args :
         port = opt.port
@@ -370,7 +374,7 @@ def main () :
             site = 'file://' + os.path.abspath (ip)
             url  = 'index.html'
         ff = Guess (site = site, ip = ip, url = url, port = port)
-        print ff.verbose_repr ()
+        print (ff.verbose_repr ())
         ipdict [str (ip)] = ff
     if opt.output_pickle :
         if opt.output_pickle.endswith ('.gz') :
@@ -388,7 +392,7 @@ def main () :
             f  = open (opt.version_statistics, 'w')
         dw     = DictWriter (f, fields, delimiter = ';')
         dw.writerow (dict ((k, k) for k in fields))
-        for ip, guess in sorted (ipdict.iteritems (), key = key) :
+        for ip, guess in sorted (pyk.iteritems (ipdict), key = key) :
             if isinstance (guess, Guess) :
                 dw.writerow \
                     ( dict
@@ -412,9 +416,9 @@ def main () :
             f  = open (opt.interface_info, 'w')
         dw     = DictWriter (f, fields, delimiter = ';')
         dw.writerow (dict ((k, k) for k in fields))
-        for ip, guess in sorted (ipdict.iteritems (), key = key) :
+        for ip, guess in sorted (pyk.iteritems (ipdict), key = key) :
             if isinstance (guess, Guess) :
-                for iface in guess.interfaces.itervalues () :
+                for iface in pyk.itervalues (guess.interfaces) :
                     wi = iface.wlan_info
                     mc = None
                     if iface.link :
@@ -441,16 +445,16 @@ def main () :
                     dw.writerow (d)
         f.close ()
     if opt.verbose :
-        for ip, guess in sorted (ipdict.iteritems (), key = key) :
+        for ip, guess in sorted (pyk.iteritems (ipdict), key = key) :
             if opt.verbose > 1 :
-                print "%-15s" % ip
-                print '=' * 15
+                print ("%-15s" % ip)
+                print ('=' * 15)
                 if isinstance (guess, Guess) :
-                    print guess.verbose_repr ()
+                    print (guess.verbose_repr ())
                 else :
-                    print "Exception:", guess
+                    print ("Exception:", guess)
             else :
-                print "%-15s: %s" % (ip, guess)
+                print ("%-15s: %s" % (ip, guess))
 # end def main
 
 if __name__ == '__main__' :

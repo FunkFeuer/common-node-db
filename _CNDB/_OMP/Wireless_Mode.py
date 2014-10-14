@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -30,6 +30,7 @@ import _CNDB._OMP
 from   _TFL                     import TFL
 
 from   _TFL.I18N                import _, _T, _Tn
+from   _TFL.pyk                 import pyk
 
 import _TFL._Meta.Object
 
@@ -49,7 +50,7 @@ class M_Wireless_Mode (TFL.Meta.Object.__class__) :
     # end def __str__
 
     def _m_add (cls, name, Table) :
-        name = unicode (name)
+        name = pyk.text_type (name)
         assert name not in Table, "Name clash: `%s` <-> `%s`" % \
             (name, Table [name].__class__)
         Table [name] = cls
@@ -57,9 +58,10 @@ class M_Wireless_Mode (TFL.Meta.Object.__class__) :
 
 # end class M_Wireless_Mode
 
-class Wireless_Mode (TFL.Meta.Object) :
+class Wireless_Mode \
+          (TFL.Meta.BaM (TFL.Meta.Object, metaclass = M_Wireless_Mode)) :
 
-    __metaclass__ = M_Wireless_Mode
+    pass
 
 # end class Wireless_Mode
 

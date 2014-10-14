@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   _TFL.pyk           import pyk
 
 from   rsclib.HTML_Parse  import tag, Page_Tree
 from   rsclib.autosuper   import autosuper
@@ -38,7 +40,7 @@ class Status (Page_Tree, Version_Mixin) :
                 route_div = div
             self.try_get_version (div)
         for d in self.tbl_iter (wlan_div) :
-            for k, newkey in self.wl_names.iteritems () :
+            for k, newkey in pyk.iteritems (self.wl_names) :
                 if k in d :
                     d [newkey] = d [k]
             wl = WLAN_Config (** d)
@@ -135,7 +137,7 @@ class OpenWRT (autosuper) :
             interfaces   = {}
             ips          = {}
             count = 0
-            for gw, ifname in route.iface_by_gw.iteritems () :
+            for gw, ifname in pyk.iteritems (route.iface_by_gw) :
                 ip, lq, nlq, etx  = conn.neighbors [gw]
                 i4 = Inet4 (ip, None, None, iface = ifname)
                 ips [i4] = 1
@@ -157,7 +159,7 @@ class OpenWRT (autosuper) :
                 if i4 not in iface.inet4 :
                     iface.append_inet4 (i4)
             wl_if = None
-            for iface in interfaces.itervalues () :
+            for iface in pyk.itervalues (interfaces) :
                 if iface.is_wlan :
                     if wl_if :
                         m = "Duplicate wlan: %s/%s" % (iface.name, wl_if.name)

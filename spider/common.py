@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   _TFL.pyk           import pyk
 
 from   rsclib.autosuper   import autosuper
 from   rsclib.IP_Address  import IP4_Address
@@ -188,7 +190,7 @@ class Interface (Compare_Mixin) :
         if name == 'names' :
             self.names = [self.name]
             return self.names
-        raise AttributeError, name
+        raise AttributeError (name)
     # end def __getattr__
 
 # end class Interface
@@ -274,7 +276,7 @@ class WLAN_Config (Compare_Mixin) :
             Note that name isn't guaranteed to be set for old spider
             runs.
         """
-        for k, v in kw.iteritems () :
+        for k, v in pyk.iteritems (kw) :
             if getattr (self, k, None) is None :
                 fixer = getattr (self, "fix_%s" % k, None)
                 if fixer :
@@ -315,7 +317,7 @@ class WLAN_Config (Compare_Mixin) :
         if name == 'signal' or name == 'noise' :
             setattr (self, name, None)
             return None
-        raise AttributeError, name
+        raise AttributeError (name)
     # end def __getattr__
 
 # end class WLAN_Config

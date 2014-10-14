@@ -1,17 +1,20 @@
 #!/usr/bin/python
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
+
+from   __future__  import print_function
+
+from   _TFL.pyk           import pyk
 
 import re
 
 from   urlparse           import urlparse
 from   urllib             import urlopen
 from   gzip               import GzipFile
-from   StringIO           import StringIO
 from   rsclib.HTML_Parse  import Page_Tree, tag
 from   rsclib.autosuper   import autosuper
 from   rsclib.stateparser import Parser
@@ -54,7 +57,7 @@ class MID (autosuper) :
     def __str__ (self) :
         return '\n'.join \
             ("MID %s -> %s" % (k, ';'.join (str (i) for i in v))
-             for k, v in self.by_ip.iteritems ()
+             for k, v in pyk.iteritems (self.by_ip)
             )
     # end def __str__
     __repr__ = __str__
@@ -156,7 +159,7 @@ def get_olsr_container (file_or_url) :
             f = urlopen (file_or_url)
             if file_or_url.endswith ('.gz') :
                 c = f.read ()
-                f = GzipFile (None, 'r', 9, StringIO (c))
+                f = GzipFile (None, 'r', 9, pyk.StringIO (c))
             olsr = OLSR_Parser (verbose = 0)
             olsr.parse (f)
     else :
@@ -174,11 +177,11 @@ if __name__ == "__main__" :
     import os
     if len (sys.argv) != 2 :
         bn = os.path.basename (sys.argv [0])
-        print >> sys.stderr, "Usage: %(bn)s <file-or-url>" % locals ()
+        print ("Usage: %(bn)s <file-or-url>" % locals (), file = sys.stderr)
         sys.exit (23)
     olsr = get_olsr_container (sys.argv [1])
-    for t in olsr.topo.forward.itervalues () :
-        print t
-    print olsr.mid
-    for h in olsr.hna.by_dest.itervalues () :
-        print h
+    for t in pyk.itervalues (olsr.topo.forward) :
+        print (t)
+    print (olsr.mid)
+    for h in pyk.itervalues (olsr.hna.by_dest) :
+        print (h)

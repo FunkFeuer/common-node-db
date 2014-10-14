@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -36,8 +36,8 @@ _test_code = """
     >>> CNDB = scope.CNDB
     >>> WLC = CNDB.Wireless_Channel
 
-    >>> CNDB.Regulatory_Permission.E_Type.attr_prop ("eirp").attr._default_unit
-    u'dBm'
+    >>> prepr (CNDB.Regulatory_Permission.E_Type.attr_prop ("eirp").attr._default_unit)
+    'dBm'
     >>> CNDB.Regulatory_Permission.query (Q.RAW.band.lower > '28 MHz').count ()
     3
     >>> CNDB.Regulatory_Permission.query (Q.RAW.band.lower < '28 MHz').count ()
@@ -110,29 +110,29 @@ _test_code = """
     ...    (dom, band1, bandwidth = "40MHz", eirp = "100mW", raw = True)
     >>> round (rp1.eirp, 2)
     20.0
-    >>> rp1.raw_attr ('eirp')
-    u'100mW'
+    >>> prepr (rp1.raw_attr ('eirp'))
+    '100mW'
     >>> band2 = dict (lower = "2 THz", upper = "3 THz")
     >>> rp2    = CNDB.Regulatory_Permission \\
     ...    (dom, band2, bandwidth = "40MHz", eirp = "1W", raw = True)
     >>> round (rp2.eirp, 2)
     30.0
-    >>> rp2.raw_attr ('eirp')
-    u'1W'
+    >>> prepr (rp2.raw_attr ('eirp'))
+    '1W'
     >>> band3 = dict (lower = "3 THz", upper = "4 THz")
     >>> rp3    = CNDB.Regulatory_Permission \\
     ...    (dom, band3, bandwidth = "40MHz", eirp = "10dBmW", raw = True)
     >>> round (rp3.eirp, 2)
     10.0
-    >>> rp3.raw_attr ('eirp')
-    u'10dBmW'
+    >>> prepr (rp3.raw_attr ('eirp'))
+    '10dBmW'
     >>> band4 = dict (lower = "4 THz", upper = "5 THz")
     >>> rp4    = CNDB.Regulatory_Permission \\
     ...    (dom, band4, bandwidth = "40MHz", eirp = "10dBW", raw = True)
     >>> round (rp4.eirp, 2)
     40.0
-    >>> rp4.raw_attr ('eirp')
-    u'10dBW'
+    >>> prepr (rp4.raw_attr ('eirp'))
+    '10dBW'
 
 """
 
