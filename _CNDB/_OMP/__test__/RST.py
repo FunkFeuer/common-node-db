@@ -333,10 +333,8 @@ _test_limit = r"""
                                           , 'revision' : ''
                                           }
                                       , 'cid' : 34
-                                      , 'creation' :
-                                          { 'date' : <datetime> }
-                                      , 'last_change' :
-                                          { 'date' : <datetime> }
+                                      , 'creation' : {'date' : <datetime>}
+                                      , 'last_change' : {'date' : <datetime>}
                                       , 'pid' : 27
                                       , 'type_name' : 'CNDB.Net_Device_Type'
                                       , 'url' : '/v1/CNDB-Net_Device_Type/27'
@@ -352,10 +350,8 @@ _test_limit = r"""
                                                   , 'zip' : '1010'
                                                   }
                                               , 'cid' : 42
-                                              , 'creation' :
-                                                  { 'date' : <datetime> }
-                                              , 'last_change' :
-                                                  { 'date' : <datetime> }
+                                              , 'creation' : {'date' : <datetime>}
+                                              , 'last_change' : {'date' : <datetime>}
                                               , 'pid' : 35
                                               , 'type_name' : 'PAP.Address'
                                               , 'url' : '/v1/PAP-Address/35'
@@ -368,10 +364,8 @@ _test_limit = r"""
                                                   , 'title' : ''
                                                   }
                                               , 'cid' : 1
-                                              , 'creation' :
-                                                  { 'date' : <datetime> }
-                                              , 'last_change' :
-                                                  { 'date' : <datetime> }
+                                              , 'creation' : {'date' : <datetime>}
+                                              , 'last_change' : {'date' : <datetime>}
                                               , 'pid' : 1
                                               , 'type_name' : 'PAP.Person'
                                               , 'url' : '/v1/PAP-Person/1'
@@ -387,20 +381,16 @@ _test_limit = r"""
                                               }
                                           }
                                       , 'cid' : 43
-                                      , 'creation' :
-                                          { 'date' : <datetime> }
-                                      , 'last_change' :
-                                          { 'date' : <datetime> }
+                                      , 'creation' : {'date' : <datetime>}
+                                      , 'last_change' : {'date' : <datetime>}
                                       , 'pid' : 3
                                       , 'type_name' : 'CNDB.Node'
                                       , 'url' : '/v1/CNDB-Node/3'
                                       }
                                   }
                               , 'cid' : 35
-                              , 'creation' :
-                                  { 'date' : <datetime> }
-                              , 'last_change' :
-                                  { 'date' : <datetime> }
+                              , 'creation' : {'date' : <datetime>}
+                              , 'last_change' : {'date' : <datetime>}
                               , 'pid' : 28
                               , 'type_name' : 'CNDB.Net_Device'
                               , 'url' : '/v1/CNDB-Net_Device/28'
@@ -409,10 +399,8 @@ _test_limit = r"""
                           , 'name' : 'wr'
                           }
                       , 'cid' : 36
-                      , 'creation' :
-                          { 'date' : <datetime> }
-                      , 'last_change' :
-                          { 'date' : <datetime> }
+                      , 'creation' : {'date' : <datetime>}
+                      , 'last_change' : {'date' : <datetime>}
                       , 'pid' : 29
                       , 'type_name' : 'CNDB.Wired_Interface'
                       , 'url' : '/v1/CNDB-Wired_Interface/29'
@@ -431,30 +419,24 @@ _test_limit = r"""
                                       }
                                   }
                               , 'cid' : 4
-                              , 'creation' :
-                                  { 'date' : <datetime> }
-                              , 'last_change' :
-                                  { 'date' : <datetime> }
+                              , 'creation' : {'date' : <datetime>}
+                              , 'last_change' : {'date' : <datetime>}
                               , 'pid' : 4
                               , 'type_name' : 'CNDB.IP4_Network'
                               , 'url' : '/v1/CNDB-IP4_Network/4'
                               }
                           }
                       , 'cid' : 21
-                      , 'creation' :
-                          { 'date' : <datetime> }
-                      , 'last_change' :
-                          { 'date' : <datetime> }
+                      , 'creation' : {'date' : <datetime>}
+                      , 'last_change' : {'date' : <datetime>}
                       , 'pid' : 20
                       , 'type_name' : 'CNDB.IP4_Network'
                       , 'url' : '/v1/CNDB-IP4_Network/20'
                       }
                   }
               , 'cid' : 38
-              , 'creation' :
-                  { 'date' : <datetime> }
-              , 'last_change' :
-                  { 'date' : <datetime> }
+              , 'creation' : {'date' : <datetime>}
+              , 'last_change' : {'date' : <datetime>}
               , 'pid' : 31
               , 'type_name' : 'CNDB.Wired_Interface_in_IP4_Network'
               , 'url' : '/v1/CNDB-Net_Interface_in_IP4_Network/31'
@@ -494,8 +476,7 @@ _test_limit = r"""
 
     >>> r = show (R.get ("/v1/CNDB-Wired_Interface/29?verbose&fields=name&order_by=pid&limit=1"), cleaner = date_cleaner)
     { 'json' :
-        { 'attributes' :
-            { 'name' : 'wr' }
+        { 'attributes' : {'name' : 'wr'}
         , 'cid' : 36
         , 'pid' : 29
         , 'rels' :
@@ -827,8 +808,7 @@ _test_put = r"""
         { 'attributes_raw' :
             { 'first_name' : 'Snoopy'
             , 'last_name' : 'Dog'
-            , 'lifetime' :
-                { 'start' : '2000-11-22' }
+            , 'lifetime' : {'start' : '2000-11-22'}
             , 'middle_name' : 'The'
             , 'title' : ''
             }
@@ -878,8 +858,7 @@ _test_put = r"""
     ...     )
     ... )
     >>> s4 = show (requests.put (p, data=cargo_c, headers=headers))
-    { 'json' :
-        { 'error' : 'Cid mismatch: requested cid = 45, current cid = 47' }
+    { 'json' : {'error' : 'Cid mismatch: requested cid = 45, current cid = 47'}
     , 'status' : 409
     , 'url' : 'http://localhost:9999/v1/CNDB-Node/2'
     }
