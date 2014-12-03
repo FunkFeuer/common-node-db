@@ -46,6 +46,7 @@
 ##                     `action_button_allocate_ip_pool_menu`
 ##    26-Sep-2014 (CT) Fix documentation URL
 ##    26-Sep-2014 (CT) Move `.owner` into if-clause
+##     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 ##    ««revision-date»»···
 ##--
 #}
@@ -129,7 +130,7 @@
 
 {%- macro db_graph (db_type) -%}
   {%- set tn  = db_type.div_name %}
-  <div class="pure-u-24-24 graph" id="{{ tn }}-graph">
+  <div class="pure-u-1 graph" id="{{ tn }}-graph">
   </div>
 {%- endmacro -%} {#- db_graph -#}
 
@@ -139,7 +140,7 @@
     {%- set tn  = db_type.div_name %}
     {%- set nn  = GTW.len (db_type.objects) %}
     {%- if pos %}
-      <div class="pure-u-12-24">
+      <div class="pure-u-1 pure-u-md-1-2">
         <div id="{{ tn }}-map" {# -#}
              class="map" {# -#}
              style="height: {{ 3 * (nn + 1) -}}rem; margin-top: 5rem;"{# -#}

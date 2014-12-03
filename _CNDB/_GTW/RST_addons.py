@@ -94,6 +94,7 @@
 #    26-Sep-2014 (CT) Remove action `edit` from `_DB_Person_Property_`
 #    26-Sep-2014 (CT) Set `DB_Account.ui_allow_new` to `False`
 #    30-Sep-2014 (CT) Change `Allocate_IP` to use `can_allocate`
+#     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 #    ««revision-date»»···
 #--
 
@@ -524,7 +525,7 @@ class _Meta_DB_Div_ (_Ancestor.__class__) :
 class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
     """Base class of dashboard classes"""
 
-    app_div_class         = "pure-u-24-24"
+    app_div_class         = "pure-u-1"
     app_div_prefix        = "app-D:"
     app_typ_prefix        = "app-T:"
     skip_etag             = True
@@ -1235,7 +1236,7 @@ _Ancestor = _DB_Interface_
 class DB_Interface (_Ancestor) :
     """CNDB.Net_Interface displayed by, and managed via, dashboard."""
 
-    app_div_class         = "pure-u-24-24"
+    app_div_class         = "pure-u-1"
     type_name             = "CNDB.Net_Interface"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_graph"
 
@@ -1439,7 +1440,7 @@ class DB_Interface_in_IP_Network (_Ancestor) :
 class DB_Node (_DB_E_Type_) :
     """CNDB.Node displayed by, and managed via, dashboard."""
 
-    app_div_class         = "pure-u-12-24"
+    app_div_class         = "pure-u-1 pure-u-md-1-2"
     type_name             = "CNDB.Node"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_node_map"
 

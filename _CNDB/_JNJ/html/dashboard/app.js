@@ -35,6 +35,7 @@
 //    16-Sep-2014 (CT) Add action `allocate_ip`
 //    23-Sep-2014 (CT) Factor `setup_buttons`, use it in `allocate_ip_cb`
 //    23-Sep-2014 (CT) Fix `menu` in `allocate_ip_cb`
+//     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 //    ««revision-date»»···
 //--
 
@@ -515,15 +516,15 @@
                 // let's restructure the Dom for a bit!
                 var d = $("div",field);
                 //$("div",field).detach();
-                field.append("<div class='pure-g-r'></div>");
-                $("div:last",field).append("<div id='posfields' class='pure-u-1-2'></div>");
+                field.append("<div class='pure-g'></div>");
+                $("div:last",field).append("<div id='posfields' class='pure-u-1 pure-u-md-1-2'></div>");
                 d.appendTo($("#posfields"));
                 $("div > div:first",field).append("<div class='Field pure-control-group'>" +
                     "<label></label>" +
                     "<button name='geolocate' class='pure-button' id='geolocate'>" +
                     "<i class='fa fa-globe' title='geolocate address'></i>" +
                     "</button>");
-                $("div.pure-g-r",field).append("<div class='map pure-u-1-2' id='position-map'></div>");
+                $("div.pure-g",field).append("<div class='map pure-u-1 pure-u-md-1-2' id='position-map'></div>");
 
                 // add and initialize the map
                 L.Icon.Default.imagePath = "/media/GTW/css/images";

@@ -25,6 +25,7 @@
 ##     2-Jul-2014 (CT) Move `edit` behind `div#app` (form style)
 ##     9-Jul-2014 (CT) Factor out Funkfeuer specific stuff
 ##    14-Jul-2014 (CT) Fix `{{ title }}` access in block `title`
+##     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 ##    ««revision-date»»···
 ##--
 #}
@@ -96,12 +97,12 @@
           <div id="messages"></div>
           {%- block app -%}
             <div id="app" class="app">
-              <div id="{{ page.db_view.app_div_id }}" class="pure-g-r">
+              <div id="{{ page.db_view.app_div_id }}" class="pure-g">
                 {% if page.fill_view %}
                   {{- DB_View.main (page) -}}
                 {% endif -%}
               </div>
-              <div id="{{ page.db_user.app_div_id }}" class="pure-g-r">
+              <div id="{{ page.db_user.app_div_id }}" class="pure-g">
                 {% if page.fill_user %}
                   {{- DB_User.main (page) -}}
                 {% endif -%}

@@ -24,6 +24,7 @@
 #     3-Sep-2014 (CT) Add rule for ".partial-type-menu"
 #     4-Sep-2014 (MB) Add fixed height for map - fixes displaying in ff
 #    16-Sep-2014 (CT) Split rule for `.feedback`
+#     3-Dec-2014 (CT) Add `Style_File` for `grids-responsive.css`
 #    ««revision-date»»···
 #--
 
@@ -31,6 +32,7 @@ from   __future__ import division
 
 Style_File  ("/media/GTW/css/font-awesome.css")
 Style_File  ("/media/GTW/css/pure.css")
+Style_File  ("/media/GTW/css/grids-responsive.css")
 Style_File  ("/media/GTW/css/leaflet.css")
 
 style_sheet = Style_Sheet \
