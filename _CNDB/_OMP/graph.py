@@ -3,7 +3,7 @@
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package GTW.OMP.SRM.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -33,6 +33,7 @@
 #    17-Dec-2012 (RS) Skip explicit links from children of `Net_Interface`
 #    26-Feb-2013 (CT) Remove `Wired_Link` and `Wireless_Link`
 #    13-Jun-2013 (CT) Remove `PNS_Aliases`
+#    11-Dec-2014 (CT) Fix geometry attributes of `Node.manager`
 #    ««revision-date»»···
 #--
 
@@ -84,15 +85,19 @@ def graph (app_type) :
             , Child.CNDB.Net_Device
                 ( Role.left
                     ( IS_A.CNDB.Device_Type
-                    , guide_offset = 0.5
+                    , guide_offset = 0.25
                     , offset       = CD.E * 3
                     , source_side  = "S"
                     , target_side  = "S"
                     )
                 , Attr.node
-                    ( Attr.manager (source_side = "N", target_side = "N")
-                    , Attr.owner
+                    ( Attr.manager
                         ( guide_offset = 0.75
+                        , source_side = "E"
+                        , target_side = "W"
+                        )
+                    , Attr.owner
+                        ( guide_offset = 0.5
                         , source_side  = "E"
                         , target_side  = "W"
                         )
