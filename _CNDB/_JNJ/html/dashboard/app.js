@@ -36,6 +36,8 @@
 //    23-Sep-2014 (CT) Factor `setup_buttons`, use it in `allocate_ip_cb`
 //    23-Sep-2014 (CT) Fix `menu` in `allocate_ip_cb`
 //     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
+//    16-Dec-2014 (CT) Change `initialize_map` to allow `data ("markers")`
+//                     returning a string
 //    ««revision-date»»···
 //--
 
@@ -412,20 +414,21 @@
             }
         );
         // initialize the map
-        $(document).ready(function () {
+        $(document).ready(function initialize_map () {
             var ms = $(".map[data-markers]");
             L.Icon.Default.imagePath = "/media/GTW/css/images";
             for (var j=0;j<ms.length;j++) {
                 var el = $(ms[j]);
-                var node_data = JSON.parse(el.data("markers"));
-
+                var d_markers = el.data("markers");
+                // Firefox 34 returns an object, not a string, for `markers`
+                var node_data = typeof d_markers === "string" ?
+                    JSON.parse(d_markers) : d_markers;
                 var node_map = L.map(el.attr('id'));
                 L.tileLayer ( 'https://\{s\}.tile.openstreetmap.org/\{z\}/\{x\}/\{y\}.png'
-                        , { maxZoom: 18
-                           , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
-              }
-                ).addTo (node_map);
-
+                    , { maxZoom: 18
+                      , attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
+                      }
+                    ).addTo (node_map);
                 var markers = L.featureGroup()
                     .addTo(node_map);
                 for (var i in node_data) {

@@ -47,6 +47,9 @@
 ##    26-Sep-2014 (CT) Fix documentation URL
 ##    26-Sep-2014 (CT) Move `.owner` into if-clause
 ##     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
+##    16-Dec-2014 (CT) Fix guard for `o.position` in `db_node_map`;
+##                     remove unnecessary whitespace from `data-markers`
+##    16-Dec-2014 (CT) Fix `own_title`
 ##    ««revision-date»»···
 ##--
 #}
@@ -146,17 +149,19 @@
              style="height: {{ 3 * (nn + 1) -}}rem; margin-top: 5rem;"{# -#}
 
              data-markers='[
-          {%- for o in db_type.objects if o.position %}
-            {%- set pos = o.position %}
-            {  "pid": {{o.pid}}
-                            , "pos": { "lat": {{ pos.lat }}
-                                   , "lon": {{ pos.lon }}}
-                            , "name": "{{o.name}}"
-                            }
-             {% if not loop.last %}
-                ,
+          {%- for o in db_type.objects if o.position and o.position.lat and o.position.lon -%}
+            {%- set pos = o.position -%}
+            { "pid": {{ o.pid -}}
+            , "pos": {# -#}
+                { "lat": {{ pos.lat -}}
+                , "lon": {{ pos.lon }} {# -#}
+                }{#- -#}
+            , "name": "{{ o.name }}" {# -#}
+            }
+             {%- if not loop.last -%}
+                , {# -#}
              {% endif %}
-          {% endfor %}]'
+          {%- endfor %}]'
         >
         </div>
       </div>
@@ -185,7 +190,7 @@
             {%- set own_title = GTW._T ("Owned by you") %}
           {%- else %}
             {%- set own_icon  = "fa-square-o" %}
-            {%- set own_title = GTW._T ("Owned by %s") % user.FO %}
+            {%- set own_title = GTW._T ("Owned by %s") % f.value (o) %}
           {% endif -%}
           <i class="fa {{ own_icon }}" title="{{ own_title }}"></i>
         {% else %}
