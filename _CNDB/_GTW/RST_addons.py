@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.GTW.
@@ -95,6 +95,7 @@
 #    26-Sep-2014 (CT) Set `DB_Account.ui_allow_new` to `False`
 #    30-Sep-2014 (CT) Change `Allocate_IP` to use `can_allocate`
 #     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
+#    16-Jan-2015 (CT) Add property `_DB_E_Type_.button_types`
 #    ««revision-date»»···
 #--
 
@@ -633,6 +634,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     view_action_names        = ("filter", "edit", "delete")
     view_field_names         = ()    ### to be defined by subclass
     type_name                = None  ### to be defined by subclass
+
+    button_types             = property \
+        (lambda s : s.admin.button_types)
 
     change_query_filters     = property \
         (lambda s : s.admin.change_query_filters)
