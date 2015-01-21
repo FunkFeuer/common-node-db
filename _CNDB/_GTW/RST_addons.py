@@ -97,6 +97,7 @@
 #     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 #    16-Jan-2015 (CT) Add property `_DB_E_Type_.button_types`
 #    20-Jan-2015 (CT) Factor `_Permission_.Login_has_Person`, `._get_obj`
+#    21-Jan-2015 (CT) Add `__getattr__`, `_admin_delegates`, DRY properties
 #    ««revision-date»»···
 #--
 
@@ -627,29 +628,19 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     view_field_names         = ()    ### to be defined by subclass
     type_name                = None  ### to be defined by subclass
 
-    button_types             = property \
-        (lambda s : s.admin.button_types)
-
-    change_query_filters     = property \
-        (lambda s : s.admin.change_query_filters)
-
-    change_query_types       = property \
-        (lambda s : s.admin.change_query_types)
-
-    child_permission_map     = property \
-        (lambda s : s.admin.child_permission_map)
-
-    child_postconditions_map = property \
-        (lambda s : s.admin.child_postconditions_map)
-
-    eligible_objects         = property \
-        (lambda s : s.admin.eligible_objects)
-
-    query_filters_restricted = property \
-        (lambda s : s.admin.query_filters_restricted)
-
-    user_restriction         = property \
-        (lambda s : s.admin.user_restriction)
+    _admin_delegates         = set \
+        ( ( "button_types"
+          , "change_query_filters"
+          , "change_query_types"
+          , "child_permission_map"
+          , "child_postconditions_map"
+          , "eligible_objects"
+          , "eligible_object_restriction"
+          , "query_filters_restricted"
+          , "user_restriction"
+          , "_field_type_attr_name"
+          )
+        )
 
     class _Action_Override_ (GTW.RST.TOP._Base_) :
 
@@ -998,12 +989,6 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     @Once_Property
     @getattr_safe
-    def eligible_object_restriction (self) :
-        return self.admin.eligible_object_restriction
-    # end def eligible_object_restriction
-
-    @Once_Property
-    @getattr_safe
     def ETM (self) :
         return self.admin.ETM
     # end def ETM
@@ -1077,6 +1062,13 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     def _init_kw (self, ** kw) :
         return self.__super._init_kw (_field_map = {}, ** kw)
     # end def _init_kw
+
+    def __getattr__ (self, name) :
+        if name in self._admin_delegates :
+            return getattr (self.admin, name)
+        else :
+            return self.__super.__getattr__ (name)
+    # end def __getattr__
 
 # end class _DB_E_Type_
 

@@ -1,6 +1,6 @@
 {#- jinja template: html/dashboard/app.m.jnj -#}
 {#
-## Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************
 ## This module is licensed under the terms of the BSD 3-Clause License
@@ -55,7 +55,12 @@
 #}
 
 {%- macro action_button
-    (href, icon_name, title=None, a_cls = "pure-button", i_add_cls = None, text="")
+    ( href, icon_name
+    , title     = None
+    , a_cls     = "pure-button"
+    , i_add_cls = None
+    , text      = ""
+    )
 -%}
   {%- set i_cls = "fa fa-%s" % (icon_name, ) %}
   {%- if i_add_cls %}
