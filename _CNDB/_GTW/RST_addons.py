@@ -96,6 +96,7 @@
 #    30-Sep-2014 (CT) Change `Allocate_IP` to use `can_allocate`
 #     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 #    16-Jan-2015 (CT) Add property `_DB_E_Type_.button_types`
+#    20-Jan-2015 (CT) Factor `_Permission_.Login_has_Person`, `._get_obj`
 #    ««revision-date»»···
 #--
 
@@ -112,6 +113,7 @@ import _CNDB._GTW
 import _CNDB._OMP.import_CNDB
 
 from   _GTW._MF3                import Element as MF3
+from   _GTW._RST.Permission     import Login_has_Person
 
 import _GTW._RST._TOP.import_TOP
 import _GTW._RST._TOP._MOM.import_MOM
@@ -184,7 +186,7 @@ class Is_Owner_or_Manager (GTW.RST._Permission_) :
 
     def predicate (self, user, page, * args, ** kw) :
         if user :
-            obj = getattr (page, "obj", None)
+            obj = self._get_obj (page, kw)
             if obj is not None :
                 try :
                     qf = page.query_filters_restricted ()
@@ -196,16 +198,6 @@ class Is_Owner_or_Manager (GTW.RST._Permission_) :
     # end def predicate
 
 # end class Is_Owner_or_Manager
-
-class Login_has_Person (GTW.RST._Permission_) :
-    """Permission if user has an associated person"""
-
-    def predicate (self, user, page, * args, ** kw) :
-        if user :
-            return user.person is not None
-    # end def predicate
-
-# end class Login_has_Person
 
 @Add_New_Method (CNDB.OMP.Net_Device, CNDB.OMP.Wired_Interface, CNDB.OMP.Wireless_Interface)
 def _CNDB_User_Entity_PRC (self, resource, request, response, attribute_changes) :
