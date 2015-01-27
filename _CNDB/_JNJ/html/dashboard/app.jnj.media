@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************
 # This module is licensed under the terms of the BSD 3-Clause License
@@ -25,6 +25,8 @@
 #     4-Sep-2014 (MB) Add fixed height for map - fixes displaying in ff
 #    16-Sep-2014 (CT) Split rule for `.feedback`
 #     3-Dec-2014 (CT) Add `Style_File` for `grids-responsive.css`
+#    27-Jan-2015 (CT) Add rules for `.align-center`, `.align-left`,
+#                     `.align-right`
 #    ««revision-date»»···
 #--
 
@@ -182,6 +184,19 @@ style_sheet = Style_Sheet \
                     ]
                 )
             ]
+        )
+    , Rule
+        ( ".align-center"
+        , clear          = "both"
+        , text_align     = "center"
+        )
+    , Rule
+        ( ".align-left"
+        , text_align     = "left"
+        )
+    , Rule
+        ( ".align-right"
+        , text_align     = "right"
         )
     , Media.Rule
         ( Media.Query ("screen", P.breakpoint.narrow)

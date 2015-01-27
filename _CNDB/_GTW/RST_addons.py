@@ -98,6 +98,11 @@
 #    16-Jan-2015 (CT) Add property `_DB_E_Type_.button_types`
 #    20-Jan-2015 (CT) Factor `_Permission_.Login_has_Person`, `._get_obj`
 #    21-Jan-2015 (CT) Add `__getattr__`, `_admin_delegates`, DRY properties
+#    27-Jan-2015 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Field`,
+#                     DRY field-handling code
+#                     * Factor `_Field_Owner_` from home-grown code in
+#                       template `html/app.m.jnj`
+#    27-Jan-2015 (CT) Add `_admin_func_delegates`
 #    ««revision-date»»···
 #--
 
@@ -638,9 +643,21 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
           , "eligible_object_restriction"
           , "query_filters_restricted"
           , "user_restriction"
-          , "_field_type_attr_name"
+          , "_field_type_attr_names"
+          , "_field_class_map"
+          , "_field_pred_map"
           )
         )
+
+    _admin_func_delegates    = set \
+          ( ( "add_field_classes"
+            , "_fields"
+            , "_field"
+            , "_field_type"
+            , "_field_type_by_attr"
+            , "_field_type_callable"
+            )
+          )
 
     class _Action_Override_ (GTW.RST.TOP._Base_) :
 
@@ -763,20 +780,19 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             )
         )
 
-    class _DB_Field_ (GTW.RST.TOP.MOM.Field.Attr) :
+    class _DB_Field_ (GTW.RST.TOP.MOM.Field.AQ) :
 
         @Once_Property
         @getattr_safe
         def add_css_classes (self) :
-            return [self.attr_name]
+            return [self.field_name]
         # end def add_css_classes
 
         @Once_Property
         @getattr_safe
-        def css_class (self) :
-            result = [self.__super.css_class] + self.add_css_classes
-            return filtered_join (" ", result)
-        # end def css_class
+        def css_classes (self) :
+            return self.__super.css_classes + self.add_css_classes
+        # end def css_classes
 
     Field = _DB_Field_ # end class
 
@@ -800,13 +816,13 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     class _Field_Device_ (_Field_Ref_) :
 
-        ref_name          = "Device"
+        ref_name          = _ ("Device")
 
     # end class _Field_Device_
 
     class _Field_Interface_ (_Field_Ref_) :
 
-        ref_name          = "Interface"
+        ref_name          = _ ("Interface")
 
     # end class _Field_Interface_
 
@@ -840,11 +856,12 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             return _T ("IP addresses")
         # end def ui_name
 
-        def as_html (self, o, v) :
+        def as_html (self, o, renderer) :
+            v = self.value (o, renderer)
             return "<br>".join (v.split (", "))
         # end def as_thml
 
-        def value (self, o) :
+        def value (self, o, renderer) :
             return ", ".join \
                 (   str (nw.net_address)
                 for nw in ichain (o.ip4_networks, o.ip6_networks)
@@ -865,56 +882,47 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     class _Field_Node_ (_Field_Ref_) :
 
-        ref_name          = "Node"
+        ref_name          = _ ("Node")
 
     # end class _Field_Node_
 
-    class _Field_No_ (Field) :
+    class _Field_No_ (Field, GTW.RST.TOP.MOM.Field.Id_Entity_Collection_Size) :
         """Number-of field"""
 
-        ### break inherited `property` to allow assignment in `__init__`
-        attr_name         = None
-        name              = None
-        ui_name           = None
-
-        def __init__ (self, name, attr_name, ET) :
-            self.attr_name   = attr_name
-            self.ET          = ET
-            self.name        = name
-            self.ui_name     = "#"
-        # end def __init__
-
-        @Once_Property
-        @getattr_safe
-        def attr (self) :
-            return self.ET.attr_prop (self.attr_name)
-        # end def attr
-
-        @Once_Property
-        @getattr_safe
-        def add_css_classes (self) :
-             ### don't want `__super.add_css_classes` here
-            return ["number", self.name]
-        # end def add_css_classes
-
-        @property ### depends on currently selected language (I18N/L10N)
-        @getattr_safe
-        def description (self) :
-            return _T (self._description) % \
-                (self.attr.P_Type.ui_name_T, self.ET.ui_name_T)
-        # end def description
-
-        @Once_Property
-        @getattr_safe
-        def _description (self) :
-            return _ ("Number of %s belonging to %s")
-        # end def _description
-
-        def value (self, o) :
-            return len (getattr (o, self.attr_name))
-        # end def value
-
     # end class _Field_No_
+
+    class _Field_Device_No_ (_Field_No_) :
+
+        attr_name = "net_devices"
+
+    # end class _Field_Device_No_
+
+    class _Field_Interface_No_ (_Field_No_) :
+
+        attr_name = "net_interfaces"
+
+    # end class _Field_Interface_No_
+
+    class _Field_Owner_ (Field) :
+
+        css_align = "center"
+
+        def as_html (self, o, renderer) :
+            p = self._value_getter (o)
+            if p == self.resource.user_restriction :
+                icon  = "check-square-o"
+                title = _T ("Owned by you")
+            else :
+                icon  = "square-o"
+                title = _T ("Owned by %s") % self.value (o, renderer)
+            result = \
+                ( """<i class="fa fa-%(icon)s" title="%(title)s"></i>"""
+                % dict (icon = icon, title = title)
+                )
+            return result
+        # end def as_thml
+
+    # end class _Field_Owner_
 
     class _Field_Type_ (_Field_Ref_) :
 
@@ -923,7 +931,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             , L  = """<i class="fa fa-sitemap"></i>"""
             )
 
-        ref_name = "type"
+        ref_name = _ ("type")
 
         typ_map  = \
             { "CNDB.Virtual_Wireless_Interface" : "V"
@@ -931,7 +939,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             , "CNDB.Wireless_Interface"         : "W"
             }
 
-        def value (self, o) :
+        def value (self, o, renderer) :
             code = self.typ_map.get (o.type_name, o.ui_name_T)
             if code in self.icon_map :
                 code = self.icon_map [code]
@@ -946,7 +954,10 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
           , "my_node.name"          : _Field_Node_
           , "net_interface.name"    : _Field_Interface_
           }
-        , creation_date   = _Field_Created_
+        , created         = _Field_Created_
+        , devices         = _Field_Device_No_
+        , interfaces      = _Field_Interface_No_
+        , owner           = _Field_Owner_
         , type_name       = _Field_Type_
         )
 
@@ -1057,15 +1068,17 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         return o.FO.name
     # end def view_name_instance
 
-    _fields = GTW.RST.TOP.MOM.Admin.E_Type._fields.__func__
-
     def _init_kw (self, ** kw) :
+        ### keep our `_field_map` separate from `self.admin._field_map`
         return self.__super._init_kw (_field_map = {}, ** kw)
     # end def _init_kw
 
     def __getattr__ (self, name) :
         if name in self._admin_delegates :
             return getattr (self.admin, name)
+        elif name in self._admin_func_delegates :
+            result = getattr (self.admin, name)
+            return lambda * args, ** kw : result.__func__ (self, * args, ** kw)
         else :
             return self.__super.__getattr__ (name)
     # end def __getattr__
@@ -1078,7 +1091,7 @@ class _DB_Person_Property_ (_DB_E_Type_) :
     view_field_names      = \
         ( "desc"
         , "right"
-        , "creation_date"
+        , "created"
         )
 
     @property
@@ -1116,7 +1129,7 @@ class DB_Account (_DB_Person_Property_) :
 
     view_field_names      = \
         ( "right"
-        , "creation_date"
+        , "created"
         )
 
 # end class DB_Account
@@ -1145,20 +1158,12 @@ class DB_Device (_DB_E_Type_) :
         , "my_node.name"
         , "interfaces"
         # "type_name"
-        , "creation_date"
+        , "created"
         )
 
     _MF3_Attr_Spec        = dict \
         ( node            = dict (restrict_completion = True)
         )
-
-    def __init__ (self, ** kw) :
-        self.__super.__init__ (** kw)
-        self._field_map.update \
-            ( interfaces
-            = self._Field_No_ ("interfaces", "net_interfaces", self.E_Type)
-            )
-    # end def __init__
 
     def tr_instance_css_class (self, o) :
         return "node-%d- device-%d-" % (o.my_node.pid, o.pid)
@@ -1234,7 +1239,7 @@ class DB_Interface (_Ancestor) :
         , "my_node.name"
         , "ip4_networks" ### rendered as `IP addresses` by _Field_IP_Addresses_
         , "type_name"
-        , "creation_date"
+        , "created"
         )
 
     _field_type_map       = dict \
@@ -1290,7 +1295,7 @@ class DB_Interface_in_IP_Network (_Ancestor) :
         , "my_node.name"
         , "right.net_address"
         , "right.pool.net_address"
-        , "creation_date"
+        , "created"
         )
 
     _field_type_map       = dict \
@@ -1435,15 +1440,9 @@ class DB_Node (_DB_E_Type_) :
     view_field_names      = \
         ( "name"
         , "devices"
-        , "creation_date"
+        , "created"
         , "owner"
         )
-
-    def __init__ (self, ** kw) :
-        self.__super.__init__ (** kw)
-        self._field_map.update \
-            (devices = self._Field_No_ ("devices", "net_devices", self.E_Type))
-    # end def __init__
 
     @property
     @getattr_safe
@@ -1494,7 +1493,7 @@ class DB_Person (_DB_E_Type_) :
     view_action_names     = ("edit", )
     view_field_names      = \
         ( "ui_display"
-        , "creation_date"
+        , "created"
         )
 
     @property

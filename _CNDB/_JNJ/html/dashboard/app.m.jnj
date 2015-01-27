@@ -38,7 +38,7 @@
 ##                     Logged in user and show checkmark (or empty circle)
 ##     3-Sep-2014 (CT) Factor `action_button_create`, support `is_partial`
 ##     5-Sep-2014 (CT) Rewrite `owner` column code to improve readability
-###                    (and placate emacs syntax colorizer :-)
+##                     (and placate emacs syntax colorizer :-)
 ##    16-Sep-2014 (CT) Add `action_button_allocate_ip_pool_menu`
 ##    16-Sep-2014 (CT) Change action messages to dict-interpolation
 ##    16-Sep-2014 (CT) Factor `e_type_object`
@@ -50,6 +50,8 @@
 ##    16-Dec-2014 (CT) Fix guard for `o.position` in `db_node_map`;
 ##                     remove unnecessary whitespace from `data-markers`
 ##    16-Dec-2014 (CT) Fix `own_title`
+##    27-Jan-2015 (CT) Remove home-grown code for `owner` from `e_type_object`
+##     3-Feb-2015 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Field`
 ##    ««revision-date»»···
 ##--
 #}
@@ -185,22 +187,8 @@
       class="{{ db_type.tr_instance_css_class (o) }}"{#- -#}
   >
     {%- for f in fields %}
-      {%- set css_class =
-          (" class=\"%s\" " % (f.css_class, )) if f.css_class else ""
-      -%}
-      <td{{ css_class }}>
-        {% if f.attr_name == 'owner' %}
-          {%- if o.owner == user %}
-            {%- set own_icon  = "fa-check-square-o" %}
-            {%- set own_title = GTW._T ("Owned by you") %}
-          {%- else %}
-            {%- set own_icon  = "fa-square-o" %}
-            {%- set own_title = GTW._T ("Owned by %s") % f.value (o) %}
-          {% endif -%}
-          <i class="fa {{ own_icon }}" title="{{ own_title }}"></i>
-        {% else %}
-        {{- f.as_html (o, f.value (o)) -}}
-        {% endif %}
+      <td{{ GTW.filtered_dict (class = f.css_class_dyn (o, None))|xmlattr }}>
+        {{- f.as_html (o, None) -}}
       </td>
     {% endfor -%}
     {%- if actions %}
