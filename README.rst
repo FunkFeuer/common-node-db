@@ -23,12 +23,12 @@ This object model (in SVG format) is automagically rendered using
 `graph.py`_, the result of the last run is kept under version control
 (so you can see our progress) in `nodedb.svg`_.
 
-.. _`nodedb.svg`: https://github.com/CNDB/CNDB/blob/master/doc/nodedb.png
-.. _`graph.py`: https://github.com/CNDB/CNDB/blob/master/_CNDB/_OMP/graph.py
+.. _`nodedb.svg`: https://github.com/FunkFeuer/common-node-db/blob/master/doc/nodedb.png
+.. _`graph.py`: https://github.com/FunkFeuer/common-node-db/blob/master/_CNDB/_OMP/graph.py
 
 .. image:: https://raw.githubusercontent.com/CNDB/CNDB/master/doc/nodedb.png
     :alt: Object model graph
-    :target: https://github.com/CNDB/CNDB/blob/master/doc/nodedb.png
+    :target: https://github.com/FunkFeuer/common-node-db/blob/master/doc/nodedb.png
 
 Some notes on the object model: We try to keep only the relevant
 attributes of a real-world object in the object itself — everything
@@ -246,9 +246,9 @@ system should something go wrong during the upgrade::
   $ mkdir -p v/1/www/media
   $ ln -s v/1 active
   $ ln -s v/2 passive
-  $ git clone git://github.com/Tapyr/tapyr.git v/1/tapyr
-  $ git clone git://github.com/CNDB/CNDB.git   v/1/cndb
-  $ git clone git://github.com/FFM/FFW.git     v/1/www/app
+  $ git clone git://github.com/Tapyr/tapyr.git              v/1/tapyr
+  $ git clone git://github.com/FunkFeuer/common-node-db.git v/1/cndb
+  $ git clone git://github.com/FunkFeuer/Wien.git           v/1/www/app
   $ (cd v/1/www/media ; ln -s ../app/media/images images)
   $ cp -a v/1 v/2
 
