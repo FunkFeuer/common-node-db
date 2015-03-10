@@ -692,16 +692,16 @@
       CNDB.Net_Device role net_device_type: Type of Net_Device
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="520,775 520,825 1440,825 1440,775" stroke="#666"
+              points="520,775 520,800 1440,800 1440,775" stroke="#666"
               stroke-width="5"
     />
-    <path d="M 520 775 L 520 825"
+    <path d="M 520 800 L 1440 800"
           id="CNDB.Net_Device.left:CNDB.Net_Device_Type::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
-      <textPath startOffset="10%" text-anchor="start"
+      <textPath startOffset="2%" text-anchor="start"
                 xlink:href="#CNDB.Net_Device.left:CNDB.Net_Device_Type::path"
       >
         <tspan dy="-7.0">
@@ -920,23 +920,23 @@
       </textPath>
     </text>
   </g>
-  <g id="CNDB.Node.manager:PAP.Person" opacity="1.0">
+  <g id="CNDB.Node.manager:PAP.Subject" opacity="1.0">
     <title>
       CNDB.Node attribute manager: Manager of the node
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
-              points="480,375 480,350 800,350 800,375" stroke="#FFA022"
+              points="560,400 680,400 680,700 720,700" stroke="#FFA022"
               stroke-opacity="0.7" stroke-width="5"
     />
-    <path d="M 480 350 L 800 350" id="CNDB.Node.manager:PAP.Person::path"
+    <path d="M 560 400 L 680 400" id="CNDB.Node.manager:PAP.Subject::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#FFA022" fill-opacity="0.7" font-family="sans-serif"
           font-size="18"
     >
-      <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#CNDB.Node.manager:PAP.Person::path"
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#CNDB.Node.manager:PAP.Subject::path"
       >
         <tspan dy="-7.0">
           manager
@@ -946,8 +946,8 @@
     <text fill="#FFA022" fill-opacity="0.7" font-family="sans-serif"
           font-size="18"
     >
-      <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#CNDB.Node.manager:PAP.Person::path"
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#CNDB.Node.manager:PAP.Subject::path"
       >
         <tspan dy="18">
           [required]
@@ -960,10 +960,10 @@
       CNDB.Node attribute owner: Owner of the node, defaults to manager
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
-              points="560,400 680,400 680,700 720,700" stroke="#FFA022"
+              points="560,425 640,425 640,725 720,725" stroke="#FFA022"
               stroke-opacity="0.7" stroke-width="5"
     />
-    <path d="M 560 400 L 680 400" id="CNDB.Node.owner:PAP.Subject::path"
+    <path d="M 560 425 L 640 425" id="CNDB.Node.owner:PAP.Subject::path"
           fill="none" stroke="none"
     >
     </path>
