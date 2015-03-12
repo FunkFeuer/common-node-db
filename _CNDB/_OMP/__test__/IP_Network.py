@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2013-2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2013-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -955,7 +955,7 @@ _test_AQ = """
     <ip_pool.node.position.lon.AQ [Attr.Type.Querier Raw]> -----
     <ip_pool.node.position.height.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.node.show_in_map.AQ [Attr.Type.Querier Boolean]> -----
-    <ip_pool.netmask_interval.AQ [Attr.Type.Querier Composite]> MOM.IP4_Netmask_Interval
+    <ip_pool.netmask_interval.AQ [Attr.Type.Querier Composite]> MOM.Int_Interval_C__IP_Netmask_Interval__IP4_Netmask_Interval
     <ip_pool.netmask_interval.lower.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.netmask_interval.upper.AQ [Attr.Type.Querier Ckd]> -----
     <ip_pool.netmask_interval.center.AQ [Attr.Type.Querier Ckd]> -----
