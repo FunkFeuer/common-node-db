@@ -51,6 +51,8 @@
 #     5-Sep-2014 (RS) Garbage collector now frees networks with maximum
 #                     netmask, to avoid garbage collection now all IPs
 #                     have an associated `Net_Interface`.
+#    12-Mar-2015 (CT) Adapt to sqlalchemy 0.9.8
+#    12-Mar-2015 (CT) Fix backend dependent tests
 #    ««revision-date»»···
 #--
 
@@ -120,6 +122,9 @@ _test_alloc = """
     CNDB.IP4_Network count: 17
 
     >>> rs_pool = osc_pool.allocate (28, rs)
+    >>> rs_pool.net_address
+    10.0.0.0/28
+
     >>> show_networks (scope, ETM, pool = osc_pool) ### 10.0.0.0/28
     10.0.0.0/16        Open Source Consulting   : electric = F, children = T
     10.0.0.0/28        Schlatterbeck Ralf       : electric = F, children = F
@@ -402,35 +407,6 @@ _test_alloc = """
       ...
     Cannot_Free_Network: Cannot free network with allocations: 10.0.0.0/28
 
-    >>> CNDB.IP4_Network.query \\
-    ...   ( Q.net_address.CONTAINS (rs_pool.net_address)
-    ...   , Q.ip_pool != None
-    ...   )
-    SQL: SELECT
-           cndb_ip4_network."desc" AS cndb_ip4_network_desc,
-           cndb_ip4_network.expiration_date AS cndb_ip4_network_expiration_date,
-           cndb_ip4_network.net_address AS cndb_ip4_network_net_address,
-           cndb_ip4_network.net_address__mask_len AS cndb_ip4_network_net_address__mask_len,
-           cndb_ip4_network.net_address__numeric AS cndb_ip4_network_net_address__numeric,
-           cndb_ip4_network.net_address__upper_bound AS cndb_ip4_network_net_address__upper_bound,
-           cndb_ip4_network.owner AS cndb_ip4_network_owner,
-           cndb_ip4_network.parent AS cndb_ip4_network_parent,
-           cndb_ip4_network.pid AS cndb_ip4_network_pid,
-           cndb_ip4_network.pool AS cndb_ip4_network_pool,
-           mom_id_entity.electric AS mom_id_entity_electric,
-           mom_id_entity.last_cid AS mom_id_entity_last_cid,
-           mom_id_entity.pid AS mom_id_entity_pid,
-           mom_id_entity.type_name AS mom_id_entity_type_name,
-           mom_id_entity.x_locked AS mom_id_entity_x_locked
-         FROM mom_id_entity
-           JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
-           LEFT OUTER JOIN cndb_ip4_network_in_ip4_pool AS cndb_ip4_network_in_ip4_pool__1 ON cndb_ip4_network_in_ip4_pool__1."left" = cndb_ip4_network.pid
-           LEFT OUTER JOIN cndb_ip4_pool AS cndb_ip4_pool__1 ON cndb_ip4_pool__1.pid = cndb_ip4_network_in_ip4_pool__1."right"
-         WHERE cndb_ip4_network.net_address__numeric <= :net_address__numeric_1
-            AND cndb_ip4_network.net_address__upper_bound >= :net_address__upper_bound_1
-            AND cndb_ip4_network.net_address__mask_len <= :net_address__mask_len_1
-            AND cndb_ip4_network_in_ip4_pool__1."right" IS NOT NULL
-
     >>> p1 = CNDB.IP4_Pool \\
     ...     ( name             = "ff_pool"
     ...     , cool_down_period = '1w'
@@ -460,12 +436,13 @@ _test_alloc = """
     [CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/28", ), ('rs_pool', )), CNDB.IP4_Network_in_IP4_Pool (("10.0.0.0/8", ), ('ff_pool', ))]
 
     >>> IPP_ETM = rs_pool.home_scope [rs_pool.ETM.ip_pool.P_Type]
-    >>> IPP_ETM
-    <E_Type_Manager for CNDB.IP4_Pool of scope MOMT__SAW__SQ>
+    >>> print (IPP_ETM.type_name)
+    CNDB.IP4_Pool
 
     >>> IPPL_ETM = rs_pool.home_scope [rs_pool.ETM.ip_pool_link.P_Type]
-    >>> IPPL_ETM
-    <E_Type_Manager for CNDB.IP4_Network_in_IP4_Pool of scope MOMT__SAW__SQ>
+    >>> print (IPPL_ETM.type_name)
+    CNDB.IP4_Network_in_IP4_Pool
+
     >>> IPPL_ETM = CNDB.IP4_Network_in_IP4_Pool
     >>> IPPL_ETM.query \\
     ...     ( Q.ip_network.net_address.CONTAINS (rs_pool.net_address)
@@ -832,6 +809,75 @@ _test_alloc = """
     Traceback (most recent call last):
       ...
     No_Free_Address_Range: Address range [192.168.0.0/16] of this IP4_Network doesn't contain a free subrange for mask length 32
+"""
+
+_test_alloc_pg = """
+    >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
+    Creating new scope MOMT__...
+
+    >>> CNDB = scope.CNDB
+
+    >>> CNDB.IP4_Network.query \\
+    ...   ( Q.net_address.CONTAINS ("10.0.0.0/28")
+    ...   , Q.ip_pool != None
+    ...   )
+    SQL: SELECT
+           cndb_ip4_network."desc" AS cndb_ip4_network_desc,
+           cndb_ip4_network.expiration_date AS cndb_ip4_network_expiration_date,
+           cndb_ip4_network.net_address AS cndb_ip4_network_net_address,
+           cndb_ip4_network.owner AS cndb_ip4_network_owner,
+           cndb_ip4_network.parent AS cndb_ip4_network_parent,
+           cndb_ip4_network.pid AS cndb_ip4_network_pid,
+           cndb_ip4_network.pool AS cndb_ip4_network_pool,
+           mom_id_entity.electric AS mom_id_entity_electric,
+           mom_id_entity.last_cid AS mom_id_entity_last_cid,
+           mom_id_entity.pid AS mom_id_entity_pid,
+           mom_id_entity.type_name AS mom_id_entity_type_name,
+           mom_id_entity.x_locked AS mom_id_entity_x_locked
+         FROM mom_id_entity
+           JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
+           LEFT OUTER JOIN cndb_ip4_network_in_ip4_pool AS cndb_ip4_network_in_ip4_pool__1 ON cndb_ip4_network_in_ip4_pool__1."left" = cndb_ip4_network.pid
+           LEFT OUTER JOIN cndb_ip4_pool AS cndb_ip4_pool__1 ON cndb_ip4_pool__1.pid = cndb_ip4_network_in_ip4_pool__1."right"
+         WHERE (cndb_ip4_network.net_address >>= :net_address_1)
+            AND cndb_ip4_network_in_ip4_pool__1."right" IS NOT NULL
+
+"""
+
+_test_alloc_sq = """
+    >>> scope = Scaffold.scope (%(p1)s, %(n1)s) # doctest:+ELLIPSIS
+    Creating new scope MOMT__...
+
+    >>> CNDB = scope.CNDB
+
+    >>> CNDB.IP4_Network.query \\
+    ...   ( Q.net_address.CONTAINS ("10.0.0.0/28")
+    ...   , Q.ip_pool != None
+    ...   )
+    SQL: SELECT
+           cndb_ip4_network."desc" AS cndb_ip4_network_desc,
+           cndb_ip4_network.expiration_date AS cndb_ip4_network_expiration_date,
+           cndb_ip4_network.net_address AS cndb_ip4_network_net_address,
+           cndb_ip4_network.net_address__mask_len AS cndb_ip4_network_net_address__mask_len,
+           cndb_ip4_network.net_address__numeric AS cndb_ip4_network_net_address__numeric,
+           cndb_ip4_network.net_address__upper_bound AS cndb_ip4_network_net_address__upper_bound,
+           cndb_ip4_network.owner AS cndb_ip4_network_owner,
+           cndb_ip4_network.parent AS cndb_ip4_network_parent,
+           cndb_ip4_network.pid AS cndb_ip4_network_pid,
+           cndb_ip4_network.pool AS cndb_ip4_network_pool,
+           mom_id_entity.electric AS mom_id_entity_electric,
+           mom_id_entity.last_cid AS mom_id_entity_last_cid,
+           mom_id_entity.pid AS mom_id_entity_pid,
+           mom_id_entity.type_name AS mom_id_entity_type_name,
+           mom_id_entity.x_locked AS mom_id_entity_x_locked
+         FROM mom_id_entity
+           JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
+           LEFT OUTER JOIN cndb_ip4_network_in_ip4_pool AS cndb_ip4_network_in_ip4_pool__1 ON cndb_ip4_network_in_ip4_pool__1."left" = cndb_ip4_network.pid
+           LEFT OUTER JOIN cndb_ip4_pool AS cndb_ip4_pool__1 ON cndb_ip4_pool__1.pid = cndb_ip4_network_in_ip4_pool__1."right"
+         WHERE cndb_ip4_network.net_address__numeric <= :net_address__numeric_1
+            AND cndb_ip4_network.net_address__upper_bound >= :net_address__upper_bound_1
+            AND cndb_ip4_network.net_address__mask_len <= :net_address__mask_len_1
+            AND cndb_ip4_network_in_ip4_pool__1."right" IS NOT NULL
+
 """
 
 _test_partial = """
@@ -19220,6 +19266,24 @@ __test__ = Scaffold.create_test_dict \
       , test_std_fixtures  = _test_std_fixtures
       )
   )
+
+__test__.update \
+    ( Scaffold.create_test_dict
+        ( dict
+            ( test_allow_x = _test_alloc_pg
+            )
+        , ignore = ("HPS", "MYS", "SQL", "sq")
+        )
+    )
+
+__test__.update \
+    ( Scaffold.create_test_dict
+        ( dict
+            ( test_allow_x = _test_alloc_sq
+            )
+        , ignore = ("HPS", "MYS", "POS", "pg")
+        )
+    )
 
 X__test__ = Scaffold.create_test_dict \
     ( dict

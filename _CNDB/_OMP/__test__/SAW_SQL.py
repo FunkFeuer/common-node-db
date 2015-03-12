@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2013-2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2013-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -35,6 +35,9 @@
 #                     changes to `IP_Pool`
 #     5-Sep-2014 (RS) Fixes for `IP_Pool_permits_Group` and derivatives
 #    11-Sep-2014 (CT) Adapt to new mixins of `Net_Interface_in_IP_Network`
+#    12-Mar-2015 (CT) Adapt to sqlalchemy 0.9.8
+#    12-Mar-2015 (CT) Fix `formatted_table` otuput for `IP[46]_Network`
+#                     * postgresql: `IP_Network.pool`, not `IP_Network.node`
 #    ««revision-date»»···
 #--
 
@@ -121,19 +124,19 @@ _test_cidr_pg = """
     Column desc                      : Varchar(80)          Optional String desc
     Column expiration_date           : Datetime             Internal Date-Time expiration_date
     Column net_address               : _CIDR_Type_          Primary IP4-network net_address
-    Column node                      : Integer              Optional__Id_Entity_Reference Entity node Id_Entity()
     Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
     Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
     Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
+    Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
 
     >>> print (formatted_table (CNDB.IP6_Network._SAW.sa_table, nl, ""))
     Column desc                      : Varchar(80)          Optional String desc
     Column expiration_date           : Datetime             Internal Date-Time expiration_date
     Column net_address               : _CIDR_Type_          Primary IP6-network net_address
-    Column node                      : Integer              Optional__Id_Entity_Reference Entity node Id_Entity()
     Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
     Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
     Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
+    Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
 
     >>> show_query (CNDB.IP4_Network.query ((Q.net_address.CONTAINS ("192.168.23.1")) & (Q.electric == False)))
     SQL: SELECT
@@ -152,7 +155,7 @@ _test_cidr_pg = """
          FROM mom_id_entity
            JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
          WHERE (cndb_ip4_network.net_address >>= :net_address_1)
-            AND mom_id_entity.electric = false
+            AND mom_id_entity.electric = 0
     Parameters:
          net_address_1        : '192.168.23.1'
 
@@ -191,7 +194,7 @@ _test_cidr_pg = """
          FROM mom_id_entity
            JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
            LEFT OUTER JOIN cndb_ip4_network AS cndb_ip4_network__1 ON cndb_ip4_network__1.parent = cndb_ip4_network.pid
-         ORDER BY mom_id_entity.electric, (cndb_ip4_network__1.parent IS NOT NULL) DESC, cndb_ip4_network.net_address
+         ORDER BY mom_id_entity.electric, cndb_ip4_network__1.parent IS NOT NULL DESC, cndb_ip4_network.net_address
 
 """
 
@@ -279,7 +282,7 @@ _test_cidr_sq = """
          WHERE cndb_ip4_network.net_address__numeric <= :net_address__numeric_1
             AND cndb_ip4_network.net_address__upper_bound >= :net_address__upper_bound_1
             AND cndb_ip4_network.net_address__mask_len <= :net_address__mask_len_1
-            AND mom_id_entity.electric = false
+            AND mom_id_entity.electric = 0
     Parameters:
          net_address__mask_len_1 : 32
          net_address__numeric_1 : 1084757761
@@ -326,7 +329,7 @@ _test_cidr_sq = """
          FROM mom_id_entity
            JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
            LEFT OUTER JOIN cndb_ip4_network AS cndb_ip4_network__1 ON cndb_ip4_network__1.parent = cndb_ip4_network.pid
-         ORDER BY mom_id_entity.electric, (cndb_ip4_network__1.parent IS NOT NULL) DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
+         ORDER BY mom_id_entity.electric, cndb_ip4_network__1.parent IS NOT NULL DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
 
 """
 
@@ -2419,7 +2422,7 @@ _test_q_result_pg = """
             AND (cndb_ip4_network.net_address <<= :net_address_1)
             AND (masklen(cndb_ip4_network.net_address) < :masklen_1
             OR masklen(cndb_ip4_network.net_address) = :masklen_2
-            AND mom_id_entity.electric = true)
+            AND mom_id_entity.electric = 1)
          ORDER BY masklen(cndb_ip4_network.net_address) DESC, cndb_ip4_network.net_address
     Parameters:
          masklen_1            : 23
@@ -2452,7 +2455,7 @@ _test_q_result_pg = """
             AND (cndb_ip4_network.net_address <<= :net_address_1)
             AND (masklen(cndb_ip4_network.net_address) < :masklen_1
             OR masklen(cndb_ip4_network.net_address) = :masklen_2
-            AND mom_id_entity.electric = true)
+            AND mom_id_entity.electric = 1)
             AND cndb_net_interface_in_ip_network__1."left" IS NULL
          ORDER BY masklen(cndb_ip4_network.net_address) DESC, cndb_ip4_network.net_address
     Parameters:
@@ -2486,7 +2489,7 @@ _test_q_result_pg = """
             AND (cndb_ip4_network.net_address <<= :net_address_1)
             AND (masklen(cndb_ip4_network.net_address) < :masklen_1
             OR masklen(cndb_ip4_network.net_address) = :masklen_2
-            AND mom_id_entity.electric = true)
+            AND mom_id_entity.electric = 1)
          ORDER BY masklen(cndb_ip4_network.net_address) DESC, cndb_ip4_network.net_address
     Parameters:
          masklen_1            : 23
@@ -2511,7 +2514,7 @@ _test_q_result_pg = """
          FROM mom_id_entity
            JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
            LEFT OUTER JOIN cndb_ip4_network AS cndb_ip4_network__1 ON cndb_ip4_network__1.parent = cndb_ip4_network.pid
-         ORDER BY mom_id_entity.electric, (cndb_ip4_network__1.parent IS NOT NULL) DESC, cndb_ip4_network.net_address
+         ORDER BY mom_id_entity.electric, cndb_ip4_network__1.parent IS NOT NULL DESC, cndb_ip4_network.net_address
 
     >>> show_query (CNDB.IP4_Network.query (sort_key = TFL.Sorted_By ("electric", "-has_children", "net_address")).distinct ())
     SQL: SELECT DISTINCT
@@ -2531,7 +2534,7 @@ _test_q_result_pg = """
          FROM mom_id_entity
            JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
            LEFT OUTER JOIN cndb_ip4_network AS cndb_ip4_network__1 ON cndb_ip4_network__1.parent = cndb_ip4_network.pid
-         ORDER BY mom_id_entity.electric, (cndb_ip4_network__1.parent IS NOT NULL) DESC, cndb_ip4_network.net_address
+         ORDER BY mom_id_entity.electric, cndb_ip4_network__1.parent IS NOT NULL DESC, cndb_ip4_network.net_address
 
 """
 
@@ -2727,7 +2730,7 @@ _test_q_result_sq = """
             AND cndb_ip4_network.net_address__mask_len >= :net_address__mask_len_1
             AND (cndb_ip4_network.net_address__mask_len < :net_address__mask_len_2
             OR cndb_ip4_network.net_address__mask_len = :net_address__mask_len_3
-            AND mom_id_entity.electric = true)
+            AND mom_id_entity.electric = 1)
          ORDER BY cndb_ip4_network.net_address__mask_len DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
     Parameters:
          net_address__mask_len_1 : 8
@@ -2767,7 +2770,7 @@ _test_q_result_sq = """
             AND cndb_ip4_network.net_address__mask_len >= :net_address__mask_len_1
             AND (cndb_ip4_network.net_address__mask_len < :net_address__mask_len_2
             OR cndb_ip4_network.net_address__mask_len = :net_address__mask_len_3
-            AND mom_id_entity.electric = true)
+            AND mom_id_entity.electric = 1)
             AND cndb_net_interface_in_ip_network__1."left" IS NULL
          ORDER BY cndb_ip4_network.net_address__mask_len DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
     Parameters:
@@ -2808,7 +2811,7 @@ _test_q_result_sq = """
             AND cndb_ip4_network.net_address__mask_len >= :net_address__mask_len_1
             AND (cndb_ip4_network.net_address__mask_len < :net_address__mask_len_2
             OR cndb_ip4_network.net_address__mask_len = :net_address__mask_len_3
-            AND mom_id_entity.electric = true)
+            AND mom_id_entity.electric = 1)
          ORDER BY cndb_ip4_network.net_address__mask_len DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
     Parameters:
          net_address__mask_len_1 : 8
@@ -2838,7 +2841,7 @@ _test_q_result_sq = """
          FROM mom_id_entity
            JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
            LEFT OUTER JOIN cndb_ip4_network AS cndb_ip4_network__1 ON cndb_ip4_network__1.parent = cndb_ip4_network.pid
-         ORDER BY mom_id_entity.electric, (cndb_ip4_network__1.parent IS NOT NULL) DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
+         ORDER BY mom_id_entity.electric, cndb_ip4_network__1.parent IS NOT NULL DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
 
     >>> show_query (CNDB.IP4_Network.query (sort_key = TFL.Sorted_By ("electric", "-has_children", "net_address")).distinct ())
     SQL: SELECT DISTINCT
@@ -2861,7 +2864,7 @@ _test_q_result_sq = """
          FROM mom_id_entity
            JOIN cndb_ip4_network ON mom_id_entity.pid = cndb_ip4_network.pid
            LEFT OUTER JOIN cndb_ip4_network AS cndb_ip4_network__1 ON cndb_ip4_network__1.parent = cndb_ip4_network.pid
-         ORDER BY mom_id_entity.electric, (cndb_ip4_network__1.parent IS NOT NULL) DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
+         ORDER BY mom_id_entity.electric, cndb_ip4_network__1.parent IS NOT NULL DESC, cndb_ip4_network.net_address__numeric, cndb_ip4_network.net_address__mask_len
 
     >>> show_query (CNDB.IP4_Network.query ( Q.net_address.CONTAINS ("8.0.0.0/8"), Q.owner == 42, ~ Q.net_interface_links, sort_key = TFL.Sorted_By ("-net_address.mask_len")))
     SQL: SELECT
