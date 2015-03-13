@@ -1,7 +1,7 @@
 {%- extends "html/dashboard/app.jnj" %}
 {#- jinja template: html/login.jnj -#}
 {#
-## Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************
 ## This module is licensed under the terms of the BSD 3-Clause License
@@ -19,6 +19,7 @@
 ##     2-May-2014 (CT) Creation
 ##     2-May-2014 (CT) Fix name of `Reset` button, add value
 ##     5-May-2014 (CT) Remove redefinition of `nav_block`
+##    13-Mar-2015 (CT) Add `anti_csrf_token`
 ##    ««revision-date»»···
 ##--
 #}
@@ -109,6 +110,10 @@
         </button>{# -#}
       </div>
       {{ X.input.hidden (name = "next", value = next) }}
+      {%- set anti_csrf_token = response and response.anti_csrf_token(action) %}
+      {%- if anti_csrf_token %}
+        {{ X.input.hidden (name = "F_ACT", value = anti_csrf_token) }}
+      {% endif -%}
     </fieldset>
   </form>
 {%- endblock app -%}
