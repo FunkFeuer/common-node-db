@@ -172,17 +172,16 @@ Some of the needed Packages are either not in Debian or are too old to
 be useful. The following packages can be installed via the Debian Wheezy
 installer::
 
- $ apt-get install \
+ $ apt-get --no-install-recommends install \
      apache2-mpm-worker build-essential git libapache2-mod-fcgid \
      postgresql python-pip python-babel python-bs4 python-dateutil \
      python-dev python-distribute python-docutils python-flup \
-     python-jinja2 python-m2crypto python-openssl python-passlib \
-     python-psycopg2 python-pyasn1 python-pyquery python-sqlalchemy \
-     python-tz python-werkzeug swig
+     python-jinja2 python-passlib python-psycopg2 python-pyquery \
+     python-sqlalchemy python-tz python-werkzeug swig
 
 Other packages can be installed using ``pip``::
 
- $ pip install plumbum py-bcrypt rcssmin rjsmin rsclib pyspkac
+ $ pip install plumbum py-bcrypt rcssmin rjsmin rsclib
 
 Debian Jessie
 ~~~~~~~~~~~~~
@@ -191,18 +190,17 @@ Some of the needed Packages are either not in Debian or are too old to
 be useful. The following packages can be installed via the Debian Jessie
 installer::
 
- $ apt-get install \
-     apache2-mpm-worker build-essential git libapache2-mod-fcgid \
-     postgresql python-pip python-babel python-bs4 python-dateutil \
-     python-dev python-distribute python-docutils python-flup \
-     python-jinja2 python-m2crypto python-openssl python-passlib \
-     python-psycopg2 python-pyasn1 python-pyquery python-sqlalchemy \
-     python-tz python-werkzeug swig python-plumbum \
+ $ apt-get --no-install-recommends install \
+     apache2-mpm-worker git libapache2-mod-fcgid postgresql \
+     python-pip python-babel python-bs4 python-dateutil \
+     python-docutils python-flup \
+     python-jinja2 python-passlib python-psycopg2 python-pyquery \
+     python-sqlalchemy python-tz python-werkzeug python-plumbum \
      python-bcrypt python-jsmin cssmin
 
 Other packages can be installed using ``pip``::
 
- $ pip install rsclib pyspkac
+ $ pip install rsclib
 
 
 How to install
@@ -211,8 +209,8 @@ How to install
 Create user and database user permitted to create databases. For instance,
 for Funkfeuer Wien::
 
- $ adduser --system --disabled-password --home /srv/ffw ffw
- $ sudo postgres createuser -d ffw -P
+ $ adduser --system --disabled-password --home /srv/ffw --shell /bin/bash --group ffw
+ $ sudo -u postgres createuser -d ffw -P
 
 Note: Depending on your setup the createuser command has to be executed by
 a different user.
@@ -274,7 +272,7 @@ Apache configuration file and a fcgi script. You can find sample
 config-files in active/www/app/httpd_config/. For instance,
 active/www/app/httpd_config/ffw_gg32_com__443.config contains::
 
-        config_path     = "~/fcgi/ffw_gg32_com__443.config"
+        config_path     = "~/fcgi/ffw_gg32_com__443.conf"
         host_macro      = "gtw_host_ssl"
         port            = "443"
         script_path     = "~/fcgi/ffw_gg32_com__443.fcgi"
@@ -287,8 +285,20 @@ Please note, the lines in the file must not contain leading whitespace.
 Create a config::
 
   ### Create a fcgi script and config for Apache
+  $ cp active/www/app/httpd_config/ffw_gg32_com__443.config deploy.config
+  $ vi deploy.config
+    ### edit the config to your needs
   $ python active/www/app/deploy.py create_config \
       -HTTP_Config <your-config> -input_encoding=utf-8
+
+Finally we create a database and populate it with data::
+
+  ### Create a database
+  $ python active/www/app/deploy.py app create -apply_to_version active
+
+  ### Put some data into the database
+
+Log out user `ffw`
 
 You can use the created Apache configuration as is, or modify it
 manually or by modifiying the template.
@@ -309,13 +319,6 @@ For https sites, you'll also need the modules::
 
   $ a2enmod rewrite
   $ a2enmod ssl
-
-Finally we create a database and populate it with data::
-
-  ### Create a database
-  $ python active/www/app/deploy.py app create
-
-  ### Put some data into the database
 
 Whenever we need to upgrade the installation, we can update the passive
 configuration, set up everything, migrate the data from the active to
