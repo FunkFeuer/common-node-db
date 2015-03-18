@@ -80,11 +80,11 @@ System requirements
 
 - Python (> 2.6, < 3)
 
-  * virtualenv, distribute
-
-  * Depending on the OS (I'm looking at you, Debian), some packages,
+  * Depending on the OS (I'm looking at you, Debian Wheezy), some packages,
     e.g., werkzeug, should be installed into virtualenv to get
     versions a bit younger than a couple of years
+
+    + virtualenv
 
   * This might require the installation of a build environment (for
     python packages that need the C compiler)
@@ -95,33 +95,40 @@ System requirements
 
   * `BeautifulSoup`_
 
+    optional, only used if the webapp allows user-submitted HTML
+
   * `docutils`_
 
   * `flup`_
 
+    optional, necessary when fcgi is used
+
   * `jinja2`_
 
-  * `m2crypto`_
+  * `passlib`_, `py-bcrypt`_
 
-  * `passlib`_
+    optional but seriously recommended for improved password hashing
 
   * `plumbum`_
 
   * `psycopg2`_
 
-  * `py-bcrypt`_
-
-  * `pyOpenSSL`_
-
-  * `pyasn1`_
-
   * `pyquery`_
+
+    optional, only used in some unit tests
+
+  * `pyspkac`_, `pyasn1`_, `m2crypto`_, `pyOpenSSL`_
+
+    optional, only used for client certificates
 
   * `python-dateutil`_
 
   * `pytz`_
 
-  * `rcssmin`_, `rjsmin`_ (for minimization of CSS and Javascript files)
+  * `cssmin`_ or `rcssmin`_, `jsmin` or `rjsmin`_
+
+    optional, only used during deployment for minimization of CSS and
+    Javascript files
 
   * `rsclib`_
 
@@ -134,9 +141,11 @@ System requirements
 .. _`Babel`:           http://babel.edgewall.org/
 .. _`BeautifulSoup`:   http://www.crummy.com/software/BeautifulSoup/
 .. _`Python Package Index`: http://pypi.python.org/pypi
+.. _`cssmin`:          https://github.com/zacharyvoase/cssmin
 .. _`docutils`:        http://docutils.sourceforge.net/
 .. _`flup`:            http://trac.saddi.com/flup
 .. _`jinja2`:          http://jinja.pocoo.org/
+.. _`jsmin`:           https://bitbucket.org/dcs/jsmin/
 .. _`m2crypto`:        http://pypi.python.org/pypi/M2Crypto
 .. _`passlib`:         http://code.google.com/p/passlib/
 .. _`plumbum`:         http://plumbum.readthedocs.org/en/latest/index.html
@@ -145,6 +154,7 @@ System requirements
 .. _`pyOpenSSL`:       https://launchpad.net/pyopenssl
 .. _`pyasn1`:          http://pyasn1.sourceforge.net/
 .. _`pyquery`:         http://github.com/gawel/pyquery/
+.. _`pyspkac`:         https://pypi.python.org/pypi/pyspkac
 .. _`python-dateutil`: http://labix.org/python-dateutil
 .. _`pytz`:            http://pytz.sourceforge.net/
 .. _`rcssmin`:         http://opensource.perlig.de/rcssmin/
@@ -203,6 +213,7 @@ like the following::
   ### Define config
   $ vi .ffw.config
     ### Add the lines (using the appropriate values for **your** install)::
+    ### No leading spaces are allowed
       cookie_salt   = 'some random value, e.g., the result of uuid.uuid4 ()'
       db_name       = "ffw"
       db_url        = "postgresql://<account>:<password>@localhost"
@@ -212,7 +223,7 @@ like the following::
       target_db_url = db_url
       time_zone     = "Mars/Olympos Mons"
 
-  ### create a virtual environment for Python
+  ### if needed, create a virtual environment for Python
   $ mkdir bin
   $ mkdir PVE
   $ python -m virtualenv --system-site-packages PVE/std
@@ -273,6 +284,8 @@ active/www/app/httpd_config/ffw_gg32_com__443.config contains::
         server_admin    = "christian.tanzer@gmail.com"
         server_name     = "ffw.gg32.com"
         ssl_key_name    = "srvr1-gg32-com-2048"
+
+Please note, the lines in the file must not contain leading whitespace.
 
 Create a config::
 
