@@ -52,6 +52,7 @@
 ##    16-Dec-2014 (CT) Fix `own_title`
 ##    27-Jan-2015 (CT) Remove home-grown code for `owner` from `e_type_object`
 ##     3-Feb-2015 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Field`
+##    18-Mar-2015 (CT) Add guard for `objects` to `e_type_table`
 ##    ««revision-date»»···
 ##--
 #}
@@ -215,7 +216,7 @@
   {%- set user    = db_type.user_restriction %}
   <h2>
     {{- db_type.view_title -}}
-    {%- if create and GTW.len (objects) > 10 %}
+    {%- if create and objects and GTW.len (objects) > 10 %}
       {%- if not db_type.is_partial  %}
         {{- action_button_create
             ( db_type, create
@@ -242,9 +243,11 @@
       </tr>
     </thead>
     <tbody>
-      {%- for o in objects %}
-        {{ e_type_object (db_type, o) }}
-      {% endfor -%}
+      {%- if objects %}
+        {%- for o in objects %}
+          {{ e_type_object (db_type, o) }}
+        {% endfor -%}
+      {% endif -%}
       {%- if create %}
         <tr>
           <td colspan="{{ GTW.len (fields) + GTW.bool (actions) }}">
