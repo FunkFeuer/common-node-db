@@ -195,7 +195,7 @@ estimate how often you want to change external packages::
 Create user and database user permitted to create databases. For instance,
 for Funkfeuer Wien::
 
- $ adduser ffw
+ $ adduser --system --disabled-password --home /srv/ffw ffw
  $ sudo postgres createuser -d ffw -P
 
 Note: Depending on your setup the createuser command has to be executed by
