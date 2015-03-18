@@ -163,10 +163,10 @@ System requirements
 .. _`sqlalchemy`:      http://www.sqlalchemy.org/
 .. _`werkzeug`:        http://werkzeug.pocoo.org/
 
-Package Installation for Debian Stable aka Wheezy
---------------------------------------------------
+Package Installation for Debian
+-------------------------------
 
-The following is an example installation on Debian Wheezy. It contains
+The following is an example installation on Debian. It contains
 some information that is applicable to other distributions but is quite
 Debian-specific in other parts.
 
@@ -176,6 +176,9 @@ RAM, 256 MB isn't enough.
 Some of the needed Packages are either not in Debian or are too old to
 be useful. The following packages can be installed via the Debian
 installer::
+
+Debian Wheezy
+~~~~~~~~~~~~~
 
  $ apt-get install \
      apache2-mpm-worker build-essential git libapache2-mod-fcgid \
@@ -191,6 +194,26 @@ see later in sectioni `How to install`_ — depending on your
 estimate how often you want to change external packages::
 
  $ pip install plumbum py-bcrypt rcssmin rjsmin rsclib pyspkac
+
+Debian Jessie
+~~~~~~~~~~~~~
+
+ $ apt-get install \
+     apache2-mpm-worker build-essential git libapache2-mod-fcgid \
+     postgresql python-pip python-babel python-bs4 python-dateutil \
+     python-dev python-distribute python-docutils python-flup \
+     python-jinja2 python-m2crypto python-openssl python-passlib \
+     python-psycopg2 python-pyasn1 python-pyquery python-sqlalchemy \
+     python-tz python-virtualenv python-werkzeug swig python-plumbum \
+     python-bcrypt python-jsmin cssmin
+
+Other packages can be installed using ``pip`` — note that you may want
+to install some of these into a virtual python environment (virtualenv),
+see later in sectioni `How to install`_ — depending on your
+estimate how often you want to change external packages::
+
+ $ pip install rsclib pyspkac
+
 
 Create user and database user permitted to create databases. For instance,
 for Funkfeuer Wien::
