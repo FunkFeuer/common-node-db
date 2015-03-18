@@ -220,6 +220,9 @@ estimate how often you want to change external packages::
  $ pip install rsclib pyspkac
 
 
+How to install
+--------------
+
 Create user and database user permitted to create databases. For instance,
 for Funkfeuer Wien::
 
@@ -229,14 +232,11 @@ for Funkfeuer Wien::
 Note: Depending on your setup the createuser command has to be executed by
 a different user.
 
-How to install
---------------
-
-Assuming an account `ffw` located in /home/ffw, you'll need something
+Assuming an account `ffw` located in /srv/ffw, you'll need something
 like the following::
 
   ### Logged in as `ffw`
-  $ cd /home/ffw
+  $ cd
 
   ### Define config
   $ vi .ffw.config
@@ -298,7 +298,7 @@ system should something go wrong during the upgrade::
       db_name       = "ffw2"
 
   ### Define PYTHONPATH
-  $ export PYTHONPATH=/home/ffw/active/cndb:/home/ffw/active/tapyr
+  $ export PYTHONPATH=~/active/cndb:~/active/tapyr
 
 With a small config-file, the deploy-app can automatically create an
 Apache configuration file and a fcgi script. You can find sample
