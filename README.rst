@@ -173,12 +173,13 @@ Debian-specific in other parts.
 If you are running in a virtual machine, you need at least 384 MB of
 RAM, 256 MB isn't enough.
 
-Some of the needed Packages are either not in Debian or are too old to
-be useful. The following packages can be installed via the Debian
-installer::
 
 Debian Wheezy
 ~~~~~~~~~~~~~
+
+Some of the needed Packages are either not in Debian or are too old to
+be useful. The following packages can be installed via the Debian Wheezy
+installer::
 
  $ apt-get install \
      apache2-mpm-worker build-essential git libapache2-mod-fcgid \
@@ -197,6 +198,10 @@ estimate how often you want to change external packages::
 
 Debian Jessie
 ~~~~~~~~~~~~~
+
+Some of the needed Packages are either not in Debian or are too old to
+be useful. The following packages can be installed via the Debian Jessie
+installer::
 
  $ apt-get install \
      apache2-mpm-worker build-essential git libapache2-mod-fcgid \
