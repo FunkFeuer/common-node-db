@@ -80,15 +80,6 @@ System requirements
 
 - Python (> 2.6, < 3)
 
-  * Depending on the OS (I'm looking at you, Debian Wheezy), some packages,
-    e.g., werkzeug, should be installed into virtualenv to get
-    versions a bit younger than a couple of years
-
-    + virtualenv
-
-  * This might require the installation of a build environment (for
-    python packages that need the C compiler)
-
 - Python packages
 
   * `Babel`_
@@ -187,12 +178,9 @@ installer::
      python-dev python-distribute python-docutils python-flup \
      python-jinja2 python-m2crypto python-openssl python-passlib \
      python-psycopg2 python-pyasn1 python-pyquery python-sqlalchemy \
-     python-tz python-virtualenv python-werkzeug swig
+     python-tz python-werkzeug swig
 
-Other packages can be installed using ``pip`` — note that you may want
-to install some of these into a virtual python environment (virtualenv),
-see later in sectioni `How to install`_ — depending on your
-estimate how often you want to change external packages::
+Other packages can be installed using ``pip``::
 
  $ pip install plumbum py-bcrypt rcssmin rjsmin rsclib pyspkac
 
@@ -209,13 +197,10 @@ installer::
      python-dev python-distribute python-docutils python-flup \
      python-jinja2 python-m2crypto python-openssl python-passlib \
      python-psycopg2 python-pyasn1 python-pyquery python-sqlalchemy \
-     python-tz python-virtualenv python-werkzeug swig python-plumbum \
+     python-tz python-werkzeug swig python-plumbum \
      python-bcrypt python-jsmin cssmin
 
-Other packages can be installed using ``pip`` — note that you may want
-to install some of these into a virtual python environment (virtualenv),
-see later in sectioni `How to install`_ — depending on your
-estimate how often you want to change external packages::
+Other packages can be installed using ``pip``::
 
  $ pip install rsclib pyspkac
 
@@ -250,22 +235,6 @@ like the following::
       smtp_server   = "localhost"
       target_db_url = db_url
       time_zone     = "Mars/Olympos Mons"
-
-  ### if needed, create a virtual environment for Python
-  $ mkdir bin
-  $ mkdir PVE
-  $ python -m virtualenv --system-site-packages PVE/std
-  $ (cd PVE ; ln -s std active)
-
-Depending on the packages you have already installed system-wide, you
-may want to install some packages into the virtual environment if you
-anticipate that these will change::
-
-  ### install Python packages into the virtualenv
-  ### if one of these packages is already installed in the system
-  ### Python, you'll need to say `pip install --upgrade`, not `pip install`
-  $ source PVE/active/bin/activate
-  $ pip install plumbum pytz py-bcrypt rcssmin rjsmin rsclib pyspkac
 
 Then we continue with the setup of an active and a passive branch of the
 web application. With this you can upgrade the passive application while
