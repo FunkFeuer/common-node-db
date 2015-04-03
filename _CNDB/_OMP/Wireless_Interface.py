@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -32,6 +32,7 @@
 #    27-Feb-2013 (CT) Add `Init_Only_Mixin` and `ui_allow_new` to `hardware`
 #    24-Apr-2013 (CT) Move `left.auto_cache` to non-partial classes
 #    15-May-2013 (CT) Remove `auto_cache`
+#     6-Apr-2015 (CT) Define `standard.ui_name`
 #    ««revision-date»»···
 #--
 
@@ -48,6 +49,8 @@ import _CNDB._OMP.Wireless_Standard
 
 from   _GTW._OMP._NET           import NET
 import _GTW._OMP._NET.Attr_Type
+
+from   _TFL.I18N                import _, _T, _Tn
 
 _Ancestor_Essence = CNDB.OMP.Net_Interface
 
@@ -94,6 +97,7 @@ class _Wireless_Interface_ (_Ancestor_Essence) :
             kind               = Attr.Necessary
             P_Type             = CNDB.OMP.Wireless_Standard
             ui_allow_new       = False
+            ui_name            = _ ("Wi-Fi Standard")
 
         # end class standard
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -65,7 +65,7 @@ _test_code = """
     >>> with expect_except (MOM.Error.Invariants) :
     ...     scope.commit ()
     Invariants: Condition `band_exists` : There must be at least one frequency band for the antenna. (number_of_bands >= 1)
-        bands =
+        bands = ()
         number_of_bands = 0 << len (bands)
 
     >>> args = dict (left = at1, azimuth = "180", elevation_angle = 0, raw = True)

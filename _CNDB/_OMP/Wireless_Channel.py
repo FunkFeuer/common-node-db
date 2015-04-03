@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -18,6 +18,7 @@
 # Revision Dates
 #    20-Aug-2012 (RS) Creation
 #    20-Nov-2012 (CT) Fix ancestor of `left`, add `left.role_type`
+#     6-Apr-2015 (CT) Define `left.ui_name`
 #    ««revision-date»»···
 #--
 
@@ -28,6 +29,8 @@ from   _CNDB                  import CNDB
 import _CNDB._OMP
 
 import _CNDB._OMP.Wireless_Standard
+
+from   _TFL.I18N              import _, _T, _Tn
 
 _Ancestor_Essence = CNDB.OMP.Link1
 
@@ -44,6 +47,7 @@ class Wireless_Channel (_Ancestor_Essence) :
             role_name          = 'standard'
             role_type          = CNDB.OMP.Wireless_Standard
             ui_allow_new       = False
+            ui_name            = _ ("Wi-Fi Standard")
 
         # end class left
 

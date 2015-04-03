@@ -1684,9 +1684,9 @@ _test_AQ = """
     'Wireless interface/Mode'
     'Wireless interface/ESSID'
     'Wireless interface/BSSID'
-    'Wireless interface/Standard'
-    'Wireless interface/Standard/Name'
-    'Wireless interface/Standard/Bandwidth'
+    'Wireless interface/Wi-Fi Standard'
+    'Wireless interface/Wi-Fi Standard/Name'
+    'Wireless interface/Wi-Fi Standard/Bandwidth'
     'Wireless interface/TX power'
     'Wireless interface/My node'
     'Wireless interface/My node/Name'
@@ -1840,9 +1840,9 @@ _test_AQ = """
     'Virtual wireless interface/Hardware/Mode'
     'Virtual wireless interface/Hardware/ESSID'
     'Virtual wireless interface/Hardware/BSSID'
-    'Virtual wireless interface/Hardware/Standard'
-    'Virtual wireless interface/Hardware/Standard/Name'
-    'Virtual wireless interface/Hardware/Standard/Bandwidth'
+    'Virtual wireless interface/Hardware/Wi-Fi Standard'
+    'Virtual wireless interface/Hardware/Wi-Fi Standard/Name'
+    'Virtual wireless interface/Hardware/Wi-Fi Standard/Bandwidth'
     'Virtual wireless interface/Hardware/TX power'
     'Virtual wireless interface/Hardware/My node'
     'Virtual wireless interface/Hardware/My node/Name'
@@ -1969,9 +1969,9 @@ _test_AQ = """
     'Virtual wireless interface/My net device/My node/Position/Longitude'
     'Virtual wireless interface/My net device/My node/Position/Height'
     'Virtual wireless interface/My net device/My node/Show in map'
-    'Virtual wireless interface/Standard'
-    'Virtual wireless interface/Standard/Name'
-    'Virtual wireless interface/Standard/Bandwidth'
+    'Virtual wireless interface/Wi-Fi Standard'
+    'Virtual wireless interface/Wi-Fi Standard/Name'
+    'Virtual wireless interface/Wi-Fi Standard/Bandwidth'
     'Virtual wireless interface/TX power'
 
     >>> AQ.parent.parent.parent.owner
@@ -4893,7 +4893,7 @@ _test_AQ = """
                     ]
                 , 'name' : 'standard'
                 , 'sig_key' : 2
-                , 'ui_name' : 'Standard'
+                , 'ui_name' : 'Wi-Fi Standard'
                 }
               , { 'name' : 'txpower'
                 , 'sig_key' : 4
@@ -6596,7 +6596,7 @@ _test_AQ = """
                           ]
                       , 'name' : 'standard'
                       , 'sig_key' : 2
-                      , 'ui_name' : 'Standard'
+                      , 'ui_name' : 'Wi-Fi Standard'
                       }
                     , { 'name' : 'txpower'
                       , 'sig_key' : 4
@@ -8038,7 +8038,7 @@ _test_AQ = """
                     ]
                 , 'name' : 'standard'
                 , 'sig_key' : 2
-                , 'ui_name' : 'Standard'
+                , 'ui_name' : 'Wi-Fi Standard'
                 }
               , { 'name' : 'txpower'
                 , 'sig_key' : 4
@@ -12801,7 +12801,7 @@ _test_AQ = """
                     , id = 'wireless_interface__standard__name'
                     , name = 'name'
                     , sig_key = 3
-                    , ui_name = 'Wireless interface/Standard/Name'
+                    , ui_name = 'Wireless interface/Wi-Fi Standard/Name'
                     )
                 , Record
                     ( attr = Frequency `bandwidth`
@@ -12809,7 +12809,7 @@ _test_AQ = """
                     , id = 'wireless_interface__standard__bandwidth'
                     , name = 'bandwidth'
                     , sig_key = 4
-                    , ui_name = 'Wireless interface/Standard/Bandwidth'
+                    , ui_name = 'Wireless interface/Wi-Fi Standard/Bandwidth'
                     )
                 ]
               , full_name = 'wireless_interface.standard'
@@ -12817,7 +12817,7 @@ _test_AQ = """
               , name = 'standard'
               , sig_key = 2
               , type_name = 'CNDB.Wireless_Standard'
-              , ui_name = 'Wireless interface/Standard'
+              , ui_name = 'Wireless interface/Wi-Fi Standard'
               , ui_type_name = 'Wireless_Standard'
               )
           , Record
@@ -15913,7 +15913,7 @@ _test_AQ = """
                           , id = 'virtual_wireless_interface__hardware__standard__name'
                           , name = 'name'
                           , sig_key = 3
-                          , ui_name = 'Virtual wireless interface/Hardware/Standard/Name'
+                          , ui_name = 'Virtual wireless interface/Hardware/Wi-Fi Standard/Name'
                           )
                       , Record
                           ( attr = Frequency `bandwidth`
@@ -15921,7 +15921,7 @@ _test_AQ = """
                           , id = 'virtual_wireless_interface__hardware__standard__bandwidth'
                           , name = 'bandwidth'
                           , sig_key = 4
-                          , ui_name = 'Virtual wireless interface/Hardware/Standard/Bandwidth'
+                          , ui_name = 'Virtual wireless interface/Hardware/Wi-Fi Standard/Bandwidth'
                           )
                       ]
                     , full_name = 'virtual_wireless_interface.hardware.standard'
@@ -15929,7 +15929,7 @@ _test_AQ = """
                     , name = 'standard'
                     , sig_key = 2
                     , type_name = 'CNDB.Wireless_Standard'
-                    , ui_name = 'Virtual wireless interface/Hardware/Standard'
+                    , ui_name = 'Virtual wireless interface/Hardware/Wi-Fi Standard'
                     , ui_type_name = 'Wireless_Standard'
                     )
                 , Record
@@ -18548,7 +18548,7 @@ _test_AQ = """
                     , id = 'virtual_wireless_interface__standard__name'
                     , name = 'name'
                     , sig_key = 3
-                    , ui_name = 'Virtual wireless interface/Standard/Name'
+                    , ui_name = 'Virtual wireless interface/Wi-Fi Standard/Name'
                     )
                 , Record
                     ( attr = Frequency `bandwidth`
@@ -18556,7 +18556,7 @@ _test_AQ = """
                     , id = 'virtual_wireless_interface__standard__bandwidth'
                     , name = 'bandwidth'
                     , sig_key = 4
-                    , ui_name = 'Virtual wireless interface/Standard/Bandwidth'
+                    , ui_name = 'Virtual wireless interface/Wi-Fi Standard/Bandwidth'
                     )
                 ]
               , full_name = 'virtual_wireless_interface.standard'
@@ -18564,7 +18564,7 @@ _test_AQ = """
               , name = 'standard'
               , sig_key = 2
               , type_name = 'CNDB.Wireless_Standard'
-              , ui_name = 'Virtual wireless interface/Standard'
+              , ui_name = 'Virtual wireless interface/Wi-Fi Standard'
               , ui_type_name = 'Wireless_Standard'
               )
           , Record
