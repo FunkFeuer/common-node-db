@@ -103,6 +103,8 @@
 #                     * Factor `_Field_Owner_` from home-grown code in
 #                       template `html/app.m.jnj`
 #    27-Jan-2015 (CT) Add `_admin_func_delegates`
+#     6-Apr-2015 (CT) Use `id_entity_select` for `Wireless_Interface.standard`
+#     6-Apr-2015 (CT) Use `id_entity_select` for `DB_Device.left`
 #    ««revision-date»»···
 #--
 
@@ -1157,12 +1159,12 @@ class DB_Device (_DB_E_Type_) :
         ( "name"
         , "my_node.name"
         , "interfaces"
-        # "type_name"
         , "created"
         )
 
     _MF3_Attr_Spec        = dict \
         ( node            = dict (restrict_completion = True)
+        , left            = dict (input_widget = "mf3_input, id_entity_select")
         )
 
     def tr_instance_css_class (self, o) :
@@ -1267,6 +1269,10 @@ class DB_Wireless_Interface (_Ancestor) :
     """CNDB.Wireless_Interface displayed by, and managed via, dashboard."""
 
     type_name             = "CNDB.Wireless_Interface"
+
+    _MF3_Attr_Spec        = dict \
+        ( standard        = dict (input_widget = "mf3_input, id_entity_select")
+        )
 
 # end class DB_Wireless_Interface
 

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -42,6 +42,10 @@
 #     8-May-2013 (RS) Add `channels` to `Spec.Entity` for `Wireless_Interface`
 #    27-Aug-2014 (CT) Replace `GTW.AFS` specification by `MF3_Form_Spec`
 #    23-Sep-2014 (CT) Add `IP[46]_Pool`
+#     6-Apr-2015 (CT) Use `id_entity_select` for `Wireless_Channel.left`,
+#                     `Wireless_Interface.standard`
+#     6-Apr-2015 (CT) Use `id_entity_select` for `Antenna.left`,
+#                     `Net_Device.left`
 #    ««revision-date»»···
 #--
 
@@ -62,6 +66,10 @@ class Admin (object) :
         , list_display    = ("left", "name", "gain")
         , MF3_Form_Spec        = dict
             ( include_rev_refs = ("interface", )
+            )
+        , MF3_Attr_Spec        = dict
+            ( left             = dict
+                (input_widget = "mf3_input, id_entity_select")
             )
         )
 
@@ -121,6 +129,10 @@ class Admin (object) :
                 , "virtual_wireless_interfaces"
                 )
             )
+        , MF3_Attr_Spec        = dict
+            ( left             = dict
+                (input_widget = "mf3_input, id_entity_select")
+            )
         )
 
     Net_Device_Type       = dict \
@@ -167,13 +179,22 @@ class Admin (object) :
 
     Wireless_Channel      = dict \
         ( ETM             = "CNDB.OMP.Wireless_Channel"
+        , MF3_Attr_Spec        = dict
+            ( left             = dict
+                (input_widget = "mf3_input, id_entity_select")
+            )
         )
 
     Wireless_Interface    = dict \
         ( ETM             = "CNDB.OMP.Wireless_Interface"
-        , list_display    = ("left", "mac_address", "name", "is_active")
+        , list_display    =
+            ("left", "mac_address", "name", "standard", "is_active")
         , MF3_Form_Spec        = dict
             ( include_rev_refs = ("antennas", "channels")
+            )
+        , MF3_Attr_Spec        = dict
+            ( standard         = dict
+                (input_widget = "mf3_input, id_entity_select")
             )
         )
 
