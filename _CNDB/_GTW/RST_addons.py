@@ -107,6 +107,7 @@
 #     6-Apr-2015 (CT) Use `id_entity_select` for `DB_Device.left`
 #     7-Apr-2015 (CT) Add `_DB_Base_.__getitem__`, `._db_etn_map`
 #     7-Apr-2015 (CT) Add `Div_Name_T`
+#     7-Apr-2015 (CT) Use literal `Div_Name_T` for `DB_Interface_in_IP_Network`
 #    ««revision-date»»···
 #--
 
@@ -1420,6 +1421,11 @@ class DB_Interface_in_IP_Network (_Ancestor) :
         POST = _AIP_POST_ # end class
 
     # end class Allocate_IP
+
+    @property ### depends on currently selected language (I18N/L10N)
+    def Div_Name_T (self) :
+        return "IP " + _T ("Addresses")
+    # end def Div_Name_T
 
     @Once_Property
     @getattr_safe
