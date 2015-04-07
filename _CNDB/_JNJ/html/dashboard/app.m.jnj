@@ -53,6 +53,7 @@
 ##    27-Jan-2015 (CT) Remove home-grown code for `owner` from `e_type_object`
 ##     3-Feb-2015 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Field`
 ##    18-Mar-2015 (CT) Add guard for `objects` to `e_type_table`
+##     7-Apr-2015 (CT) Add `data-etn` to `e_type_object` if `db_type.is_partial`
 ##    ««revision-date»»···
 ##--
 #}
@@ -184,9 +185,16 @@
   {%- set name    = db_type.view_name_instance (o) %}
   {%- set tn      = db_type.div_name %}
   {%- set user    = db_type.user_restriction %}
-  <tr id="{{ tn }}-{{ o.pid }}" {# -#}
-      class="{{ db_type.tr_instance_css_class (o) }}"{#- -#}
-  >
+  {%- set td_kw   = GTW.dict
+      ( class     = db_type.tr_instance_css_class (o)
+      , id        = "%s-%s" % (tn, o.pid)
+      )
+  %}
+  {%- if db_type.is_partial %}
+    {%- set c_db_type = db_type [o.type_name] %}
+    {%- do td_kw.update ({ "data-etn" : c_db_type.name }) %}
+  {% endif -%}
+  <tr{{ td_kw|xmlattr }}>
     {%- for f in fields %}
       <td{{ GTW.filtered_dict (class = f.css_class_dyn (o, None))|xmlattr }}>
         {{- f.as_html (o, None) -}}

@@ -1,4 +1,4 @@
-// Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+// Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 // Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 // #*** <License> ************************************************************#
 // This module is licensed under the terms of the BSD 3-Clause License
@@ -38,6 +38,7 @@
 //     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 //    16-Dec-2014 (CT) Change `initialize_map` to allow `data ("markers")`
 //                     returning a string
+//     7-Apr-2015 (CT) Add `data-etn` to `.url` of `obj_of_row`
 //    ««revision-date»»···
 //--
 
@@ -346,12 +347,15 @@
         var obj_of_row  = function obj_of_row (self) {
             var result  = {};
             var row$    = closest_el       (self, selectors.obj_row)
+            var sub_typ = row$.data        ("etn");
+            var midd    = (! sub_typ) ? "" : ("/" + sub_typ);
             result.row$ = row$;
             result.rid  = row$.prop        ("id");
             result.pid  = pid_of_obj_id    (result.rid);
             result.sid  = closest_el_id    (self, "section");
             result.typ  = result.sid.match (pat_typ_name) [1];
-            result.url  = options.urls.page + result.typ + "/" + result.pid;
+            result.url  =
+                options.urls.page + result.typ + midd + "/" + result.pid;
             return result;
         };
         var obj_rows_selector_all = function obj_rows_selector_all (id) {

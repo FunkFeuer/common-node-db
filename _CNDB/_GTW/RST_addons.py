@@ -105,6 +105,7 @@
 #    27-Jan-2015 (CT) Add `_admin_func_delegates`
 #     6-Apr-2015 (CT) Use `id_entity_select` for `Wireless_Interface.standard`
 #     6-Apr-2015 (CT) Use `id_entity_select` for `DB_Device.left`
+#     7-Apr-2015 (CT) Add `_DB_Base_.__getitem__`, `._db_etn_map`
 #    ««revision-date»»···
 #--
 
@@ -518,6 +519,7 @@ class _Meta_DB_Div_ (_Ancestor.__class__) :
             if result.type_name :
                 dnm = result.parent._div_name_map
                 dnm [result.div_name] = dnm [result.Div_Name] = result
+                cls._db_etn_map [result.type_name] = result
         return result
     # end def __call__
 
@@ -532,6 +534,7 @@ class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
     skip_etag             = True
     type_name             = None
     _DB_ETN_map           = {}
+    _db_etn_map           = {}
     _db_name_map          = {}
     _entry_types          = ()
     _exclude_robots       = True
@@ -600,6 +603,13 @@ class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
                 return result
         return self.__super.__getattr__ (name)
     # end def __getattr__
+
+    def __getitem__ (self, key) :
+        try :
+            return self._db_etn_map  [key]
+        except KeyError :
+            return self._db_name_map [key]
+    # end def __getitem__
 
 # end class _DB_Base_
 
