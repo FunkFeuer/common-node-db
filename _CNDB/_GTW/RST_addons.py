@@ -106,6 +106,7 @@
 #     6-Apr-2015 (CT) Use `id_entity_select` for `Wireless_Interface.standard`
 #     6-Apr-2015 (CT) Use `id_entity_select` for `DB_Device.left`
 #     7-Apr-2015 (CT) Add `_DB_Base_.__getitem__`, `._db_etn_map`
+#     7-Apr-2015 (CT) Add `Div_Name_T`
 #    ««revision-date»»···
 #--
 
@@ -1003,6 +1004,11 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         return tuple (result)
     # end def children_np
 
+    @property ### depends on currently selected language (I18N/L10N)
+    def Div_Name_T (self) :
+        return _T (self.Div_Name)
+    # end def Div_Name_T
+
     @Once_Property
     @getattr_safe
     def create_action (self) :
@@ -1062,7 +1068,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     @property
     @getattr_safe
     def view_title (self) :
-        TN = self.Div_Name
+        TN = self.Div_Name_T
         return _T ("%ss managed/owned by %s") % (TN, self.user.FO.person)
     # end def view_title
 
@@ -1122,7 +1128,7 @@ class _DB_Person_Property_ (_DB_E_Type_) :
     @property
     @getattr_safe
     def view_title (self) :
-        TN = self.Div_Name
+        TN = self.Div_Name_T
         return _T ("%ss used by %s") % (TN, self.user.FO.person)
     # end def view_title
 

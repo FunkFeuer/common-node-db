@@ -54,6 +54,7 @@
 ##     3-Feb-2015 (CT) Adapt to changes of `GTW.RST.TOP.MOM.Field`
 ##    18-Mar-2015 (CT) Add guard for `objects` to `e_type_table`
 ##     7-Apr-2015 (CT) Add `data-etn` to `e_type_object` if `db_type.is_partial`
+##     7-Apr-2015 (CT) Use localized `Div_Name_T`, not generic `Div_Name`
 ##    ««revision-date»»···
 ##--
 #}
@@ -179,7 +180,7 @@
 {%- endmacro -%} {#- db_node_map -#}
 
 {%- macro e_type_object (db_type, o) -%}
-  {%- set TN      = db_type.Div_Name %}
+  {%- set TN      = db_type.Div_Name_T %}
   {%- set actions = db_type.view_actions %}
   {%- set fields  = db_type.view_fields %}
   {%- set name    = db_type.view_name_instance (o) %}
@@ -215,7 +216,7 @@
 {%- endmacro -%} {#- e_type_object -#}
 
 {%- macro e_type_table (db_type) -%}
-  {%- set TN      = db_type.Div_Name %}
+  {%- set TN      = db_type.Div_Name_T %}
   {%- set actions = db_type.view_actions %}
   {%- set create  = db_type.create_action %}
   {%- set fields  = db_type.view_fields %}
