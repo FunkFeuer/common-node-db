@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is licensed under the terms of the BSD 3-Clause License
@@ -18,6 +18,7 @@
 #     4-Dec-2012 (CT) Remove `http:` (--> protocol-relative)
 #    17-Dec-2012 (CT) Add rules for `textarea.Long` and `.Very-Long`
 #    29-Apr-2013 (CT) Add `GTW.Script._.GTW_jq_util`
+#     8-Apr-2015 (CT) Fix `print` rule for `.pg_foot`
 #    ««revision-date»»···
 #--
 
@@ -66,17 +67,17 @@ print_sheet = Style_Sheet \
             [ Rule
                 ( ".pg_foot"
                 , children        =
-                    [ Rule_Class
-                        ( "copyright", "last-change"
+                    [ Rule
+                        ( ".copyright", ".last-change"
                         , float   = "left"
                         , width   = Percent (50)
                         )
+                    , Rule
+                        ( ".top-link"
+                        , display         = "none"
+                        , visibility      = "collapse"
+                        )
                     ]
-                )
-            , Rule
-                ( ".pg_foot .top-link"
-                , display         = "none"
-                , visibility      = "collapse"
                 )
             ]
         )
