@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Project 0.9\n"
 "Report-Msgid-Bugs-To: bugs@domain.unknown\n"
-"POT-Creation-Date: 2014-09-04 09:33+0200\n"
+"POT-Creation-Date: 2015-04-08 13:11+0200\n"
 "PO-Revision-Date: 2012-05-23 10:46+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -43,15 +43,15 @@ msgstr[1] ""
 msgid "Adhoc_Group of person"
 msgstr ""
 
-#: _CNDB/_OMP/__test__/model.py:64
+#: _CNDB/_OMP/__test__/model.py:54
 msgid "Administration of node database"
 msgstr ""
 
-#: _CNDB/_OMP/__test__/model.py:70
+#: _CNDB/_OMP/__test__/model.py:60
 msgid "Administration of persons/addresses..."
 msgstr ""
 
-#: _CNDB/_OMP/__test__/model.py:76
+#: _CNDB/_OMP/__test__/model.py:66
 msgid "Administration of user accounts and groups"
 msgstr ""
 
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Bundle."
 msgstr ""
 
-#: _CNDB/_OMP/graph.py:166
+#: _CNDB/_OMP/graph.py:161
 msgid "CNDB graph"
 msgstr ""
 
@@ -217,8 +217,16 @@ msgstr ""
 msgid "Cool down period"
 msgstr ""
 
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Cool down period for this String `type_name`."
+#: _CNDB._OMP.IP4_Pool:0
+msgid "Cool down period for this IP4_Pool."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Pool:0
+msgid "Cool down period for this IP6_Pool."
+msgstr ""
+
+#: _CNDB._OMP.IP_Pool:0
+msgid "Cool down period for this IP_Pool."
 msgstr ""
 
 #: _CNDB._OMP.Regulatory_Domain:0
@@ -295,8 +303,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Device_Type_made_by_Company:0
-msgid "Device_Type_made_by_Company"
-msgid_plural "Device_Type_made_by_Companys"
+#, fuzzy
+msgid "Device_Type made_by Company"
+msgid_plural "Device_Type made_by Companys"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -369,8 +378,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Firmware:0
-msgid "Firmware_Binary_in_Firmware_Bundle"
-msgid_plural "Firmware_Binary_in_Firmware_Bundles"
+#, fuzzy
+msgid "Firmware_Binary in Firmware_Bundle"
+msgid_plural "Firmware_Binary in Firmware_Bundles"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -434,7 +444,7 @@ msgstr ""
 msgid "Gain"
 msgstr ""
 
-#: _CNDB/_OMP/graph.py:165
+#: _CNDB/_OMP/graph.py:160
 msgid "Graph displaying Funkfeuer object model"
 msgstr ""
 
@@ -510,8 +520,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.IP4_Network_in_IP4_Pool:0
-msgid "IP4_Network_in_IP4_Pool"
-msgid_plural "IP4_Network_in_IP4_Pools"
+#, fuzzy
+msgid "IP4_Network in IP4_Pool"
+msgid_plural "IP4_Network in IP4_Pools"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -522,8 +533,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.IP4_Pool_permits_Group:0
-msgid "IP4_Pool_permits_Group"
-msgid_plural "IP4_Pool_permits_Groups"
+#, fuzzy
+msgid "IP4_Pool permits Group"
+msgid_plural "IP4_Pool permits Groups"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -541,8 +553,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.IP6_Network_in_IP6_Pool:0
-msgid "IP6_Network_in_IP6_Pool"
-msgid_plural "IP6_Network_in_IP6_Pools"
+#, fuzzy
+msgid "IP6_Network in IP6_Pool"
+msgid_plural "IP6_Network in IP6_Pools"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -553,8 +566,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.IP6_Pool_permits_Group:0
-msgid "IP6_Pool_permits_Group"
-msgid_plural "IP6_Pool_permits_Groups"
+#, fuzzy
+msgid "IP6_Pool permits Group"
+msgid_plural "IP6_Pool permits Groups"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -571,8 +585,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.IP_Network_in_IP_Pool:0
-msgid "IP_Network_in_IP_Pool"
-msgid_plural "IP_Network_in_IP_Pools"
+#, fuzzy
+msgid "IP_Network in IP_Pool"
+msgid_plural "IP_Network in IP_Pools"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -583,8 +598,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.IP_Pool_permits_Group:0
-msgid "IP_Pool_permits_Group"
-msgid_plural "IP_Pool_permits_Groups"
+#, fuzzy
+msgid "IP_Pool permits Group"
+msgid_plural "IP_Pool permits Groups"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -617,8 +633,9 @@ msgid "Id entity"
 msgstr ""
 
 #: _GTW._OMP._PAP.Id_Entity_permits_Group:0
-msgid "Id_Entity_permits_Group"
-msgid_plural "Id_Entity_permits_Groups"
+#, fuzzy
+msgid "Id_Entity permits Group"
+msgid_plural "Id_Entity permits Groups"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -649,7 +666,25 @@ msgid_plural "Int_Interval_Cs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _MOM._Attr.Number_Interval:0
+#: _CNDB._OMP.Attr_Type:0
+msgid "Int_Interval_C__IP_Netmask_Interval_"
+msgid_plural "Int_Interval_C__IP_Netmask_Interval_s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.Attr_Type:0
+msgid "Int_Interval_C__IP_Netmask_Interval__IP4_Netmask_Interval"
+msgid_plural "Int_Interval_C__IP_Netmask_Interval__IP4_Netmask_Intervals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _CNDB._OMP.Attr_Type:0
+msgid "Int_Interval_C__IP_Netmask_Interval__IP6_Netmask_Interval"
+msgid_plural "Int_Interval_C__IP_Netmask_Interval__IP6_Netmask_Intervals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _MOM._Attr.Number_Interval:0 _CNDB._OMP.Attr_Type:0
 msgid "Integer attribute."
 msgstr ""
 
@@ -701,8 +736,16 @@ msgstr ""
 msgid "Left network interface"
 msgstr ""
 
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Limit netmasks to allocate from this String `type_name`."
+#: _CNDB._OMP.IP4_Pool:0
+msgid "Limit netmasks to allocate from this IP4_Pool."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Pool:0
+msgid "Limit netmasks to allocate from this IP6_Pool."
+msgstr ""
+
+#: _CNDB._OMP.IP_Pool:0
+msgid "Limit netmasks to allocate from this IP_Pool."
 msgstr ""
 
 #: _CNDB._OMP.Firmware:0
@@ -729,7 +772,7 @@ msgstr ""
 msgid "Location of document."
 msgstr ""
 
-#: _MOM._Attr.Number_Interval:0
+#: _MOM._Attr.Number_Interval:0 _CNDB._OMP.Attr_Type:0
 msgid "Lower"
 msgstr ""
 
@@ -938,21 +981,23 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
-msgid "Net_Interface_in_IP4_Network"
-msgid_plural "Net_Interface_in_IP4_Networks"
+#, fuzzy
+msgid "Net_Interface in IP4_Network"
+msgid_plural "Net_Interface in IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 #, fuzzy
-msgid "Net_Interface_in_IP6_Network"
-msgid_plural "Net_Interface_in_IP6_Networks"
+msgid "Net_Interface in IP6_Network"
+msgid_plural "Net_Interface in IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
-msgid "Net_Interface_in_IP_Network"
-msgid_plural "Net_Interface_in_IP_Networks"
+#, fuzzy
+msgid "Net_Interface in IP_Network"
+msgid_plural "Net_Interface in IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1005,8 +1050,16 @@ msgid_plural "Nodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: _CNDB._OMP.IP_Pool:0 _CNDB._OMP.IP4_Pool:0 _CNDB._OMP.IP6_Pool:0
-msgid "Node for which this `String `type_name`` is reserved."
+#: _CNDB._OMP.IP4_Pool:0
+msgid "Node for which this `IP4_Pool` is reserved."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Pool:0
+msgid "Node for which this `IP6_Pool` is reserved."
+msgstr ""
+
+#: _CNDB._OMP.IP_Pool:0
+msgid "Node for which this `IP_Pool` is reserved."
 msgstr ""
 
 #: _CNDB._OMP.IP_Pool_permits_Group:0 _CNDB._OMP.IP4_Pool_permits_Group:0
@@ -1024,8 +1077,16 @@ msgstr ""
 msgid "Owner"
 msgstr ""
 
-#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
-msgid "Owner of the `String `type_name``."
+#: _CNDB._OMP.IP4_Network:0
+msgid "Owner of the `IP4_Network`."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Network:0
+msgid "Owner of the `IP6_Network`."
+msgstr ""
+
+#: _CNDB._OMP.IP_Network:0
+msgid "Owner of the `IP_Network`."
 msgstr ""
 
 #: _CNDB._OMP.Node:0
@@ -1048,6 +1109,34 @@ msgstr ""
 msgid "Permitted Group"
 msgstr ""
 
+#: _GTW._OMP._PAP.Person_in_Group:0
+#, fuzzy
+msgid "Person in Adhoc_Group"
+msgid_plural "Person in Adhoc_Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _GTW._OMP._PAP.Person_in_Group:0
+#, fuzzy
+msgid "Person in Association"
+msgid_plural "Person in Associations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _GTW._OMP._PAP.Person_in_Group:0
+#, fuzzy
+msgid "Person in Company"
+msgid_plural "Person in Companys"
+msgstr[0] ""
+msgstr[1] ""
+
+#: _GTW._OMP._PAP.Person_in_Group:0
+#, fuzzy
+msgid "Person in Group"
+msgid_plural "Person in Groups"
+msgstr[0] ""
+msgstr[1] ""
+
 #: _CNDB._OMP.Person_mentors_Person:0
 msgid "Person is the mentor of another person."
 msgstr ""
@@ -1068,34 +1157,10 @@ msgstr ""
 msgid "Person linked to Group"
 msgstr ""
 
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person_in_Adhoc_Group"
-msgid_plural "Person_in_Adhoc_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-#, fuzzy
-msgid "Person_in_Association"
-msgid_plural "Person_in_Associations"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person_in_Company"
-msgid_plural "Person_in_Companys"
-msgstr[0] ""
-msgstr[1] ""
-
-#: _GTW._OMP._PAP.Person_in_Group:0
-msgid "Person_in_Group"
-msgid_plural "Person_in_Groups"
-msgstr[0] ""
-msgstr[1] ""
-
 #: _CNDB._OMP.Person_mentors_Person:0
-msgid "Person_mentors_Person"
-msgid_plural "Person_mentors_Persons"
+#, fuzzy
+msgid "Person mentors Person"
+msgid_plural "Person mentors Persons"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1107,8 +1172,21 @@ msgstr ""
 msgid "Pool"
 msgstr ""
 
-#: _CNDB._OMP.IP_Network:0 _CNDB._OMP.IP4_Network:0 _CNDB._OMP.IP6_Network:0
-msgid "Pool to which this `String `type_name`` belongs."
+#: _CNDB/_OMP/Error.py:82
+#, python-format
+msgid "Pool %(pool)s doesn't have any networks"
+msgstr ""
+
+#: _CNDB._OMP.IP4_Network:0
+msgid "Pool to which this `IP4_Network` belongs."
+msgstr ""
+
+#: _CNDB._OMP.IP6_Network:0
+msgid "Pool to which this `IP6_Network` belongs."
+msgstr ""
+
+#: _CNDB._OMP.IP_Network:0
+msgid "Pool to which this `IP_Network` belongs."
 msgstr ""
 
 #: _GTW._OMP._PAP.IM_Handle:0
@@ -1204,12 +1282,7 @@ msgstr ""
 msgid "Show in map."
 msgstr ""
 
-#: _CNDB._OMP.Wireless_Channel:0 _CNDB._OMP.Wireless_Interface:0
-#, fuzzy
-msgid "Standard"
-msgstr ""
-
-#: _CNDB/_OMP/Attr_Type.py:88
+#: _CNDB/_OMP/Attr_Type.py:84
 msgid "TX Power"
 msgstr ""
 
@@ -1260,7 +1333,7 @@ msgid "The regulatory domain that gives this permission."
 msgstr ""
 
 #: _MOM._Attr.Number_Interval:0
-msgid "The upper bound must be greater than the lower bound."
+msgid "The upper bound must be greater or equal to the lower bound."
 msgstr ""
 
 #: _CNDB._OMP.Wireless_Channel:0
@@ -1499,7 +1572,7 @@ msgstr ""
 msgid "URL for Firmware_Type"
 msgstr ""
 
-#: _MOM._Attr.Number_Interval:0
+#: _MOM._Attr.Number_Interval:0 _CNDB._OMP.Attr_Type:0
 msgid "Upper"
 msgstr ""
 
@@ -1512,7 +1585,7 @@ msgstr ""
 msgid "User quota"
 msgstr ""
 
-#: _CNDB/_OMP/__test__/model.py:75
+#: _CNDB/_OMP/__test__/model.py:65
 msgid "Users"
 msgstr ""
 
@@ -1549,22 +1622,22 @@ msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 #, fuzzy
-msgid "Virtual_Wireless_Interface_in_IP4_Network"
-msgid_plural "Virtual_Wireless_Interface_in_IP4_Networks"
+msgid "Virtual_Wireless_Interface in IP4_Network"
+msgid_plural "Virtual_Wireless_Interface in IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 #, fuzzy
-msgid "Virtual_Wireless_Interface_in_IP6_Network"
-msgid_plural "Virtual_Wireless_Interface_in_IP6_Networks"
+msgid "Virtual_Wireless_Interface in IP6_Network"
+msgid_plural "Virtual_Wireless_Interface in IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
 #, fuzzy
-msgid "Virtual_Wireless_Interface_in_IP_Network"
-msgid_plural "Virtual_Wireless_Interface_in_IP_Networks"
+msgid "Virtual_Wireless_Interface in IP_Network"
+msgid_plural "Virtual_Wireless_Interface in IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1573,6 +1646,11 @@ msgid "WPA_Credentials"
 msgid_plural "WPA_Credentialses"
 msgstr[0] ""
 msgstr[1] ""
+
+#: _CNDB/_OMP/Wireless_Channel.py:50 _CNDB/_OMP/Wireless_Interface.py:100
+#: _CNDB._OMP.Wireless_Channel:0 _CNDB._OMP.Wireless_Interface:0
+msgid "Wi-Fi Standard"
+msgstr ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
@@ -1592,22 +1670,22 @@ msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 #, fuzzy
-msgid "Wired_Interface_in_IP4_Network"
-msgid_plural "Wired_Interface_in_IP4_Networks"
+msgid "Wired_Interface in IP4_Network"
+msgid_plural "Wired_Interface in IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 #, fuzzy
-msgid "Wired_Interface_in_IP6_Network"
-msgid_plural "Wired_Interface_in_IP6_Networks"
+msgid "Wired_Interface in IP6_Network"
+msgid_plural "Wired_Interface in IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
 #, fuzzy
-msgid "Wired_Interface_in_IP_Network"
-msgid_plural "Wired_Interface_in_IP_Networks"
+msgid "Wired_Interface in IP_Network"
+msgid_plural "Wired_Interface in IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1678,35 +1756,36 @@ msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP4_Network:0
 #, fuzzy
-msgid "Wireless_Interface_in_IP4_Network"
-msgid_plural "Wireless_Interface_in_IP4_Networks"
+msgid "Wireless_Interface in IP4_Network"
+msgid_plural "Wireless_Interface in IP4_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP6_Network:0
 #, fuzzy
-msgid "Wireless_Interface_in_IP6_Network"
-msgid_plural "Wireless_Interface_in_IP6_Networks"
+msgid "Wireless_Interface in IP6_Network"
+msgid_plural "Wireless_Interface in IP6_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Net_Interface_in_IP_Network:0
 #, fuzzy
-msgid "Wireless_Interface_in_IP_Network"
-msgid_plural "Wireless_Interface_in_IP_Networks"
+msgid "Wireless_Interface in IP_Network"
+msgid_plural "Wireless_Interface in IP_Networks"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Wireless_Interface_uses_Antenna:0
-msgid "Wireless_Interface_uses_Antenna"
-msgid_plural "Wireless_Interface_uses_Antennas"
+#, fuzzy
+msgid "Wireless_Interface uses Antenna"
+msgid_plural "Wireless_Interface uses Antennas"
 msgstr[0] ""
 msgstr[1] ""
 
 #: _CNDB._OMP.Wireless_Interface_uses_Wireless_Channel:0
 #, fuzzy
-msgid "Wireless_Interface_uses_Wireless_Channel"
-msgid_plural "Wireless_Interface_uses_Wireless_Channels"
+msgid "Wireless_Interface uses Wireless_Channel"
+msgid_plural "Wireless_Interface uses Wireless_Channels"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -2187,5 +2266,26 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "owner_or_cool_down"
+#~ msgstr ""
+
+#~ msgid "Standard"
+#~ msgstr ""
+
+#~ msgid "The upper bound must be greater than the lower bound."
+#~ msgstr ""
+
+#~ msgid "Cool down period for this String `type_name`."
+#~ msgstr ""
+
+#~ msgid "Limit netmasks to allocate from this String `type_name`."
+#~ msgstr ""
+
+#~ msgid "Node for which this `String `type_name`` is reserved."
+#~ msgstr ""
+
+#~ msgid "Owner of the `String `type_name``."
+#~ msgstr ""
+
+#~ msgid "Pool to which this `String `type_name`` belongs."
 #~ msgstr ""
 

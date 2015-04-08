@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2014-09-04 09:33+0200\n"
+"POT-Creation-Date: 2015-04-08 13:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -17,96 +17,156 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: _CNDB/_GTW/RST_addons.py:951
+#: _CNDB/_GTW/RST_addons.py:1071
 #, python-format
 msgid "%ss managed/owned by %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:1002
+#: _CNDB/_GTW/RST_addons.py:1131
 #, python-format
 msgid "%ss used by %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:1033
+#: _CNDB/_GTW/RST_addons.py:1425
+msgid "Addresses"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:1162
 #, python-format
 msgid "Addresses used by %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:660
+#: _CNDB/_GTW/RST_addons.py:747
 #, python-format
-msgid "Change password of %s %s"
+msgid "Allocate an IP address for interface %(obj)s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:665
+#: _CNDB/_GTW/RST_addons.py:752
 #, python-format
-msgid "Create a new %s %s"
+msgid "Change password of %(tn)s %(obj)s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:670
+#: _CNDB/_GTW/RST_addons.py:757
 #, python-format
-msgid "Delete %s %s"
+msgid "Create a new %(tn)s %(obj)s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:675
+#: _CNDB/_GTW/RST_addons.py:767
 #, python-format
-msgid "Edit %s %s"
+msgid "Edit %(tn)s %(obj)s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:686
+#: _CNDB/_GTW/RST_addons.py:778
 #, python-format
-msgid "Generate firmware for %s %s"
+msgid "Generate firmware for %(tn)s %(obj)s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:696
+#: _CNDB/_GTW/RST_addons.py:789
 #, python-format
-msgid "I forgot my password; reset password of %s %s"
+msgid "I forgot my password; reset password of %(tn)s %(obj)s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:760
+#: _CNDB/_GTW/RST_addons.py:846
+msgid "IP address"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:868
 msgid "IP addresses"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:754
+#: _CNDB/_GTW/RST_addons.py:862
 msgid "IP addresses assigned to interface"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:820
-#, python-format
-msgid "Number of %s belonging to %s"
+#: _CNDB/_GTW/RST_addons.py:890
+msgid "IP network"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:1293
+#: _CNDB/_GTW/RST_addons.py:1399
+#, python-format
+msgid ""
+"No pools available that allow allocation by user %(user)s and node "
+"%(node)s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:929
+#, python-format
+msgid "Owned by %s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:926
+msgid "Owned by you"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:1537
 #, python-format
 msgid "Personal data of %s"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:691
-#, python-format
-msgid "Show graphs and statistics about %s %s"
+#: _CNDB/_GTW/RST_addons.py:1349
+msgid "Request must include interface pid"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:142
+#: _CNDB/_GTW/RST_addons.py:773
+#, python-format
+msgid "Restrict details below to objects belonging to %(tn)s %(obj)s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:783
+#, python-format
+msgid "Show graphs and statistics about %(tn)s %(obj)s"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:170
 #, python-format
 msgid ""
 "You are not allowed to change %s unless afterwards you [%s] are still "
 "either manager or owner"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:145
+#: _CNDB/_GTW/RST_addons.py:173
 msgid "and"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:241
+#: _CNDB/_GTW/RST_addons.py:259
 msgid "owned/managed by"
 msgstr ""
 
-#: _CNDB/_GTW/RST_addons.py:147
+#: _CNDB/_GTW/RST_addons.py:175
 msgid "to"
+msgstr ""
+
+#: _CNDB/_GTW/RST_addons.py:946
+msgid "type"
 msgstr ""
 
 #~ msgid "%ss managed/owned by %%s"
 #~ msgstr ""
 
 #~ msgid "%ss used by %%s"
+#~ msgstr ""
+
+#~ msgid "Change password of %s %s"
+#~ msgstr ""
+
+#~ msgid "Create a new %s %s"
+#~ msgstr ""
+
+#~ msgid "Delete %s %s"
+#~ msgstr ""
+
+#~ msgid "Edit %s %s"
+#~ msgstr ""
+
+#~ msgid "Generate firmware for %s %s"
+#~ msgstr ""
+
+#~ msgid "I forgot my password; reset password of %s %s"
+#~ msgstr ""
+
+#~ msgid "Number of %s belonging to %s"
+#~ msgstr ""
+
+#~ msgid "Show graphs and statistics about %s %s"
 #~ msgstr ""
 

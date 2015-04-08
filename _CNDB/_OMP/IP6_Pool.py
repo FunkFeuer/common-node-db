@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
+# Copyright (C) 2014-2015 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -44,7 +44,7 @@ class IP6_Pool (_Ancestor_Essence) :
         ### Non-primary attributes
 
         class netmask_interval (A_IP6_Netmask_Interval) :
-            """Limit netmasks to allocate from this %(type_name)s."""
+            """Limit netmasks to allocate from this %(ui_type_name)s."""
 
             kind               = Attr.Optional
 

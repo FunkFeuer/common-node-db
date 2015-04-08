@@ -1,5 +1,5 @@
 # German translations for CNDB.
-# Copyright (C) 2014 Mag. Christian Tanzer, Ralf Schlatterbeck
+# Copyright (C) 2014-2015 Mag. Christian Tanzer, Ralf Schlatterbeck
 # This file is distributed under the same license as the CNDB project.
 # Christian Tanzer <tanzer@swing.co.at>, 2012.
 #
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2014-09-04 09:33+0200\n"
+"POT-Creation-Date: 2015-04-08 13:11+0200\n"
 "PO-Revision-Date: 2014-08-31 12:03+0200\n"
 "Last-Translator: Christian Tanzer <tanzer@swing.co.at>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -17,73 +17,75 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: _CNDB/_JNJ/html/base.jnj:39
+#: _CNDB/_JNJ/html/base.jnj:27
 #, python-format
 msgid "%s Knotendatenbank"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:265
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:309
 msgid "About"
 msgstr "Über"
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:176
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:250
 msgid "Action"
 msgstr "Aktion"
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:271
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:117
+#, python-format
+msgid "Allocate from pool %(name)s"
+msgstr "Reserviere aus dem Pool %(name)s"
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:315
 msgid "Development"
 msgstr "Entwicklung"
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:276
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:320
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: _CNDB/_JNJ/html/login.jnj:74
+#: _CNDB/_JNJ/html/login.jnj:65
 msgid "Email address of your account"
 msgstr "Emailadresse des Benutzerkontos"
 
-#: _CNDB/_JNJ/html/login.jnj:118
+#: _CNDB/_JNJ/html/login.jnj:109
 msgid "I forgot my password"
 msgstr "Ich habe mein Kennwort vergessen"
 
-#: _CNDB/_JNJ/html/login.jnj:114
+#: _CNDB/_JNJ/html/login.jnj:105
 msgid "I forgot my password; send me a temporary one to my email address"
 msgstr ""
 "Ich habe mein Kennwort vergessen; sende ein vorübergehendes an meine "
 "Emailadresse"
 
-#: _CNDB/_JNJ/html/base.jnj:62
+#: _CNDB/_JNJ/html/base.jnj:50
 msgid "Last change"
 msgstr "Letzte Änderung"
 
-#: _CNDB/_JNJ/html/login.jnj:104
+#: _CNDB/_JNJ/html/login.jnj:95
 msgid "Log into website"
 msgstr "Anmeldung"
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:243
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:287
 msgid "Logout"
 msgstr "Abmeldung"
 
-#: _CNDB/_JNJ/html/navigation.jnj:48
+#: _CNDB/_JNJ/html/navigation.jnj:36
 msgid "Open wireless networks"
 msgstr "Offene drahtlose Netzwerke"
 
-#: _CNDB/_JNJ/html/login.jnj:89
+#: _CNDB/_JNJ/html/login.jnj:80
 msgid "Password of your account"
 msgstr "Kennwort des Benutzerkontos"
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:307
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:351
 msgid "Personal settings"
 msgstr "Persönliche Daten"
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:283
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:327
 msgid "RESTful API"
 msgstr ""
 
-#: _CNDB/_JNJ/html/base.jnj:57
+#: _CNDB/_JNJ/html/base.jnj:45
 msgid "Top of page"
 msgstr "Beginn der Seite"
-
-#~ msgid "Number of %s belonging to %s"
-#~ msgstr "Anzahl von %s, die zu %s gehören"
 

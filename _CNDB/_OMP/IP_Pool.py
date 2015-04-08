@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2014 Dr. Ralf Schlatterbeck All rights reserved
+# Copyright (C) 2014-2015 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -62,21 +62,21 @@ class IP_Pool (_Ancestor_Essence) :
         ### Non-primary attributes
 
         class cool_down_period (A_Date_Time_Delta) :
-            """Cool down period for this %(type_name)s."""
+            """Cool down period for this %(ui_type_name)s."""
 
             kind               = Attr.Optional
 
         # end class cool_down_period
 
         class netmask_interval (_A_IP_Netmask_Interval_) :
-            """Limit netmasks to allocate from this %(type_name)s."""
+            """Limit netmasks to allocate from this %(ui_type_name)s."""
 
             kind               = Attr.Optional
 
         # end class netmask_interval
 
         class node (A_Id_Entity) :
-            """Node for which this `%(type_name)s` is reserved."""
+            """Node for which this `%(ui_type_name)s` is reserved."""
 
             kind               = Attr.Optional
             P_Type             = CNDB.OMP.Node

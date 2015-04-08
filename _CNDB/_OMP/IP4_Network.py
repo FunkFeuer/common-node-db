@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2014 Dr. Ralf Schlatterbeck All rights reserved
+# Copyright (C) 2012-2015 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -60,7 +60,7 @@ class IP4_Network (_Ancestor_Essence) :
         ### Non-primary attributes
 
         class parent (_Ancestor.parent) :
-            """Parent of the `%(type_name)s`."""
+            """Parent of the `%(ui_type_name)s`."""
 
             P_Type             = "CNDB.IP4_Network"
             rev_ref_attr_name  = "subnets"
@@ -68,7 +68,7 @@ class IP4_Network (_Ancestor_Essence) :
         # end class parent
 
         class pool (_Ancestor.pool) :
-            """Pool to which this `%(type_name)s` belongs."""
+            """Pool to which this `%(ui_type_name)s` belongs."""
 
             P_Type             = "CNDB.IP4_Network"
 

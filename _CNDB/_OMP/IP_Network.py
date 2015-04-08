@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2014 Dr. Ralf Schlatterbeck All rights reserved
+# Copyright (C) 2012-2015 Dr. Ralf Schlatterbeck All rights reserved
 # Reichergasse 131, A--3411 Weidling, Austria. rsc@runtux.com
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
@@ -168,7 +168,7 @@ class IP_Network (_Ancestor_Essence) :
         # end class expiration_date
 
         class has_children (A_Boolean) :
-            """Indicates whether this `%(type_name)s` is split into parts."""
+            """Indicates whether this `%(ui_type_name)s` is split into parts."""
 
             kind               = Attr.Query
             ### `~ ~ Q.subnets` converts to Boolean in a Python- and
@@ -181,7 +181,7 @@ class IP_Network (_Ancestor_Essence) :
         # end class has_children
 
         class is_free (A_Boolean) :
-            """Indicates whether this `%(type_name)s` can be assigned"""
+            """Indicates whether this `%(ui_type_name)s` can be assigned"""
 
             kind               = Attr.Query
             query              = Q.NOT \
@@ -190,7 +190,7 @@ class IP_Network (_Ancestor_Essence) :
         # end class is_free
 
         class owner (A_Id_Entity) :
-            """Owner of the `%(type_name)s`."""
+            """Owner of the `%(ui_type_name)s`."""
 
             kind               = Attr.Optional
             P_Type             = PAP.Subject
@@ -198,14 +198,14 @@ class IP_Network (_Ancestor_Essence) :
         # end class owner
 
         class parent (A_Id_Entity) :
-            """Parent of the `%(type_name)s`."""
+            """Parent of the `%(ui_type_name)s`."""
 
             kind               = Attr.Internal
 
         # end class parent
 
         class pool (A_Id_Entity) :
-            """Pool to which this `%(type_name)s` belongs."""
+            """Pool to which this `%(ui_type_name)s` belongs."""
 
             kind               = Attr.Optional
             Kind_Mixins        = (Attr.Computed_Set_Mixin, )

@@ -769,11 +769,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
                 )
             , Record
                 ( name = "filter"
-                , msg  = _
-                    ( "Restrict details below to objects belonging "
-                      "to %(tn)s %(obj)s"
-                    )
-                , icon = "eye"
+                , msg  =
+                    _ ("Restrict details below to objects belonging to %(tn)s %(obj)s")
+                , icon = "filter"
                 )
             , Record
                 ( name = "firmware"
@@ -787,8 +785,8 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
                 )
             , Record
                 ( name = "reset_password"
-                , msg  = _
-                    ("I forgot my password; reset password of %(tn)s %(obj)s")
+                , msg  =
+                    _ ("I forgot my password; reset password of %(tn)s %(obj)s")
                 , icon = "exclamation"
                 )
             )
