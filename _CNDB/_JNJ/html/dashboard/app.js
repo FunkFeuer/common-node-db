@@ -39,6 +39,9 @@
 //    16-Dec-2014 (CT) Change `initialize_map` to allow `data ("markers")`
 //                     returning a string
 //     7-Apr-2015 (CT) Add `data-etn` to `.url` of `obj_of_row`
+//     1-Jun-2015 (CT) Add `action_cb_wrapper` to guard `.deleted`;
+//                     use `ev.currentTarget`, not `ev.delegateTarget`
+//     1-Jun-2015 (CT) Add `undo_cb`, add `undo` to `delete_cb`
 //    ««revision-date»»···
 //--
 
@@ -88,8 +91,18 @@
         var pat_div_name    = new RegExp (options.app_div_prefix + "(\\w+)$");
         var pat_pid         = new RegExp ("^([^-]+)-(\\d+)$");
         var pat_typ_name    = new RegExp (options.app_typ_prefix + "(\\w+)$");
+        var action_cb_wrapper = function action_cb_wrapper (ev) {
+            var target$     = $(ev.currentTarget);
+            var action_cb   = target$.data ("action");
+            var row$        = closest_el   (target$, "tr");
+            if (row$.hasClass ("deleted")) {
+                return false;
+            } else {
+                return action_cb.call (target$, ev);
+            };
+        };
         var allocate_ip_cb  = function allocate_ip_cb (ev) {
-            var target$     = $(ev.delegateTarget);
+            var target$     = $(ev.currentTarget);
             var pool_pid    = target$.data ("pool-pid");
             var t_row$      = target$.closest ("tr");
             var t_col$      = target$.closest ("td");
@@ -164,7 +177,7 @@
             return false;
         };
         var create_p_cb = function create_p_cb (ev) {
-            var target$ = $(ev.delegateTarget);
+            var target$ = $(ev.currentTarget);
             var menu$   = target$.next ();
             if (menu$.is (":visible")) {
                 menu$.hide ();
@@ -183,16 +196,37 @@
         var delete_cb = function delete_cb (ev) {
             var obj   = obj_of_row (this);
             var success_cb = function success_cb (response, status) {
-                var cs  = $("td", obj.row$).length;
+                var row$   = obj.row$;
+                var cs     = $("td",        row$).length;
+                var csa    = $("td.action", row$).length;
+                var repl, undo_p;
                 if (! response ["error"]) {
-                    obj.row$.html
-                        ( "<td class=\"feedback\" colspan=\"" + cs + "\">"
-                        + (  response.html
-                          || response.replacement
-                          || "Deleted"
-                          )
+                    undo_p = "undo" in response;
+                    repl   =
+                        ( "<td class=\"feedback\" colspan=\""
+                        + (undo_p ? cs - csa : cs)
+                        + "\">"
+                        + response.feedback
                         + "</td>"
                         );
+                    if (undo_p) {
+                        row$.data ("deleted", row$.html ());
+                        row$.data ("undo",    response.undo);
+                        repl =
+                            ( repl
+                            + "<td class=\"action\">"
+                            + "<a class=\"pure-button\" data-action=\"undo\""
+                            + "title=\"" + response.undo.title + "\""
+                            + ">"
+                            + "<i class=\"fa fa-undo\"></i>"
+                            + "</a>"
+                            + "</td>"
+                            );
+                    };
+                    row$.html     (repl);
+                    row$.prop     ("title", "");
+                    setup_buttons (row$);
+                    links_of_obj$ (obj).addClass ("deleted");
                 } else {
                     $GTW.show_message ("Ajax Error: " + response ["error"]);
                 };
@@ -264,7 +298,7 @@
                 };
                 $(all).show ();
                 delete active_filters [typ];
-                a$.removeClass(options.active_button_class);
+                a$.removeClass (options.active_button_class);
             } else {
                 active_filters [typ] = pid;
                 typ_cb = filter_typ_add_cb [typ];
@@ -344,6 +378,10 @@
             target$.remove ();
             return false;
         };
+        var links_of_obj$ = function links_of_obj$ (obj) {
+            var links  = obj_rows_selector_sel (obj.rid);
+            return $(links).not ("[id=\"" + obj.rid + "\"]");
+        };
         var obj_of_row  = function obj_of_row (self) {
             var result  = {};
             var row$    = closest_el       (self, selectors.obj_row)
@@ -360,7 +398,7 @@
         };
         var obj_rows_selector_all = function obj_rows_selector_all (id) {
             var typ = type_of_obj_id (id);
-            return selectors.obj_row + "[class*=\"" + typ + "\"]";
+            return selectors.obj_row + "[class*=\"" + typ + "-\"]";
         };
         var obj_rows_selector_sel = function obj_rows_selector_sel (id) {
             return selectors.obj_row + "[class~=\"" + id + "-\"]";
@@ -372,6 +410,32 @@
         var type_of_obj_id = function type_of_obj_id (id) {
             var groups = id.match (pat_pid);
             return groups [1];
+        };
+        var undo_cb  = function undo_cb (ev) {
+            var obj  = obj_of_row (this);
+            var row$ = obj.row$;
+            var rest = row$.data ("deleted");
+            var undo = row$.data ("undo");
+            var success_cb = function success_cb (response, status) {
+                if (! response ["error"]) {
+                    row$.html     (rest);
+                    row$.data     ("deleted", undefined);
+                    row$.data     ("undo",    undefined);
+                    setup_buttons (row$);
+                    links_of_obj$ (obj).removeClass ("deleted");
+                } else {
+                    $GTW.show_message ("Ajax Error: " + response ["error"]);
+                };
+            };
+            $.gtw_ajax_2json
+                ( { type        : "POST"
+                  , data        : undo
+                  , success     : success_cb
+                  , url         : undo.url
+                  }
+                , "Undo"
+                );
+            return false;
         };
 
         var focus_map_cb = function(e) {
@@ -390,16 +454,17 @@
             l$.show ();
         };
         var setup_buttons = function setup_buttons (context$) {
-            $(selectors.allocate_ip_button, this).on ("click", allocate_ip_cb);
-            $(selectors.create_button,      this).on ("click", create_cb);
-            $(selectors.create_button_p,    this).on ("click", create_p_cb);
-            $(selectors.create_button_t,    this).on ("click", create_t_cb);
-            $(selectors.delete_button,      this).on ("click", delete_cb);
-            $(selectors.edit_button,        this).on ("click", edit_cb);
-            $(selectors.filter_button,      this).on ("click", filter_cb);
-            $(selectors.firmware_button,    this).on ("click", firmware_cb);
-            //$(selectors.graph_button_if,    this).on ("click", graph_interface_cb);
-            $(selectors.graph_button_node,  this).on ("click", graph_cb);
+            var S = selectors;
+            $(S.allocate_ip_button, context$).data ("action", allocate_ip_cb);
+            $(S.create_button,      context$).data ("action", create_cb);
+            $(S.create_button_p,    context$).data ("action", create_p_cb);
+            $(S.create_button_t,    context$).data ("action", create_t_cb);
+            $(S.delete_button,      context$).data ("action", delete_cb);
+            $(S.edit_button,        context$).data ("action", edit_cb);
+            $(S.filter_button,      context$).data ("action", filter_cb);
+            $(S.firmware_button,    context$).data ("action", firmware_cb);
+          //$(S.graph_button_if,    context$).data ("action", graph_interface_cb);
+            $(S.graph_button_node,  context$).data ("action", graph_cb);
         }
         // Define custom actions on filter here
         var filter_typ_add_cb =
@@ -412,6 +477,8 @@
         selectors.filter_active_button =
             "." + options.active_button_class + selectors.filter_button;
         setup_buttons (this);
+        $(this).on ("click", "tr [href^=#]", action_cb_wrapper);
+        $(this).on ("click", "[data-action=\"undo\"]", undo_cb);
         // hide the ip in interface list on ready
         $(document).ready(function () {
             $(selectors.app_div_id).hide ();

@@ -46,6 +46,7 @@
 #                     `Wireless_Interface.standard`
 #     6-Apr-2015 (CT) Use `id_entity_select` for `Antenna.left`,
 #                     `Net_Device.left`
+#     1-Jun-2015 (CT) Enable `Net_Interface_in_IP[46]_Network`
 #    ««revision-date»»···
 #--
 
@@ -214,21 +215,17 @@ class Admin (object) :
         ( ETM                 = "CNDB.OMP.IP6_Pool_permits_Group"
         )
 
+    Net_Interface_in_IP4_Network = dict \
+        ( ETM            = "CNDB.OMP.Net_Interface_in_IP4_Network"
+        )
+
+    Net_Interface_in_IP6_Network = dict \
+        ( ETM            = "CNDB.OMP.Net_Interface_in_IP6_Network"
+        )
+
     if False :
         Device_Type_made_by_Company = dict \
             ( ETM            = "CNDB.OMP.Device_Type_made_by_Company"
-            )
-
-        Net_Interface_in_IP4_Network = dict \
-            ( ETM            = "CNDB.OMP.Net_Interface_in_IP4_Network"
-            )
-
-        Net_Interface_in_IP6_Network = dict \
-            ( ETM            = "CNDB.OMP.Net_Interface_in_IP6_Network"
-            )
-
-        Net_Interface_in_IP_Network = dict \
-            ( ETM            = "CNDB.OMP.Net_Interface_in_IP_Network"
             )
 
         Person_mentors_Person = dict \

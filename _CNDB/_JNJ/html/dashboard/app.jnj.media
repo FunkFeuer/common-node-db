@@ -27,6 +27,7 @@
 #     3-Dec-2014 (CT) Add `Style_File` for `grids-responsive.css`
 #    27-Jan-2015 (CT) Add rules for `.align-center`, `.align-left`,
 #                     `.align-right`
+#     1-Jun-2015 (CT) Add rules for `[data-action=undo]` and `tr.deleted`
 #    ««revision-date»»···
 #--
 
@@ -293,12 +294,16 @@ style_sheet = Style_Sheet \
                                         , height       = Em (1.0)
                                         , width        = Em (1.0)
                                         )
+                                    , Rule
+                                        ( "[data-action=undo] .fa"
+                                        , color        = P.color.m_orange
+                                        , width        = Em (2.75)
+                                        )
                                     ]
                                 )
                             , Rule_Attr
                                 ( ".feedback"
                                 , text_align           = "center"
-                                , width                = Percent (100)
                                 )
                             , Rule_Attr
                                 ( "[colspan]"
@@ -342,7 +347,11 @@ style_sheet = Style_Sheet \
                     , Rule
                         ( "tbody tr"
                         , children     =
-                            [ Rule_Pseudo
+                            [ Rule_Class
+                                ( "deleted"
+                                , opacity          = 0.5
+                                )
+                            , Rule_Pseudo
                                 ( "hover"
                                 , background_color = "#f2f2f2"
                                 )
