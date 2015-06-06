@@ -3,7 +3,7 @@
     "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg class="MOM-Graph" preserveAspectRatio="xMinYMin" version="1.1"
-     viewBox="0 0 1920 1750" width="100%"
+     viewBox="0 0 1600 2050" width="100%"
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
 >
@@ -62,16 +62,14 @@
     <title>
       CNDB.Antenna_Band: Frequency Band of an antenna type
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
           y="75"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1689"
-          y="75"
-    >
-      <tspan dx="0" dy="27.0" x="1689">
+    <text fill="#003" font-family="sans-serif" font-size="18" x="729" y="75">
+      <tspan dx="0" dy="27.0" x="729">
         CNDB.Antenna
       </tspan>
-      <tspan dx="9" dy="27.0" x="1689">
+      <tspan dx="9" dy="27.0" x="729">
         _Band
       </tspan>
     </text>
@@ -80,16 +78,14 @@
     <title>
       CNDB.Antenna_Type: Model the type of antennas in CNDB.OMP.
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
           y="75"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
-          y="75"
-    >
-      <tspan dx="0" dy="27.0" x="1369">
+    <text fill="#003" font-family="sans-serif" font-size="18" x="409" y="75">
+      <tspan dx="0" dy="27.0" x="409">
         CNDB.Antenna
       </tspan>
-      <tspan dx="9" dy="27.0" x="1369">
+      <tspan dx="9" dy="27.0" x="409">
         _Type
       </tspan>
     </text>
@@ -111,16 +107,16 @@
     <title>
       CNDB.Device_Type: Model the type of devices in CNDB.OMP.
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
           y="375"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="409"
           y="375"
     >
-      <tspan dx="0" dy="27.0" x="1369">
+      <tspan dx="0" dy="27.0" x="409">
         CNDB.Device
       </tspan>
-      <tspan dx="9" dy="27.0" x="1369">
+      <tspan dx="9" dy="27.0" x="409">
         _Type
       </tspan>
     </text>
@@ -131,13 +127,13 @@
     <title>
       CNDB.Device_Type_made_by_Company: Model manufacturer of device-type.
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
           y="375"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
           y="375"
     >
-      <tspan dx="0" dy="27.0" x="1049">
+      <tspan dx="0" dy="27.0" x="729">
         _made_by_
       </tspan>
     </text>
@@ -146,16 +142,16 @@
     <title>
       CNDB.IP4_Network: IPv4 Network of CNDB
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
           y="1575"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
           y="1575"
     >
-      <tspan dx="0" dy="27.0" x="1369">
+      <tspan dx="0" dy="27.0" x="1049">
         CNDB.IP4
       </tspan>
-      <tspan dx="9" dy="27.0" x="1369">
+      <tspan dx="9" dy="27.0" x="1049">
         _Network
       </tspan>
     </text>
@@ -164,16 +160,16 @@
     <title>
       CNDB.IP6_Network: IPv6 Network of CNDB
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
           y="1575"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1689"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
           y="1575"
     >
-      <tspan dx="0" dy="27.0" x="1689">
+      <tspan dx="0" dy="27.0" x="1369">
         CNDB.IP6
       </tspan>
-      <tspan dx="9" dy="27.0" x="1689">
+      <tspan dx="9" dy="27.0" x="1369">
         _Network
       </tspan>
     </text>
@@ -182,17 +178,66 @@
     <title>
       CNDB.IP_Network: IP Network of CNDB
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
           y="1275"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1689"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
           y="1275"
     >
-      <tspan dx="0" dy="27.0" x="1689">
+      <tspan dx="0" dy="27.0" x="1369">
         CNDB.IP
       </tspan>
-      <tspan dx="9" dy="27.0" x="1689">
+      <tspan dx="9" dy="27.0" x="1369">
         _Network
+      </tspan>
+    </text>
+  </g>
+  <g id="CNDB.IP_Network_in_IP_Pool" fill="#EDEDED" class="E_Type"
+     opacity="0.6"
+  >
+    <title>
+      CNDB.IP_Network_in_IP_Pool: IP networks in an IP pool.
+    </title>
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+          y="975"
+    />
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
+          y="975"
+    >
+      <tspan dx="0" dy="27.0" x="1369">
+        _in_
+      </tspan>
+    </text>
+  </g>
+  <g id="CNDB.IP_Pool" fill="#EDEDED" class="E_Type" opacity="0.6">
+    <title>
+      CNDB.IP_Pool: Attributes of an IP network pool.
+    </title>
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+          y="675"
+    />
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
+          y="675"
+    >
+      <tspan dx="0" dy="27.0" x="1369">
+        CNDB.IP_Pool
+      </tspan>
+    </text>
+  </g>
+  <g id="CNDB.IP_Pool_permits_Group" fill="#EDEDED" class="E_Type"
+     opacity="0.6"
+  >
+    <title>
+      CNDB.IP_Pool_permits_Group: Permission of a group on ip_pool.
+    </title>
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+          y="375"
+    />
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
+          y="375"
+    >
+      <tspan dx="0" dy="27.0" x="1369">
+        _permits_
       </tspan>
     </text>
   </g>
@@ -201,10 +246,10 @@
       CNDB.Net_Device: Model a network device of CNDB.OMP.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
-          y="675"
+          y="975"
     />
     <text fill="#003" font-family="sans-serif" font-size="18" x="409"
-          y="675"
+          y="975"
     >
       <tspan dx="0" dy="27.0" x="409">
         CNDB.Net
@@ -218,16 +263,16 @@
     <title>
       CNDB.Net_Device_Type: Model the type of network devices in CNDB.OMP.
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
           y="675"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="409"
           y="675"
     >
-      <tspan dx="0" dy="27.0" x="1369">
+      <tspan dx="0" dy="27.0" x="409">
         CNDB.Net
       </tspan>
-      <tspan dx="9" dy="27.0" x="1369">
+      <tspan dx="9" dy="27.0" x="409">
         _Device_Type
       </tspan>
     </text>
@@ -236,16 +281,16 @@
     <title>
       CNDB.Net_Interface: Model a network interface of a CNDB device
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
-          y="975"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
+          y="1275"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
-          y="975"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
+          y="1275"
     >
-      <tspan dx="0" dy="27.0" x="1049">
+      <tspan dx="0" dy="27.0" x="729">
         CNDB.Net
       </tspan>
-      <tspan dx="9" dy="27.0" x="1049">
+      <tspan dx="9" dy="27.0" x="729">
         _Interface
       </tspan>
     </text>
@@ -256,13 +301,13 @@
     <title>
       CNDB.Net_Interface_in_IP_Network: Net interface in IP network
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
-          y="975"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
+          y="1275"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1689"
-          y="975"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
+          y="1275"
     >
-      <tspan dx="0" dy="27.0" x="1689">
+      <tspan dx="0" dy="27.0" x="1049">
         _in_
       </tspan>
     </text>
@@ -271,13 +316,13 @@
     <title>
       CNDB.Net_Link: Link between two network interfaces.
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
-          y="1275"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
+          y="1575"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
-          y="1275"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
+          y="1575"
     >
-      <tspan dx="0" dy="27.0" x="1049">
+      <tspan dx="0" dy="27.0" x="729">
         CNDB.Net_Link
       </tspan>
     </text>
@@ -286,13 +331,13 @@
     <title>
       CNDB.Node: Model a node of CNDB
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
-          y="375"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
+          y="675"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="409"
-          y="375"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
+          y="675"
     >
-      <tspan dx="0" dy="27.0" x="409">
+      <tspan dx="0" dy="27.0" x="729">
         CNDB.Node
       </tspan>
     </text>
@@ -301,16 +346,16 @@
     <title>
       CNDB.Wired_Interface: Wired interface of a CNDB device
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
-          y="975"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
+          y="1575"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
-          y="975"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="409"
+          y="1575"
     >
-      <tspan dx="0" dy="27.0" x="1369">
+      <tspan dx="0" dy="27.0" x="409">
         CNDB.Wired
       </tspan>
-      <tspan dx="9" dy="27.0" x="1369">
+      <tspan dx="9" dy="27.0" x="409">
         _Interface
       </tspan>
     </text>
@@ -320,9 +365,11 @@
       CNDB.Wireless_Channel: Wireless channel of a wireless standard
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
-          y="975"
+          y="1575"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="89" y="975">
+    <text fill="#003" font-family="sans-serif" font-size="18" x="89"
+          y="1575"
+    >
       <tspan dx="0" dy="27.0" x="89">
         CNDB.Wireless
       </tspan>
@@ -337,16 +384,16 @@
     <title>
       CNDB.Wireless_Interface: Wireless interface of a CNDB device
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
-          y="975"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
+          y="1275"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
-          y="975"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="409"
+          y="1275"
     >
-      <tspan dx="0" dy="27.0" x="729">
+      <tspan dx="0" dy="27.0" x="409">
         CNDB.Wireless
       </tspan>
-      <tspan dx="9" dy="27.0" x="729">
+      <tspan dx="9" dy="27.0" x="409">
         _Interface
       </tspan>
     </text>
@@ -358,9 +405,9 @@
       CNDB.Wireless_Interface_uses_Antenna: Antenna used by a wireless interface
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
-          y="675"
+          y="975"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="89" y="675">
+    <text fill="#003" font-family="sans-serif" font-size="18" x="89" y="975">
       <tspan dx="0" dy="27.0" x="89">
         _uses_
       </tspan>
@@ -372,13 +419,13 @@
     <title>
       CNDB.Wireless_Interface_uses_Wireless_Channel: Wireless channel used by a wireless interface
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="400"
-          y="975"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
+          y="1275"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="409"
-          y="975"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="89"
+          y="1275"
     >
-      <tspan dx="0" dy="27.0" x="409">
+      <tspan dx="0" dy="27.0" x="89">
         _uses_
       </tspan>
     </text>
@@ -388,10 +435,10 @@
       CNDB.Wireless_Standard: Wireless standard
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="80"
-          y="1275"
+          y="1875"
     />
     <text fill="#003" font-family="sans-serif" font-size="18" x="89"
-          y="1275"
+          y="1875"
     >
       <tspan dx="0" dy="27.0" x="89">
         CNDB.Wireless
@@ -408,17 +455,35 @@
              interface.
           
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1680"
-          y="675"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
+          y="975"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="1689"
-          y="675"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
+          y="975"
     >
-      <tspan dx="0" dy="27.0" x="1689">
+      <tspan dx="0" dy="27.0" x="729">
         CNDB._Net
       </tspan>
-      <tspan dx="9" dy="27.0" x="1689">
+      <tspan dx="9" dy="27.0" x="729">
         _Credentials_
+      </tspan>
+    </text>
+  </g>
+  <g id="PAP.Adhoc_Group" fill="#EDEDED" class="E_Type" opacity="1.0">
+    <title>
+      PAP.Adhoc_Group: Adhoc group of persons.
+    </title>
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1360"
+          y="75"
+    />
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1369"
+          y="75"
+    >
+      <tspan dx="0" dy="27.0" x="1369">
+        PAP.Adhoc
+      </tspan>
+      <tspan dx="9" dy="27.0" x="1369">
+        _Group
       </tspan>
     </text>
   </g>
@@ -427,13 +492,28 @@
       PAP.Company: Model a company.
     </title>
     <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
-          y="675"
+          y="75"
     />
     <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
-          y="675"
+          y="75"
     >
       <tspan dx="0" dy="27.0" x="1049">
         PAP.Company
+      </tspan>
+    </text>
+  </g>
+  <g id="PAP.Group" fill="#EDEDED" class="E_Type" opacity="0.6">
+    <title>
+      PAP.Group: Model a group of persons.
+    </title>
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
+          y="375"
+    />
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
+          y="375"
+    >
+      <tspan dx="0" dy="27.0" x="1049">
+        PAP.Group
       </tspan>
     </text>
   </g>
@@ -441,13 +521,13 @@
     <title>
       PAP.Person: Model a person.
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
-          y="375"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
+          y="975"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
-          y="375"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
+          y="975"
     >
-      <tspan dx="0" dy="27.0" x="729">
+      <tspan dx="0" dy="27.0" x="1049">
         PAP.Person
       </tspan>
     </text>
@@ -456,13 +536,13 @@
     <title>
       PAP.Subject: Model a legal subject, i.e., a person or company.
     </title>
-    <rect height="100" stroke="#999" stroke-width="4" width="160" x="720"
+    <rect height="100" stroke="#999" stroke-width="4" width="160" x="1040"
           y="675"
     />
-    <text fill="#003" font-family="sans-serif" font-size="18" x="729"
+    <text fill="#003" font-family="sans-serif" font-size="18" x="1049"
           y="675"
     >
-      <tspan dx="0" dy="27.0" x="729">
+      <tspan dx="0" dy="27.0" x="1049">
         PAP.Subject
       </tspan>
     </text>
@@ -472,9 +552,9 @@
       CNDB.Antenna role antenna_type: Type of Antenna
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="240,125 1360,125" stroke="#666" stroke-width="5"
+              points="240,125 400,125" stroke="#666" stroke-width="5"
     />
-    <path d="M 240 125 L 1360 125"
+    <path d="M 240 125 L 400 125"
           id="CNDB.Antenna.left:CNDB.Antenna_Type::path" fill="none"
           stroke="none"
     >
@@ -493,10 +573,10 @@
     <title>
       CNDB.Antenna is-a CNDB.Device: CNDB.Antenna is derived from CNDB.Device
     </title>
-    <polyline fill="none" marker-end="url(#MOM:IM)" points="120,175 120,375"
+    <polyline fill="none" marker-end="url(#MOM:IM)" points="160,175 160,375"
               stroke="#08D" stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 120 175 L 120 375" id="CNDB.Antenna:is_a:CNDB.Device::path"
+    <path d="M 160 175 L 160 375" id="CNDB.Antenna:is_a:CNDB.Device::path"
           fill="none" stroke="none"
     >
     </path>
@@ -517,9 +597,9 @@
       CNDB.Antenna_Band role antenna_type: The antenna type for this band
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1680,125 1520,125" stroke="#666" stroke-width="5"
+              points="720,125 560,125" stroke="#666" stroke-width="5"
     />
-    <path d="M 1520 125 L 1680 125"
+    <path d="M 560 125 L 720 125"
           id="CNDB.Antenna_Band.left:CNDB.Antenna_Type::path" fill="none"
           stroke="none"
     >
@@ -538,11 +618,10 @@
     <title>
       CNDB.Antenna_Type is-a CNDB.Device_Type: CNDB.Antenna_Type is derived from CNDB.Device_Type
     </title>
-    <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="1480,175 1480,375" stroke="#08D" stroke-opacity="0.45"
-              stroke-width="5"
+    <polyline fill="none" marker-end="url(#MOM:IM)" points="480,175 480,375"
+              stroke="#08D" stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 1480 175 L 1480 375"
+    <path d="M 480 175 L 480 375"
           id="CNDB.Antenna_Type:is_a:CNDB.Device_Type::path" fill="none"
           stroke="none"
     >
@@ -564,10 +643,9 @@
       CNDB.Device role type: Type of Device
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="200,375 200,275 1400,275 1400,375" stroke="#666"
-              stroke-width="5"
+              points="240,425 400,425" stroke="#666" stroke-width="5"
     />
-    <path d="M 200 375 L 200 275"
+    <path d="M 240 425 L 400 425"
           id="CNDB.Device.left:CNDB.Device_Type::path" fill="none"
           stroke="none"
     >
@@ -589,15 +667,15 @@
       CNDB.Device_Type_made_by_Company role device_type: Device type.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1200,425 1360,425" stroke="#666" stroke-width="5"
+              points="720,425 560,425" stroke="#666" stroke-width="5"
     />
-    <path d="M 1200 425 L 1360 425"
+    <path d="M 560 425 L 720 425"
           id="CNDB.Device_Type_made_by_Company.left:CNDB.Device_Type::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
-      <textPath startOffset="10%" text-anchor="start"
+      <textPath startOffset="90%" text-anchor="end"
                 xlink:href="#CNDB.Device_Type_made_by_Company.left:CNDB.Device_Type::path"
       >
         <tspan dy="-7.0">
@@ -606,7 +684,7 @@
       </textPath>
     </text>
     <text fill="#666" font-family="sans-serif" font-size="18">
-      <textPath startOffset="10%" text-anchor="start"
+      <textPath startOffset="90%" text-anchor="end"
                 xlink:href="#CNDB.Device_Type_made_by_Company.left:CNDB.Device_Type::path"
       >
         <tspan dy="18">
@@ -620,15 +698,16 @@
       CNDB.Device_Type_made_by_Company role manufacturer: Company manufacturing the device-type.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1120,475 1120,675" stroke="#666" stroke-width="5"
+              points="880,425 920,425 920,125 1040,125" stroke="#666"
+              stroke-width="5"
     />
-    <path d="M 1120 475 L 1120 675"
+    <path d="M 920 425 L 920 125"
           id="CNDB.Device_Type_made_by_Company.right:PAP.Company::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
-      <textPath startOffset="10%" text-anchor="start"
+      <textPath startOffset="2%" text-anchor="start"
                 xlink:href="#CNDB.Device_Type_made_by_Company.right:PAP.Company::path"
       >
         <tspan dy="-7.0">
@@ -642,10 +721,10 @@
       CNDB.IP4_Network is-a CNDB.IP_Network: CNDB.IP4_Network is derived from CNDB.IP_Network
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="1440,1575 1440,1550 1720,1550 1720,1375" stroke="#08D"
+              points="1120,1575 1120,1550 1400,1550 1400,1375" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 1440 1550 L 1720 1550"
+    <path d="M 1120 1550 L 1400 1550"
           id="CNDB.IP4_Network:is_a:CNDB.IP_Network::path" fill="none"
           stroke="none"
     >
@@ -667,10 +746,10 @@
       CNDB.IP6_Network is-a CNDB.IP_Network: CNDB.IP6_Network is derived from CNDB.IP_Network
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="1800,1575 1800,1375" stroke="#08D"
+              points="1480,1575 1480,1375" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 1800 1575 L 1800 1375"
+    <path d="M 1480 1575 L 1480 1375"
           id="CNDB.IP6_Network:is_a:CNDB.IP_Network::path" fill="none"
           stroke="none"
     >
@@ -687,21 +766,117 @@
       </textPath>
     </text>
   </g>
+  <g id="CNDB.IP_Network_in_IP_Pool.left:CNDB.IP_Network" opacity="1.0">
+    <title>
+      CNDB.IP_Network_in_IP_Pool role ip_network: IP network.
+    </title>
+    <polyline fill="none" marker-start="url(#MOM:RM)"
+              points="1440,1075 1440,1275" stroke="#666" stroke-width="5"
+    />
+    <path d="M 1440 1075 L 1440 1275"
+          id="CNDB.IP_Network_in_IP_Pool.left:CNDB.IP_Network::path"
+          fill="none" stroke="none"
+    >
+    </path>
+    <text fill="#666" font-family="sans-serif" font-size="18">
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#CNDB.IP_Network_in_IP_Pool.left:CNDB.IP_Network::path"
+      >
+        <tspan dy="-7.0">
+          left
+        </tspan>
+      </textPath>
+    </text>
+    <text fill="#666" font-family="sans-serif" font-size="18">
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#CNDB.IP_Network_in_IP_Pool.left:CNDB.IP_Network::path"
+      >
+        <tspan dy="18">
+          0 .. 1
+        </tspan>
+      </textPath>
+    </text>
+  </g>
+  <g id="CNDB.IP_Network_in_IP_Pool.right:CNDB.IP_Pool" opacity="1.0">
+    <title>
+      CNDB.IP_Network_in_IP_Pool role ip_pool: IP pool.
+    </title>
+    <polyline fill="none" marker-start="url(#MOM:RM)"
+              points="1440,975 1440,775" stroke="#666" stroke-width="5"
+    />
+    <path d="M 1440 975 L 1440 775"
+          id="CNDB.IP_Network_in_IP_Pool.right:CNDB.IP_Pool::path"
+          fill="none" stroke="none"
+    >
+    </path>
+    <text fill="#666" font-family="sans-serif" font-size="18">
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#CNDB.IP_Network_in_IP_Pool.right:CNDB.IP_Pool::path"
+      >
+        <tspan dy="-7.0">
+          right
+        </tspan>
+      </textPath>
+    </text>
+  </g>
+  <g id="CNDB.IP_Pool_permits_Group.left:CNDB.IP_Pool" opacity="1.0">
+    <title>
+      CNDB.IP_Pool_permits_Group role ip_pool: IP Pool.
+    </title>
+    <polyline fill="none" marker-start="url(#MOM:RM)"
+              points="1440,475 1440,675" stroke="#666" stroke-width="5"
+    />
+    <path d="M 1440 475 L 1440 675"
+          id="CNDB.IP_Pool_permits_Group.left:CNDB.IP_Pool::path"
+          fill="none" stroke="none"
+    >
+    </path>
+    <text fill="#666" font-family="sans-serif" font-size="18">
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#CNDB.IP_Pool_permits_Group.left:CNDB.IP_Pool::path"
+      >
+        <tspan dy="-7.0">
+          left
+        </tspan>
+      </textPath>
+    </text>
+  </g>
+  <g id="CNDB.IP_Pool_permits_Group.right:PAP.Group" opacity="1.0">
+    <title>
+      CNDB.IP_Pool_permits_Group role group: Permitted Group
+    </title>
+    <polyline fill="none" marker-start="url(#MOM:RM)"
+              points="1360,425 1200,425" stroke="#666" stroke-width="5"
+    />
+    <path d="M 1200 425 L 1360 425"
+          id="CNDB.IP_Pool_permits_Group.right:PAP.Group::path" fill="none"
+          stroke="none"
+    >
+    </path>
+    <text fill="#666" font-family="sans-serif" font-size="18">
+      <textPath startOffset="90%" text-anchor="end"
+                xlink:href="#CNDB.IP_Pool_permits_Group.right:PAP.Group::path"
+      >
+        <tspan dy="-7.0">
+          right
+        </tspan>
+      </textPath>
+    </text>
+  </g>
   <g id="CNDB.Net_Device.left:CNDB.Net_Device_Type" opacity="1.0">
     <title>
       CNDB.Net_Device role net_device_type: Type of Net_Device
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="520,775 520,800 1440,800 1440,775" stroke="#666"
-              stroke-width="5"
+              points="480,975 480,775" stroke="#666" stroke-width="5"
     />
-    <path d="M 520 800 L 1440 800"
+    <path d="M 480 975 L 480 775"
           id="CNDB.Net_Device.left:CNDB.Net_Device_Type::path" fill="none"
           stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
-      <textPath startOffset="2%" text-anchor="start"
+      <textPath startOffset="10%" text-anchor="start"
                 xlink:href="#CNDB.Net_Device.left:CNDB.Net_Device_Type::path"
       >
         <tspan dy="-7.0">
@@ -715,17 +890,17 @@
       CNDB.Net_Device attribute node: `Node` to which the `net_device` is connected.
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
-              points="520,675 520,475" stroke="#FFA022" stroke-opacity="0.7"
-              stroke-width="5"
+              points="520,975 520,950 800,950 800,775" stroke="#FFA022"
+              stroke-opacity="0.7" stroke-width="5"
     />
-    <path d="M 520 675 L 520 475" id="CNDB.Net_Device.node:CNDB.Node::path"
+    <path d="M 520 950 L 800 950" id="CNDB.Net_Device.node:CNDB.Node::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#FFA022" fill-opacity="0.7" font-family="sans-serif"
           font-size="18"
     >
-      <textPath startOffset="10%" text-anchor="start"
+      <textPath startOffset="2%" text-anchor="start"
                 xlink:href="#CNDB.Net_Device.node:CNDB.Node::path"
       >
         <tspan dy="-7.0">
@@ -736,7 +911,7 @@
     <text fill="#FFA022" fill-opacity="0.7" font-family="sans-serif"
           font-size="18"
     >
-      <textPath startOffset="10%" text-anchor="start"
+      <textPath startOffset="2%" text-anchor="start"
                 xlink:href="#CNDB.Net_Device.node:CNDB.Node::path"
       >
         <tspan dy="18">
@@ -750,10 +925,10 @@
       CNDB.Net_Device is-a CNDB.Device: CNDB.Net_Device is derived from CNDB.Device
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="440,675 440,650 160,650 160,475" stroke="#08D"
+              points="440,975 440,950 160,950 160,475" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 160 650 L 440 650"
+    <path d="M 160 950 L 440 950"
           id="CNDB.Net_Device:is_a:CNDB.Device::path" fill="none"
           stroke="none"
     >
@@ -774,11 +949,10 @@
     <title>
       CNDB.Net_Device_Type is-a CNDB.Device_Type: CNDB.Net_Device_Type is derived from CNDB.Device_Type
     </title>
-    <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="1440,675 1440,475" stroke="#08D" stroke-opacity="0.45"
-              stroke-width="5"
+    <polyline fill="none" marker-end="url(#MOM:IM)" points="480,675 480,475"
+              stroke="#08D" stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 1440 675 L 1440 475"
+    <path d="M 480 675 L 480 475"
           id="CNDB.Net_Device_Type:is_a:CNDB.Device_Type::path" fill="none"
           stroke="none"
     >
@@ -800,10 +974,10 @@
       CNDB.Net_Interface role device: Network device the interface is connected to.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1080,975 1080,875 440,875 440,775" stroke="#666"
+              points="760,1275 760,1175 480,1175 480,1075" stroke="#666"
               stroke-width="5"
     />
-    <path d="M 1080 975 L 1080 875"
+    <path d="M 760 1275 L 760 1175"
           id="CNDB.Net_Interface.left:CNDB.Net_Device::path" fill="none"
           stroke="none"
     >
@@ -825,16 +999,15 @@
       CNDB.Net_Interface_in_IP_Network role net_interface: Network interface.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1760,975 1760,925 1160,925 1160,975" stroke="#666"
-              stroke-width="5"
+              points="1040,1325 880,1325" stroke="#666" stroke-width="5"
     />
-    <path d="M 1760 975 L 1760 925"
+    <path d="M 880 1325 L 1040 1325"
           id="CNDB.Net_Interface_in_IP_Network.left:CNDB.Net_Interface::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
-      <textPath startOffset="10%" text-anchor="start"
+      <textPath startOffset="90%" text-anchor="end"
                 xlink:href="#CNDB.Net_Interface_in_IP_Network.left:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
@@ -850,9 +1023,9 @@
       CNDB.Net_Interface_in_IP_Network role ip_network: IP Network.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1760,1075 1760,1275" stroke="#666" stroke-width="5"
+              points="1200,1325 1360,1325" stroke="#666" stroke-width="5"
     />
-    <path d="M 1760 1075 L 1760 1275"
+    <path d="M 1200 1325 L 1360 1325"
           id="CNDB.Net_Interface_in_IP_Network.right:CNDB.IP_Network::path"
           fill="none" stroke="none"
     >
@@ -881,9 +1054,9 @@
       CNDB.Net_Link role left: Left network interface
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1080,1275 1080,1075" stroke="#666" stroke-width="5"
+              points="800,1575 800,1375" stroke="#666" stroke-width="5"
     />
-    <path d="M 1080 1275 L 1080 1075"
+    <path d="M 800 1575 L 800 1375"
           id="CNDB.Net_Link.left:CNDB.Net_Interface::path" fill="none"
           stroke="none"
     >
@@ -903,9 +1076,9 @@
       CNDB.Net_Link role right: Right network interface
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1160,1275 1160,1075" stroke="#666" stroke-width="5"
+              points="840,1575 840,1375" stroke="#666" stroke-width="5"
     />
-    <path d="M 1160 1275 L 1160 1075"
+    <path d="M 840 1575 L 840 1375"
           id="CNDB.Net_Link.right:CNDB.Net_Interface::path" fill="none"
           stroke="none"
     >
@@ -925,10 +1098,10 @@
       CNDB.Node attribute manager: Manager of the node
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
-              points="560,400 680,400 680,700 720,700" stroke="#FFA022"
+              points="880,700 1040,700" stroke="#FFA022"
               stroke-opacity="0.7" stroke-width="5"
     />
-    <path d="M 560 400 L 680 400" id="CNDB.Node.manager:PAP.Subject::path"
+    <path d="M 880 700 L 1040 700" id="CNDB.Node.manager:PAP.Subject::path"
           fill="none" stroke="none"
     >
     </path>
@@ -960,10 +1133,10 @@
       CNDB.Node attribute owner: Owner of the node, defaults to manager
     </title>
     <polyline fill="none" marker-start="url(#MOM:AM)"
-              points="560,425 640,425 640,725 720,725" stroke="#FFA022"
+              points="880,750 1040,750" stroke="#FFA022"
               stroke-opacity="0.7" stroke-width="5"
     />
-    <path d="M 560 425 L 640 425" id="CNDB.Node.owner:PAP.Subject::path"
+    <path d="M 880 750 L 1040 750" id="CNDB.Node.owner:PAP.Subject::path"
           fill="none" stroke="none"
     >
     </path>
@@ -990,39 +1163,15 @@
       </textPath>
     </text>
   </g>
-  <g id="CNDB.Node:is_a:PAP.Subject" opacity="1.0">
-    <title>
-      CNDB.Node is-a PAP.Subject: CNDB.Node is derived from PAP.Subject
-    </title>
-    <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="560,450 600,450 600,750 720,750" stroke="#08D"
-              stroke-opacity="0.45" stroke-width="5"
-    />
-    <path d="M 600 450 L 600 750" id="CNDB.Node:is_a:PAP.Subject::path"
-          fill="none" stroke="none"
-    >
-    </path>
-    <text fill="#08D" fill-opacity="0.45" font-family="sans-serif"
-          font-size="18"
-    >
-      <textPath startOffset="2%" text-anchor="start"
-                xlink:href="#CNDB.Node:is_a:PAP.Subject::path"
-      >
-        <tspan dy="-7.0">
-          IS_A
-        </tspan>
-      </textPath>
-    </text>
-  </g>
   <g id="CNDB.Wired_Interface:is_a:CNDB.Net_Interface" opacity="1.0">
     <title>
       CNDB.Wired_Interface is-a CNDB.Net_Interface: CNDB.Wired_Interface is derived from CNDB.Net_Interface
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="1360,1025 1200,1025" stroke="#08D"
+              points="480,1575 480,1550 760,1550 760,1375" stroke="#08D"
               stroke-opacity="0.45" stroke-width="5"
     />
-    <path d="M 1200 1025 L 1360 1025"
+    <path d="M 480 1550 L 760 1550"
           id="CNDB.Wired_Interface:is_a:CNDB.Net_Interface::path"
           fill="none" stroke="none"
     >
@@ -1030,7 +1179,7 @@
     <text fill="#08D" fill-opacity="0.45" font-family="sans-serif"
           font-size="18"
     >
-      <textPath startOffset="90%" text-anchor="end"
+      <textPath startOffset="2%" text-anchor="start"
                 xlink:href="#CNDB.Wired_Interface:is_a:CNDB.Net_Interface::path"
       >
         <tspan dy="-7.0">
@@ -1044,9 +1193,9 @@
       CNDB.Wireless_Channel role standard: The wireless standard for this channel
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="160,1075 160,1275" stroke="#666" stroke-width="5"
+              points="160,1675 160,1875" stroke="#666" stroke-width="5"
     />
-    <path d="M 160 1075 L 160 1275"
+    <path d="M 160 1675 L 160 1875"
           id="CNDB.Wireless_Channel.left:CNDB.Wireless_Standard::path"
           fill="none" stroke="none"
     >
@@ -1066,10 +1215,10 @@
       CNDB.Wireless_Interface is-a CNDB.Net_Interface: CNDB.Wireless_Interface is derived from CNDB.Net_Interface
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="880,1025 1040,1025" stroke="#08D"
-              stroke-opacity="0.45" stroke-width="5"
+              points="560,1325 720,1325" stroke="#08D" stroke-opacity="0.45"
+              stroke-width="5"
     />
-    <path d="M 880 1025 L 1040 1025"
+    <path d="M 560 1325 L 720 1325"
           id="CNDB.Wireless_Interface:is_a:CNDB.Net_Interface::path"
           fill="none" stroke="none"
     >
@@ -1093,10 +1242,10 @@
       CNDB.Wireless_Interface_uses_Antenna role wireless_interface: Wireless interface.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="160,775 160,925 800,925 800,975" stroke="#666"
+              points="160,1075 160,1225 480,1225 480,1275" stroke="#666"
               stroke-width="5"
     />
-    <path d="M 160 775 L 160 925"
+    <path d="M 160 1075 L 160 1225"
           id="CNDB.Wireless_Interface_uses_Antenna.left:CNDB.Wireless_Interface::path"
           fill="none" stroke="none"
     >
@@ -1118,10 +1267,10 @@
       CNDB.Wireless_Interface_uses_Antenna role antenna: Antenna.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="80,725 40,725 40,125 80,125" stroke="#666"
+              points="80,1025 40,1025 40,125 80,125" stroke="#666"
               stroke-width="5"
     />
-    <path d="M 40 725 L 40 125"
+    <path d="M 40 1025 L 40 125"
           id="CNDB.Wireless_Interface_uses_Antenna.right:CNDB.Antenna::path"
           fill="none" stroke="none"
     >
@@ -1152,9 +1301,9 @@
       CNDB.Wireless_Interface_uses_Wireless_Channel role interface: Wireless interface.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="560,1025 720,1025" stroke="#666" stroke-width="5"
+              points="240,1325 400,1325" stroke="#666" stroke-width="5"
     />
-    <path d="M 560 1025 L 720 1025"
+    <path d="M 240 1325 L 400 1325"
           id="CNDB.Wireless_Interface_uses_Wireless_Channel.left:CNDB.Wireless_Interface::path"
           fill="none" stroke="none"
     >
@@ -1176,15 +1325,15 @@
       CNDB.Wireless_Interface_uses_Wireless_Channel role channel: Wireless channel.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="400,1025 240,1025" stroke="#666" stroke-width="5"
+              points="160,1375 160,1575" stroke="#666" stroke-width="5"
     />
-    <path d="M 240 1025 L 400 1025"
+    <path d="M 160 1375 L 160 1575"
           id="CNDB.Wireless_Interface_uses_Wireless_Channel.right:CNDB.Wireless_Channel::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#666" font-family="sans-serif" font-size="18">
-      <textPath startOffset="90%" text-anchor="end"
+      <textPath startOffset="10%" text-anchor="start"
                 xlink:href="#CNDB.Wireless_Interface_uses_Wireless_Channel.right:CNDB.Wireless_Channel::path"
       >
         <tspan dy="-7.0">
@@ -1198,10 +1347,9 @@
       CNDB._Net_Credentials_ role interface: The network interface using these credentials.
     </title>
     <polyline fill="none" marker-start="url(#MOM:RM)"
-              points="1760,775 1760,875 1120,875 1120,975" stroke="#666"
-              stroke-width="5"
+              points="840,1075 840,1275" stroke="#666" stroke-width="5"
     />
-    <path d="M 1760 775 L 1760 875"
+    <path d="M 840 1075 L 840 1275"
           id="CNDB._Net_Credentials_.left:CNDB.Net_Interface::path"
           fill="none" stroke="none"
     >
@@ -1225,23 +1373,72 @@
       </textPath>
     </text>
   </g>
-  <g id="PAP.Company:is_a:PAP.Subject" opacity="1.0">
+  <g id="PAP.Adhoc_Group:is_a:PAP.Group" opacity="1.0">
     <title>
-      PAP.Company is-a PAP.Subject: PAP.Company is derived from PAP.Subject
+      PAP.Adhoc_Group is-a PAP.Group: PAP.Adhoc_Group is derived from PAP.Group
     </title>
     <polyline fill="none" marker-end="url(#MOM:IM)"
-              points="1040,725 880,725" stroke="#08D" stroke-opacity="0.45"
+              points="1440,175 1440,225 1160,225 1160,375" stroke="#08D"
+              stroke-opacity="0.45" stroke-width="5"
+    />
+    <path d="M 1440 175 L 1440 225"
+          id="PAP.Adhoc_Group:is_a:PAP.Group::path" fill="none"
+          stroke="none"
+    >
+    </path>
+    <text fill="#08D" fill-opacity="0.45" font-family="sans-serif"
+          font-size="18"
+    >
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#PAP.Adhoc_Group:is_a:PAP.Group::path"
+      >
+        <tspan dy="-7.0">
+          IS_A
+        </tspan>
+      </textPath>
+    </text>
+  </g>
+  <g id="PAP.Company:is_a:PAP.Group" opacity="1.0">
+    <title>
+      PAP.Company is-a PAP.Group: PAP.Company is derived from PAP.Group
+    </title>
+    <polyline fill="none" marker-end="url(#MOM:IM)"
+              points="1080,175 1080,375" stroke="#08D" stroke-opacity="0.45"
               stroke-width="5"
     />
-    <path d="M 880 725 L 1040 725" id="PAP.Company:is_a:PAP.Subject::path"
+    <path d="M 1080 175 L 1080 375" id="PAP.Company:is_a:PAP.Group::path"
           fill="none" stroke="none"
     >
     </path>
     <text fill="#08D" fill-opacity="0.45" font-family="sans-serif"
           font-size="18"
     >
-      <textPath startOffset="90%" text-anchor="end"
-                xlink:href="#PAP.Company:is_a:PAP.Subject::path"
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#PAP.Company:is_a:PAP.Group::path"
+      >
+        <tspan dy="-7.0">
+          IS_A
+        </tspan>
+      </textPath>
+    </text>
+  </g>
+  <g id="PAP.Group:is_a:PAP.Subject" opacity="1.0">
+    <title>
+      PAP.Group is-a PAP.Subject: PAP.Group is derived from PAP.Subject
+    </title>
+    <polyline fill="none" marker-end="url(#MOM:IM)"
+              points="1120,475 1120,675" stroke="#08D" stroke-opacity="0.45"
+              stroke-width="5"
+    />
+    <path d="M 1120 475 L 1120 675" id="PAP.Group:is_a:PAP.Subject::path"
+          fill="none" stroke="none"
+    >
+    </path>
+    <text fill="#08D" fill-opacity="0.45" font-family="sans-serif"
+          font-size="18"
+    >
+      <textPath startOffset="10%" text-anchor="start"
+                xlink:href="#PAP.Group:is_a:PAP.Subject::path"
       >
         <tspan dy="-7.0">
           IS_A
@@ -1253,10 +1450,11 @@
     <title>
       PAP.Person is-a PAP.Subject: PAP.Person is derived from PAP.Subject
     </title>
-    <polyline fill="none" marker-end="url(#MOM:IM)" points="800,475 800,675"
-              stroke="#08D" stroke-opacity="0.45" stroke-width="5"
+    <polyline fill="none" marker-end="url(#MOM:IM)"
+              points="1120,975 1120,775" stroke="#08D" stroke-opacity="0.45"
+              stroke-width="5"
     />
-    <path d="M 800 475 L 800 675" id="PAP.Person:is_a:PAP.Subject::path"
+    <path d="M 1120 975 L 1120 775" id="PAP.Person:is_a:PAP.Subject::path"
           fill="none" stroke="none"
     >
     </path>
