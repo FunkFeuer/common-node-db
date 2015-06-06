@@ -36,6 +36,8 @@
 #    11-Dec-2014 (CT) Fix geometry attributes of `Node.manager`
 #     5-Jun-2015 (CT) Remove obsolete link `Node-is_a-Subject`
 #     5-Jun-2015 (CT) Simplify layout to prepare for future additions
+#     6-Jun-2015 (CT) Add `IP_Network_in_IP_Pool`, `IP_Pool_permits_Group`
+#                     + add `PAP.Adhoc_Group`, re-add `PAP.Person`
 #    ««revision-date»»···
 #--
 
@@ -65,13 +67,22 @@ def graph (app_type) :
                     ( Role.right
                         ( IS_A.PAP.Group
                             ( IS_A.PAP.Subject
-                                ( offset = CD.S
+                                ( Child.PAP.Person
+                                    ( offset       = CD.S
+                                    )
+                                , offset       = CD.S
                                 )
-                            , offset = CD.S
+                            , Child.PAP.Adhoc_Group
+                                ( guide_offset = 0.5
+                                , offset       = CD.NE
+                                )
+                            , offset       = CD.S
                             )
-                        , offset = CD.NE
+                        , offset       = CD.NE
+                        , source_side  = "E"
+                        , target_side  = "W"
                         )
-                    , offset = CD.E
+                    , offset       = CD.E
                     )
                 , offset       = CD.E
                 )
@@ -79,9 +90,9 @@ def graph (app_type) :
                 ( Role.left
                     ( IS_A.CNDB.Device_Type
                     , ET.CNDB.Antenna_Band (offset = CD.E)
-                    , offset = CD.E
+                    , offset       = CD.E
                     )
-                , offset = CD.N
+                , offset       = CD.N
                 )
             , Child.CNDB.Net_Device
                 ( Role.left
@@ -110,18 +121,27 @@ def graph (app_type) :
             , ET.CNDB.Net_Link (offset = CD.S)
             , ET.CNDB._Net_Credentials_
                 ( Role.left (guide_offset = 1.0)
-                , offset = CD.N
+                , offset       = CD.N
                 )
             , ET.CNDB.Net_Interface_in_IP_Network
                 ( Role.right
-                    ( Child.CNDB.IP4_Network (offset = CD.SW)
+                    ( ET.CNDB.IP_Network_in_IP_Pool
+                        ( Role.right
+                            ( ET.CNDB.IP_Pool_permits_Group
+                                ( offset       = CD.N
+                                )
+                            , offset       = CD.N
+                            )
+                        , offset       = CD.N
+                        )
+                    , Child.CNDB.IP4_Network (offset = CD.SW)
                     , Child.CNDB.IP6_Network (offset = CD.S)
                     , offset = CD.E
                     )
                 , Role.left
                     ( guide_offset = 0.5
                     )
-                , offset = CD.E
+                , offset       = CD.E
                 )
             , Child.CNDB.Wireless_Interface
                 ( Skip.left
@@ -134,22 +154,22 @@ def graph (app_type) :
                         , source_side = "W"
                         , target_side = "W"
                         )
-                    , offset = CD.N + CD.W
+                    , offset       = CD.N + CD.W
                     )
                 , ET.CNDB.Wireless_Interface_uses_Wireless_Channel
                     ( Role.right
                         ( Role.left
-                            ( offset = CD.S
+                            ( offset       = CD.S
                             )
-                        , offset = CD.S
+                        , offset       = CD.S
                         )
-                    , offset = CD.W
+                    , offset       = CD.W
                     )
-                , offset = CD.W
+                , offset       = CD.W
                 )
             , Child.CNDB.Wired_Interface
                 ( Skip.left
-                , offset = CD.SW
+                , offset       = CD.SW
                 )
             )
         , desc  = _T ("Graph displaying Funkfeuer object model")
