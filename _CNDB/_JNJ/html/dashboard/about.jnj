@@ -30,7 +30,7 @@
       Das ist das neue user-interface für die Common Node DB (“nodeDB”).
       {%- block source_code -%}
         Den Source Code dazu findest du auf
-        <a href="http://github.com/CNDB/CNDB/">github</a>.
+        <a href="http://github.com/FunkFeuer/common-node-db">github</a>.
       {%- endblock source_code -%}
     </p>
   </section>
