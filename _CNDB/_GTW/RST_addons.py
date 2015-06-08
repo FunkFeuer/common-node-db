@@ -108,6 +108,10 @@
 #     7-Apr-2015 (CT) Add `_DB_Base_.__getitem__`, `._db_etn_map`
 #     7-Apr-2015 (CT) Add `Div_Name_T`
 #     7-Apr-2015 (CT) Use literal `Div_Name_T` for `DB_Interface_in_IP_Network`
+#     8-Jun-2015 (CT) Add `Is_Deleter`, `Undo`, `_DB_E_Type_CNDB_`,
+#                     and `_DB_E_Type_CNDB_.child_permission_map`
+#     8-Jun-2015 (CT) Add `DB_Node.child_postconditions_map`,
+#                     fix `Node_Manager_Error`
 #    ««revision-date»»···
 #--
 
@@ -134,12 +138,14 @@ from   _MOM.import_MOM          import Q
 
 from   _TFL._Meta.Once_Property import Once_Property
 from   _TFL.Decorator           import getattr_safe, Add_New_Method, Decorator
+from   _TFL.formatted_repr      import formatted_repr as formatted
 from   _TFL.I18N                import _, _T, _Tn
 from   _TFL.predicate           import filtered_join
 from   _TFL.Record              import Record
 from   _TFL.update_combined     import update_combined
 
 from   itertools                import chain as ichain
+from   posixpath                import join  as pp_join
 
 class Node_Manager_Error (MOM.Error._Invariant_, TypeError) :
     """You are not allowed to change owner or manager unless after the change
@@ -180,17 +186,40 @@ class Node_Manager_Error (MOM.Error._Invariant_, TypeError) :
         return result
     # end def as_unicode
 
-    @Once_Property
+    @property
     def bindings (self) :
         return zip (self.attributes, self.values)
     # end def bindings
 
-    @Once_Property
+    @property
     def head (self) :
-        return pyk.text_type (self)
+        return self.as_unicode
     # end def head
 
 # end class Node_Manager_Error
+
+class Is_Deleter (GTW.RST._Permission_) :
+    """Permission if user is the deleter of the object"""
+
+    def predicate (self, user, page, * args, ** kw) :
+        if user :
+            try :
+                scope    = page.scope
+                r_data   = page.request.req_data
+                change   = scope.query_changes \
+                    (cid = r_data ["cid"], pid = r_data ["pid"]).one ()
+                c_user   = scope.pid_query (change.user) \
+                    if isinstance (change.user, pyk.int_types) else change.user
+                return c_user is user
+            except Exception as exc :
+                logging.exception \
+                    ( "Exception for permission Is_Deleter: "
+                      "user = %s, page = %s, request-data =\n     %s"
+                    , user, page.abs_href, formatted (r_data)
+                    )
+    # end def predicate
+
+# end class Is_Deleter
 
 class Is_Owner_or_Manager (GTW.RST._Permission_) :
     """Permission if user is the owner or manager of the object"""
@@ -250,6 +279,7 @@ class User_Entity (_Ancestor) :
     child_permission_map      = dict \
         ( change              = Is_Owner_or_Manager
         , delete              = Is_Owner_or_Manager
+        , undo                = Is_Deleter
         )
     child_postconditions_map  = dict \
         ( create              = (_pre_commit_entity_check, )
@@ -705,7 +735,22 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
         _real_name         = "Instance"
 
+        def _rendered_delete (self, request, response, obj) :
+            result = self.__super._rendered_delete (request, response, obj)
+            if result.get ("undo") :
+                scope  = self.top.scope
+                change = scope.uncommitted_changes [-1]
+                result ["undo"] ["url"] = pp_join (self.parent.abs_href, "undo")
+            return result
+        # end def _rendered_delete
+
     Instance = _FF_Instance_ # end class
+
+    class _FF_Undoer_ (_MF3_Mixin.Undoer) :
+
+        _real_name        = "Undoer"
+
+    Undoer = _FF_Undoer_ # end class
 
     class _DB_E_Type_GET_ (_Ancestor.GET) :
 
@@ -1102,6 +1147,21 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
 # end class _DB_E_Type_
 
+class _DB_E_Type_CNDB_ (_DB_E_Type_) :
+    """CNDB specific E_Type displayed by, and managed via, dashboard."""
+
+    child_permission_map      = dict \
+        ( change              = Is_Owner_or_Manager
+        , delete              = Is_Owner_or_Manager
+        , undo                = Is_Deleter
+        )
+    child_postconditions_map  = dict \
+        ( create              = (_pre_commit_entity_check, )
+        , change              = (_pre_commit_entity_check, )
+        )
+
+# end class _DB_E_Type_CNDB_
+
 class _DB_Person_Property_ (_DB_E_Type_) :
 
     view_action_names     = ("delete", )
@@ -1164,12 +1224,12 @@ class DB_Address (_DB_Person_Property_) :
 
 # end class DB_Address
 
-class DB_Device (_DB_E_Type_) :
+class DB_Device (_DB_E_Type_CNDB_) :
     """CNDB.Net_Device displayed by, and managed via, dashboard."""
 
     type_name             = "CNDB.Net_Device"
 
-    view_action_names     = _DB_E_Type_.view_action_names
+    view_action_names     = _DB_E_Type_CNDB_.view_action_names
     view_field_names      = \
         ( "name"
         , "my_node.name"
@@ -1209,7 +1269,7 @@ class DB_IM_Handle (_DB_Person_Property_) :
 
 # end class DB_IM_Handle
 
-_Ancestor = _DB_E_Type_
+_Ancestor = _DB_E_Type_CNDB_
 
 class _DB_Interface_ (_Ancestor) :
 
@@ -1227,13 +1287,13 @@ class _DB_Interface_ (_Ancestor) :
 
     # end class _DBI_Action_Override_
 
-    class _DBI_Creator (_DBI_Action_Override_, _DB_E_Type_.Creator) :
+    class _DBI_Creator (_DBI_Action_Override_, _Ancestor.Creator) :
 
         _real_name         = "Creator"
 
     Creator = _DBI_Creator # end class
 
-    class _DBI_Instance_ (_DBI_Action_Override_, _DB_E_Type_.Instance) :
+    class _DBI_Instance_ (_DBI_Action_Override_, _Ancestor.Instance) :
 
         _real_name         = "Instance"
 
@@ -1260,8 +1320,8 @@ class DB_Interface (_Ancestor) :
         )
 
     _field_type_map       = dict \
-        ( _DB_E_Type_._field_type_map
-        , ip4_networks    = _DB_E_Type_._Field_IP_Addresses_
+        ( _DB_E_Type_CNDB_._field_type_map
+        , ip4_networks    = _DB_E_Type_CNDB_._Field_IP_Addresses_
         )
 
     def tr_instance_css_class (self, o) :
@@ -1299,7 +1359,7 @@ if 0 : ### Add this when there is an instance of User_Virtual_Wireless_Interface
 
     # end class DB_Virtual_Wireless_Interface
 
-_Ancestor = _DB_E_Type_
+_Ancestor = _DB_E_Type_CNDB_
 
 class DB_Interface_in_IP_Network (_Ancestor) :
     """CNDB.Net_Interface_in_IP_Network links for a single Net_Interface
@@ -1320,9 +1380,9 @@ class DB_Interface_in_IP_Network (_Ancestor) :
         )
 
     _field_type_map       = dict \
-        ( _DB_E_Type_._field_type_map
-        , ** { "right.net_address"      : _DB_E_Type_._Field_IP_Address_
-             , "right.pool.net_address" : _DB_E_Type_._Field_IP_Network_
+        ( _Ancestor._field_type_map
+        , ** { "right.net_address"      : _Ancestor._Field_IP_Address_
+             , "right.pool.net_address" : _Ancestor._Field_IP_Network_
              }
         )
 
@@ -1456,10 +1516,16 @@ class DB_Interface_in_IP_Network (_Ancestor) :
 
 # end class DB_Interface_in_IP_Network
 
-class DB_Node (_DB_E_Type_) :
+class DB_Node (_DB_E_Type_CNDB_) :
     """CNDB.Node displayed by, and managed via, dashboard."""
 
     app_div_class         = "pure-u-1 pure-u-md-1-2"
+
+    child_postconditions_map  = dict \
+        ( _DB_E_Type_CNDB_.child_postconditions_map
+        , change = (_pre_commit_node_check, _pre_commit_entity_check)
+        )
+
     type_name             = "CNDB.Node"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_node_map"
 
