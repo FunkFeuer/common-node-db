@@ -49,7 +49,7 @@ msgstr "Emailadresse des Benutzerkontos"
 
 #: _CNDB/_JNJ/html/login.jnj:109
 msgid "I forgot my password"
-msgstr "Ich habe mein Kennwort vergessen"
+msgstr "Kennwort vergessen"
 
 #: _CNDB/_JNJ/html/login.jnj:105
 msgid "I forgot my password; send me a temporary one to my email address"
@@ -88,4 +88,3 @@ msgstr ""
 #: _CNDB/_JNJ/html/base.jnj:45
 msgid "Top of page"
 msgstr "Beginn der Seite"
-
