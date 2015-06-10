@@ -1,6 +1,6 @@
 {#- jinja template: html/dashboard/app.jnj -#}
 {#
-## Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************
 ## This module is licensed under the terms of the BSD 3-Clause License
@@ -26,16 +26,18 @@
 ##     9-Jul-2014 (CT) Factor out Funkfeuer specific stuff
 ##    14-Jul-2014 (CT) Fix `{{ title }}` access in block `title`
 ##     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
+##    10-Jun-2015 (CT) Add `page_notifications` to display feedback from `/Auth`
 ##    ««revision-date»»···
 ##--
 #}
 
-{%- import (html_version or "html/5.jnj") as X -%}
-{%- import "html/media_fragments.jnj"     as MF      with context %}
-{%- import "html/dashboard/app.m.jnj"     as DB      with context %}
-{%- import "html/dashboard/edit.m.jnj"    as DB_Edit with context %}
-{%- import "html/dashboard/user.m.jnj"    as DB_User with context %}
-{%- import "html/dashboard/view.m.jnj"    as DB_View with context %}
+{%- import (html_version or "html/5.jnj")   as X -%}
+{%- import "html/page_notifications.m.jnj"  as PN with context %}
+{%- import "html/media_fragments.jnj"       as MF      with context %}
+{%- import "html/dashboard/app.m.jnj"       as DB      with context %}
+{%- import "html/dashboard/edit.m.jnj"      as DB_Edit with context %}
+{%- import "html/dashboard/user.m.jnj"      as DB_User with context %}
+{%- import "html/dashboard/view.m.jnj"      as DB_View with context %}
 
 {%- call X.html (lang = page.language|default ("en")) -%}
   {%- call X.head () -%}
@@ -94,6 +96,9 @@
       {% endcall %} {# X.header #}
       {%- block main -%}
         <div class="main">
+          {%- block page_notifications -%}
+            {{ PN.render (notifications) }}
+          {%- endblock page_notifications -%}
           <div id="messages"></div>
           {%- block app -%}
             <div id="app" class="app">
