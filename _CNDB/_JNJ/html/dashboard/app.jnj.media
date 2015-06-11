@@ -28,6 +28,8 @@
 #    27-Jan-2015 (CT) Add rules for `.align-center`, `.align-left`,
 #                     `.align-right`
 #     1-Jun-2015 (CT) Add rules for `[data-action=undo]` and `tr.deleted`
+#    11-Jun-2015 (CT) Factor rules for `form.login` to `html/auth.m.jnj.media`
+#    11-Jun-2015 (CT) Rename `.logout` to `.Logout`
 #    ««revision-date»»···
 #--
 
@@ -72,29 +74,6 @@ style_sheet = Style_Sheet \
                 , vertical_align       = "bottom"
                 )
             )
-        )
-    , Rule
-        ( "form.login"
-        , children             =
-            [ Rule
-                ( "button[type=submit]"
-                , border_radius    = Em ( 1/4)
-                , margin_left      = Em ( 1.5)
-                , width            = Em (15.0)
-                , children         =
-                    [ Rule
-                        ( "i.fa"
-                        , float    = "left"
-                        )
-                    ]
-                )
-            , Rule
-                ( "legend"
-                , font_size    = Em  (1.25)
-                , font_weight  = "bold"
-                , margin_top   = Rem (1.00)
-                )
-            ]
         )
     , Rule
         ( "header"
@@ -165,7 +144,7 @@ style_sheet = Style_Sheet \
                                 , vertical_align   = "middle"
                                 )
                             , Rule
-                                ( "form.logout"
+                                ( "form.Logout"
                                 , display          = "inline-block"
                                 , padding          = 0
                                 )
@@ -460,7 +439,7 @@ style_sheet = Style_Sheet \
         , color                = "#FFFFFF"
         , children             =
             [ Rule
-                ( ".logout"
+                ( ".Logout"
                 , border_radius    = Em (0.25)
                 , background_color = "#E6E6E6"
                 , color            = "#333333"

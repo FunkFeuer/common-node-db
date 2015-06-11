@@ -32,7 +32,7 @@
 #}
 
 {%- import (html_version or "html/5.jnj")   as X -%}
-{%- import "html/page_notifications.m.jnj"  as PN with context %}
+{%- import "html/page_notifications.m.jnj"  as PN      with context %}
 {%- import "html/media_fragments.jnj"       as MF      with context %}
 {%- import "html/dashboard/app.m.jnj"       as DB      with context %}
 {%- import "html/dashboard/edit.m.jnj"      as DB_Edit with context %}

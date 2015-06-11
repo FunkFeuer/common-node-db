@@ -55,9 +55,12 @@
 ##    18-Mar-2015 (CT) Add guard for `objects` to `e_type_table`
 ##     7-Apr-2015 (CT) Add `data-etn` to `e_type_object` if `db_type.is_partial`
 ##     7-Apr-2015 (CT) Use localized `Div_Name_T`, not generic `Div_Name`
+##    11-Jun-2015 (CT) Use `Auth.logout_form`, not home-grown `logout_widget`
 ##    ««revision-date»»···
 ##--
 #}
+
+{%- import "html/auth.m.jnj" as AT with context %}
 
 {%- macro action_button
     ( href, icon_name
@@ -272,23 +275,6 @@
   </table>
 {%- endmacro -%} {#- e_type_table -#}
 
-{%- macro logout_widget (page) -%}
-  {%- set Auth     = page.SC.Auth -%}
-  {%- set action   = Auth.href_logout -%}
-  <form action="{{ action }}" {# -#}
-        class="Auth logout pure-form" {# -#}
-        method="post" {# -#}
-  >
-    <button class="logout pure-button" {# -#}
-      name="submit"
-      title="{{ GTW._T ("Logout %s") % (page.user.person.FO, ) }}" {# -#}
-      type="submit" {# -#}
-    >{# -#}
-      <i class="fa fa-sign-out"></i> {{ GTW._T ("Logout") -}}
-    </button>{# -#}
-  </form>
-{%- endmacro -%} {#- logout_widget -#}
-
 {%- macro nav_menu_dashboard (page) -%}
   {%- if page.request.user %}
     <a href="/dashboard" class="dashboard pure-menu-heading">
@@ -350,7 +336,7 @@
     {{ action_button
         (db_page.db_user.abs_href, "cog", GTW._T ("Personal settings"), "settings")
     -}}
-    {{ logout_widget (page) }}
+    {{ AT.logout_form (page) }}
   {%- elif page.abs_href != href_login %}
     <a href="{{ href_login }}" class="login pure-button">
       <i class="fa fa-sign-in"></i> {{ GTW._T ("Login") -}}
