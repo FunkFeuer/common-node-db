@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Project 0.9\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2015-04-08 13:11+0200\n"
+"POT-Creation-Date: 2015-06-12 19:33+0200\n"
 "PO-Revision-Date: 2014-08-31 12:46+0200\n"
 "Last-Translator: Christian Tanzer <tanzer@swing.co.at>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -191,7 +191,7 @@ msgstr "Binärcode."
 msgid "Bundle."
 msgstr "Bündel."
 
-#: _CNDB/_OMP/graph.py:161
+#: _CNDB/_OMP/graph.py:176
 msgid "CNDB graph"
 msgstr "CNDB Diagramm"
 
@@ -449,7 +449,7 @@ msgstr "GPS Position und optional die Höhe des Knotens"
 msgid "Gain"
 msgstr "Gewinn"
 
-#: _CNDB/_OMP/graph.py:160
+#: _CNDB/_OMP/graph.py:175
 msgid "Graph displaying Funkfeuer object model"
 msgstr "Diagram des Funkfeuer Objektmodells"
 
@@ -764,7 +764,7 @@ msgstr "Link zwischen zwei Netzwerkschnittstellen."
 
 #: _MOM.Document:0
 msgid "Location of document."
-msgstr ""
+msgstr "Ort des Dokuments."
 
 #: _MOM._Attr.Number_Interval:0 _CNDB._OMP.Attr_Type:0
 msgid "Lower"

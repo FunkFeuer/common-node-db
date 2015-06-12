@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2015-04-08 13:11+0200\n"
+"POT-Creation-Date: 2015-06-12 19:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,64 +22,40 @@ msgstr ""
 msgid "%s Knotendatenbank"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:309
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:295
 msgid "About"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:250
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:253
 msgid "Action"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:117
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:120
 #, python-format
 msgid "Allocate from pool %(name)s"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:315
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:301
 msgid "Development"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:320
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:306
 msgid "Documentation"
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:65
-msgid "Email address of your account"
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:109
-msgid "I forgot my password"
-msgstr ""
-
-#: _CNDB/_JNJ/html/login.jnj:105
-msgid "I forgot my password; send me a temporary one to my email address"
 msgstr ""
 
 #: _CNDB/_JNJ/html/base.jnj:50
 msgid "Last change"
 msgstr ""
 
-#: _CNDB/_JNJ/html/login.jnj:95
-msgid "Log into website"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:287
-msgid "Logout"
-msgstr ""
-
 #: _CNDB/_JNJ/html/navigation.jnj:36
 msgid "Open wireless networks"
 msgstr ""
 
-#: _CNDB/_JNJ/html/login.jnj:80
-msgid "Password of your account"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:351
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:337
 msgid "Personal settings"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:327
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:313
 msgid "RESTful API"
 msgstr ""
 

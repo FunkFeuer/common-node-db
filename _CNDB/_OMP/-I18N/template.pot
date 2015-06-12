@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2015-04-08 13:11+0200\n"
+"POT-Creation-Date: 2015-06-12 19:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Bundle."
 msgstr ""
 
-#: _CNDB/_OMP/graph.py:161
+#: _CNDB/_OMP/graph.py:176
 msgid "CNDB graph"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr ""
 msgid "Gain"
 msgstr ""
 
-#: _CNDB/_OMP/graph.py:160
+#: _CNDB/_OMP/graph.py:175
 msgid "Graph displaying Funkfeuer object model"
 msgstr ""
 
