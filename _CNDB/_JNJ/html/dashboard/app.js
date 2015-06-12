@@ -42,6 +42,7 @@
 //     1-Jun-2015 (CT) Add `action_cb_wrapper` to guard `.deleted`;
 //                     use `ev.currentTarget`, not `ev.delegateTarget`
 //     1-Jun-2015 (CT) Add `undo_cb`, add `undo` to `delete_cb`
+//    12-Jun-2015 (CT) Add `change_email_cb`, `change_password_cb`
 //    ««revision-date»»···
 //--
 
@@ -49,22 +50,24 @@
     "use strict";
     $.fn.cndb_dashboard = function cndb_dashboard (opts) {
         var selectors = $.extend
-            ( { app_div            : "[id^=\"app-D:\"]"
-              , app_div_edit       : "[id=\"app-D:edit\"]"
-              , app_div_id         : "[id=\"app-T:interface_in_ip_network\"]"
-              , allocate_ip_button : "[href=#allocate_ip]"
-              , create_button      : "[href=#create]"
-              , create_button_p    : "[href=#create-partial]"
-              , create_button_t    : "[href=#create-type]"
-              , delete_button      : "[href=#delete]"
-              , edit_button        : "[href=#edit]"
-              , filter_button      : "[href=#filter]"
-              , firmware_button    : "[href=#firmware]"
-              , graph_button       : "[href=#graphs]"
-              , graph_button_if    : ".interface-table [href=#graphs]"
-              , graph_button_node  : ".node-table [href=#graphs]"
-              , obj_row            : "tr"
-              , root               : "#app"
+            ( { app_div                : "[id^=\"app-D:\"]"
+              , app_div_edit           : "[id=\"app-D:edit\"]"
+              , app_div_id             : "[id=\"app-T:interface_in_ip_network\"]"
+              , allocate_ip_button     : "[href=#allocate_ip]"
+              , change_email_button    : "[href=#change_email]"
+              , change_password_button : "[href=#change_password]"
+              , create_button          : "[href=#create]"
+              , create_button_p        : "[href=#create-partial]"
+              , create_button_t        : "[href=#create-type]"
+              , delete_button          : "[href=#delete]"
+              , edit_button            : "[href=#edit]"
+              , filter_button          : "[href=#filter]"
+              , firmware_button        : "[href=#firmware]"
+              , graph_button           : "[href=#graphs]"
+              , graph_button_if        : ".interface-table [href=#graphs]"
+              , graph_button_node      : ".node-table [href=#graphs]"
+              , obj_row                : "tr"
+              , root                   : "#app"
               }
             , opts && opts ["selectors"] || {}
             );
@@ -153,6 +156,28 @@
                 );
             return false;
         };
+        var change_email_cb = function change_email_cb (ev) {
+            var obj  = obj_of_row (this);
+            var url  = "/Auth/change_email?p=" + obj.pid;
+            setTimeout
+                ( function () {
+                    window.location.href = url;
+                  }
+                , 0
+                );
+            return false;
+        } ;
+        var change_password_cb = function change_password_cb (ev) {
+            var obj  = obj_of_row (this);
+            var url  = "/Auth/change_password?p=" + obj.pid;
+            setTimeout
+                ( function () {
+                    window.location.href = url;
+                  }
+                , 0
+                );
+            return false;
+        } ;
         var closest_el     = function closest_el (self, selector) {
             return $(self).closest (selector);
         };
@@ -455,16 +480,18 @@
         };
         var setup_buttons = function setup_buttons (context$) {
             var S = selectors;
-            $(S.allocate_ip_button, context$).data ("action", allocate_ip_cb);
-            $(S.create_button,      context$).data ("action", create_cb);
-            $(S.create_button_p,    context$).data ("action", create_p_cb);
-            $(S.create_button_t,    context$).data ("action", create_t_cb);
-            $(S.delete_button,      context$).data ("action", delete_cb);
-            $(S.edit_button,        context$).data ("action", edit_cb);
-            $(S.filter_button,      context$).data ("action", filter_cb);
-            $(S.firmware_button,    context$).data ("action", firmware_cb);
-          //$(S.graph_button_if,    context$).data ("action", graph_interface_cb);
-            $(S.graph_button_node,  context$).data ("action", graph_cb);
+            $(S.allocate_ip_button,     context$).data ("action", allocate_ip_cb);
+            $(S.change_email_button,    context$).data ("action", change_email_cb);
+            $(S.change_password_button, context$).data ("action", change_password_cb);
+            $(S.create_button,          context$).data ("action", create_cb);
+            $(S.create_button_p,        context$).data ("action", create_p_cb);
+            $(S.create_button_t,        context$).data ("action", create_t_cb);
+            $(S.delete_button,          context$).data ("action", delete_cb);
+            $(S.edit_button,            context$).data ("action", edit_cb);
+            $(S.filter_button,          context$).data ("action", filter_cb);
+            $(S.firmware_button,        context$).data ("action", firmware_cb);
+          //$(S.graph_button_if,        context$).data ("action", graph_interface_cb);
+            $(S.graph_button_node,      context$).data ("action", graph_cb);
         }
         // Define custom actions on filter here
         var filter_typ_add_cb =

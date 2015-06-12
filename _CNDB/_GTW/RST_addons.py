@@ -112,6 +112,7 @@
 #                     and `_DB_E_Type_CNDB_.child_permission_map`
 #     8-Jun-2015 (CT) Add `DB_Node.child_postconditions_map`,
 #                     fix `Node_Manager_Error`
+#    12-Jun-2015 (CT) Add action `change_email`, remove action `reset_password`
 #    ««revision-date»»···
 #--
 
@@ -793,6 +794,11 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
                 , icon = "plus-circle"
                 )
             , Record
+                ( name = "change_email"
+                , msg  = _ ("Change email of %(tn)s %(obj)s")
+                , icon = "at"
+                )
+            , Record
                 ( name = "change_password"
                 , msg  = _ ("Change password of %(tn)s %(obj)s")
                 , icon = "key"
@@ -827,12 +833,6 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
                 ( name = "graphs"
                 , msg  = _ ("Show graphs and statistics about %(tn)s %(obj)s")
                 , icon = "bar-chart-o"
-                )
-            , Record
-                ( name = "reset_password"
-                , msg  =
-                    _ ("I forgot my password; reset password of %(tn)s %(obj)s")
-                , icon = "exclamation"
                 )
             )
         )
@@ -1202,7 +1202,7 @@ class DB_Account (_DB_Person_Property_) :
 
     type_name             = "PAP.Person_has_Account"
     ui_allow_new          = False
-    view_action_names     = ("change_password", "reset_password")
+    view_action_names     = ("change_email", "change_password")
 
     view_field_names      = \
         ( "right"
