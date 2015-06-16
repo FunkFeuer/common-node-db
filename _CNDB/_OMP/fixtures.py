@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the repository CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -21,6 +21,7 @@
 #                     add commented-out regulatory info for Austria.
 #    24-Sep-2012 (CT) Rename `Account_P` to `Account`
 #    17-Dec-2012 (RS) Add `Generic` `Antenna_Type`
+#    16-Jun-2015 (CT) Add docstring for `create`
 #    ««revision-date»»···
 #--
 
@@ -30,6 +31,7 @@ from _CNDB import CNDB
 import _CNDB._OMP
 
 def create (scope) :
+    """Create fixtures for common node database"""
     Auth = scope.Auth
     CNDB = scope.CNDB
     ant = CNDB.Antenna_Type \
