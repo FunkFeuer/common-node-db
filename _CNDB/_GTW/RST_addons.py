@@ -115,6 +115,8 @@
 #    12-Jun-2015 (CT) Add action `change_email`, remove action `reset_password`
 #    24-Jun-2015 (CT) Derive `DB_Wire{d,less}_Interface` from `DB_Interface`,
 #                     not `_DB_Interface_`
+#    24-Jun-2015 (CT) Add `zero_width_space` to `as_html` (_Field_IP_Address_,
+#                     _Field_IP_Addresses_, _Field_IP_Network_)
 #    ««revision-date»»···
 #--
 
@@ -141,6 +143,7 @@ from   _MOM.import_MOM          import Q
 
 from   _TFL._Meta.Once_Property import Once_Property
 from   _TFL.Decorator           import getattr_safe, Add_New_Method, Decorator
+from   _TFL.Dingbats            import zero_width_space
 from   _TFL.formatted_repr      import formatted_repr as formatted
 from   _TFL.I18N                import _, _T, _Tn
 from   _TFL.predicate           import filtered_join
@@ -893,6 +896,12 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             return _T ("IP address")
         # end def ui_name
 
+        def as_html (self, o, renderer) :
+            result = self.__super.as_html (o, renderer)
+            result = result.replace (".", zero_width_space + ".")
+            return result
+        # end def as_html
+
     # end class _Field_IP_Address_
 
     class _Field_IP_Addresses_ (Field) :
@@ -922,7 +931,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
         def value (self, o, renderer) :
             return ", ".join \
-                (   str (nw.net_address)
+                (   str (nw.net_address).replace (".", zero_width_space + ".")
                 for nw in ichain (o.ip4_networks, o.ip6_networks)
                 )
         # end def value
@@ -936,6 +945,12 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         def ui_name (self) :
             return _T ("IP network")
         # end def ui_name
+
+        def as_html (self, o, renderer) :
+            result = self.__super.as_html (o, renderer)
+            result = result.replace (".", zero_width_space + ".")
+            return result
+        # end def as_html
 
     # end class _Field_IP_Network_
 
