@@ -113,6 +113,8 @@
 #     8-Jun-2015 (CT) Add `DB_Node.child_postconditions_map`,
 #                     fix `Node_Manager_Error`
 #    12-Jun-2015 (CT) Add action `change_email`, remove action `reset_password`
+#    24-Jun-2015 (CT) Derive `DB_Wire{d,less}_Interface` from `DB_Interface`,
+#                     not `_DB_Interface_`
 #    ««revision-date»»···
 #--
 
@@ -1331,7 +1333,7 @@ class DB_Interface (_Ancestor) :
 
 # end class DB_Interface
 
-_Ancestor = _DB_Interface_
+_Ancestor = DB_Interface
 
 class DB_Wired_Interface (_Ancestor) :
     """CNDB.Wired_Interface displayed by, and managed via, dashboard."""
