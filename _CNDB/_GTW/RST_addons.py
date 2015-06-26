@@ -118,6 +118,7 @@
 #    24-Jun-2015 (CT) Add `zero_width_space` to `as_html` (_Field_IP_Address_,
 #                     _Field_IP_Addresses_, _Field_IP_Network_)
 #    26-Jun-2015 (CT) Add `nested_db_type`, `nested_obj_Q`, `nested_objects`
+#    26-Jun-2015 (CT) Change `_Field_Owner_` to `_Field_Role_`
 #    ««revision-date»»···
 #--
 
@@ -981,26 +982,26 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     # end class _Field_Interface_No_
 
-    class _Field_Owner_ (Field) :
+    class _Field_Role_ (Field) :
 
-        css_align = "center"
+        @property ### depends on currently selected language (I18N/L10N)
+        @getattr_safe
+        def ui_name (self) :
+            return _T ("Role")
+        # end def ui_name
 
         def as_html (self, o, renderer) :
-            p = self._value_getter (o)
-            if p == self.resource.user_restriction :
-                icon  = "check-square-o"
-                title = _T ("Owned by you")
+            owner   = self._value_getter (o)
+            person  = self.resource.user_restriction
+            members = getattr (owner, "members", ())
+            if owner == person or person in members :
+                result = _T ("Owner")
             else :
-                icon  = "square-o"
-                title = _T ("Owned by %s") % self.value (o, renderer)
-            result = \
-                ( """<i class="fa fa-%(icon)s" title="%(title)s"></i>"""
-                % dict (icon = icon, title = title)
-                )
+                result = _T ("Manager")
             return result
         # end def as_thml
 
-    # end class _Field_Owner_
+    # end class _Field_Role_
 
     class _Field_Type_ (_Field_Ref_) :
 
@@ -1035,7 +1036,7 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         , created         = _Field_Created_
         , devices         = _Field_Device_No_
         , interfaces      = _Field_Interface_No_
-        , owner           = _Field_Owner_
+        , owner           = _Field_Role_
         , type_name       = _Field_Type_
         )
 
