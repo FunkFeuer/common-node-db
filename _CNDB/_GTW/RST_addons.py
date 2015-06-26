@@ -117,6 +117,7 @@
 #                     not `_DB_Interface_`
 #    24-Jun-2015 (CT) Add `zero_width_space` to `as_html` (_Field_IP_Address_,
 #                     _Field_IP_Addresses_, _Field_IP_Network_)
+#    26-Jun-2015 (CT) Add `nested_db_type`, `nested_obj_Q`, `nested_objects`
 #    ««revision-date»»···
 #--
 
@@ -141,6 +142,7 @@ import _GTW._RST._TOP._MOM.Admin_Restricted
 
 from   _MOM.import_MOM          import Q
 
+from   _TFL._Meta.Property      import Alias_Property
 from   _TFL._Meta.Once_Property import Once_Property
 from   _TFL.Decorator           import getattr_safe, Add_New_Method, Decorator
 from   _TFL.Dingbats            import zero_width_space
@@ -678,6 +680,8 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     fill_user                = False
     fill_view                = False
     hidden                   = True
+    nested_db_type           = None
+    nested_obj_Q             = None
     ui_allow_new             = True
     view_action_names        = ("filter", "edit", "delete")
     view_field_names         = ()    ### to be defined by subclass
@@ -1143,6 +1147,14 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         return "#%s-%s" % (self.div_name, obj.pid) if obj else ""
     # end def href_anchor_pid
 
+    def nested_objects (self, obj) :
+        q = self.nested_obj_Q
+        if q is not None :
+            sk = self.nested_db_type.E_Type.sorted_by
+            return sorted (q (obj), key = sk)
+        return ()
+    # end def nested_objects
+
     def view_name_instance (self, o) :
         return o.FO.name
     # end def view_name_instance
@@ -1244,6 +1256,8 @@ class DB_Address (_DB_Person_Property_) :
 class DB_Device (_DB_E_Type_CNDB_) :
     """CNDB.Net_Device displayed by, and managed via, dashboard."""
 
+    nested_db_type        = Alias_Property ("db_interface")
+    nested_obj_Q          = Q.net_interfaces
     type_name             = "CNDB.Net_Device"
 
     view_action_names     = _DB_E_Type_CNDB_.view_action_names
@@ -1324,6 +1338,7 @@ class DB_Interface (_Ancestor) :
     """CNDB.Net_Interface displayed by, and managed via, dashboard."""
 
     app_div_class         = "pure-u-1"
+    nested_db_type        = Alias_Property ("db_interface_in_ip_network")
     type_name             = "CNDB.Net_Interface"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_graph"
 
@@ -1340,6 +1355,11 @@ class DB_Interface (_Ancestor) :
         ( _DB_E_Type_CNDB_._field_type_map
         , ip4_networks    = _DB_E_Type_CNDB_._Field_IP_Addresses_
         )
+
+    def nested_obj_Q (self, interface) :
+        return ichain \
+            (interface.ip4_network_links, interface.ip6_network_links)
+    # end def nested_obj_Q
 
     def tr_instance_css_class (self, o) :
         return "node-%d- device-%d- interface-%d-" % \
@@ -1543,6 +1563,8 @@ class DB_Node (_DB_E_Type_CNDB_) :
         , change = (_pre_commit_node_check, _pre_commit_entity_check)
         )
 
+    nested_db_type        = Alias_Property ("db_device")
+    nested_obj_Q          = Q.net_devices
     type_name             = "CNDB.Node"
     xtra_template_macro   = "html/dashboard/app.m.jnj, db_node_map"
 
