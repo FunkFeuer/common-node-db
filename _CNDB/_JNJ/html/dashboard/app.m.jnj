@@ -56,6 +56,8 @@
 ##     7-Apr-2015 (CT) Add `data-etn` to `e_type_object` if `db_type.is_partial`
 ##     7-Apr-2015 (CT) Use localized `Div_Name_T`, not generic `Div_Name`
 ##    11-Jun-2015 (CT) Use `Auth.logout_form`, not home-grown `logout_widget`
+##    29-Jun-2015 (CT) Add `hide` and `show` buttons to `db_node_map`
+##                     + Add args `action`, `tabindex` to `action_button`
 ##    ««revision-date»»···
 ##--
 #}
@@ -64,19 +66,28 @@
 
 {%- macro action_button
     ( href, icon_name
-    , title     = None
+    , title     = ""
     , a_cls     = "pure-button"
     , i_add_cls = None
+    , tabindex  = None
     , text      = ""
+    , action    = None
     )
 -%}
-  {%- set i_cls = "fa fa-%s" % (icon_name, ) %}
-  {%- if i_add_cls %}
-    {%- set i_cls = "%s %s" % (i_cls, i_add_cls) %}
-  {% endif -%}
-  <a class="{{ a_cls}}" href="{{ href }}"{{ kwargs|xmlattr }}
-     {%- if title %} title="{{ title }}"{% endif -%}
-  ><i class="{{ i_cls }}"></i>{{ text }}</a>
+  {%- set akw = GTW.filtered_dict
+        ( kwargs, { "data-action" : action }
+        , class    = a_cls
+        , href     = href
+        , tabindex = tabindex
+        , title    = title.strip ()
+        )
+  -%}
+  {%- set ikw = GTW.filtered_dict
+        ( class    = GTW.filtered_join
+            (" ", ("fa", "fa-%s" % (icon_name, ), i_add_cls))
+        )
+  -%}
+  <a{{ akw|xmlattr }}><i{{ ikw|xmlattr }}></i>{{ text }}</a>
 {%- endmacro -%} {#- action_button -#}
 
 {%- macro action_button_create (db_type, create) -%}
@@ -155,9 +166,10 @@
     {%- set pos = db_type.position %}
     {%- set tn  = db_type.div_name %}
     {%- set nn  = GTW.len (db_type.objects) %}
+    {%- set id  = "%s-map" % (tn,) %}
     {%- if pos %}
       <div class="pure-u-1 pure-u-md-1-2">
-        <div id="{{ tn }}-map" {# -#}
+        <div id="{{ id }}" {# -#}
              class="map" {# -#}
              style="height: {{ 3 * (nn + 1) -}}rem; margin-top: 5rem;"{# -#}
 
@@ -176,7 +188,21 @@
              {% endif %}
           {%- endfor %}]'
         >
+          {{- action_button
+              ( "#" + id, "close"
+              , action    = "hide-map"
+              , i_add_cls = "fa-2x"
+              , title     = GTW._T ("Hide node map")
+              )
+          -}}
         </div>
+        {{- action_button
+            ( "#" + id, "map-marker"
+            , action    = "show-map"
+            , i_add_cls = "fa-2x"
+            , title     = GTW._T ("Show node map")
+            )
+        -}}
       </div>
     {% endif -%}
   {% endif -%}

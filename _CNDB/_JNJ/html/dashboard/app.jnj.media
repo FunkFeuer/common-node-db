@@ -30,6 +30,8 @@
 #     1-Jun-2015 (CT) Add rules for `[data-action=undo]` and `tr.deleted`
 #    11-Jun-2015 (CT) Factor rules for `form.login` to `html/auth.m.jnj.media`
 #    11-Jun-2015 (CT) Rename `.logout` to `.Logout`
+#    29-Jun-2015 (CT) Add rules for hide/show buttons of `.map`
+#    29-Jun-2015 (CT) Fix `z-index` for `.leaflet-bottom`, `.leaflet-top`
 #    ««revision-date»»···
 #--
 
@@ -350,6 +352,33 @@ style_sheet = Style_Sheet \
                 ( ".map"
                 , max_height           = "80vh"
                 , min_height           = Rem (15)
+                , position             = "relative"
+                , children             =
+                    [ Rule
+                        ( "a[data-action=hide-map]"
+                        , position     = "absolute"
+                        , right        = 0
+                        , top          = 0
+                        , z_index      = 1
+                        )
+                    , Rule_Class
+                        ( "hidden"
+                        , display      = "none"
+                        , visibility   = "collapse"
+                        , children     =
+                            [ Rule_Sibling
+                                ( "a[data-action=show-map]"
+                                , display          = "block"
+                                , visibility       = "visible"
+                                )
+                            ]
+                        )
+                    , Rule_Sibling
+                        ( "a[data-action=show-map]"
+                        , display      = "none"
+                        , visibility   = "collapse"
+                        )
+                    ]
                 )
             ]
         )
@@ -510,6 +539,14 @@ style_sheet = Style_Sheet \
     , Rule
         ( ".map"
         , height     = "200px"
+        , children   =
+            [ Rule
+                ( ".leaflet-bottom", ".leaflet-top"
+                  ### leaflet.css sets `z-index` to an obscene 1000
+                  ### * override this here
+                , z_index        = 8
+                )
+            ]
         )
     , Media.Rule
         ( Media.Query ("screen", P.breakpoint.narrow)

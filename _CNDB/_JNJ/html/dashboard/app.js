@@ -43,6 +43,7 @@
 //                     use `ev.currentTarget`, not `ev.delegateTarget`
 //     1-Jun-2015 (CT) Add `undo_cb`, add `undo` to `delete_cb`
 //    12-Jun-2015 (CT) Add `change_email_cb`, `change_password_cb`
+//    29-Jun-2015 (CT) Add `hide_map_cb`, `show_map_cb`
 //    ««revision-date»»···
 //--
 
@@ -398,6 +399,13 @@
                 + "</a>"
                 );
         };
+        var hide_map_cb = function hide_map_cb (ev) {
+            var button$ = $(ev.currentTarget);
+            var id      = button$.attr ("href").replace (/^#/, "");
+            var target$ = $("[id='" + id + "']");
+            target$.addClass ("hidden");
+            return false;
+        };
         var hide_feedback = function hide_feedback (ev) {
             var target$ = $(ev.target);
             target$.remove ();
@@ -431,6 +439,13 @@
         var pid_of_obj_id = function pid_of_obj_id (id) {
             var groups = id.match (pat_pid);
             return groups [2];
+        };
+        var show_map_cb = function show_map_cb (ev) {
+            var button$ = $(ev.currentTarget);
+            var id      = button$.attr ("href").replace (/^#/, "");
+            var target$ = $("[id='" + id + "']");
+            target$.removeClass ("hidden");
+            return false;
         };
         var type_of_obj_id = function type_of_obj_id (id) {
             var groups = id.match (pat_pid);
@@ -506,6 +521,8 @@
         setup_buttons (this);
         $(this).on ("click", "tr [href^=#]", action_cb_wrapper);
         $(this).on ("click", "[data-action=\"undo\"]", undo_cb);
+        $(this).on ("click", "[data-action=\"hide-map\"]", hide_map_cb);
+        $(this).on ("click", "[data-action=\"show-map\"]", show_map_cb);
         // hide the ip in interface list on ready
         $(document).ready(function () {
             $(selectors.app_div_id).hide ();
