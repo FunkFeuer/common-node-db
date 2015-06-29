@@ -1,6 +1,6 @@
 {#- jinja template: html/dashboard/view.m.jnj -#}
 {#
-## Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************
 ## This module is licensed under the terms of the BSD 3-Clause License
@@ -29,7 +29,10 @@
 {%- import "html/dashboard/app.m.jnj" as DB with context %}
 
 {%- macro main (page) -%}
-  {{ DB.db_div_main (page.db_view) }}
+  <h1 class="pure-u-1">
+    {{- GTW._T ("Dashboard for %s") % (page.request.user.person.ui_display,) -}}
+  </h1>
+  {{ DB.db_div_node (page.db_view) }}
 {%- endmacro -%} {#- main -#}
 
 {#- __END__ jinja template: html/dashboard/view.m.jnj -#}

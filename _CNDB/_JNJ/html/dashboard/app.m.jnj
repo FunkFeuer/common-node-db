@@ -58,6 +58,11 @@
 ##    11-Jun-2015 (CT) Use `Auth.logout_form`, not home-grown `logout_widget`
 ##    29-Jun-2015 (CT) Add `hide` and `show` buttons to `db_node_map`
 ##                     + Add args `action`, `tabindex` to `action_button`
+##    29-Jun-2015 (CT) Add `db_div_node`, try nested object tables
+##     1-Jul-2015 (CT) Add argument `fields` to `e_type_object`
+##     2-Jul-2015 (CT) Add `e_type_tree`, `e_type_tree_li`
+##     7-Jul-2015 (CT) Add `db_div_user`
+##                     + Remove `db_div_main`, `e_type_object`, `e_type_table`
 ##    ««revision-date»»···
 ##--
 #}
@@ -102,7 +107,8 @@
     {%- body %}
       {{- action_button ("#" + action_name, create.icon, ** kw) -}}
     {%- tail %}
-      <ul class="partial-type-menu">
+      {%- set tit = GTW._T ("Choose the type of object to create") %}
+      <ul class="partial-type-menu" title="{{ tit }}">
         {%- for c_db_type in db_type.children_np %}
           <li>
             {%- set TN = c_db_type.E_Type.ui_name_T %}
@@ -114,7 +120,7 @@
                 , ** { "data-etn" : c_db_type.name }
                 )
             %}
-            {{- action_button ("#" + create.name + "-type", "play", ** kw)
+            {{- action_button ("#" + create.name + "-type", "plus", ** kw)
             -}}
           </li>
         {% endfor -%}
@@ -123,12 +129,13 @@
 {%- endmacro -%} {#- action_button_create -#}
 
 {%- macro action_button_allocate_ip_pool_menu (db_type, pools) -%}
-  <ul class="partial-type-menu">
+  {%- set tit = GTW._T ("Choose the address pool to allocate from") %}
+  <ul class="partial-type-menu" title="{{ tit }}">
     {%- for p in pools %}
       <li>
         {%- set nam = p.ui_display_x %}
         {%- set msg =
-                GTW._T ("Allocate from pool %(name)s") % GTW.dict (name=nam)
+            GTW._T ("Allocate from pool %(name)s") % GTW.dict (name=nam)
         %}
         {%- set kw  = GTW.dict
             ( kwargs
@@ -137,23 +144,28 @@
             , ** { "data-pool-pid" : p.pid }
             )
         %}
-        {{- action_button ("#allocate_ip", "play", ** kw)
+        {{- action_button ("#allocate_ip", "plus", ** kw)
         -}}
       </li>
     {% endfor -%}
   </ul>
 {%- endmacro -%} {#- action_button_allocate_ip_pool_menu -#}
 
-{%- macro db_div_main (db_div) -%}
-  {%- for db_type in db_div.entries %}
-    <section id="{{ db_type.app_div_id }}" class="{{ db_type.app_div_class }}">
-      {{ DB.e_type_table (db_type) }}
-    </section>
-    {% if db_type.xtra_template_macro %}
-      {{ GTW.call_macro (db_type.xtra_template_macro, db_type) }}
-    {% endif %}
-  {% endfor -%}
-{%- endmacro -%} {#- db_div_main -#}
+{%- macro db_div_node (db_div) -%}
+  {%- set db_type = db_div.db_node %}
+  {% if db_type.xtra_template_macro %}
+    {{ GTW.call_macro (db_type.xtra_template_macro, db_type) }}
+  {% endif %}
+  {{ DB.e_type_tree (db_type) }}
+{%- endmacro -%} {#- db_div_node -#}
+
+{%- macro db_div_user (db_div) -%}
+  {% call DB.e_type_tree (db_div.db_person) -%}
+    {%- for db_type in db_div.entries [1:] %}
+      {{ DB.e_type_tree (db_type) }}
+    {% endfor -%}
+  {% endcall %} {# DB.e_type_tree #}
+{%- endmacro -%} {#- db_div_user -#}
 
 {%- macro db_graph (db_type) -%}
   {%- set tn  = db_type.div_name %}
@@ -168,10 +180,10 @@
     {%- set nn  = GTW.len (db_type.objects) %}
     {%- set id  = "%s-map" % (tn,) %}
     {%- if pos %}
-      <div class="pure-u-1 pure-u-md-1-2">
+      <div class="pure-u-1">
         <div id="{{ id }}" {# -#}
              class="map" {# -#}
-             style="height: {{ 3 * (nn + 1) -}}rem; margin-top: 5rem;"{# -#}
+             style="height: {{ 3 * (nn + 1) -}}rem;"{# -#}
 
              data-markers='[
           {%- for o in db_type.objects if o.position and o.position.lat and o.position.lon -%}
@@ -189,7 +201,7 @@
           {%- endfor %}]'
         >
           {{- action_button
-              ( "#" + id, "close"
+              ( "#" + id, "caret-up"
               , action    = "hide-map"
               , i_add_cls = "fa-2x"
               , title     = GTW._T ("Hide node map")
@@ -199,7 +211,8 @@
         {{- action_button
             ( "#" + id, "map-marker"
             , action    = "show-map"
-            , i_add_cls = "fa-2x"
+            , i_add_cls = "fa-lg"
+            , text      = GTW._T ("Show node map")
             , title     = GTW._T ("Show node map")
             )
         -}}
@@ -208,98 +221,113 @@
   {% endif -%}
 {%- endmacro -%} {#- db_node_map -#}
 
-{%- macro e_type_object (db_type, o) -%}
-  {%- set TN      = db_type.Div_Name_T %}
-  {%- set actions = db_type.view_actions %}
-  {%- set fields  = db_type.view_fields %}
-  {%- set name    = db_type.view_name_instance (o) %}
-  {%- set tn      = db_type.div_name %}
-  {%- set user    = db_type.user_restriction %}
-  {%- set td_kw   = GTW.dict
-      ( class     = db_type.tr_instance_css_class (o)
-      , id        = "%s-%s" % (tn, o.pid)
+{%- macro e_type_tree (db_type, parent = None, objects = None, nest_p = False) -%}
+  {%- set caller         = kwargs.pop ("caller", None) -%}
+  {%- set TN             = db_type.Div_Name_T %}
+  {%- set actions        = db_type.view_actions %}
+  {%- set create         = db_type.create_action %}
+  {%- set db_type_n      = db_type.nested_db_type %}
+  {%- set div_id         = db_type.app_div_id %}
+  {%- set objects        = db_type.objects if objects == None else objects %}
+  {%- set s_cls          = "ETT" %}
+  {%- set tn             = db_type.div_name %}
+  {%- set user           = db_type.user_restriction %}
+  {%- set ul_kw          = GTW.filtered_dict (class = "" if db_type_n else "leaf") %}
+  {%- if parent %}
+    {%- set div_id = "%s@%d" % (div_id, parent.pid) %}
+  {%- else %}
+    {%- set s_cls  = " ".join ((s_cls, "pure-u-1")) %}
+  {% endif -%}
+  <section id="{{ div_id }}" class="{{ s_cls }}">
+    <h2>{{ TN }}</h2>
+    {%- if create %}
+      <div class="action">{# -#}
+        {{- action_button_create
+            ( db_type, create
+            , title =
+                (GTW._T (create.msg) % GTW.dict (tn = TN, obj = "")).strip ()
+            )
+        -}}
+      </div>
+    {% endif -%}
+    <ul{{ ul_kw|xmlattr }}>
+      {%- if objects %}
+        {%- for o in objects %}
+          {{ e_type_tree_li (db_type, o, nest_p) }}
+        {% endfor -%}
+      {% endif -%}
+    </ul>
+    {%- if caller %}
+      {{- caller () -}}
+    {%- endif -%}
+  </section>
+{%- endmacro -%} {#- e_type_tree -#}
+
+{%- macro e_type_tree_li (db_type, o, nest_p) -%}
+  {%- set TN             = db_type.Div_Name_T %}
+  {%- set actions        = db_type.view_actions %}
+  {%- set db_type_n      = db_type.nested_db_type %}
+  {%- set fields         = db_type.view_fields %}
+  {%- set name           = db_type.view_name_instance (o) %}
+  {%- set tn             = db_type.div_name %}
+  {%- set user           = db_type.user_restriction %}
+  {%- set include_nested = nest_p or o.pid in expand_trees %}
+  {%- set x_class        = "collapse" if include_nested else "expand" %}
+  {%- set x_icon_name    = ("minus" if include_nested else "plus") + "-square-o" %}
+  {%- set t_icon         = db_type.icon_html (o) %}
+  {%- set li_kw          = GTW.dict
+      ( class            = db_type.tr_instance_css_class (o)
+      , id               = "%s-%s" % (tn, o.pid)
+      , title            = o.ui_name_T
       )
   %}
   {%- if db_type.is_partial %}
     {%- set c_db_type = db_type [o.type_name] %}
-    {%- do td_kw.update ({ "data-etn" : c_db_type.name }) %}
+    {%- do li_kw.update ({ "data-etn" : c_db_type.name }) %}
   {% endif -%}
-  <tr{{ td_kw|xmlattr }}>
-    {%- for f in fields %}
-      <td{{ GTW.filtered_dict (class = f.css_class_dyn (o, None))|xmlattr }}>
-        {{- f.as_html (o, None) -}}
-      </td>
-    {% endfor -%}
-    {%- if actions %}
-      <td class="action">
-        {%- for a in actions -%}
+  <li{{ li_kw|xmlattr }}>
+    <div class="ETI">
+      {%- if db_type_n %}
+        <span class="XC">
           {{- action_button
-              ( "#" + a.name, a.icon
-              , GTW._T (a.msg) % GTW.dict (tn = TN, obj = name)
+              ( "#XC", x_icon_name
+              , a_cls     = x_class
               )
           -}}
-        {%- endfor -%}
-      </td>
-    {% endif -%}
-  </tr>
-{%- endmacro -%} {#- e_type_object -#}
-
-{%- macro e_type_table (db_type) -%}
-  {%- set TN      = db_type.Div_Name_T %}
-  {%- set actions = db_type.view_actions %}
-  {%- set create  = db_type.create_action %}
-  {%- set fields  = db_type.view_fields %}
-  {%- set objects = db_type.objects %}
-  {%- set tn      = db_type.div_name %}
-  {%- set user    = db_type.user_restriction %}
-  <h2>
-    {{- db_type.view_title -}}
-    {%- if create and objects and GTW.len (objects) > 10 %}
-      {%- if not db_type.is_partial  %}
-        {{- action_button_create
-            ( db_type, create
-            , title = (GTW._T (create.msg) % GTW.dict (tn = TN, obj = "")).strip ()
+        </span>
+      {% endif -%}
+      {%- if t_icon %}
+        <span class="ET">{{ t_icon }}</span>
+      {% endif -%}
+      {%- for f in fields %}
+        {%- set fkw = GTW.filtered_dict
+            ( class = GTW.filtered_join
+                (" ", (f.css_class_dyn (o, None), "Field"))
+            , title = f.description
             )
-        -}}
-      {% endif -%}
-    {% endif -%}
-  </h2>
-  <table id="{{ tn }}-table" class="{{ tn }}-table pure-table pure-table-bordered">
-    <thead>
-      <tr>
-        {%- for f in fields %}
-          {%- set css_class =
-                 ("class=\"%s\" " % (f.css_class, )) if f.css_class else ""
-          -%}
-          <th {{ css_class }}scope="col" title="{{ f.description }}">
-            {{- f.ui_name -}}
-          </th>
-        {% endfor -%}
-        {%- if actions %}
-          <th class="action">{{- GTW._T ("Action") -}}</th>
-        {% endif -%}
-      </tr>
-    </thead>
-    <tbody>
-      {%- if objects %}
-        {%- for o in objects %}
-          {{ e_type_object (db_type, o) }}
-        {% endfor -%}
-      {% endif -%}
-      {%- if create %}
-        <tr>
-          <td colspan="{{ GTW.len (fields) + GTW.bool (actions) }}">
-            {{- action_button_create
-                ( db_type, create
-                , text = (GTW._T (create.msg) % GTW.dict (tn = TN, obj = "")).strip ()
+        %}
+        <span{{ fkw|xmlattr }}>
+          {{- f.as_html (o, None) -}}
+        </span>
+      {% endfor -%}
+      {%- if actions %}
+        <span class="action">
+          {%- for a in actions -%}
+            {{- action_button
+                ( "#" + a.name, a.icon
+                , GTW._T (a.msg) % GTW.dict (tn = TN, obj = name)
                 )
             -}}
-          </td>
-        </tr>
+          {%- endfor -%}
+        </span>
       {% endif -%}
-    </tbody>
-  </table>
-{%- endmacro -%} {#- e_type_table -#}
+    </div>
+    {%- if include_nested and db_type_n %}
+      {%- set nobjs = db_type.nested_objects (o) %}
+      {{ e_type_tree (db_type_n, o, nobjs, nest_p) }}
+    {% endif -%}
+  </li>
+{%- endmacro -%} {#- e_type_tree_li -#}
 
 {%- macro nav_menu_dashboard (page) -%}
   {%- if page.request.user %}
@@ -360,7 +388,7 @@
   {%- endif -%}
   {%- if page.request.user %}
     {{ action_button
-        (db_page.db_user.abs_href, "cog", GTW._T ("Personal settings"), "settings")
+        (db_page.db_user.abs_href, "user", GTW._T ("Personal settings"), "settings")
     -}}
     {{ AT.logout_form (page) }}
   {%- elif page.abs_href != href_login %}
@@ -373,12 +401,5 @@
     </b>
   {% endif -%}
 {%- endmacro -%} {#- nav_menu_person -#}
-
-{%- macro th_number_of (left, right) -%}
-  {%- set title = GTW._T
-        ("Number of %s belonging to %s") % (right.ui_name_T, left.ui_name_T)
-  -%}
-  <th title = "{{ title }}">#</th>
-{%- endmacro -%} {#- th_number_of -#}
 
 {#- __END__ jinja template: html/dashboard/app.m.jnj -#}

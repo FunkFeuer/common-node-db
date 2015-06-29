@@ -119,6 +119,18 @@
 #                     _Field_IP_Addresses_, _Field_IP_Network_)
 #    26-Jun-2015 (CT) Add `nested_db_type`, `nested_obj_Q`, `nested_objects`
 #    26-Jun-2015 (CT) Change `_Field_Owner_` to `_Field_Role_`
+#     1-Jul-2015 (CT) Remove names from `view_field_names`
+#     2-Jul-2015 (CT) Add `icon_html`, `icon_name`
+#     2-Jul-2015 (CT) Remove `filter` from `_DB_E_Type_.view_action_names`
+#     3-Jul-2015 (CT) Redefine `add_css_classes`, `description` for
+#                     `_Field_IP_Address_`, `_Field_IP_Network_`
+#     3-Jul-2015 (CT) Redefine `description` for `_Field_Role_`
+#     3-Jul-2015 (CT) Change `Allocate_IP.POST` to use `e_type_tree_li`, not
+#                     `e_type_object`, macro
+#     6-Jul-2015 (CT) Redefine `Instance.rendered` to handle `?expand_tree`
+#     6-Jul-2015 (CT) Add `DB_View.render_context` to setup `expand_trees`
+#     7-Jul-2015 (CT) Add `net_device_type` to `DB_Device.view_field_names`
+#     8-Jul-2015 (CT) Remove `filter` from `_action_map`
 #    ««revision-date»»···
 #--
 
@@ -548,7 +560,7 @@ class _Meta_DB_Div_ (_Ancestor.__class__) :
             cls._entry_type_names = set \
                 (et.type_name for et in cls._entry_types if et.type_name)
             if cls.type_name :
-                cls._DB_ETN_map [cls.type_name] = cls
+                cls._DB_ETN_map [cls.type_name]  = cls
             setattr (cls, "fill_%s" % dn, True)
     # end def __init__
 
@@ -576,6 +588,8 @@ class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
     type_name             = None
     _DB_ETN_map           = {}
     _db_etn_map           = {}
+    _DB_icon_map          = {}
+    _DB_icon_name         = None
     _db_name_map          = {}
     _entry_types          = ()
     _exclude_robots       = True
@@ -593,6 +607,21 @@ class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
             self.add_entries (* entries)
         return self._entries
     # end def entries
+
+    def icon_html (self, o) :
+        name = self.icon_name (o)
+        if name :
+            return """<i class="fa fa-%s fa-fw"></i>""" % (name, )
+    # end def icon_html
+
+    def icon_name (self, o) :
+        tn = o.type_name
+        db = self._DB_ETN_map.get (tn)
+        if db is not None :
+            return db._DB_icon_name
+        else :
+            return self._DB_icon_map.get (tn)
+    # end def icon_name
 
     def tr_instance_css_class (self, o) :
         return "%s-%d-" % (self.div_name, o.pid)
@@ -684,9 +713,9 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     nested_db_type           = None
     nested_obj_Q             = None
     ui_allow_new             = True
-    view_action_names        = ("filter", "edit", "delete")
-    view_field_names         = ()    ### to be defined by subclass
-    type_name                = None  ### to be defined by subclass
+    view_action_names        = ("edit", "delete")
+    view_field_names         = ()       ### to be defined by subclass
+    type_name                = None     ### to be defined by subclass
 
     _admin_delegates         = set \
         ( ( "button_types"
@@ -745,6 +774,28 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
     class _FF_Instance_ (_Action_Override_, _MF3_Mixin.Instance) :
 
         _real_name         = "Instance"
+
+        def rendered (self, context, template = None) :
+            request = context ["request"]
+            expand  = request.req_data.get ("expand_tree")
+            if expand is not None :
+                db_type  = self.parent
+                obj      = self.obj
+                template = self.top.Templateer.get_template \
+                    ("html/dashboard/app.m.jnj")
+                result = dict \
+                    ( html = template.call_macro
+                        ( "e_type_tree"
+                        , db_type.nested_db_type
+                        , obj
+                        , db_type.nested_objects (obj)
+                        , expand == "transitive"
+                        )
+                    )
+            else :
+                result = self.__super.rendered (context, template)
+            return result
+        # end def rendered
 
         def _rendered_delete (self, request, response, obj) :
             result = self.__super._rendered_delete (request, response, obj)
@@ -829,12 +880,6 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
                 , icon = "pencil"
                 )
             , Record
-                ( name = "filter"
-                , msg  =
-                    _ ("Restrict details below to objects belonging to %(tn)s %(obj)s")
-                , icon = "filter"
-                )
-            , Record
                 ( name = "firmware"
                 , msg  = _ ("Generate firmware for %(tn)s %(obj)s")
                 , icon = "magic"
@@ -895,6 +940,18 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     class _Field_IP_Address_ (Field) :
 
+        @Once_Property
+        @getattr_safe
+        def add_css_classes (self) :
+            return ["ip-address"] ### don't want `__super.add_css_classes` here
+        # end def add_css_classes
+
+        @property ### depends on currently selected language (I18N/L10N)
+        @getattr_safe
+        def description (self) :
+            return _T ("IP address assigned to interface")
+        # end def description
+
         @property ### depends on currently selected language (I18N/L10N)
         @getattr_safe
         def ui_name (self) :
@@ -945,6 +1002,18 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
     class _Field_IP_Network_ (Field) :
 
+        @Once_Property
+        @getattr_safe
+        def add_css_classes (self) :
+            return ["ip-network"] ### don't want `__super.add_css_classes` here
+        # end def add_css_classes
+
+        @property ### depends on currently selected language (I18N/L10N)
+        @getattr_safe
+        def description (self) :
+            return _T ("IP network the address belongs to")
+        # end def description
+
         @property ### depends on currently selected language (I18N/L10N)
         @getattr_safe
         def ui_name (self) :
@@ -986,12 +1055,18 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
 
         @property ### depends on currently selected language (I18N/L10N)
         @getattr_safe
+        def description (self) :
+            return _T ("Indicates if you are owner or manager of the node")
+        # end def description
+
+        @property ### depends on currently selected language (I18N/L10N)
+        @getattr_safe
         def ui_name (self) :
             return _T ("Role")
         # end def ui_name
 
         def as_html (self, o, renderer) :
-            owner   = self._value_getter (o)
+            owner   = o.owner
             person  = self.resource.user_restriction
             members = getattr (owner, "members", ())
             if owner == person or person in members :
@@ -1257,21 +1332,22 @@ class DB_Address (_DB_Person_Property_) :
 class DB_Device (_DB_E_Type_CNDB_) :
     """CNDB.Net_Device displayed by, and managed via, dashboard."""
 
-    nested_db_type        = Alias_Property ("db_interface")
-    nested_obj_Q          = Q.net_interfaces
-    type_name             = "CNDB.Net_Device"
+    nested_db_type            = Alias_Property ("db_interface")
+    nested_obj_Q              = Q.net_interfaces
+    type_name                 = "CNDB.Net_Device"
 
-    view_action_names     = _DB_E_Type_CNDB_.view_action_names
-    view_field_names      = \
+    view_action_names         = _DB_E_Type_CNDB_.view_action_names
+    view_field_names          = \
         ( "name"
-        , "my_node.name"
-        , "interfaces"
-        , "created"
+        , "net_device_type"
         )
 
-    _MF3_Attr_Spec        = dict \
-        ( node            = dict (restrict_completion = True)
-        , left            = dict (input_widget = "mf3_input, id_entity_select")
+    _DB_icon_name             = "cube"
+
+    _MF3_Attr_Spec            = dict \
+        ( node                = dict (restrict_completion = True)
+        , left                = dict
+            (input_widget = "mf3_input, id_entity_select")
         )
 
     def tr_instance_css_class (self, o) :
@@ -1338,23 +1414,19 @@ _Ancestor = _DB_Interface_
 class DB_Interface (_Ancestor) :
     """CNDB.Net_Interface displayed by, and managed via, dashboard."""
 
-    app_div_class         = "pure-u-1"
-    nested_db_type        = Alias_Property ("db_interface_in_ip_network")
-    type_name             = "CNDB.Net_Interface"
-    xtra_template_macro   = "html/dashboard/app.m.jnj, db_graph"
+    app_div_class             = "pure-u-1"
+    nested_db_type            = Alias_Property ("db_interface_in_ip_network")
+    type_name                 = "CNDB.Net_Interface"
+    xtra_template_macro       = "html/dashboard/app.m.jnj, db_graph"
 
-    view_field_names      = \
+    view_field_names          = \
         ( "name"
-        , "my_net_device.name"
-        , "my_node.name"
-        , "ip4_networks" ### rendered as `IP addresses` by _Field_IP_Addresses_
-        , "type_name"
-        , "created"
+        ,
         )
 
-    _field_type_map       = dict \
+    _field_type_map           = dict \
         ( _DB_E_Type_CNDB_._field_type_map
-        , ip4_networks    = _DB_E_Type_CNDB_._Field_IP_Addresses_
+        , ip4_networks        = _DB_E_Type_CNDB_._Field_IP_Addresses_
         )
 
     def nested_obj_Q (self, interface) :
@@ -1374,17 +1446,21 @@ _Ancestor = DB_Interface
 class DB_Wired_Interface (_Ancestor) :
     """CNDB.Wired_Interface displayed by, and managed via, dashboard."""
 
-    type_name             = "CNDB.Wired_Interface"
+    type_name                 = "CNDB.Wired_Interface"
+    _DB_icon_name             = "sitemap"
 
 # end class DB_Wired_Interface
 
 class DB_Wireless_Interface (_Ancestor) :
     """CNDB.Wireless_Interface displayed by, and managed via, dashboard."""
 
-    type_name             = "CNDB.Wireless_Interface"
+    type_name                 = "CNDB.Wireless_Interface"
 
-    _MF3_Attr_Spec        = dict \
-        ( standard        = dict (input_widget = "mf3_input, id_entity_select")
+    _DB_icon_name             = "wifi"
+
+    _MF3_Attr_Spec            = dict \
+        ( standard            = dict
+            (input_widget = "mf3_input, id_entity_select")
         )
 
 # end class DB_Wireless_Interface
@@ -1393,7 +1469,9 @@ if 0 : ### Add this when there is an instance of User_Virtual_Wireless_Interface
     class DB_Virtual_Wireless_Interface (_Ancestor) :
         """CNDB.Virtual_Wireless_Interface displayed by, and managed via, dashboard."""
 
-        type_name             = "CNDB.Virtual_Wireless_Interface"
+        type_name                 = "CNDB.Virtual_Wireless_Interface"
+
+        _DB_icon_name             = "plug"
 
     # end class DB_Virtual_Wireless_Interface
 
@@ -1404,20 +1482,16 @@ class DB_Interface_in_IP_Network (_Ancestor) :
        displayed by, and managed via, dashboard.
     """
 
-    create_action_name    = "allocate_ip"
-    view_action_names     = ("delete", )
-    type_name             = "CNDB.Net_Interface_in_IP_Network"
+    create_action_name        = "allocate_ip"
+    view_action_names         = ("delete", )
+    type_name                 = "CNDB.Net_Interface_in_IP_Network"
 
-    view_field_names      = \
-        ( "net_interface.name"
-        , "my_net_device.name"
-        , "my_node.name"
-        , "right.net_address"
+    view_field_names          = \
+        ( "right.net_address"
         , "right.pool.net_address"
-        , "created"
         )
 
-    _field_type_map       = dict \
+    _field_type_map           = dict \
         ( _Ancestor._field_type_map
         , ** { "right.net_address"      : _Ancestor._Field_IP_Address_
              , "right.pool.net_address" : _Ancestor._Field_IP_Network_
@@ -1507,7 +1581,7 @@ class DB_Interface_in_IP_Network (_Ancestor) :
                         iii  = scope.CNDB.Net_Interface_in_IP_Network \
                             (iface, ipa, mask_len = ipa.pool.net_address.mask)
                         result ["row"] = template.call_macro \
-                            ("e_type_object", resource, iii)
+                            ("e_type_tree_li", resource, iii, False)
                 else :
                     result ["menu"] = template.call_macro \
                         ("action_button_allocate_ip_pool_menu", resource, pools)
@@ -1520,7 +1594,7 @@ class DB_Interface_in_IP_Network (_Ancestor) :
 
     @property ### depends on currently selected language (I18N/L10N)
     def Div_Name_T (self) :
-        return "IP " + _T ("Addresses")
+        return "IP " + _T ("Address")
     # end def Div_Name_T
 
     @Once_Property
@@ -1557,24 +1631,24 @@ class DB_Interface_in_IP_Network (_Ancestor) :
 class DB_Node (_DB_E_Type_CNDB_) :
     """CNDB.Node displayed by, and managed via, dashboard."""
 
-    app_div_class         = "pure-u-1 pure-u-md-1-2"
+    app_div_class             = "pure-u-1 pure-u-md-1-2"
 
     child_postconditions_map  = dict \
         ( _DB_E_Type_CNDB_.child_postconditions_map
         , change = (_pre_commit_node_check, _pre_commit_entity_check)
         )
 
-    nested_db_type        = Alias_Property ("db_device")
-    nested_obj_Q          = Q.net_devices
-    type_name             = "CNDB.Node"
-    xtra_template_macro   = "html/dashboard/app.m.jnj, db_node_map"
+    nested_db_type            = Alias_Property ("db_device")
+    nested_obj_Q              = Q.net_devices
+    type_name                 = "CNDB.Node"
+    xtra_template_macro       = "html/dashboard/app.m.jnj, db_node_map"
 
-    view_field_names      = \
+    view_field_names          = \
         ( "name"
-        , "devices"
-        , "created"
         , "owner"
         )
+
+    _DB_icon_name             = "cubes"
 
     @property
     @getattr_safe
@@ -1679,6 +1753,25 @@ class DB_View (_DB_Div_) :
         , DB_Interface
         , DB_Interface_in_IP_Network
         )
+
+    def render_context (self, resource = None, ** kw) :
+        if resource is None :
+            resource = self
+        def _gen (req_data) :
+            for i in req_data.get ("expand_trees", "").split (",") :
+                try :
+                    x = i.strip ()
+                    if x :
+                        yield int (x)
+                except Exception as exc :
+                    logging.exception \
+                        ( "Exception for query argument expand_trees: "
+                          "`%s`, value `%s`"
+                        % (q_expand_trees, i)
+                        )
+        kw ["expand_trees"] = set (_gen (resource.request.req_data))
+        return self.__super.render_context (resource, ** kw)
+    # end def render_context
 
 # end class DB_View
 

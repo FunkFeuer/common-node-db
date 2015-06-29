@@ -32,6 +32,9 @@
 #    11-Jun-2015 (CT) Rename `.logout` to `.Logout`
 #    29-Jun-2015 (CT) Add rules for hide/show buttons of `.map`
 #    29-Jun-2015 (CT) Fix `z-index` for `.leaflet-bottom`, `.leaflet-top`
+#    30-Jun-2015 (CT) Add rules for `table.nested`
+#     2-Jul-2015 (CT) Add rules for tree-based dashboard (`.ETT`, `.ETI`, ...)
+#     8-Jul-2015 (CT) Remove rules for `table` based dashboard
 #    ««revision-date»»···
 #--
 
@@ -52,6 +55,9 @@ style_sheet = Style_Sheet \
         , color                = "#0088CC"
         , text_decoration      = "none"
         )
+    , Rule
+        ( "a[data-action]"
+        , cursor               = "pointer")
     , Rule
         ( "body"
         , color                = "#333333"
@@ -225,15 +231,182 @@ style_sheet = Style_Sheet \
                 , overflow     = "auto"
                 )
             , Rule
+                ( ".action"
+                , children             =
+                    [ Rule
+                        ( "a"
+                        , border_radius    = Em  (0.25)
+                        , font_size        = Em  (1.125)
+                        , margin           = Em  (0.25)
+                        , padding          = Rem (0.6875)
+                        )
+                    , Rule
+                        ( "[data-action=undo] .fa"
+                        , color        = P.color.m_orange
+                        , width        = Em (2.75)
+                        )
+                    ]
+                )
+            , Rule
+                ( ".ETI"
+                , children             =
+                    [ Rule_Child
+                        ( ".action"
+                        , display          = "inline-block"
+                        , margin_left      = Em (0.5)
+                        )
+                    , Rule_Child
+                        ( ".ET .fa"
+                        , color            = P.color.m_orange
+                        , font_size        = Em (1.125)
+                        , height           = Em (2.0)
+                        , padding          = TRBL (Em (0.5), 0)
+                        , width            = Em (2.0)
+                        )
+                    , Rule_Child
+                        ( ".Field"
+                        , display          = "inline-block"
+                        , line_height      = 2.5
+                        , margin_right     = Em (0.5)
+                        , min_width        = Em (4)
+                        , children         =
+                            [ Rule_Pseudo
+                                ( "hover"
+                                , background_color = P.color_light_grey
+                                )
+                            ]
+                        )
+                    , Rule_Child
+                        ( ".ip-address"
+                        , min_width        = Em (9)
+                        )
+                    , Rule_Child
+                        ( ".ip-network"
+                        , min_width        = Em (11)
+                        )
+                    , Rule_Child
+                        ( ".name"
+                        , min_width        = Em (10)
+                        )
+                    , Rule_Child
+                        ( ".owner"
+                        , min_width        = Em (4.5)
+                        )
+                    , Rule_Pseudo
+                        ( "hover"
+                        , background_color = "#f2f2f2"
+                        )
+                    ]
+                )
+            , Rule
+                ( ".ETT"
+                , border               = "1px solid #cbcbcb"
+                , border_radius        = Em (1/2)
+                , margin               = TRBL (Em (1.0), 0)
+                , max_width            = Percent (100)
+                , position             = "relative"
+                , width                = Percent (100)
+                , children             =
+                    [ Rule_Child
+                        ( "h2"
+                        , P.font_spec_normal
+                        , background_color = P.background_color
+                        , border           = 0
+                        , color            = P.color_half_grey
+                        , display          = "inline-block"
+                        , font_size        = Rem (1)
+                        , right            = Em  (4)
+                        , margin_top       = Em  (-0.875)
+                        , padding          = TRBL (0, Em (0.5))
+                        , position         = "absolute"
+                        , top              = 0
+                        , width            = "auto"
+                        , white_space      = "nowrap"
+                        )
+                    , Rule_Child
+                        ( ".action"
+                        , position         = "absolute"
+                        , right            = Em  (1)
+                        , margin_top       = Em  (-1.5)
+                        , padding          = TRBL0 (l = Em (0.5))
+                        , top              = 0
+                        )
+                    , Rule
+                        ( ".XC"
+                        , font_size        = Em (1.5)
+                        , left             = Rem (-3)
+                        , position         = "absolute"
+                        , top              = Rem (0.75)
+                        , children         =
+                            [ Rule
+                                ( "a"
+                                , padding          = Rem (0.5)
+                                , children         =
+                                    [ Rule_Pseudo
+                                        ( "hover", "active"
+                                        , background_color = P.color_dark_grey
+                                        , color            = "#999999"
+                                        )
+                                    ]
+                                )
+                            , Rule
+                                ( ".fa"
+                                , color            = P.color_half_grey
+                                )
+                            ]
+                        )
+                    , Rule_Child
+                        ( "ul"
+                        , list_style       = "none"
+                        , margin           = TRBL (Em (1), 0, Em (1), Em (1))
+                        , min_height       = Em (1.5)
+                        , children         =
+                            [ Rule_Child
+                                ( "li"
+                                , position         = "relative"
+                                )
+                            , Rule_Class
+                                ( "leaf"
+                                , padding_left     = Em (1)
+                                , margin_left      = 0
+                                , children         =
+                                    [ Rule
+                                        ( "li + li"
+                                        , border_top   = "1px solid #cbcbcb"
+                                        , margin_top   = Em (0.25)
+                                        , padding_top  = Em (0.25)
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    , Rule_Child
+                        ( "section"
+                        , margin           = TRBL (Em (1), 0, Em (1), Em (2))
+                        , width            = Percent (95)
+                        )
+                    ]
+                )
+            , Rule
+                ( ".fa"
+                , color                = "#0078E7"
+                , height               = Em (1.0)
+                , width                = Em (1.0)
+                )
+            , Rule
+                ( ".feedback"
+                , background_color     = "#DFF0D8"
+                , color                = "#3C763D"
+                , display              = "inline-block"
+                )
+            , Rule
+                ( "li.feedback"
+                , display              = "block"
+                )
+            , Rule
                 ( "h2"
                 , children             =
                     [ Rule
-                        ( ".fa"
-                        , color        = "#0078E7"
-                        , height       = Em (1.0)
-                        , width        = Em (1.0)
-                        )
-                    , Rule
                         ( ".pure-button"
                         , border_radius    = Rem (0.25)
                         , font_size        = Rem (1.50)
@@ -243,113 +416,8 @@ style_sheet = Style_Sheet \
                     ]
                 )
             , Rule
-                ( "table"
-                , font_size            = Em (0.875)
-                , max_width            = Percent (100)
-                , children             =
-                    [ Rule
-                        ( ".feedback"
-                        , background_color     = "#DFF0D8"
-                        , color                = "#3C763D"
-                        )
-                    , Rule
-                        ( "td"
-                        , word_wrap    = "break-word"
-                        , children     =
-                            [ Rule_Class
-                                ( "action"
-                                , font_size    = Em (1.125)
-                                , padding      = TRBL
-                                    (Em (0.25), Em (0.25), 0, 0)
-                                , children     =
-                                    [ Rule
-                                        ( "a"
-                                        , border_radius    = Em (0.25)
-                                        , margin           = TRBL
-                                            (0, 0, Em (0.25), Em (0.25))
-                                        , padding          = Em (0.25)
-                                        )
-                                    , Rule
-                                        ( ".fa"
-                                        , color        = "#0078E7"
-                                        , height       = Em (1.0)
-                                        , width        = Em (1.0)
-                                        )
-                                    , Rule
-                                        ( "[data-action=undo] .fa"
-                                        , color        = P.color.m_orange
-                                        , width        = Em (2.75)
-                                        )
-                                    ]
-                                )
-                            , Rule_Attr
-                                ( ".feedback"
-                                , text_align           = "center"
-                                )
-                            , Rule_Attr
-                                ( "[colspan]"
-                                , children     =
-                                    [ Rule
-                                        ( ".pure-button"
-                                        , display      = "inline-block"
-                                        , width        = Percent (100)
-                                        , children     =
-                                            [ Rule
-                                                ( "i.fa"
-                                                , color        = "#0078E7"
-                                                , float        = "left"
-                                                , height       = Em (1.0)
-                                                , margin_right = Em (0.5)
-                                                , width        = Em (1.0)
-                                                )
-                                            ]
-                                        )
-                                    , Rule
-                                        ( ".partial-type-menu"
-                                        , display      = "none"
-                                        , list_style   = "none"
-                                        , margin       = 0
-                                        , padding      = 0
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    , Rule
-                        ( "th"
-                        , font_weight          = "normal"
-                        , word_wrap            = "break-word"
-                        )
-                    , Rule
-                        ( "thead"
-                        , background_color     = "inherit"
-                        , border_bottom        = "1px solid #cbcbcb"
-                        )
-                    , Rule
-                        ( "tbody tr"
-                        , children     =
-                            [ Rule_Class
-                                ( "deleted"
-                                , opacity          = 0.5
-                                )
-                            , Rule_Pseudo
-                                ( "hover"
-                                , background_color = "#f2f2f2"
-                                )
-                            , Rule_Pseudo
-                                ( "target"
-                                , background_color = P.color_status_good
-                                )
-                            ]
-                        )
-                    , Rule
-                        ( ".number"
-                        , text_align   = "right"
-                        )
-                    ]
-                )
-            , Rule
                 ( ".map"
+                , margin_bottom        = Em (1.0)
                 , max_height           = "80vh"
                 , min_height           = Rem (15)
                 , position             = "relative"
@@ -370,6 +438,12 @@ style_sheet = Style_Sheet \
                                 ( "a[data-action=show-map]"
                                 , display          = "block"
                                 , visibility       = "visible"
+                                , children         =
+                                    [ Rule
+                                        ( ".fa"
+                                        , float            = "left"
+                                        )
+                                    ]
                                 )
                             ]
                         )
@@ -399,8 +473,22 @@ style_sheet = Style_Sheet \
         , margin_top            = Em (2)
         )
     , Rule
-        ( ".node-table"
-        , width                 = Percent (95)
+        ( ".partial-type-menu"
+        , display               = "none"
+        , list_style            = "none"
+        , children              =
+            [ Rule
+                ( "[href='#create-type']"
+                , background_color      = P.background_color
+                , display               = "inline-block"
+                , text_align            = "left"
+                , width                 = Percent (100)
+                )
+            , Rule
+                ( ".fa"
+                , margin_right          = Em (1.0)
+                )
+            ]
         )
     , Rule
         ( "#messages"
@@ -517,10 +605,6 @@ style_sheet = Style_Sheet \
             ]
         )
     , Rule
-        ( ".rotate-45-left"
-        , P.Rule.rotate_45_left
-        )
-    , Rule
         ( ".small"
         , font_size            = Em (0.8)
         )
@@ -553,24 +637,45 @@ style_sheet = Style_Sheet \
         , Media.Query ("screen", P.breakpoint.small_device)
         , rules               =
             [ Rule
-                ( ".interface-table"
-                , children              =
-                    [ Rule
-                        ( ".created"
-                        , max_width     = Em (5)
+                ( ".app .ETI"
+                , children             =
+                    [ Rule_Child
+                        ( ".Field"
+                        , display          = "inline-block"
+                        , max_width        = Em (10)
+                        , min_width        = 0
+                        , children         =
+                            [ Rule_Sibling
+                                ( ".Field"
+                                , display          = "none"
+                                )
+                            ]
                         )
-                    , Rule
-                        ( ".Device"
-                        , display       = "none"
-                        , visibility    = "hidden"
+                    , Rule_Pseudo
+                        ( "hover"
+                        , background_color = "#f2f2f2"
                         )
-                    , Rule
-                        ( ".ip-addresses"
-                        , max_width     = Em (7)
-                        )
-                    , Rule
-                        ( ".name"
-                        , max_width     = Em (6)
+                    ]
+                )
+            ]
+        )
+    , Media.Rule
+        ( Media.Query ("screen", P.breakpoint.quite_narrow)
+        , rules               =
+            [ Rule
+                ( ".app .ETT"
+                , padding_top          = Em (0.25)
+                , children             =
+                    [ Rule_Child
+                        ( "ul"
+                        , children     =
+                            [ Rule_Child
+                                ( "li > .ETT"
+                                , margin_left = - Em (2.5)
+                                , max_width   = "calc(100% + 2.5em)"
+                                , width       = "calc(100% + 2.5em)"
+                                )
+                            ]
                         )
                     ]
                 )

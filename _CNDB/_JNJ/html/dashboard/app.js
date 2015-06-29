@@ -44,6 +44,17 @@
 //     1-Jun-2015 (CT) Add `undo_cb`, add `undo` to `delete_cb`
 //    12-Jun-2015 (CT) Add `change_email_cb`, `change_password_cb`
 //    29-Jun-2015 (CT) Add `hide_map_cb`, `show_map_cb`
+//     3-Jul-2015 (CT) Add `expand_collapse_cb`
+//     3-Jul-2015 (CT) Adapt `allocate_ip_cb` response `row` to tree structure
+//     6-Jul-2015 (CT) Add AJAX call for `expand_tree` to `expand_collapse_cb`
+//     6-Jul-2015 (CT) Add `fix_history_xc`, `ids_of_expanded_objs`
+//     7-Jul-2015 (CT) Change `create_cb` to consider `outer_ids` stored in
+//                     `class` of closest `obj_row`
+//     7-Jul-2015 (CT) Use `dialog` for `partial-type-menu`
+//     8-Jul-2015 (CT) Adapt `delete_cb` to tree structure
+//     8-Jul-2015 (CT) Fix interaction between node-tree and node-map
+//     8-Jul-2015 (CT) Add `instance_spans` to make entity-instance fields
+//                     clickable to expand/collapse the nested tree
 //    ««revision-date»»···
 //--
 
@@ -62,13 +73,15 @@
               , create_button_t        : "[href=#create-type]"
               , delete_button          : "[href=#delete]"
               , edit_button            : "[href=#edit]"
-              , filter_button          : "[href=#filter]"
               , firmware_button        : "[href=#firmware]"
-              , graph_button           : "[href=#graphs]"
-              , graph_button_if        : ".interface-table [href=#graphs]"
-              , graph_button_node      : ".node-table [href=#graphs]"
-              , obj_row                : "tr"
+              , hide_map_button        : "[data-action=\"hide-map\"]"
+              , href_action            : "li [href^=#], .action [href^=#]"
+              , obj_row                : "li[id]"
+              , partial_type_menu      : ".partial-type-menu"
               , root                   : "#app"
+              , show_map_button        : "[data-action=\"show-map\"]"
+              , undo_button            : "[data-action=\"undo\"]"
+              , xc_button              : "[href=#XC]"
               }
             , opts && opts ["selectors"] || {}
             );
@@ -84,21 +97,29 @@
             ( { active_button_class   : "pure-button-active"
               , app_div_prefix        : "app-D:"
               , app_typ_prefix        : "app-T:"
+              , e_type_class          : "ET"
+              , e_type_instance_class : "ETI"
+              , e_type_tree_class     : "ETT"
+              , icon_collapse         : "fa-minus-square-o"
+              , icon_expand           : "fa-plus-square-o"
+              , xc_class_collapse     : "collapse"
+              , xc_class_expand       : "expand"
               }
             , opts || {}
             , { selectors : selectors
               , urls      : urls
               }
             );
-        var active_filters  = {};
         var nodes           = {};
         var pat_div_name    = new RegExp (options.app_div_prefix + "(\\w+)$");
-        var pat_pid         = new RegExp ("^([^-]+)-(\\d+)$");
-        var pat_typ_name    = new RegExp (options.app_typ_prefix + "(\\w+)$");
+        var pat_pid         = new RegExp ("^([^-]+)-(\\d+)-?$");
+        var pat_typ_name    = new RegExp
+            (options.app_typ_prefix + "(\\w+)@?(\\d+)?$");
+        var q_xc_pat        = new RegExp ("([?&]expand_trees=)[^&]*");
         var action_cb_wrapper = function action_cb_wrapper (ev) {
             var target$     = $(ev.currentTarget);
-            var action_cb   = target$.data ("action");
-            var row$        = closest_el   (target$, "tr");
+            var action_cb   = target$.data ("act_cb");
+            var row$        = closest_el   (target$, selectors.obj_row);
             if (row$.hasClass ("deleted")) {
                 return false;
             } else {
@@ -106,31 +127,42 @@
             };
         };
         var allocate_ip_cb  = function allocate_ip_cb (ev) {
-            var target$     = $(ev.currentTarget);
-            var pool_pid    = target$.data ("pool-pid");
-            var t_row$      = target$.closest ("tr");
-            var t_col$      = target$.closest ("td");
-            var afs         = active_filters;
-            var sid         = closest_el_id (this, "section");
-            var typ         = sid.match     (pat_typ_name) [1];
+            var ev_target$  = $(ev.currentTarget);
+            var pool_pid    = ev_target$.data ("pool-pid");
+            var target$     = ev_target$.closest
+                (selectors.partial_type_menu).data ("button") || ev_target$;
+            var t_row$      = target$.closest (selectors.obj_row);
+            var sid         = closest_el_id (target$, "section");
+            var sid_match   = sid.match (pat_typ_name);
+            var typ         = sid_match [1];
+            var pid         = sid_match [2];
             var url         = options.urls.page + typ + "/allocate_ip";
             var success_cb  = function success_cb (response, status) {
-                var row$, menu$;
+                var row$, menu$, ul$;
                 if (! response ["error"]) {
                     if ("row" in response) {
                         row$ = $(response.row);
-                        row$.addClass     ("feedback")
-                            .insertBefore (t_row$);
-                        $(".dynamic", t_col$).remove ();
-                        setup_buttons (row$);
+                        ul$  = t_row$.find     ("> section > ul")
+                        ul$.append             (row$);
+                        setup_buttons          (row$);
+                        row$.addClass          ("feedback");
+                        menu$ = target$.data   ("menu");
+                        if (menu$) {
+                            menu$.dialog       ("destroy");
+                            target$.removeData ("menu");
+                        };
                     } else if ("menu" in response) {
-                        $(".dynamic", t_col$).remove ();
-                        menu$ = $(response.menu);
-                        menu$
-                            .addClass ("dynamic")
-                            .appendTo (t_col$)
-                            .show     ();
-                        setup_buttons (menu$);
+                        setup_menu
+                            ( target$, $(response.menu)
+                            , { autoOpen : true
+                              , position :
+                                  { my   : "right top"
+                                  , at   : "right bottom"
+                                  , of   : target$
+                                  }
+                              }
+                            );
+                        setup_buttons (target$.data ("menu"))
                     } else if ("feedback" in response) {
                         $GTW.show_message
                             ("Feedback from server: " + response.feedback);
@@ -145,11 +177,10 @@
             };
             $.gtw_ajax_2json
                 ( { type        : "POST"
-                  , data        : $.extend
-                      ( { pool  : pool_pid
-                        }
-                      , active_filters
-                      )
+                  , data        :
+                      { "interface" : pid
+                      , "pool"      : pool_pid
+                      }
                   , url         : url
                   , success     : success_cb
                   }
@@ -186,13 +217,25 @@
             return $(self).closest (selector).prop ("id");
         };
         var create_cb = function create_cb (ev, sub_typ) {
-            var afs   = $.param       (active_filters);
-            var sid   = closest_el_id (this, "section");
-            var typ   = sid.match     (pat_typ_name) [1];
-            var midd  = (! sub_typ) ? "" : ("/" + sub_typ);
-            var url   = options.urls.page + typ + midd + "/create";
+            var sid     = closest_el_id (this, "section");
+            var typ     = sid.match     (pat_typ_name) [1];
+            var midd    = (! sub_typ) ? "" : ("/" + sub_typ);
+            var t_row$  = $(this).closest  (selectors.obj_row);
+            var url     = options.urls.page + typ + midd + "/create";
+            var afs, tr_classes, outer_ids = {};
+            if (t_row$.length) {
+                tr_classes = t_row$.prop ("class").split (" ");
+                for (var i = 0, li = tr_classes.length, c, m; i < li; i++) {
+                    c = tr_classes [i];
+                    m = c.match (pat_pid);
+                    if (m.length) {
+                        outer_ids [m [1]] = m [2];
+                    };
+                };
+            };
+            afs = $.param  (outer_ids);
             if (afs.length > 0) {
-                url   = url + "?" + afs;
+                url = url + "?" + afs;
             };
             setTimeout
                 ( function () {
@@ -204,55 +247,79 @@
         };
         var create_p_cb = function create_p_cb (ev) {
             var target$ = $(ev.currentTarget);
-            var menu$   = target$.next ();
+            var menu$   = target$.data ("menu");
             if (menu$.is (":visible")) {
-                menu$.hide ();
+                menu$.dialog ("close");
             } else {
-                menu$.show ();
+                menu$
+                    .dialog ("open")
+                    .dialog ("widget")
+                        .position
+                            ( { my : "right top"
+                              , at : "right bottom"
+                              , of : target$
+                              }
+                            );
             };
             return false;
         };
         var create_t_cb = function create_t_cb (ev) {
             var target$ = $(ev.target);
-            var sub_typ = target$.data ("etn");
+            var sub_typ = target$.data    ("etn");
             var menu$   = target$.closest (".partial-type-menu");
-            menu$.hide ();
-            return create_cb.call (this, ev, sub_typ);
+            var button$ = menu$.data      ("button");
+            menu$.dialog          ("close");
+            return create_cb.call (button$, ev, sub_typ);
         };
         var delete_cb = function delete_cb (ev) {
             var obj   = obj_of_row (this);
             var success_cb = function success_cb (response, status) {
                 var row$   = obj.row$;
-                var cs     = $("td",        row$).length;
-                var csa    = $("td.action", row$).length;
-                var repl, undo_p;
+                var eti$, et$, etc$, repl$, xc$;
                 if (! response ["error"]) {
-                    undo_p = "undo" in response;
-                    repl   =
-                        ( "<td class=\"feedback\" colspan=\""
-                        + (undo_p ? cs - csa : cs)
-                        + "\">"
-                        + response.feedback
-                        + "</td>"
+                    eti$   = row$.children (selectors.e_type_instance);
+                    et$    = eti$.children (selectors.e_type);
+                    xc$    = eti$.children (".XC");
+                    repl$  = $
+                        ( "<div class=\""
+                        + options.e_type_instance_class
+                        + " feedback\"></div>"
                         );
-                    if (undo_p) {
+                    if (xc$.length) {
+                        repl$.append
+                            ( "<span class=\"XC\">"
+                            + "<a><i class=\"fa fa-ban\"></i></a>"
+                            + "</span>"
+                            );
+                    };
+                    if (et$.length) {
+                        etc$ = et$.clone ();
+                        etc$.css ("cursor", "auto");
+                        repl$.append (etc$);
+                    };
+                    repl$.append
+                        ( "<span class=\"Field\">"
+                        + response.feedback
+                        + "</span>"
+                        );
+                    if ("undo" in response) {
                         row$.data ("deleted", row$.html ());
+                        row$.data ("title",   row$.prop ("title"));
                         row$.data ("undo",    response.undo);
-                        repl =
-                            ( repl
-                            + "<td class=\"action\">"
+                        repl$.append
+                            ( "<span class=\"action\">"
                             + "<a class=\"pure-button\" data-action=\"undo\""
                             + "title=\"" + response.undo.title + "\""
                             + ">"
                             + "<i class=\"fa fa-undo\"></i>"
                             + "</a>"
-                            + "</td>"
+                            + "</span>"
                             );
                     };
-                    row$.html     (repl);
+                    row$.addClass ("deleted");
+                    row$.html     (repl$);
                     row$.prop     ("title", "");
                     setup_buttons (row$);
-                    links_of_obj$ (obj).addClass ("deleted");
                 } else {
                     $GTW.show_message ("Ajax Error: " + response ["error"]);
                 };
@@ -301,42 +368,84 @@
                 );
             return false;
         };
-        var do_filter = function do_filter (ev) {
-            var id    = closest_el_id (this, selectors.obj_row);
-            var all   = obj_rows_selector_all (id);
-            var sel   = obj_rows_selector_sel (id);
-            $(all).hide ();
-            $(sel).show ();
-        };
-        var filter_cb = function filter_cb (ev) {
-            var a$      = $(this);
-            var id      = closest_el_id         (this, selectors.obj_row);
-            var pid     = pid_of_obj_id         (id);
-            var typ     = type_of_obj_id        (id);
-            var all     = obj_rows_selector_all (id);
-            var typ_cb;
-            var hide$;
-            if (a$.hasClass (options.active_button_class)) {
-                // currently filtered --> show all instances
-                typ_cb = filter_typ_remove_cb [typ];
-                if (typ_cb) {
-                    typ_cb.apply (this, arguments);
+        var expand_collapse_cb = function expand_collapse_cb (ev, target, transitive) {
+            var target$   = $(target || ev.currentTarget);
+            var icon$     = target$.children (".fa");
+            var t_row$    = target$.closest  (selectors.obj_row);
+            var nested$   = t_row$.children  ("section");
+            var obj       = obj_of_row       (target$);
+            var _collapse = function _collapse () {
+                target$
+                    .removeClass (options.xc_class_collapse)
+                    .addClass    (options.xc_class_expand);
+                icon$
+                    .removeClass (options.icon_collapse)
+                    .addClass    (options.icon_expand);
+                fix_history_xc   ();
+                if (nodes [obj.pid]) {
+                    nodes [obj.pid].closePopup ();
                 };
-                $(all).show ();
-                delete active_filters [typ];
-                a$.removeClass (options.active_button_class);
-            } else {
-                active_filters [typ] = pid;
-                typ_cb = filter_typ_add_cb [typ];
-                if (typ_cb) {
-                    typ_cb.apply (this, arguments);
-                };
-                a$.addClass (options.active_button_class);
             };
-            // execute all filters that are active now
-            hide$ = $(selectors.filter_active_button);
-            hide$.each (do_filter);
+            var _expand   = function _expand () {
+                target$
+                    .removeClass (options.xc_class_expand)
+                    .addClass    (options.xc_class_collapse);
+                icon$
+                    .removeClass (options.icon_expand)
+                    .addClass    (options.icon_collapse);
+                fix_history_xc   ();
+                if (nodes [obj.pid]) {
+                    nodes [obj.pid].openPopup ();
+                };
+            };
+            if (target$.hasClass (options.xc_class_collapse)) {
+                nested$.hide ();
+                _collapse    ();
+            } else if (nested$.length) {
+                nested$.show ();
+                _expand      ();
+            } else {
+                var success_cb = function success_cb (response, status) {
+                    if (! response ["error"]) {
+                        t_row$.append  (response ["html"]);
+                        setup_buttons  (t_row$);
+                        _expand        ();
+                    } else {
+                        $GTW.show_message ("Ajax Error: " + response ["error"]);
+                    };
+                };
+                $.gtw_ajax_2json
+                    ( { type        : "GET"
+                      , data        : "expand_tree="
+                          + ( (transitive || (ev && ev.ctrlKey))
+                            ? "transitive"
+                            : 1
+                            )
+                      , url         : obj.url
+                      , success     : success_cb
+                      }
+                    , "Expand nested"
+                    );
+            };
             return false;
+        };
+        var expand_node = function expand_node (pid) {
+            var node$ = $("[id='node-" + pid + "']");
+            if (! node$.hasClass ("deleted")) {
+                var xc$   = $(selectors.xc_button, node$).first ();
+                if (xc$.hasClass (options.xc_class_expand)) {
+                    expand_collapse_cb (null, xc$, true);
+                };
+            };
+        };
+        var expand_collapse_node_cb = function expand_node_cb (ev) {
+            var obj  = obj_of_row (this);
+            var row$ = obj.row$;
+            if (! row$.hasClass ("deleted")) {
+                var xc$  = $(selectors.xc_button, row$).first ();
+                expand_collapse_cb (null, xc$);
+                return false;
+            };
         };
         var firmware_cb = function firmware_cb (ev) {
             var a$    = $(this);
@@ -355,6 +464,17 @@
             msgs$.append (msg$);
             msg$.focus ();
             msg$.on    ("click", hide_feedback);
+        };
+        var fix_history_xc = function fix_history_xc () {
+            var ids = ids_of_expanded_objs ().join (",");
+            if (ids) {
+                var url   = window.location.href.split ("?") [0];
+                var q     = window.location.search;
+                var q_new = q.match (q_xc_pat)
+                    ? q.replace (q_xc_pat, "$1" + ids)
+                    : "?expand_trees=" + ids;
+                $GTW.push_history (url + q_new);
+            };
         };
         var graph_cb = function graph_cb (ev) {
             var a$    = $(this);
@@ -411,9 +531,16 @@
             target$.remove ();
             return false;
         };
-        var links_of_obj$ = function links_of_obj$ (obj) {
-            var links  = obj_rows_selector_sel (obj.rid);
-            return $(links).not ("[id=\"" + obj.rid + "\"]");
+        var ids_of_expanded_objs = function ids_of_expanded_objs () {
+            var xb$    = $(selectors.xc_button_collapse);
+            var result = [];
+            xb$.each ( function ()
+              {
+                var sid = closest_el_id (this, selectors.obj_row);
+                result.push (pid_of_obj_id (sid));
+              }
+            );
+            return result;
         };
         var obj_of_row  = function obj_of_row (self) {
             var result  = {};
@@ -456,35 +583,35 @@
             var row$ = obj.row$;
             var rest = row$.data ("deleted");
             var undo = row$.data ("undo");
-            var success_cb = function success_cb (response, status) {
-                if (! response ["error"]) {
-                    row$.html     (rest);
-                    row$.data     ("deleted", undefined);
-                    row$.data     ("undo",    undefined);
-                    setup_buttons (row$);
-                    links_of_obj$ (obj).removeClass ("deleted");
-                } else {
-                    $GTW.show_message ("Ajax Error: " + response ["error"]);
+            if (undo) {
+                var success_cb = function success_cb (response, status) {
+                    if (! response ["error"]) {
+                        row$.html         (rest);
+                        row$.data         ("deleted", undefined);
+                        row$.data         ("undo",    undefined);
+                        row$.removeClass  ("deleted");
+                        row$.prop         ("title", row$.data ("title"));
+                        setup_buttons     (row$);
+                    } else {
+                        $GTW.show_message
+                            ("Ajax Error: " + response ["error"]);
+                    };
                 };
+                $.gtw_ajax_2json
+                    ( { type        : "POST"
+                      , data        : undo
+                      , success     : success_cb
+                      , url         : undo.url
+                      }
+                    , "Undo"
+                    );
+            } else {
+                $GTW.show_message ("No undo information in DOM");
+                $(".action", row$).empty ();
             };
-            $.gtw_ajax_2json
-                ( { type        : "POST"
-                  , data        : undo
-                  , success     : success_cb
-                  , url         : undo.url
-                  }
-                , "Undo"
-                );
             return false;
         };
 
-        var focus_map_cb = function(e) {
-            var id=$(e.target).parent().parent().parent().attr("class");
-            var pid=id.match(/node-([0-9]+)-/)[1]
-            if (nodes[pid]) {
-                nodes[pid].openPopup();
-                };
-            };
         var ip_hide_cb = function ip_hide_cb (ev) {
             var l$ = $(selectors.app_div_id);
             l$.hide ();
@@ -495,34 +622,60 @@
         };
         var setup_buttons = function setup_buttons (context$) {
             var S = selectors;
-            $(S.allocate_ip_button,     context$).data ("action", allocate_ip_cb);
-            $(S.change_email_button,    context$).data ("action", change_email_cb);
-            $(S.change_password_button, context$).data ("action", change_password_cb);
-            $(S.create_button,          context$).data ("action", create_cb);
-            $(S.create_button_p,        context$).data ("action", create_p_cb);
-            $(S.create_button_t,        context$).data ("action", create_t_cb);
-            $(S.delete_button,          context$).data ("action", delete_cb);
-            $(S.edit_button,            context$).data ("action", edit_cb);
-            $(S.filter_button,          context$).data ("action", filter_cb);
-            $(S.firmware_button,        context$).data ("action", firmware_cb);
-          //$(S.graph_button_if,        context$).data ("action", graph_interface_cb);
-            $(S.graph_button_node,      context$).data ("action", graph_cb);
+            $(S.instance_spans,         context$).css  ("cursor", "pointer");
+            $(S.allocate_ip_button,     context$).data ("act_cb", allocate_ip_cb);
+            $(S.change_email_button,    context$).data ("act_cb", change_email_cb);
+            $(S.change_password_button, context$).data ("act_cb", change_password_cb);
+            $(S.create_button,          context$).data ("act_cb", create_cb);
+            $(S.create_button_p,        context$).data ("act_cb", create_p_cb);
+            $(S.create_button_t,        context$).data ("act_cb", create_t_cb);
+            $(S.delete_button,          context$).data ("act_cb", delete_cb);
+            $(S.edit_button,            context$).data ("act_cb", edit_cb);
+            $(S.firmware_button,        context$).data ("act_cb", firmware_cb);
+            $(S.xc_button,              context$).data ("act_cb", expand_collapse_cb);
+            $(S.partial_type_menu,      context$).each
+                ( function () {
+                    var ptm$ = $(this);
+                    var but$ = ptm$.prev (S.create_button_p);
+                    setup_menu (but$, ptm$);
+                  }
+                );
         }
-        // Define custom actions on filter here
-        var filter_typ_add_cb =
-            { "interface" : ip_show_cb
-            , node        : focus_map_cb
-            };
-        var filter_typ_remove_cb =
-            { "interface" : ip_hide_cb
-            };
-        selectors.filter_active_button =
-            "." + options.active_button_class + selectors.filter_button;
+        var setup_menu = function setup_menu (button$, menu$, opts) {
+            menu$.data ("button", button$);
+            button$.data
+              ( "menu"
+              , menu$.dialog
+                  ( $.extend
+                      ( { autoOpen : false
+                        , title    : menu$.attr ("title")
+                        , width    : "auto"
+                        }
+                      , opts || {}
+                      )
+                  )
+              );
+        };
+        var this$                      = $(this);
+        selectors.e_type               = "." + options.e_type_class;
+        selectors.e_type_instance      = "." + options.e_type_instance_class;
+        selectors.e_type_tree          = "." + options.e_type_tree_class;
+        selectors.xc_button_collapse   =
+            "." + options.xc_class_collapse   + selectors.xc_button;
+        selectors.xc_button_epxand     =
+            "." + options.xc_class_expand     + selectors.xc_button;
+        selectors.instance_spans      =
+            ( ":not(.leaf) > "
+            + selectors.obj_row + ":not(.deleted) > "
+            + selectors.e_type_instance + " > span:not(.action)"
+            );
         setup_buttons (this);
-        $(this).on ("click", "tr [href^=#]", action_cb_wrapper);
-        $(this).on ("click", "[data-action=\"undo\"]", undo_cb);
-        $(this).on ("click", "[data-action=\"hide-map\"]", hide_map_cb);
-        $(this).on ("click", "[data-action=\"show-map\"]", show_map_cb);
+        this$.on ("click", selectors.href_action,     action_cb_wrapper);
+        this$.on ("click", selectors.instance_spans,  expand_collapse_node_cb);
+        this$.on ("click", selectors.hide_map_button, hide_map_cb);
+        this$.on ("click", selectors.show_map_button, show_map_cb);
+        this$.on ("click", selectors.undo_button,     undo_cb);
+        fix_history_xc ();
         // hide the ip in interface list on ready
         $(document).ready(function () {
             $(selectors.app_div_id).hide ();
@@ -548,34 +701,22 @@
                     .addTo(node_map);
                 for (var i in node_data) {
                     var n = node_data[i];
-                    nodes[n.pid] = L.marker([n.pos.lat, n.pos.lon])
-                                    .addTo (markers)
-                                    .bindPopup("<b>"+n.name+"</b>")
-                                    .on("popupopen",
-                                        function(p) {
-                                            var pid = p;
-                                            return function() {
-                                                var sel = obj_rows_selector_sel ("node-"+pid);
-                                                var all = obj_rows_selector_all ("node-"+pid);
-                                                $("#node-"+pid+" a[href='#filter']")
-                                                    .addClass(options.active_button_class);
-                                                $(all).hide();
-                                                $(sel).show();}}(n.pid)
-                                        )
-                                    .on("popupclose",
-                                        function(p) {
-                                            var pid=p;
-                                            return function() {
-                                                $("#node-"+pid+" a[href='#filter']")
-                                                    .removeClass(options.active_button_class);
-                                                var all = obj_rows_selector_all ("node-"+pid);
-                                                $(all).show();}}(n.pid)
-                                         );
+                    nodes[n.pid] =
+                        L.marker ([n.pos.lat, n.pos.lon])
+                            .addTo (markers)
+                            .bindPopup ("<b>"+n.name+"</b>")
+                            .on ( "popupopen"
+                                , function (p) {
+                                    var pid = p;
+                                    return function (ev) {
+                                      return expand_node (pid);
+                                    };
+                                  } (n.pid)
+                                );
                     };
-                node_map.fitBounds(markers.getBounds(),
-                    {padding: [20,20]
-                    , maxZoom: 15});
-                    };
+                node_map.fitBounds
+                    (markers.getBounds(), { padding: [20,20], maxZoom: 15 });
+              };
             });
 
         // make position editing more interesting...

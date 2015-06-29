@@ -1,6 +1,6 @@
 {#- jinja template: html/dashboard/user.m.jnj -#}
 {#
-## Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************
 ## This module is licensed under the terms of the BSD 3-Clause License
@@ -16,6 +16,7 @@
 ##
 ## Revision Dates
 ##    18-Apr-2014 (CT) Creation
+##     7-Jul-2015 (CT) Use `db_div_user`, not `db_div_main`
 ##    ««revision-date»»···
 ##--
 #}
@@ -23,7 +24,10 @@
 {%- import "html/dashboard/app.m.jnj" as DB with context %}
 
 {%- macro main (page) -%}
-  {{ DB.db_div_main (page.db_user) }}
+  <h1 class="pure-u-1">
+    {{- page.db_person.view_title -}}
+  </h1>
+  {{ DB.db_div_user (page.db_user) }}
 {%- endmacro -%} {#- main -#}
 
 {#- __END__ jinja template: html/dashboard/user.m.jnj -#}
