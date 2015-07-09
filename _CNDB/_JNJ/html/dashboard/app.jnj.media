@@ -35,6 +35,7 @@
 #    30-Jun-2015 (CT) Add rules for `table.nested`
 #     2-Jul-2015 (CT) Add rules for tree-based dashboard (`.ETT`, `.ETI`, ...)
 #     8-Jul-2015 (CT) Remove rules for `table` based dashboard
+#     9-Jul-2015 (CT) Reduce `max_height` and `min_height` of `.map`
 #    ««revision-date»»···
 #--
 
@@ -418,8 +419,8 @@ style_sheet = Style_Sheet \
             , Rule
                 ( ".map"
                 , margin_bottom        = Em (1.0)
-                , max_height           = "80vh"
-                , min_height           = Rem (15)
+                , max_height           = "50vh"
+                , min_height           = Rem (10)
                 , position             = "relative"
                 , children             =
                     [ Rule

@@ -55,6 +55,7 @@
 //     8-Jul-2015 (CT) Fix interaction between node-tree and node-map
 //     8-Jul-2015 (CT) Add `instance_spans` to make entity-instance fields
 //                     clickable to expand/collapse the nested tree
+//     9-Jul-2015 (CT) Make map resizable
 //    ««revision-date»»···
 //--
 
@@ -684,6 +685,7 @@
         // initialize the map
         $(document).ready(function initialize_map () {
             var ms = $(".map[data-markers]");
+            ms.resizable ({ autoHide : false, distance : 10, ghost : false });
             L.Icon.Default.imagePath = "/media/GTW/css/images";
             for (var j=0;j<ms.length;j++) {
                 var el = $(ms[j]);
