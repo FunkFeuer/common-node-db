@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2015-06-12 19:33+0200\n"
+"POT-Creation-Date: 2015-07-23 11:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,25 +22,38 @@ msgstr ""
 msgid "%s Knotendatenbank"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:295
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:349
 msgid "About"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:253
-msgid "Action"
-msgstr ""
-
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:120
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:138
 #, python-format
 msgid "Allocate from pool %(name)s"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:301
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:132
+msgid "Choose the address pool to allocate from"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:110
+msgid "Choose the type of object to create"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/view.m.jnj:33
+#, python-format
+msgid "Dashboard for %s"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:355
 msgid "Development"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:306
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:360
 msgid "Documentation"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:207
+msgid "Hide node map"
 msgstr ""
 
 #: _CNDB/_JNJ/html/base.jnj:50
@@ -51,12 +64,17 @@ msgstr ""
 msgid "Open wireless networks"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:337
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:391
 msgid "Personal settings"
 msgstr ""
 
-#: _CNDB/_JNJ/html/dashboard/app.m.jnj:313
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:367
 msgid "RESTful API"
+msgstr ""
+
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:215
+#: _CNDB/_JNJ/html/dashboard/app.m.jnj:216
+msgid "Show node map"
 msgstr ""
 
 #: _CNDB/_JNJ/html/base.jnj:45

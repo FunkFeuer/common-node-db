@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CNDB 1.0\n"
 "Report-Msgid-Bugs-To: tanzer@swing.co.at,ralf@runtux.com\n"
-"POT-Creation-Date: 2015-06-12 19:33+0200\n"
+"POT-Creation-Date: 2015-07-23 11:06+0200\n"
 "PO-Revision-Date: 2014-08-31 12:03+0200\n"
 "Last-Translator: Christian Tanzer <tanzer@swing.co.at>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -17,72 +17,80 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: _CNDB/_GTW/RST_addons.py:1116
+#: _CNDB/_GTW/RST_addons.py:1213
 #, python-format
 msgid "%ss managed/owned by %s"
 msgstr "%s, die %s verwaltet oder besitzt"
 
-#: _CNDB/_GTW/RST_addons.py:1191
+#: _CNDB/_GTW/RST_addons.py:1296
 #, python-format
 msgid "%ss used by %s"
 msgstr "%s, die %s verwendet"
 
-#: _CNDB/_GTW/RST_addons.py:1485
-msgid "Addresses"
-msgstr "Adressen"
-
-#: _CNDB/_GTW/RST_addons.py:1222
+#: _CNDB/_GTW/RST_addons.py:1327
 #, python-format
 msgid "Addresses used by %s"
 msgstr "Von %s verwendete Addressen"
 
-#: _CNDB/_GTW/RST_addons.py:793
+#: _CNDB/_GTW/RST_addons.py:854
 #, python-format
 msgid "Allocate an IP address for interface %(obj)s"
 msgstr "Reserviere eine IP Adresse für Schnittstelle %(obj)s"
 
-#: _CNDB/_GTW/RST_addons.py:798
+#: _CNDB/_GTW/RST_addons.py:859
 #, python-format
 msgid "Change email of %(tn)s %(obj)s"
 msgstr "Ändere Emailadresse von %(tn)s %(obj)s"
 
-#: _CNDB/_GTW/RST_addons.py:803
+#: _CNDB/_GTW/RST_addons.py:864
 #, python-format
 msgid "Change password of %(tn)s %(obj)s"
 msgstr "Ändere Kennwort von %(tn)s %(obj)s"
 
-#: _CNDB/_GTW/RST_addons.py:808
+#: _CNDB/_GTW/RST_addons.py:869
 #, python-format
 msgid "Create a new %(tn)s %(obj)s"
 msgstr "Lege eine neue Instanz von %(tn)s %(obj)s an"
 
-#: _CNDB/_GTW/RST_addons.py:818
+#: _CNDB/_GTW/RST_addons.py:879
 #, python-format
 msgid "Edit %(tn)s %(obj)s"
 msgstr "Ändere %(tn)s %(obj)s"
 
-#: _CNDB/_GTW/RST_addons.py:829
+#: _CNDB/_GTW/RST_addons.py:884
 #, python-format
 msgid "Generate firmware for %(tn)s %(obj)s"
 msgstr "Erzeuge Firmware für %(tn)s %(obj)s"
 
-#: _CNDB/_GTW/RST_addons.py:891
+#: _CNDB/_GTW/RST_addons.py:958
 msgid "IP address"
 msgstr "IP-Adresse"
 
-#: _CNDB/_GTW/RST_addons.py:913
+#: _CNDB/_GTW/RST_addons.py:952
+msgid "IP address assigned to interface"
+msgstr "Der Schnittstelle zugewiesene IP-Adresse"
+
+#: _CNDB/_GTW/RST_addons.py:986
 msgid "IP addresses"
 msgstr "IP-Adressen"
 
-#: _CNDB/_GTW/RST_addons.py:907
+#: _CNDB/_GTW/RST_addons.py:980
 msgid "IP addresses assigned to interface"
 msgstr "Der Schnittstelle zugewiesene IP-Adressen"
 
-#: _CNDB/_GTW/RST_addons.py:935
+#: _CNDB/_GTW/RST_addons.py:1020
 msgid "IP network"
 msgstr "IP Netzwerk"
 
-#: _CNDB/_GTW/RST_addons.py:1459
+#: _CNDB/_GTW/RST_addons.py:1014
+msgid "IP network the address belongs to"
+msgstr "IP-Netzwerk, zu dem die Adresse gehört"
+
+#: _CNDB/_GTW/RST_addons.py:1059
+msgid "Indicates if you are owner or manager of the node"
+msgstr "Gibt an, ob Du Eigner oder Verwalter des Knotens bist"
+
+#: _CNDB/_GTW/RST_addons.py:1571
 #, python-format
 msgid ""
 "No pools available that allow allocation by user %(user)s and node "
@@ -91,35 +99,25 @@ msgstr ""
 "Es sind keine Pools verfügbar, die Allokation durch %(user)s und %(node)s"
 " erlauben"
 
-#: _CNDB/_GTW/RST_addons.py:974
-#, python-format
-msgid "Owned by %s"
-msgstr "Verwaltet oder besessen durch %s"
-
-#: _CNDB/_GTW/RST_addons.py:971
-msgid "Owned by you"
-msgstr "In Deinem Besitz"
-
-#: _CNDB/_GTW/RST_addons.py:1603
+#: _CNDB/_GTW/RST_addons.py:1717
 #, python-format
 msgid "Personal data of %s"
 msgstr "Persönliche Daten von %s"
 
-#: _CNDB/_GTW/RST_addons.py:1409
+#: _CNDB/_GTW/RST_addons.py:1521
 msgid "Request must include interface pid"
 msgstr "Abfrage muss Schnittstellen-ID enthalten"
 
-#: _CNDB/_GTW/RST_addons.py:824
-#, python-format
-msgid "Restrict details below to objects belonging to %(tn)s %(obj)s"
-msgstr "Schränke folgende Details auf zu %(tn)s '%(obj)s' gehörende Objekte ein"
+#: _CNDB/_GTW/RST_addons.py:1065
+msgid "Role"
+msgstr "Rolle"
 
-#: _CNDB/_GTW/RST_addons.py:834
+#: _CNDB/_GTW/RST_addons.py:889
 #, python-format
 msgid "Show graphs and statistics about %(tn)s %(obj)s"
 msgstr "Zeige Graphen und Statistiken über %(tn)s %(obj)s an"
 
-#: _CNDB/_GTW/RST_addons.py:177
+#: _CNDB/_GTW/RST_addons.py:197
 #, python-format
 msgid ""
 "You are not allowed to change %s unless afterwards you [%s] are still "
@@ -128,19 +126,31 @@ msgstr ""
 "%s kann nicht geändert werden, ausser %s ist danach immer noch entweder "
 "Manager oder Eigner"
 
-#: _CNDB/_GTW/RST_addons.py:180
+#: _CNDB/_GTW/RST_addons.py:200
 msgid "and"
 msgstr "und"
 
-#: _CNDB/_GTW/RST_addons.py:290
+#: _CNDB/_GTW/RST_addons.py:310
 msgid "owned/managed by"
 msgstr "in Besitz/verwaltet von"
 
-#: _CNDB/_GTW/RST_addons.py:182
+#: _CNDB/_GTW/RST_addons.py:202
 msgid "to"
 msgstr "zu"
 
-#: _CNDB/_GTW/RST_addons.py:991
+#: _CNDB/_GTW/RST_addons.py:1088
 msgid "type"
 msgstr "Typ"
+
+#~ msgid "Addresses"
+#~ msgstr "Adressen"
+
+#~ msgid "Owned by %s"
+#~ msgstr "Verwaltet oder besessen durch %s"
+
+#~ msgid "Owned by you"
+#~ msgstr "In Deinem Besitz"
+
+#~ msgid "Restrict details below to objects belonging to %(tn)s %(obj)s"
+#~ msgstr "Schränke folgende Details auf zu %(tn)s '%(obj)s' gehörende Objekte ein"
 
