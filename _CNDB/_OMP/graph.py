@@ -38,16 +38,17 @@
 #     5-Jun-2015 (CT) Simplify layout to prepare for future additions
 #     6-Jun-2015 (CT) Add `IP_Network_in_IP_Pool`, `IP_Pool_permits_Group`
 #                     + add `PAP.Adhoc_Group`, re-add `PAP.Person`
+#    16-Sep-2015 (CT) Move `import` to `Command.import_all`, `.import_default`
+#                     (from `__main__`)
 #    ««revision-date»»···
 #--
 
 from   __future__  import absolute_import, division, print_function, unicode_literals
 
-from   _GTW                   import GTW
 from   _MOM                   import MOM
 from   _CNDB                  import CNDB
+
 import _CNDB._OMP
-from   _GTW._OMP._PAP         import PAP
 
 from   _MOM._Graph.Spec       import Attr, Child, ET, IS_A, Role, Skip
 
@@ -179,11 +180,21 @@ def graph (app_type) :
 
 class Command (MOM.Graph.Command) :
 
-    PNS                   = CNDB
+    PNS                   = CNDB.OMP
 
     _defaults             = dict \
         ( name            = "nodedb"
         )
+
+    def import_all (self) :
+        import _GTW._OMP._PAP.import_PAP
+        import _GTW._OMP._Auth.import_Auth
+        self.import_default ()
+    # end def import_all
+
+    def import_default (self) :
+        import _CNDB._OMP.import_CNDB
+    # end def import_default
 
     def _app_dir_default (self) :
         return sos.path.normpath (sos.path.join (self.app_dir, "../..", "doc"))
@@ -192,10 +203,7 @@ class Command (MOM.Graph.Command) :
 # end class Command
 
 if __name__ != "__main__" :
-    CNDB.OMP._Export ("*")
+    CNDB.OMP._Export_Module ()
 else :
-    import _GTW._OMP._PAP.import_PAP
-    import _GTW._OMP._Auth.import_Auth
-    import _CNDB._OMP.import_CNDB
     Command () ()
 ### __END__ CNDB.OMP.graph
