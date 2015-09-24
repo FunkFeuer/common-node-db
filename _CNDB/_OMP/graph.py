@@ -202,8 +202,10 @@ class Command (MOM.Graph.Command) :
 
 # end class Command
 
+command = Command ()
+
 if __name__ != "__main__" :
     CNDB.OMP._Export_Module ()
 else :
-    Command () ()
+    command ()
 ### __END__ CNDB.OMP.graph
