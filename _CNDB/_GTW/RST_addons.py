@@ -131,6 +131,7 @@
 #     6-Jul-2015 (CT) Add `DB_View.render_context` to setup `expand_trees`
 #     7-Jul-2015 (CT) Add `net_device_type` to `DB_Device.view_field_names`
 #     8-Jul-2015 (CT) Remove `filter` from `_action_map`
+#    18-Nov-2015 (CT) Pass `abs_href_dynamic`, not `abs_href`, to `pp_join`
 #    ««revision-date»»···
 #--
 
@@ -802,7 +803,8 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
             if result.get ("undo") :
                 scope  = self.top.scope
                 change = scope.uncommitted_changes [-1]
-                result ["undo"] ["url"] = pp_join (self.parent.abs_href, "undo")
+                result ["undo"] ["url"] = pp_join \
+                    (self.parent.abs_href_dynamic, "undo")
             return result
         # end def _rendered_delete
 
