@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
@@ -35,6 +35,7 @@
 #     4-Sep-2014 (RS) Set `max_value` of `A_IP6_Netmask` to 128
 #    30-Sep-2014 (CT) Fix `_A_IP_Netmask_Interval_` overrides
 #                     (needs to nested inside `_Attributes`; attribute names)
+#    11-Dec-2015 (CT) Use `attr_types_of_module`, not home-grown code
 #    ««revision-date»»···
 #--
 
@@ -206,8 +207,9 @@ class A_IP6_Netmask_Interval (_A_IP_Netmask_Interval_) :
 
 # end class A_IP6_Netmask_Interval
 
-__all__ = tuple (k for (k, v) in pyk.iteritems (globals ()) if is_attr_type (v))
+__attr_types  = Attr.attr_types_of_module ()
+__all__       = __sphinx__members = __attr_types
 
 if __name__ != "__main__" :
-    CNDB.OMP._Export ("*")
+    CNDB.OMP._Export (* __attr_types)
 ### __END__ CNDB.OMP.Attr_Type
