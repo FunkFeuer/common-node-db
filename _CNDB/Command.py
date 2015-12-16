@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -18,6 +18,7 @@
 # Revision Dates
 #     5-Sep-2014 (CT) Creation (factored from FFW)
 #     5-Sep-2014 (MB) Added garbage collect command
+#    16-Dec-2015 (CT) Change to `UI_Spec`
 #    ««revision-date»»···
 #--
 
@@ -44,11 +45,11 @@ import _GTW._RST._TOP.ReST
 
 import _GTW._Werkzeug.Command
 
-import _GTW._OMP._Auth.Nav
-import _GTW._OMP._PAP.Nav
+import _GTW._OMP._Auth.UI_Spec
+import _GTW._OMP._PAP.UI_Spec
 
 import _CNDB._JNJ
-import _CNDB._OMP.Nav
+import _CNDB._OMP.UI_Spec
 import _CNDB._OMP.RST_Api_addons
 
 import _GTW.HTML

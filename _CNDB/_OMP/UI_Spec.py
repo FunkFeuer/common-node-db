@@ -10,10 +10,10 @@
 #
 #++
 # Name
-#    CNDB.OMP.Nav
+#    CNDB.OMP.UI_Spec
 #
 # Purpose
-#    Provide configuration for GTW.NAV.E_Type.Admin entries
+#    UI specification for E_Types defined by CNDB.OMP
 #
 # Revision Dates
 #    26-Mar-2012 (CT) Creation
@@ -47,24 +47,27 @@
 #     6-Apr-2015 (CT) Use `id_entity_select` for `Antenna.left`,
 #                     `Net_Device.left`
 #     1-Jun-2015 (CT) Enable `Net_Interface_in_IP[46]_Network`
+#    16-Dec-2015 (CT) Change to `UI_Spec`
 #    ««revision-date»»···
 #--
 
-from   __future__  import absolute_import, division, print_function, unicode_literals
+from   __future__  import absolute_import
+from   __future__  import division
+from   __future__  import print_function
+from   __future__  import unicode_literals
 
-from   _TFL                     import TFL
 from   _CNDB                    import CNDB
+from   _TFL                     import TFL
+
 import _CNDB._OMP
-from   _GTW._OMP._PAP           import PAP
 
-from   _TFL.I18N                import _
+import _TFL.Sorted_By
 
-class Admin (object) :
-    """Provide configuration for GTW.NAV.E_Type.Admin entries"""
+class UI_Spec (object) :
+    """UI specification for E_Types defined by CNDB.OMP."""
 
     Antenna               = dict \
-        ( ETM             = "CNDB.OMP.Antenna"
-        , list_display    = ("left", "name", "gain")
+        ( list_display    = ("left", "name", "gain")
         , MF3_Form_Spec        = dict
             ( include_rev_refs = ("interface", )
             )
@@ -75,55 +78,53 @@ class Admin (object) :
         )
 
     Antenna_Type          = dict \
-        ( ETM             = "CNDB.OMP.Antenna_Type"
-        , MF3_Form_Spec        = dict
+        ( MF3_Form_Spec        = dict
             ( include_rev_refs = ("bands", )
             )
         )
 
     Firmware_Binary       = dict \
-        ( ETM             = "CNDB.OMP.Firmware_Binary"
+        (
         )
 
     Firmware_Bundle       = dict \
-        ( ETM             = "CNDB.OMP.Firmware_Bundle"
+        (
         )
 
     Firmware_Type         = dict \
-        ( ETM             = "CNDB.OMP.Firmware_Type"
+        (
         )
 
     Firmware_Version      = dict \
-        ( ETM             = "CNDB.OMP.Firmware_Version"
+        (
         )
 
     IP_Network            = dict \
-        ( ETM             = "CNDB.OMP.IP_Network"
+        (
         )
 
     IP4_Network           = dict \
-        ( ETM             = "CNDB.OMP.IP4_Network"
+        (
         )
 
     IP6_Network           = dict \
-        ( ETM             = "CNDB.OMP.IP6_Network"
+        (
         )
 
     IP4_Pool              = dict \
-        ( ETM             = "CNDB.OMP.IP4_Pool"
+        (
         )
 
     IP6_Pool              = dict \
-        ( ETM             = "CNDB.OMP.IP6_Pool"
+        (
         )
 
     Net_Credentials       = dict \
-        ( ETM             = "CNDB.OMP.Net_Credentials"
+        (
         )
 
     Net_Device            = dict \
-        ( ETM             = "CNDB.OMP.Net_Device"
-        , MF3_Form_Spec        = dict
+        ( MF3_Form_Spec        = dict
             ( include_rev_refs =
                 ( "wired_interfaces"
                 , "wireless_interfaces"
@@ -137,58 +138,55 @@ class Admin (object) :
         )
 
     Net_Device_Type       = dict \
-        ( ETM             = "CNDB.OMP.Net_Device_Type"
+        (
         )
 
     Net_Interface         = dict \
-        ( ETM             = "CNDB.OMP.Net_Interface"
+        (
         )
 
     Nickname              = dict \
-        ( ETM             = "PAP.Nickname"
+        (
         )
 
     Node                  = dict \
-        ( ETM             = "CNDB.OMP.Node"
+        (
         )
 
     Person                = dict \
-        ( ETM             = "PAP.Person"
+        (
         )
 
     Regulatory_Domain     = dict \
-        ( ETM             = "CNDB.OMP.Regulatory_Domain"
+        (
         )
 
     Regulatory_Permission = dict \
-        ( ETM             = "CNDB.OMP.Regulatory_Permission"
+        (
         )
 
     Routing_Zone          = dict \
-        ( ETM             = "CNDB.OMP.Routing_Zone"
+        (
         )
 
     Virtual_Wireless_Interface = dict \
-        ( ETM             = "CNDB.OMP.Virtual_Wireless_Interface"
-        , list_display    =
+        ( list_display    =
             ("hardware", "mac_address", "name", "is_active")
         )
 
     Wired_Interface       = dict \
-        ( ETM             = "CNDB.OMP.Wired_Interface"
+        (
         )
 
     Wireless_Channel      = dict \
-        ( ETM             = "CNDB.OMP.Wireless_Channel"
-        , MF3_Attr_Spec        = dict
+        ( MF3_Attr_Spec        = dict
             ( left             = dict
                 (input_widget = "mf3_input, id_entity_select")
             )
         )
 
     Wireless_Interface    = dict \
-        ( ETM             = "CNDB.OMP.Wireless_Interface"
-        , list_display    =
+        ( list_display    =
             ("left", "mac_address", "name", "standard", "is_active")
         , MF3_Form_Spec        = dict
             ( include_rev_refs = ("antennas", "channels")
@@ -200,48 +198,48 @@ class Admin (object) :
         )
 
     Wireless_Standard     = dict \
-        ( ETM             = "CNDB.OMP.Wireless_Standard"
+        (
         )
 
     Zone                  = dict \
-        ( ETM             = "CNDB.OMP.Zone"
+        (
         )
 
     IP4_Pool_permits_Group    = dict \
-        ( ETM                 = "CNDB.OMP.IP4_Pool_permits_Group"
+        (
         )
 
     IP6_Pool_permits_Group    = dict \
-        ( ETM                 = "CNDB.OMP.IP6_Pool_permits_Group"
+        (
         )
 
     Net_Interface_in_IP4_Network = dict \
-        ( ETM            = "CNDB.OMP.Net_Interface_in_IP4_Network"
+        (
         )
 
     Net_Interface_in_IP6_Network = dict \
-        ( ETM            = "CNDB.OMP.Net_Interface_in_IP6_Network"
+        (
         )
 
     if False :
         Device_Type_made_by_Company = dict \
-            ( ETM            = "CNDB.OMP.Device_Type_made_by_Company"
+            (
             )
 
         Person_mentors_Person = dict \
-            ( ETM            = "CNDB.OMP.Person_mentors_Person"
+            (
             )
 
         Wireless_Interface_uses_Antenna = dict \
-            ( ETM            = "CNDB.OMP.Wireless_Interface_uses_Antenna"
+            (
             )
 
         Wireless_Interface_uses_Wireless_Channel = dict \
-            ( ETM            = "CNDB.OMP.Wireless_Interface_uses_Wireless_Channel"
+            (
             )
 
-# end class Admin
+# end class UI_Spec
 
 if __name__ != "__main__" :
-    CNDB.OMP._Export_Module ()
-### __END__ CNDB.OMP.Nav
+    CNDB.OMP._Export ("UI_Spec")
+### __END__ CNDB.OMP.UI_Spec

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2013 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
-# 
+#
 # This module is licensed under the terms of the BSD 3-Clause License
 # <http://www.c-tanzer.at/license/bsd_3c.html>.
 # #*** </License> ***********************************************************#
@@ -18,6 +18,7 @@
 # Revision Dates
 #    18-Sep-2012 (CT) Creation
 #    13-Jun-2013 (CT) Remove `PNS_Aliases`
+#    16-Dec-2015 (CT) Change to `UI_Spec`
 #    ««revision-date»»···
 #--
 
@@ -31,9 +32,9 @@ import _CNDB._OMP.import_CNDB
 import _GTW._OMP._Auth.import_Auth
 import _GTW._OMP._PAP.import_PAP
 
-import _GTW._OMP._Auth.Nav
-import _GTW._OMP._PAP.Nav
-import _CNDB._OMP.Nav
+import _GTW._OMP._Auth.UI_Spec
+import _GTW._OMP._PAP.UI_Spec
+import _CNDB._OMP.UI_Spec
 
 class _CNDB_Test_Command_ (GTW_Test_Command) :
 
