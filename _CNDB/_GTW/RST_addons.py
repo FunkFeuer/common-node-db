@@ -132,6 +132,8 @@
 #     7-Jul-2015 (CT) Add `net_device_type` to `DB_Device.view_field_names`
 #     8-Jul-2015 (CT) Remove `filter` from `_action_map`
 #    18-Nov-2015 (CT) Pass `abs_href_dynamic`, not `abs_href`, to `pp_join`
+#    16-Dec-2015 (CT) Fix ETM-splitting in `User_Entity.__init__`
+#    16-Dec-2015 (CT) Use `E_Type.UI_Spec`
 #    ««revision-date»»···
 #--
 
@@ -312,12 +314,9 @@ class User_Entity (_Ancestor) :
 
     def __init__ (self, ** kw) :
         app_type = self.top.App_Type
-        ET_Map   = self.top.ET_Map
         ETM      = kw.pop ("ETM", None) or self._ETM
-        pns, etm = ETM.split (".")
-        PNS      = app_type.PNS_Map [pns]
-        Nav      = getattr (getattr (PNS, "Nav", None), "Admin", None)
-        xkw      = dict (getattr (Nav, etm, {}), ETM = ETM, ** kw)
+        E_Type   = app_type.entity_type (ETM)
+        xkw      = dict (E_Type.UI_Spec, ETM = ETM, ** kw)
         self.__super.__init__ (** xkw)
     # end def __init__
 
