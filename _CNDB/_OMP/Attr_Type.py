@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2016 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.
@@ -36,6 +36,7 @@
 #    30-Sep-2014 (CT) Fix `_A_IP_Netmask_Interval_` overrides
 #                     (needs to nested inside `_Attributes`; attribute names)
 #    11-Dec-2015 (CT) Use `attr_types_of_module`, not home-grown code
+#     9-Feb-2016 (CT) Make `_from_string` arguments `obj, glob, locl` optional
 #    ««revision-date»»···
 #--
 
@@ -95,7 +96,7 @@ class A_TX_Power (_A_Unit_, _A_Float_) :
         , dBW       = 1
         )
 
-    def _from_string (self, s, obj, glob, locl) :
+    def _from_string (self, s, obj = None, glob = {}, locl = {}) :
         v    = self.__super._from_string (s, obj, glob, locl)
         pat  = self._unit_pattern
         unit = ""
