@@ -37,6 +37,7 @@
 #                     (needs to nested inside `_Attributes`; attribute names)
 #    11-Dec-2015 (CT) Use `attr_types_of_module`, not home-grown code
 #     9-Feb-2016 (CT) Make `_from_string` arguments `obj, glob, locl` optional
+#    28-Apr-2016 (CT) Remove `glob`, `locl` from `from_string`, `_from_string`
 #    ««revision-date»»···
 #--
 
@@ -96,8 +97,8 @@ class A_TX_Power (_A_Unit_, _A_Float_) :
         , dBW       = 1
         )
 
-    def _from_string (self, s, obj = None, glob = {}, locl = {}) :
-        v    = self.__super._from_string (s, obj, glob, locl)
+    def _from_string (self, s, obj = None) :
+        v    = self.__super._from_string (s, obj)
         pat  = self._unit_pattern
         unit = ""
         if pat.search (s) :
