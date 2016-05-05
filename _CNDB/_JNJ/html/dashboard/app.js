@@ -1,4 +1,4 @@
-// Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
+// Copyright (C) 2014-2016 Mag. Christian Tanzer All rights reserved
 // Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 // #*** <License> ************************************************************#
 // This module is licensed under the terms of the BSD 3-Clause License
@@ -56,6 +56,7 @@
 //     8-Jul-2015 (CT) Add `instance_spans` to make entity-instance fields
 //                     clickable to expand/collapse the nested tree
 //     9-Jul-2015 (CT) Make map resizable
+//     5-May-2016 (CT) Use `$V5a.new_window`, not homegrown code
 //    ««revision-date»»···
 //--
 
@@ -495,7 +496,7 @@
                 alert ("Graph type " + typ + " is not implemented");
             };
             if (url) {
-                window.open (url).focus ();
+                $V5a.new_window (url);
             };
         };
         var graph_interface_cb = function graph_interface_cb (ev) {

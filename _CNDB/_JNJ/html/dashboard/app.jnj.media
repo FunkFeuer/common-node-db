@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2014-2016 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************
 # This module is licensed under the terms of the BSD 3-Clause License
@@ -36,6 +36,7 @@
 #     2-Jul-2015 (CT) Add rules for tree-based dashboard (`.ETT`, `.ETI`, ...)
 #     8-Jul-2015 (CT) Remove rules for `table` based dashboard
 #     9-Jul-2015 (CT) Reduce `max_height` and `min_height` of `.map`
+#     5-May-2016 (CT) Add `GTW.Script._.V5a_new_window`
 #    ««revision-date»»···
 #--
 
@@ -690,6 +691,7 @@ Include     ("html/mf3.m.jnj.media")
 Script      (GTW.Script._.Modernizr)
 Script      (GTW.Script._.leaflet)
 Script      (GTW.Script._.GTW_jq_util)
+Script      (GTW.Script._.V5a_new_window)
 Script_File ("html/dashboard/app.js")
 
 ### __END__ html/dashboard/app.jnj.media
