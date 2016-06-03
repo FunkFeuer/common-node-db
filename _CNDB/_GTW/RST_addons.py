@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2015 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2016 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.GTW.
@@ -134,6 +134,7 @@
 #    18-Nov-2015 (CT) Pass `abs_href_dynamic`, not `abs_href`, to `pp_join`
 #    16-Dec-2015 (CT) Fix ETM-splitting in `User_Entity.__init__`
 #    16-Dec-2015 (CT) Use `E_Type.UI_Spec`
+#    10-Jun-2016 (CT) Change `_DB_E_Type_.POST` to use `_rendered_post_esf_form`
 #    ««revision-date»»···
 #--
 
@@ -835,15 +836,10 @@ class _DB_E_Type_ (_MF3_Mixin, _Ancestor) :
         _real_name             = "POST"
 
         def __call__ (self, resource, request, response) :
-            req_data = request.req_data
-            if "qx_esf" in req_data :
-                ### XXX ??? is this necessary ???
-                json   = TFL.Record (** request.json)
-                af     = resource._get_esf_filter (request, json)
-                result = resource._rendered_esf   (af)
-                return result
+            if "qx_esf" in request.req_data :
+                return resource._rendered_post_esf_form (request, response)
             else :
-                return self.__super.__call__ (resource, request, response)
+                return self.__super.__call__  (resource, request, response)
         # end def __call__
 
     POST =  _DB_E_Type_POST_ # end class
