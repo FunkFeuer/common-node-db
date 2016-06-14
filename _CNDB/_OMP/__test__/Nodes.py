@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2016 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -175,35 +175,29 @@ _test_auto_children = """
 
     >>> for T, l in children_trans_iter (scope.PAP.Subject_has_Property) :
     ...     print ("%%-30s %%s" %% ("%%s%%s" %% ("  " * l, T.type_name), sorted (T.children_np_transitive)))
-    PAP.Subject_has_Property       ['PAP.Adhoc_Group_has_Address', 'PAP.Adhoc_Group_has_Email', 'PAP.Adhoc_Group_has_IM_Handle', 'PAP.Adhoc_Group_has_Nickname', 'PAP.Adhoc_Group_has_Phone', 'PAP.Adhoc_Group_has_Url', 'PAP.Association_has_Address', 'PAP.Association_has_Email', 'PAP.Association_has_IM_Handle', 'PAP.Association_has_Nickname', 'PAP.Association_has_Phone', 'PAP.Association_has_Url', 'PAP.Company_has_Address', 'PAP.Company_has_Email', 'PAP.Company_has_IM_Handle', 'PAP.Company_has_Nickname', 'PAP.Company_has_Phone', 'PAP.Company_has_Url', 'PAP.Person_has_Address', 'PAP.Person_has_Email', 'PAP.Person_has_IM_Handle', 'PAP.Person_has_Nickname', 'PAP.Person_has_Phone', 'PAP.Person_has_Url']
-      PAP.Subject_has_IM_Handle    ['PAP.Adhoc_Group_has_IM_Handle', 'PAP.Association_has_IM_Handle', 'PAP.Company_has_IM_Handle', 'PAP.Person_has_IM_Handle']
+    PAP.Subject_has_Property       ['PAP.Association_has_Address', 'PAP.Association_has_Email', 'PAP.Association_has_IM_Handle', 'PAP.Association_has_Nickname', 'PAP.Association_has_Phone', 'PAP.Association_has_Url', 'PAP.Company_has_Address', 'PAP.Company_has_Email', 'PAP.Company_has_IM_Handle', 'PAP.Company_has_Nickname', 'PAP.Company_has_Phone', 'PAP.Company_has_Url', 'PAP.Person_has_Address', 'PAP.Person_has_Email', 'PAP.Person_has_IM_Handle', 'PAP.Person_has_Nickname', 'PAP.Person_has_Phone', 'PAP.Person_has_Url']
+      PAP.Subject_has_IM_Handle    ['PAP.Association_has_IM_Handle', 'PAP.Company_has_IM_Handle', 'PAP.Person_has_IM_Handle']
         PAP.Association_has_IM_Handle ['PAP.Association_has_IM_Handle']
-        PAP.Adhoc_Group_has_IM_Handle ['PAP.Adhoc_Group_has_IM_Handle']
         PAP.Person_has_IM_Handle   ['PAP.Person_has_IM_Handle']
         PAP.Company_has_IM_Handle  ['PAP.Company_has_IM_Handle']
-      PAP.Subject_has_Nickname     ['PAP.Adhoc_Group_has_Nickname', 'PAP.Association_has_Nickname', 'PAP.Company_has_Nickname', 'PAP.Person_has_Nickname']
+      PAP.Subject_has_Nickname     ['PAP.Association_has_Nickname', 'PAP.Company_has_Nickname', 'PAP.Person_has_Nickname']
         PAP.Association_has_Nickname ['PAP.Association_has_Nickname']
-        PAP.Adhoc_Group_has_Nickname ['PAP.Adhoc_Group_has_Nickname']
         PAP.Person_has_Nickname    ['PAP.Person_has_Nickname']
         PAP.Company_has_Nickname   ['PAP.Company_has_Nickname']
-      PAP.Subject_has_Address      ['PAP.Adhoc_Group_has_Address', 'PAP.Association_has_Address', 'PAP.Company_has_Address', 'PAP.Person_has_Address']
+      PAP.Subject_has_Address      ['PAP.Association_has_Address', 'PAP.Company_has_Address', 'PAP.Person_has_Address']
         PAP.Association_has_Address ['PAP.Association_has_Address']
-        PAP.Adhoc_Group_has_Address ['PAP.Adhoc_Group_has_Address']
         PAP.Person_has_Address     ['PAP.Person_has_Address']
         PAP.Company_has_Address    ['PAP.Company_has_Address']
-      PAP.Subject_has_Email        ['PAP.Adhoc_Group_has_Email', 'PAP.Association_has_Email', 'PAP.Company_has_Email', 'PAP.Person_has_Email']
+      PAP.Subject_has_Email        ['PAP.Association_has_Email', 'PAP.Company_has_Email', 'PAP.Person_has_Email']
         PAP.Association_has_Email  ['PAP.Association_has_Email']
-        PAP.Adhoc_Group_has_Email  ['PAP.Adhoc_Group_has_Email']
         PAP.Person_has_Email       ['PAP.Person_has_Email']
         PAP.Company_has_Email      ['PAP.Company_has_Email']
-      PAP.Subject_has_Phone        ['PAP.Adhoc_Group_has_Phone', 'PAP.Association_has_Phone', 'PAP.Company_has_Phone', 'PAP.Person_has_Phone']
+      PAP.Subject_has_Phone        ['PAP.Association_has_Phone', 'PAP.Company_has_Phone', 'PAP.Person_has_Phone']
         PAP.Association_has_Phone  ['PAP.Association_has_Phone']
-        PAP.Adhoc_Group_has_Phone  ['PAP.Adhoc_Group_has_Phone']
         PAP.Person_has_Phone       ['PAP.Person_has_Phone']
         PAP.Company_has_Phone      ['PAP.Company_has_Phone']
-      PAP.Subject_has_Url          ['PAP.Adhoc_Group_has_Url', 'PAP.Association_has_Url', 'PAP.Company_has_Url', 'PAP.Person_has_Url']
+      PAP.Subject_has_Url          ['PAP.Association_has_Url', 'PAP.Company_has_Url', 'PAP.Person_has_Url']
         PAP.Association_has_Url    ['PAP.Association_has_Url']
-        PAP.Adhoc_Group_has_Url    ['PAP.Adhoc_Group_has_Url']
         PAP.Person_has_Url         ['PAP.Person_has_Url']
         PAP.Company_has_Url        ['PAP.Company_has_Url']
 
@@ -213,32 +207,26 @@ _test_auto_children = """
     PAP.Subject_has_Property       True  PAP.Subject_has_Property
       PAP.Subject_has_IM_Handle    True  PAP.Subject_has_Property
         PAP.Association_has_IM_Handle False PAP.Subject_has_Property
-        PAP.Adhoc_Group_has_IM_Handle False PAP.Subject_has_Property
         PAP.Person_has_IM_Handle   False PAP.Subject_has_Property
         PAP.Company_has_IM_Handle  False PAP.Subject_has_Property
       PAP.Subject_has_Nickname     True  PAP.Subject_has_Property
         PAP.Association_has_Nickname False PAP.Subject_has_Property
-        PAP.Adhoc_Group_has_Nickname False PAP.Subject_has_Property
         PAP.Person_has_Nickname    False PAP.Subject_has_Property
         PAP.Company_has_Nickname   False PAP.Subject_has_Property
       PAP.Subject_has_Address      True  PAP.Subject_has_Property
         PAP.Association_has_Address False PAP.Subject_has_Property
-        PAP.Adhoc_Group_has_Address False PAP.Subject_has_Property
         PAP.Person_has_Address     False PAP.Subject_has_Property
         PAP.Company_has_Address    False PAP.Subject_has_Property
       PAP.Subject_has_Email        True  PAP.Subject_has_Property
         PAP.Association_has_Email  False PAP.Subject_has_Property
-        PAP.Adhoc_Group_has_Email  False PAP.Subject_has_Property
         PAP.Person_has_Email       False PAP.Subject_has_Property
         PAP.Company_has_Email      False PAP.Subject_has_Property
       PAP.Subject_has_Phone        True  PAP.Subject_has_Property
         PAP.Association_has_Phone  False PAP.Subject_has_Property
-        PAP.Adhoc_Group_has_Phone  False PAP.Subject_has_Property
         PAP.Person_has_Phone       False PAP.Subject_has_Property
         PAP.Company_has_Phone      False PAP.Subject_has_Property
       PAP.Subject_has_Url          True  PAP.Subject_has_Property
         PAP.Association_has_Url    False PAP.Subject_has_Property
-        PAP.Adhoc_Group_has_Url    False PAP.Subject_has_Property
         PAP.Person_has_Url         False PAP.Subject_has_Property
         PAP.Company_has_Url        False PAP.Subject_has_Property
 
@@ -277,11 +265,61 @@ _test_refuse_e_types = """
     ...     for a in ET.id_entity_attr :
     ...         if getattr (a, "refuse_e_types", None) :
     ...             print (ET.type_name, a.name, sorted (a.refuse_e_types))
+    PAP.Subject_has_Property left [u'PAP.Adhoc_Group']
+    PAP.Subject_has_IM_Handle left [u'PAP.Adhoc_Group']
+    PAP.Subject_has_Nickname left [u'PAP.Adhoc_Group']
+    PAP.Subject_has_Address left [u'PAP.Adhoc_Group']
+    PAP.Subject_has_Email left [u'PAP.Adhoc_Group']
+    PAP.Subject_has_Phone left [u'PAP.Adhoc_Group']
+    PAP.Subject_has_Url left [u'PAP.Adhoc_Group']
+    PAP.Association_has_Url left [u'PAP.Adhoc_Group']
+    PAP.Person_has_Url left [u'PAP.Adhoc_Group']
+    PAP.Company_has_Url left [u'PAP.Adhoc_Group']
+    PAP.Association_has_Phone left [u'PAP.Adhoc_Group']
+    PAP.Person_has_Phone left [u'PAP.Adhoc_Group']
+    PAP.Company_has_Phone left [u'PAP.Adhoc_Group']
+    PAP.Association_has_Email left [u'PAP.Adhoc_Group']
+    PAP.Person_has_Email left [u'PAP.Adhoc_Group']
+    PAP.Company_has_Email left [u'PAP.Adhoc_Group']
+    PAP.Association_has_Address left [u'PAP.Adhoc_Group']
+    PAP.Person_has_Address left [u'PAP.Adhoc_Group']
+    PAP.Company_has_Address left [u'PAP.Adhoc_Group']
+    PAP.Association_has_Nickname left [u'PAP.Adhoc_Group']
+    PAP.Person_has_Nickname left [u'PAP.Adhoc_Group']
+    PAP.Company_has_Nickname left [u'PAP.Adhoc_Group']
+    PAP.Association_has_IM_Handle left [u'PAP.Adhoc_Group']
+    PAP.Person_has_IM_Handle left [u'PAP.Adhoc_Group']
+    PAP.Company_has_IM_Handle left [u'PAP.Adhoc_Group']
 
     >>> for ET in scope.app_type._T_Extension :
     ...     for a in ET.id_entity_attr :
     ...         if getattr (a, "refuse_e_types", None) :
     ...             print (ET.type_name, a.name, sorted (a.refuse_e_types_transitive))
+    PAP.Subject_has_Property left ['PAP.Adhoc_Group']
+    PAP.Subject_has_IM_Handle left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Address left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Email left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Url left ['PAP.Adhoc_Group']
+    PAP.Association_has_Url left ['PAP.Adhoc_Group']
+    PAP.Person_has_Url left ['PAP.Adhoc_Group']
+    PAP.Company_has_Url left ['PAP.Adhoc_Group']
+    PAP.Association_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Person_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Company_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Association_has_Email left ['PAP.Adhoc_Group']
+    PAP.Person_has_Email left ['PAP.Adhoc_Group']
+    PAP.Company_has_Email left ['PAP.Adhoc_Group']
+    PAP.Association_has_Address left ['PAP.Adhoc_Group']
+    PAP.Person_has_Address left ['PAP.Adhoc_Group']
+    PAP.Company_has_Address left ['PAP.Adhoc_Group']
+    PAP.Association_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Person_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Company_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Association_has_IM_Handle left ['PAP.Adhoc_Group']
+    PAP.Person_has_IM_Handle left ['PAP.Adhoc_Group']
+    PAP.Company_has_IM_Handle left ['PAP.Adhoc_Group']
 
     >>> sorted (CNDB.Node.manager.eligible_e_types)
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
@@ -293,847 +331,10 @@ _test_refuse_e_types = """
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
     >>> sorted (PAP.Subject_has_Property.left.eligible_e_types)
-    ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
+    ['PAP.Association', 'PAP.Company', 'PAP.Person']
 
     >>> sorted (PAP.Subject_has_Phone.left.eligible_e_types)
-    ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
-
-    >>> AQ = CNDB.Node.AQ
-    >>> print (formatted (AQ.As_Template_Elem))
-    [ Record
-      ( attr = String `name`
-      , full_name = 'name'
-      , id = 'name'
-      , name = 'name'
-      , sig_key = 3
-      , ui_name = 'Name'
-      )
-    , Record
-      ( Class = 'Entity'
-      , attr = Entity `manager`
-      , children_np =
-          [ Record
-            ( Class = 'Entity'
-            , attr = Entity `manager`
-            , attrs =
-                [ Record
-                  ( attr = String `name`
-                  , full_name = 'manager.name'
-                  , id = 'manager__name'
-                  , name = 'name'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Adhoc_Group]/Name'
-                  )
-                ]
-            , full_name = 'manager'
-            , id = 'manager'
-            , name = 'manager'
-            , sig_key = 2
-            , type_name = 'PAP.Adhoc_Group'
-            , ui_name = 'Manager[Adhoc_Group]'
-            , ui_type_name = 'Adhoc_Group'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `manager`
-            , attrs =
-                [ Record
-                  ( attr = String `name`
-                  , full_name = 'manager.name'
-                  , id = 'manager__name'
-                  , name = 'name'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Association]/Name'
-                  )
-                ]
-            , full_name = 'manager'
-            , id = 'manager'
-            , name = 'manager'
-            , sig_key = 2
-            , type_name = 'PAP.Association'
-            , ui_name = 'Manager[Association]'
-            , ui_type_name = 'Association'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `manager`
-            , attrs =
-                [ Record
-                  ( attr = String `name`
-                  , full_name = 'manager.name'
-                  , id = 'manager__name'
-                  , name = 'name'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Company]/Name'
-                  )
-                , Record
-                  ( attr = String `registered_in`
-                  , full_name = 'manager.registered_in'
-                  , id = 'manager__registered_in'
-                  , name = 'registered_in'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Company]/Registered in'
-                  )
-                ]
-            , full_name = 'manager'
-            , id = 'manager'
-            , name = 'manager'
-            , sig_key = 2
-            , type_name = 'PAP.Company'
-            , ui_name = 'Manager[Company]'
-            , ui_type_name = 'Company'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `manager`
-            , attrs =
-                [ Record
-                  ( attr = String `last_name`
-                  , full_name = 'manager.last_name'
-                  , id = 'manager__last_name'
-                  , name = 'last_name'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Person]/Last name'
-                  )
-                , Record
-                  ( attr = String `first_name`
-                  , full_name = 'manager.first_name'
-                  , id = 'manager__first_name'
-                  , name = 'first_name'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Person]/First name'
-                  )
-                , Record
-                  ( attr = String `middle_name`
-                  , full_name = 'manager.middle_name'
-                  , id = 'manager__middle_name'
-                  , name = 'middle_name'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Person]/Middle name'
-                  )
-                , Record
-                  ( attr = String `title`
-                  , full_name = 'manager.title'
-                  , id = 'manager__title'
-                  , name = 'title'
-                  , sig_key = 3
-                  , ui_name = 'Manager[Person]/Academic title'
-                  )
-                ]
-            , full_name = 'manager'
-            , id = 'manager'
-            , name = 'manager'
-            , sig_key = 2
-            , type_name = 'PAP.Person'
-            , ui_name = 'Manager[Person]'
-            , ui_type_name = 'Person'
-            )
-          ]
-      , default_child = 'PAP.Person'
-      , full_name = 'manager'
-      , id = 'manager'
-      , name = 'manager'
-      , sig_key = 2
-      , type_name = 'PAP.Subject'
-      , ui_name = 'Manager'
-      , ui_type_name = 'Subject'
-      )
-    , Record
-      ( Class = 'Entity'
-      , attr = Entity `address`
-      , attrs =
-          [ Record
-            ( attr = String `street`
-            , full_name = 'address.street'
-            , id = 'address__street'
-            , name = 'street'
-            , sig_key = 3
-            , ui_name = 'Address/Street'
-            )
-          , Record
-            ( attr = String `zip`
-            , full_name = 'address.zip'
-            , id = 'address__zip'
-            , name = 'zip'
-            , sig_key = 3
-            , ui_name = 'Address/Zip code'
-            )
-          , Record
-            ( attr = String `city`
-            , full_name = 'address.city'
-            , id = 'address__city'
-            , name = 'city'
-            , sig_key = 3
-            , ui_name = 'Address/City'
-            )
-          , Record
-            ( attr = String `country`
-            , full_name = 'address.country'
-            , id = 'address__country'
-            , name = 'country'
-            , sig_key = 3
-            , ui_name = 'Address/Country'
-            )
-          , Record
-            ( attr = String `desc`
-            , full_name = 'address.desc'
-            , id = 'address__desc'
-            , name = 'desc'
-            , sig_key = 3
-            , ui_name = 'Address/Description'
-            )
-          , Record
-            ( attr = String `region`
-            , full_name = 'address.region'
-            , id = 'address__region'
-            , name = 'region'
-            , sig_key = 3
-            , ui_name = 'Address/Region'
-            )
-          ]
-      , full_name = 'address'
-      , id = 'address'
-      , name = 'address'
-      , sig_key = 2
-      , type_name = 'PAP.Address'
-      , ui_name = 'Address'
-      , ui_type_name = 'Address'
-      )
-    , Record
-      ( attr = Text `desc`
-      , full_name = 'desc'
-      , id = 'desc'
-      , name = 'desc'
-      , sig_key = 3
-      , ui_name = 'Description'
-      )
-    , Record
-      ( Class = 'Entity'
-      , attr = Entity `owner`
-      , children_np =
-          [ Record
-            ( Class = 'Entity'
-            , attr = Entity `owner`
-            , attrs =
-                [ Record
-                  ( attr = String `name`
-                  , full_name = 'owner.name'
-                  , id = 'owner__name'
-                  , name = 'name'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Adhoc_Group]/Name'
-                  )
-                ]
-            , full_name = 'owner'
-            , id = 'owner'
-            , name = 'owner'
-            , sig_key = 2
-            , type_name = 'PAP.Adhoc_Group'
-            , ui_name = 'Owner[Adhoc_Group]'
-            , ui_type_name = 'Adhoc_Group'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `owner`
-            , attrs =
-                [ Record
-                  ( attr = String `name`
-                  , full_name = 'owner.name'
-                  , id = 'owner__name'
-                  , name = 'name'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Association]/Name'
-                  )
-                ]
-            , full_name = 'owner'
-            , id = 'owner'
-            , name = 'owner'
-            , sig_key = 2
-            , type_name = 'PAP.Association'
-            , ui_name = 'Owner[Association]'
-            , ui_type_name = 'Association'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `owner`
-            , attrs =
-                [ Record
-                  ( attr = String `name`
-                  , full_name = 'owner.name'
-                  , id = 'owner__name'
-                  , name = 'name'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Company]/Name'
-                  )
-                , Record
-                  ( attr = String `registered_in`
-                  , full_name = 'owner.registered_in'
-                  , id = 'owner__registered_in'
-                  , name = 'registered_in'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Company]/Registered in'
-                  )
-                ]
-            , full_name = 'owner'
-            , id = 'owner'
-            , name = 'owner'
-            , sig_key = 2
-            , type_name = 'PAP.Company'
-            , ui_name = 'Owner[Company]'
-            , ui_type_name = 'Company'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `owner`
-            , attrs =
-                [ Record
-                  ( attr = String `last_name`
-                  , full_name = 'owner.last_name'
-                  , id = 'owner__last_name'
-                  , name = 'last_name'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Person]/Last name'
-                  )
-                , Record
-                  ( attr = String `first_name`
-                  , full_name = 'owner.first_name'
-                  , id = 'owner__first_name'
-                  , name = 'first_name'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Person]/First name'
-                  )
-                , Record
-                  ( attr = String `middle_name`
-                  , full_name = 'owner.middle_name'
-                  , id = 'owner__middle_name'
-                  , name = 'middle_name'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Person]/Middle name'
-                  )
-                , Record
-                  ( attr = String `title`
-                  , full_name = 'owner.title'
-                  , id = 'owner__title'
-                  , name = 'title'
-                  , sig_key = 3
-                  , ui_name = 'Owner[Person]/Academic title'
-                  )
-                ]
-            , full_name = 'owner'
-            , id = 'owner'
-            , name = 'owner'
-            , sig_key = 2
-            , type_name = 'PAP.Person'
-            , ui_name = 'Owner[Person]'
-            , ui_type_name = 'Person'
-            )
-          ]
-      , default_child = 'PAP.Person'
-      , full_name = 'owner'
-      , id = 'owner'
-      , name = 'owner'
-      , sig_key = 2
-      , type_name = 'PAP.Subject'
-      , ui_name = 'Owner'
-      , ui_type_name = 'Subject'
-      )
-    , Record
-      ( attr = Position `position`
-      , attrs =
-          [ Record
-            ( attr = Angle `lat`
-            , full_name = 'position.lat'
-            , id = 'position__lat'
-            , name = 'lat'
-            , sig_key = 4
-            , ui_name = 'Position/Latitude'
-            )
-          , Record
-            ( attr = Angle `lon`
-            , full_name = 'position.lon'
-            , id = 'position__lon'
-            , name = 'lon'
-            , sig_key = 4
-            , ui_name = 'Position/Longitude'
-            )
-          , Record
-            ( attr = Float `height`
-            , full_name = 'position.height'
-            , id = 'position__height'
-            , name = 'height'
-            , sig_key = 0
-            , ui_name = 'Position/Height'
-            )
-          ]
-      , full_name = 'position'
-      , id = 'position'
-      , name = 'position'
-      , ui_name = 'Position'
-      )
-    , Record
-      ( attr = Boolean `show_in_map`
-      , choices =
-          [ 'no'
-          , 'yes'
-          ]
-      , full_name = 'show_in_map'
-      , id = 'show_in_map'
-      , name = 'show_in_map'
-      , sig_key = 1
-      , ui_name = 'Show in map'
-      )
-    , Record
-      ( Class = 'Entity'
-      , attr = Rev_Ref `creation`
-      , attrs =
-          [ Record
-            ( attr = Date-Time `c_time`
-            , full_name = 'creation.c_time'
-            , id = 'creation__c_time'
-            , name = 'c_time'
-            , sig_key = 0
-            , ui_name = 'Creation/C time'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `c_user`
-            , children_np =
-                [ Record
-                  ( Class = 'Entity'
-                  , attr = Entity `c_user`
-                  , attrs =
-                      [ Record
-                        ( attr = Email `name`
-                        , full_name = 'c_user.name'
-                        , id = 'c_user__name'
-                        , name = 'name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Account]/Name'
-                        )
-                      ]
-                  , full_name = 'c_user'
-                  , id = 'c_user'
-                  , name = 'c_user'
-                  , sig_key = 2
-                  , type_name = 'Auth.Account'
-                  , ui_name = 'C user[Account]'
-                  , ui_type_name = 'Account'
-                  )
-                , Record
-                  ( Class = 'Entity'
-                  , attr = Entity `c_user`
-                  , attrs =
-                      [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'c_user.last_name'
-                        , id = 'c_user__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'c_user.first_name'
-                        , id = 'c_user__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'c_user.middle_name'
-                        , id = 'c_user__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'c_user.title'
-                        , id = 'c_user__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/Academic title'
-                        )
-                      ]
-                  , full_name = 'c_user'
-                  , id = 'c_user'
-                  , name = 'c_user'
-                  , sig_key = 2
-                  , type_name = 'PAP.Person'
-                  , ui_name = 'C user[Person]'
-                  , ui_type_name = 'Person'
-                  )
-                ]
-            , full_name = 'creation.c_user'
-            , id = 'creation__c_user'
-            , name = 'c_user'
-            , sig_key = 2
-            , type_name = 'MOM.Id_Entity'
-            , ui_name = 'Creation/C user'
-            , ui_type_name = 'Id_Entity'
-            )
-          , Record
-            ( attr = String `kind`
-            , full_name = 'creation.kind'
-            , id = 'creation__kind'
-            , name = 'kind'
-            , sig_key = 3
-            , ui_name = 'Creation/Kind'
-            )
-          , Record
-            ( attr = Date-Time `time`
-            , full_name = 'creation.time'
-            , id = 'creation__time'
-            , name = 'time'
-            , sig_key = 0
-            , ui_name = 'Creation/Time'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `user`
-            , children_np =
-                [ Record
-                  ( Class = 'Entity'
-                  , attr = Entity `user`
-                  , attrs =
-                      [ Record
-                        ( attr = Email `name`
-                        , full_name = 'user.name'
-                        , id = 'user__name'
-                        , name = 'name'
-                        , sig_key = 3
-                        , ui_name = 'User[Account]/Name'
-                        )
-                      ]
-                  , full_name = 'user'
-                  , id = 'user'
-                  , name = 'user'
-                  , sig_key = 2
-                  , type_name = 'Auth.Account'
-                  , ui_name = 'User[Account]'
-                  , ui_type_name = 'Account'
-                  )
-                , Record
-                  ( Class = 'Entity'
-                  , attr = Entity `user`
-                  , attrs =
-                      [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'user.last_name'
-                        , id = 'user__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'user.first_name'
-                        , id = 'user__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'user.middle_name'
-                        , id = 'user__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'user.title'
-                        , id = 'user__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/Academic title'
-                        )
-                      ]
-                  , full_name = 'user'
-                  , id = 'user'
-                  , name = 'user'
-                  , sig_key = 2
-                  , type_name = 'PAP.Person'
-                  , ui_name = 'User[Person]'
-                  , ui_type_name = 'Person'
-                  )
-                ]
-            , full_name = 'creation.user'
-            , id = 'creation__user'
-            , name = 'user'
-            , sig_key = 2
-            , type_name = 'MOM.Id_Entity'
-            , ui_name = 'Creation/User'
-            , ui_type_name = 'Id_Entity'
-            )
-          ]
-      , full_name = 'creation'
-      , id = 'creation'
-      , name = 'creation'
-      , sig_key = 2
-      , type_name = 'MOM.MD_Change'
-      , ui_name = 'Creation'
-      , ui_type_name = 'MD_Change'
-      )
-    , Record
-      ( Class = 'Entity'
-      , attr = Rev_Ref `last_change`
-      , attrs =
-          [ Record
-            ( attr = Date-Time `c_time`
-            , full_name = 'last_change.c_time'
-            , id = 'last_change__c_time'
-            , name = 'c_time'
-            , sig_key = 0
-            , ui_name = 'Last change/C time'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `c_user`
-            , children_np =
-                [ Record
-                  ( Class = 'Entity'
-                  , attr = Entity `c_user`
-                  , attrs =
-                      [ Record
-                        ( attr = Email `name`
-                        , full_name = 'c_user.name'
-                        , id = 'c_user__name'
-                        , name = 'name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Account]/Name'
-                        )
-                      ]
-                  , full_name = 'c_user'
-                  , id = 'c_user'
-                  , name = 'c_user'
-                  , sig_key = 2
-                  , type_name = 'Auth.Account'
-                  , ui_name = 'C user[Account]'
-                  , ui_type_name = 'Account'
-                  )
-                , Record
-                  ( Class = 'Entity'
-                  , attr = Entity `c_user`
-                  , attrs =
-                      [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'c_user.last_name'
-                        , id = 'c_user__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'c_user.first_name'
-                        , id = 'c_user__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'c_user.middle_name'
-                        , id = 'c_user__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'c_user.title'
-                        , id = 'c_user__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'C user[Person]/Academic title'
-                        )
-                      ]
-                  , full_name = 'c_user'
-                  , id = 'c_user'
-                  , name = 'c_user'
-                  , sig_key = 2
-                  , type_name = 'PAP.Person'
-                  , ui_name = 'C user[Person]'
-                  , ui_type_name = 'Person'
-                  )
-                ]
-            , full_name = 'last_change.c_user'
-            , id = 'last_change__c_user'
-            , name = 'c_user'
-            , sig_key = 2
-            , type_name = 'MOM.Id_Entity'
-            , ui_name = 'Last change/C user'
-            , ui_type_name = 'Id_Entity'
-            )
-          , Record
-            ( attr = String `kind`
-            , full_name = 'last_change.kind'
-            , id = 'last_change__kind'
-            , name = 'kind'
-            , sig_key = 3
-            , ui_name = 'Last change/Kind'
-            )
-          , Record
-            ( attr = Date-Time `time`
-            , full_name = 'last_change.time'
-            , id = 'last_change__time'
-            , name = 'time'
-            , sig_key = 0
-            , ui_name = 'Last change/Time'
-            )
-          , Record
-            ( Class = 'Entity'
-            , attr = Entity `user`
-            , children_np =
-                [ Record
-                  ( Class = 'Entity'
-                  , attr = Entity `user`
-                  , attrs =
-                      [ Record
-                        ( attr = Email `name`
-                        , full_name = 'user.name'
-                        , id = 'user__name'
-                        , name = 'name'
-                        , sig_key = 3
-                        , ui_name = 'User[Account]/Name'
-                        )
-                      ]
-                  , full_name = 'user'
-                  , id = 'user'
-                  , name = 'user'
-                  , sig_key = 2
-                  , type_name = 'Auth.Account'
-                  , ui_name = 'User[Account]'
-                  , ui_type_name = 'Account'
-                  )
-                , Record
-                  ( Class = 'Entity'
-                  , attr = Entity `user`
-                  , attrs =
-                      [ Record
-                        ( attr = String `last_name`
-                        , full_name = 'user.last_name'
-                        , id = 'user__last_name'
-                        , name = 'last_name'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/Last name'
-                        )
-                      , Record
-                        ( attr = String `first_name`
-                        , full_name = 'user.first_name'
-                        , id = 'user__first_name'
-                        , name = 'first_name'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/First name'
-                        )
-                      , Record
-                        ( attr = String `middle_name`
-                        , full_name = 'user.middle_name'
-                        , id = 'user__middle_name'
-                        , name = 'middle_name'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/Middle name'
-                        )
-                      , Record
-                        ( attr = String `title`
-                        , full_name = 'user.title'
-                        , id = 'user__title'
-                        , name = 'title'
-                        , sig_key = 3
-                        , ui_name = 'User[Person]/Academic title'
-                        )
-                      ]
-                  , full_name = 'user'
-                  , id = 'user'
-                  , name = 'user'
-                  , sig_key = 2
-                  , type_name = 'PAP.Person'
-                  , ui_name = 'User[Person]'
-                  , ui_type_name = 'Person'
-                  )
-                ]
-            , full_name = 'last_change.user'
-            , id = 'last_change__user'
-            , name = 'user'
-            , sig_key = 2
-            , type_name = 'MOM.Id_Entity'
-            , ui_name = 'Last change/User'
-            , ui_type_name = 'Id_Entity'
-            )
-          ]
-      , full_name = 'last_change'
-      , id = 'last_change'
-      , name = 'last_change'
-      , sig_key = 2
-      , type_name = 'MOM.MD_Change'
-      , ui_name = 'Last change'
-      , ui_type_name = 'MD_Change'
-      )
-    , Record
-      ( attr = Int `last_cid`
-      , full_name = 'last_cid'
-      , id = 'last_cid'
-      , name = 'last_cid'
-      , sig_key = 0
-      , ui_name = 'Last cid'
-      )
-    , Record
-      ( attr = Surrogate `pid`
-      , full_name = 'pid'
-      , id = 'pid'
-      , name = 'pid'
-      , sig_key = 0
-      , ui_name = 'Pid'
-      )
-    , Record
-      ( attr = String `type_name`
-      , full_name = 'type_name'
-      , id = 'type_name'
-      , name = 'type_name'
-      , sig_key = 3
-      , ui_name = 'Type name'
-      )
-    , Record
-      ( Class = 'Entity'
-      , attr = Link_Ref_List `documents`
-      , attrs =
-          [ Record
-            ( attr = Url `url`
-            , full_name = 'documents.url'
-            , id = 'documents__url'
-            , name = 'url'
-            , sig_key = 3
-            , ui_name = 'Documents/Url'
-            )
-          , Record
-            ( attr = String `type`
-            , full_name = 'documents.type'
-            , id = 'documents__type'
-            , name = 'type'
-            , sig_key = 3
-            , ui_name = 'Documents/Type'
-            )
-          , Record
-            ( attr = String `desc`
-            , full_name = 'documents.desc'
-            , id = 'documents__desc'
-            , name = 'desc'
-            , sig_key = 3
-            , ui_name = 'Documents/Description'
-            )
-          ]
-      , full_name = 'documents'
-      , id = 'documents'
-      , name = 'documents'
-      , sig_key = 2
-      , type_name = 'MOM.Document'
-      , ui_name = 'Documents'
-      , ui_type_name = 'Document'
-      )
-    ]
+    ['PAP.Association', 'PAP.Company', 'PAP.Person']
 
 """
 

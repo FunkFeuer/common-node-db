@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2013-2015 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2013-2016 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -526,7 +526,7 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
       <SAW : String `version` [cndb_firmware_bundle.version]>
-    <SAW : CNDB._MOM_Link_n_ [mom_id_entity]>
+    <SAW : CNDB._Link_n_ [mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
       <SAW : Rev_Ref `last_change`>
@@ -4180,7 +4180,7 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_firmware_bundle ON mom_id_entity.pid = cndb_firmware_bundle.pid
-    CNDB._MOM_Link_n_
+    CNDB._Link_n_
         SELECT cndb_device_type_made_by_company."left" AS cndb_device_type_made_by_company_left,
                cndb_device_type_made_by_company."right" AS cndb_device_type_made_by_company_right,
                cndb_device_type_made_by_company.pid AS cndb_device_type_made_by_company_pid,
@@ -5855,7 +5855,7 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_firmware_bundle ON mom_id_entity.pid = cndb_firmware_bundle.pid
-    CNDB._MOM_Link_n_
+    CNDB._Link_n_
         SELECT cndb_device_type_made_by_company."left" AS cndb_device_type_made_by_company_left,
                cndb_device_type_made_by_company."right" AS cndb_device_type_made_by_company_right,
                cndb_device_type_made_by_company.pid AS cndb_device_type_made_by_company_pid,
@@ -6615,7 +6615,7 @@ _test_tables = """
     CNDB.Wireless_Interface_uses_Wireless_Channel : cndb_wireless_interface_uses_wireless_channel
     CNDB.Wireless_Standard                   : cndb_wireless_standard
     CNDB.Zone                                : cndb_zone
-    CNDB._MOM_Link_n_                        : None
+    CNDB._Link_n_                            : None
     CNDB._Net_Credentials_                   : None
     CNDB._Wireless_Interface_                : cndb__wireless_interface_
 
