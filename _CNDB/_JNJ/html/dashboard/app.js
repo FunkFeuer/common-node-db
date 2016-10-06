@@ -57,6 +57,7 @@
 //                     clickable to expand/collapse the nested tree
 //     9-Jul-2015 (CT) Make map resizable
 //     5-May-2016 (CT) Use `$V5a.new_window`, not homegrown code
+//     6-Oct-2016 (CT) Add `rel="noopener noreferrer"` to `_blank` target
 //    ««revision-date»»···
 //--
 
@@ -516,7 +517,7 @@
                 );
             var url_h = pref + node + "." + name;
             dg$.html
-                ( "<a href=\""  + url_h + "\" target=\"_blank\">"
+                ( "<a href=\""  + url_h + "\" target=\"_blank\" rel=\"noopener noreferrer\">"
                 + "<img src=\"" + url_g + "\" alt=\"Smokeping Graphik für " + name + "." + node + "\"/>"
                 + "</a>"
                 );
