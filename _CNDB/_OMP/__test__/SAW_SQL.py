@@ -122,21 +122,21 @@ _test_cidr_pg = """
 
     >>> print (formatted_table (CNDB.IP4_Network._SAW.sa_table, nl, ""))
     Column desc                      : Varchar(80)          Optional String desc
-    Column expiration_date           : Datetime             Internal Date-Time expiration_date
+    Column expiration_date           : Datetime             Internal__Structured Date-Time expiration_date
     Column net_address               : _CIDR_Type_          Primary IP4-network net_address
     Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
     Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
     Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
-    Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
+    Column pool                      : Integer              Optional__Id_Entity_Reference__Computed_Set Entity pool Id_Entity()
 
     >>> print (formatted_table (CNDB.IP6_Network._SAW.sa_table, nl, ""))
     Column desc                      : Varchar(80)          Optional String desc
-    Column expiration_date           : Datetime             Internal Date-Time expiration_date
+    Column expiration_date           : Datetime             Internal__Structured Date-Time expiration_date
     Column net_address               : _CIDR_Type_          Primary IP6-network net_address
     Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
     Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
     Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
-    Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
+    Column pool                      : Integer              Optional__Id_Entity_Reference__Computed_Set Entity pool Id_Entity()
 
     >>> show_query (CNDB.IP4_Network.query ((Q.net_address.CONTAINS ("192.168.23.1")) & (Q.electric == False)))
     SQL: SELECT
@@ -235,7 +235,7 @@ _test_cidr_sq = """
 
     >>> print (formatted_table (CNDB.IP4_Network._SAW.sa_table, nl, ""))
     Column desc                      : Varchar(80)          Optional String desc
-    Column expiration_date           : Datetime             Internal Date-Time expiration_date
+    Column expiration_date           : Datetime             Internal__Structured Date-Time expiration_date
     Column net_address               : Varchar              Primary IP4-network net_address
     Column net_address__mask_len     : Smallint             ----------
     Column net_address__numeric      : Integer              ----------
@@ -243,11 +243,11 @@ _test_cidr_sq = """
     Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
     Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
     Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
-    Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
+    Column pool                      : Integer              Optional__Id_Entity_Reference__Computed_Set Entity pool Id_Entity()
 
     >>> print (formatted_table (CNDB.IP6_Network._SAW.sa_table, nl, ""))
     Column desc                      : Varchar(80)          Optional String desc
-    Column expiration_date           : Datetime             Internal Date-Time expiration_date
+    Column expiration_date           : Datetime             Internal__Structured Date-Time expiration_date
     Column net_address               : Varchar              Primary IP6-network net_address
     Column net_address__mask_len     : Smallint             ----------
     Column net_address__numeric__hi  : Bigint               ----------
@@ -257,7 +257,7 @@ _test_cidr_sq = """
     Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
     Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
     Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
-    Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
+    Column pool                      : Integer              Optional__Id_Entity_Reference__Computed_Set Entity pool Id_Entity()
 
 
     >>> show_query (CNDB.IP4_Network.query ((Q.net_address.CONTAINS ("192.168.23.1")) & (Q.electric == False)))
@@ -658,6 +658,12 @@ _test_q_able = """
       <SAW : String `desc` [cndb_ip4_network.desc]>
       <SAW : Link_Ref_List `documents`>
       <SAW : Date-Time `expiration_date` [cndb_ip4_network.expiration_date]>
+      <SAW : Int `expiration_date.day`>
+      <SAW : Int `expiration_date.hour`>
+      <SAW : Int `expiration_date.minute`>
+      <SAW : Int `expiration_date.month`>
+      <SAW : Int `expiration_date.second`>
+      <SAW : Int `expiration_date.year`>
       <SAW : Boolean `has_children`>
       <SAW : Role_Ref `ip_pool`>
       <SAW : Boolean `is_free`>
@@ -713,6 +719,12 @@ _test_q_able = """
       <SAW : String `desc` [cndb_ip6_network.desc]>
       <SAW : Link_Ref_List `documents`>
       <SAW : Date-Time `expiration_date` [cndb_ip6_network.expiration_date]>
+      <SAW : Int `expiration_date.day`>
+      <SAW : Int `expiration_date.hour`>
+      <SAW : Int `expiration_date.minute`>
+      <SAW : Int `expiration_date.month`>
+      <SAW : Int `expiration_date.second`>
+      <SAW : Int `expiration_date.year`>
       <SAW : Boolean `has_children`>
       <SAW : Role_Ref `ip_pool`>
       <SAW : Boolean `is_free`>
@@ -3086,7 +3098,7 @@ _test_qx = """
     >>> qxi = QX.Mapper (qri)
     >>> print (QX.display (qxi (qfi)))
     Una:__not__:
-      <CNDB.IP4_Network | QX.Kind for
+      <CNDB.IP4_Network | QX.Kind_Structured_Field_Extractor for
            <SAW : Date-Time `expiration_date` [cndb_ip4_network.expiration_date]>>
 
 """
@@ -6637,13 +6649,13 @@ _test_tables = """
         Column desc                      : Text                 Optional Text desc
         Column manager                   : Integer              Required__Id_Entity_Reference Entity manager Id_Entity()
         Column name                      : Varchar(63)          Primary__Raw_Value String name
-        Column owner                     : Integer              Optional__Computed_Set__Id_Entity_Reference Entity owner Id_Entity()
+        Column owner                     : Integer              Optional__Id_Entity_Reference__Computed_Set Entity owner Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
-        Column position____raw_lat       : Varchar(22)          Necessary__Raw_Value__Nested Angle lat
-        Column position____raw_lon       : Varchar(22)          Necessary__Raw_Value__Nested Angle lon
+        Column position____raw_lat       : Varchar(22)          Necessary__Nested__Raw_Value Angle lat
+        Column position____raw_lon       : Varchar(22)          Necessary__Nested__Raw_Value Angle lon
         Column position__height          : Float                Optional__Nested Float height
-        Column position__lat             : Float                Necessary__Raw_Value__Nested Angle lat
-        Column position__lon             : Float                Necessary__Raw_Value__Nested Angle lon
+        Column position__lat             : Float                Necessary__Nested__Raw_Value Angle lat
+        Column position__lon             : Float                Necessary__Nested__Raw_Value Angle lon
         Column show_in_map               : Boolean              Optional Boolean show_in_map
     CNDB.Antenna (MOM.Id_Entity) <Table cndb_antenna>
         Column __raw_azimuth             : Varchar(22)          Required__Raw_Value Angle azimuth
@@ -6657,10 +6669,10 @@ _test_tables = """
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
         Column polarization              : Integer              Optional__Computed_Set Antenna Polarization polarization
     CNDB.Antenna_Band (MOM.Id_Entity) <Table cndb_antenna_band>
-        Column band____raw_lower         : Varchar(22)          Necessary__Raw_Value__Nested Frequency lower
-        Column band____raw_upper         : Varchar(22)          Necessary__Raw_Value__Nested Frequency upper
-        Column band__lower               : Float                Necessary__Raw_Value__Nested Frequency lower
-        Column band__upper               : Float                Necessary__Raw_Value__Nested Frequency upper
+        Column band____raw_lower         : Varchar(22)          Necessary__Nested__Raw_Value Frequency lower
+        Column band____raw_upper         : Varchar(22)          Necessary__Nested__Raw_Value Frequency upper
+        Column band__lower               : Float                Necessary__Nested__Raw_Value Frequency lower
+        Column band__upper               : Float                Necessary__Nested__Raw_Value Frequency upper
         Column left                      : Integer              Link_Role__Init_Only Antenna_Type left Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
     CNDB.Firmware_Type (MOM.Id_Entity) <Table cndb_firmware_type>
@@ -6696,7 +6708,7 @@ _test_tables = """
         Column desc                      : Text                 Optional Text desc
         Column left                      : Integer              Link_Role__Init_Only Net_Device_Type left Id_Entity()
         Column name                      : Varchar(40)          Primary_Optional__Raw_Value String name
-        Column node                      : Integer              Primary__Init_Only__Id_Entity_Reference Entity node Id_Entity()
+        Column node                      : Integer              Primary__Id_Entity_Reference__Init_Only Entity node Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
     CNDB.Net_Interface (MOM.Id_Entity) <Table cndb_net_interface>
         Column __raw_name                : Varchar(63)          Primary_Optional__Raw_Value String name
@@ -6707,10 +6719,10 @@ _test_tables = """
         Column name                      : Varchar(63)          Primary_Optional__Raw_Value String name
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
     CNDB.Net_Interface_in_IP_Network (MOM.Id_Entity) <Table cndb_net_interface_in_ip_network>
-        Column __raw_name                : Varchar(63)          Optional__Raw_Value__Computed_Set String name
+        Column __raw_name                : Varchar(63)          Optional__Computed_Set__Raw_Value String name
         Column left                      : Integer              Link_Role Net_Interface left Id_Entity()
         Column mask_len                  : Integer              Required Int mask_len
-        Column name                      : Varchar(63)          Optional__Raw_Value__Computed_Set String name
+        Column name                      : Varchar(63)          Optional__Computed_Set__Raw_Value String name
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
         Column right                     : Integer              Link_Role IP_Network right Id_Entity()
     CNDB.IP4_DNS_Alias (MOM.Id_Entity) <Table cndb_ip4_dns_alias>
@@ -6720,18 +6732,18 @@ _test_tables = """
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
     CNDB.IP4_Network (MOM.Id_Entity) <Table cndb_ip4_network>
         Column desc                      : Varchar(80)          Optional String desc
-        Column expiration_date           : Datetime             Internal Date-Time expiration_date
+        Column expiration_date           : Datetime             Internal__Structured Date-Time expiration_date
         Column net_address               : CIDR                 Primary IP4-network net_address
         Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
         Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
-        Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
+        Column pool                      : Integer              Optional__Id_Entity_Reference__Computed_Set Entity pool Id_Entity()
     CNDB.IP4_Pool (MOM.Id_Entity) <Table cndb_ip4_pool>
         Column __raw_name                : Varchar(40)          Primary__Raw_Value String name
         Column cool_down_period          : Float                Optional Time Delta cool_down_period
         Column name                      : Varchar(40)          Primary__Raw_Value String name
         Column netmask_interval__lower   : Integer              Necessary__Nested Int lower
-        Column netmask_interval__upper   : Integer              Necessary__Computed_Set__Nested Int upper
+        Column netmask_interval__upper   : Integer              Necessary__Nested__Computed_Set Int upper
         Column node                      : Integer              Optional__Id_Entity_Reference Entity node Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
     CNDB.IP6_DNS_Alias (MOM.Id_Entity) <Table cndb_ip6_dns_alias>
@@ -6741,18 +6753,18 @@ _test_tables = """
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
     CNDB.IP6_Network (MOM.Id_Entity) <Table cndb_ip6_network>
         Column desc                      : Varchar(80)          Optional String desc
-        Column expiration_date           : Datetime             Internal Date-Time expiration_date
+        Column expiration_date           : Datetime             Internal__Structured Date-Time expiration_date
         Column net_address               : CIDR                 Primary IP6-network net_address
         Column owner                     : Integer              Optional__Id_Entity_Reference Entity owner Id_Entity()
         Column parent                    : Integer              Internal__Id_Entity_Reference Entity parent Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
-        Column pool                      : Integer              Optional__Computed_Set__Id_Entity_Reference Entity pool Id_Entity()
+        Column pool                      : Integer              Optional__Id_Entity_Reference__Computed_Set Entity pool Id_Entity()
     CNDB.IP6_Pool (MOM.Id_Entity) <Table cndb_ip6_pool>
         Column __raw_name                : Varchar(40)          Primary__Raw_Value String name
         Column cool_down_period          : Float                Optional Time Delta cool_down_period
         Column name                      : Varchar(40)          Primary__Raw_Value String name
         Column netmask_interval__lower   : Integer              Necessary__Nested Int lower
-        Column netmask_interval__upper   : Integer              Necessary__Computed_Set__Nested Int upper
+        Column netmask_interval__upper   : Integer              Necessary__Nested__Computed_Set Int upper
         Column node                      : Integer              Optional__Id_Entity_Reference Entity node Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
     CNDB.WPA_Credentials (MOM.Id_Entity) <Table cndb_wpa_credentials>
@@ -6766,10 +6778,10 @@ _test_tables = """
     CNDB.Regulatory_Permission (MOM.Id_Entity) <Table cndb_regulatory_permission>
         Column __raw_bandwidth           : Varchar(22)          Necessary__Raw_Value Frequency bandwidth
         Column __raw_eirp                : Varchar(22)          Optional__Raw_Value TX Power eirp
-        Column band____raw_lower         : Varchar(22)          Necessary__Raw_Value__Nested Frequency lower
-        Column band____raw_upper         : Varchar(22)          Necessary__Raw_Value__Nested Frequency upper
-        Column band__lower               : Float                Necessary__Raw_Value__Nested Frequency lower
-        Column band__upper               : Float                Necessary__Raw_Value__Nested Frequency upper
+        Column band____raw_lower         : Varchar(22)          Necessary__Nested__Raw_Value Frequency lower
+        Column band____raw_upper         : Varchar(22)          Necessary__Nested__Raw_Value Frequency upper
+        Column band__lower               : Float                Necessary__Nested__Raw_Value Frequency lower
+        Column band__upper               : Float                Necessary__Nested__Raw_Value Frequency upper
         Column bandwidth                 : Float                Necessary__Raw_Value Frequency bandwidth
         Column eirp                      : Float                Optional__Raw_Value TX Power eirp
         Column gain                      : Float                Optional Float gain
@@ -6809,7 +6821,7 @@ _test_tables = """
     CNDB.Wireless_Interface (CNDB._Wireless_Interface_) CNDB.Net_Interface <Table cndb_wireless_interface>
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb__wireless_interface_.pid')
     CNDB.Virtual_Wireless_Interface (CNDB._Wireless_Interface_) CNDB.Net_Interface <Table cndb_virtual_wireless_interface>
-        Column hardware                  : Integer              Primary__Init_Only__Id_Entity_Reference Entity hardware Id_Entity()
+        Column hardware                  : Integer              Primary__Id_Entity_Reference__Init_Only Entity hardware Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb__wireless_interface_.pid')
     CNDB.Device_Type_made_by_Company (MOM.Id_Entity) <Table cndb_device_type_made_by_company>
         Column left                      : Integer              Link_Role Device_Type left Id_Entity()
@@ -6868,16 +6880,16 @@ _test_tables = """
         Column type_name                 : Smallint             Internal__Type_Name String type_name
         Column x_locked                  : Boolean              Internal Boolean x_locked
     <Table for Surrogate `cid`>
-        Column c_time                    : Datetime             Internal__Computed__Sync_Change Date-Time c_time
-        Column c_user                    : Integer              Internal__Computed__Sync_Change__Id_Entity_Reference Entity c_user Id_Entity()
+        Column c_time                    : Datetime             Internal__Computed__Sync_Change__Structured Date-Time c_time
+        Column c_user                    : Integer              Internal__Id_Entity_Reference__Computed__Sync_Change Entity c_user Id_Entity()
         Column cid                       : Integer              Internal__Computed__Sync_Change__Just_Once Surrogate cid primary
         Column kind                      : Varchar(10)          Internal__Computed__Sync_Change String kind
         Column parent_cid                : Integer              Internal__Computed__Sync_Change Int parent_cid
         Column pid                       : Integer              Internal__Computed__Sync_Change Int pid
         Column scm_change                : Blob                 Internal Blob scm_change
-        Column time                      : Datetime             Internal__Computed__Sync_Change Date-Time time
+        Column time                      : Datetime             Internal__Computed__Sync_Change__Structured Date-Time time
         Column type_name                 : Smallint             Internal__Computed__Sync_Change String type_name
-        Column user                      : Integer              Internal__Computed__Sync_Change__Id_Entity_Reference Entity user Id_Entity()
+        Column user                      : Integer              Internal__Id_Entity_Reference__Computed__Sync_Change Entity user Id_Entity()
     <Table for Surrogate `cert_id`>
         Column cert_id                   : Integer              ---------- primary
 

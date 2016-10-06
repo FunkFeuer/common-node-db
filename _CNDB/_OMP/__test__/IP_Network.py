@@ -951,26 +951,26 @@ _test_AQ = """
     <pool.desc.AQ [Attr.Type.Querier String]> -----
     <pool.owner.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <pool.pool.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
-    <pool.expiration_date.AQ [Attr.Type.Querier Ckd]> -----
+    <pool.expiration_date.AQ [Attr.Type.Querier Ckd]> expiration_date__277__type_desc
     <pool.has_children.AQ [Attr.Type.Querier Boolean]> -----
     <pool.is_free.AQ [Attr.Type.Querier Boolean]> -----
     <pool.parent.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
     <creation.AQ [Attr.Type.Querier Rev_Ref]> MOM.MD_Change
-    <creation.c_time.AQ [Attr.Type.Querier Ckd]> -----
+    <creation.c_time.AQ [Attr.Type.Querier Ckd]> c_time__126__type_desc
     <creation.c_user.AQ [Attr.Type.Querier Id_Entity]> MOM.Id_Entity
     <creation.kind.AQ [Attr.Type.Querier String]> -----
-    <creation.time.AQ [Attr.Type.Querier Ckd]> -----
+    <creation.time.AQ [Attr.Type.Querier Ckd]> time__133__type_desc
     <creation.user.AQ [Attr.Type.Querier Id_Entity]> MOM.Id_Entity
     <last_change.AQ [Attr.Type.Querier Rev_Ref]> MOM.MD_Change
-    <last_change.c_time.AQ [Attr.Type.Querier Ckd]> -----
+    <last_change.c_time.AQ [Attr.Type.Querier Ckd]> c_time__126__type_desc
     <last_change.c_user.AQ [Attr.Type.Querier Id_Entity]> MOM.Id_Entity
     <last_change.kind.AQ [Attr.Type.Querier String]> -----
-    <last_change.time.AQ [Attr.Type.Querier Ckd]> -----
+    <last_change.time.AQ [Attr.Type.Querier Ckd]> time__133__type_desc
     <last_change.user.AQ [Attr.Type.Querier Id_Entity]> MOM.Id_Entity
     <last_cid.AQ [Attr.Type.Querier Ckd]> -----
     <pid.AQ [Attr.Type.Querier Ckd]> -----
     <type_name.AQ [Attr.Type.Querier String]> -----
-    <expiration_date.AQ [Attr.Type.Querier Ckd]> -----
+    <expiration_date.AQ [Attr.Type.Querier Ckd]> expiration_date__277__type_desc
     <has_children.AQ [Attr.Type.Querier Boolean]> -----
     <is_free.AQ [Attr.Type.Querier Boolean]> -----
     <parent.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
@@ -978,7 +978,7 @@ _test_AQ = """
     <parent.desc.AQ [Attr.Type.Querier String]> -----
     <parent.owner.AQ [Attr.Type.Querier Id_Entity]> PAP.Subject
     <parent.pool.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
-    <parent.expiration_date.AQ [Attr.Type.Querier Ckd]> -----
+    <parent.expiration_date.AQ [Attr.Type.Querier Ckd]> expiration_date__277__type_desc
     <parent.has_children.AQ [Attr.Type.Querier Boolean]> -----
     <parent.is_free.AQ [Attr.Type.Querier Boolean]> -----
     <parent.parent.AQ [Attr.Type.Querier Id_Entity]> CNDB.IP4_Network
@@ -8155,6 +8155,32 @@ _test_AQ = """
     ( Record
         ( AQ = <lifetime.start.AQ [Attr.Type.Querier Date]>
         , attr = Date `start`
+        , attrs =
+          [ Record
+              ( attr = Int `day`
+              , full_name = 'lifetime.start.day'
+              , id = 'lifetime__start__day'
+              , name = 'day'
+              , sig_key = 0
+              , ui_name = 'Lifetime/Start/Day'
+              )
+          , Record
+              ( attr = Int `month`
+              , full_name = 'lifetime.start.month'
+              , id = 'lifetime__start__month'
+              , name = 'month'
+              , sig_key = 0
+              , ui_name = 'Lifetime/Start/Month'
+              )
+          , Record
+              ( attr = Int `year`
+              , full_name = 'lifetime.start.year'
+              , id = 'lifetime__start__year'
+              , name = 'year'
+              , sig_key = 0
+              , ui_name = 'Lifetime/Start/Year'
+              )
+          ]
         , edit = None
         , full_name = 'lifetime.start'
         , id = 'lifetime__start___AC'
@@ -8171,6 +8197,32 @@ _test_AQ = """
     , Record
         ( AQ = <lifetime.finish.AQ [Attr.Type.Querier Date]>
         , attr = Date `finish`
+        , attrs =
+          [ Record
+              ( attr = Int `day`
+              , full_name = 'lifetime.finish.day'
+              , id = 'lifetime__finish__day'
+              , name = 'day'
+              , sig_key = 0
+              , ui_name = 'Lifetime/Finish/Day'
+              )
+          , Record
+              ( attr = Int `month`
+              , full_name = 'lifetime.finish.month'
+              , id = 'lifetime__finish__month'
+              , name = 'month'
+              , sig_key = 0
+              , ui_name = 'Lifetime/Finish/Month'
+              )
+          , Record
+              ( attr = Int `year`
+              , full_name = 'lifetime.finish.year'
+              , id = 'lifetime__finish__year'
+              , name = 'year'
+              , sig_key = 0
+              , ui_name = 'Lifetime/Finish/Year'
+              )
+          ]
         , edit = None
         , full_name = 'lifetime.finish'
         , id = 'lifetime__finish___AC'
