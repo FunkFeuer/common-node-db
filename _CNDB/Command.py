@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2014-2016 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.
@@ -19,6 +19,7 @@
 #     5-Sep-2014 (CT) Creation (factored from FFW)
 #     5-Sep-2014 (MB) Added garbage collect command
 #    16-Dec-2015 (CT) Change to `UI_Spec`
+#    11-Oct-2016 (CT) Change `GTW.HTML` to `TFL.HTML`
 #    ««revision-date»»···
 #--
 
@@ -52,7 +53,7 @@ import _CNDB._JNJ
 import _CNDB._OMP.UI_Spec
 import _CNDB._OMP.RST_Api_addons
 
-import _GTW.HTML
+import _TFL.HTML
 import _ReST.To_Html
 
 from   _TFL                     import sos

@@ -36,7 +36,7 @@
 #     2-Jul-2015 (CT) Add rules for tree-based dashboard (`.ETT`, `.ETI`, ...)
 #     8-Jul-2015 (CT) Remove rules for `table` based dashboard
 #     9-Jul-2015 (CT) Reduce `max_height` and `min_height` of `.map`
-#     5-May-2016 (CT) Add `GTW.Script._.V5a_new_window`
+#     5-May-2016 (CT) Add `CHJ.Script._.V5a_new_window`
 #    ««revision-date»»···
 #--
 
@@ -688,10 +688,10 @@ style_sheet = Style_Sheet \
 Include     ("html/print.media")
 Include     ("html/mf3.m.jnj.media")
 
-Script      (GTW.Script._.Modernizr)
-Script      (GTW.Script._.leaflet)
-Script      (GTW.Script._.GTW_jq_util)
-Script      (GTW.Script._.V5a_new_window)
+Script      (CHJ.Script._.Modernizr)
+Script      (CHJ.Script._.leaflet)
+Script      (CHJ.Script._.GTW_jq_util)
+Script      (CHJ.Script._.V5a_new_window)
 Script_File ("html/dashboard/app.js")
 
 ### __END__ html/dashboard/app.jnj.media
