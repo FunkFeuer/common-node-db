@@ -1078,7 +1078,7 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : Wireless_Channel `right` [cndb_wireless_interface_uses_wireless_channel.right]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
-    <SAW : CNDB.Wired_Interface_in_IP6_Network [cndb_wired_interface_in_ip6_network : cndb_net_interface_in_ip_network : mom_id_entity]>
+    <SAW : CNDB.Wired_Interface_in_IP6_Network [cndb_net_interface_in_ip_network : mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
       <SAW : Link_Ref_List `ip4_dns_aliases`>
@@ -1094,7 +1094,7 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Network `right` [cndb_net_interface_in_ip_network.right]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
-    <SAW : CNDB.Wireless_Interface_in_IP6_Network [cndb_wireless_interface_in_ip6_network : cndb_net_interface_in_ip_network : mom_id_entity]>
+    <SAW : CNDB.Wireless_Interface_in_IP6_Network [cndb_net_interface_in_ip_network : mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
       <SAW : Link_Ref_List `ip4_dns_aliases`>
@@ -1110,7 +1110,7 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Network `right` [cndb_net_interface_in_ip_network.right]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
-    <SAW : CNDB.Virtual_Wireless_Interface_in_IP6_Network [cndb_virtual_wireless_interface_in_ip6_network : cndb_net_interface_in_ip_network : mom_id_entity]>
+    <SAW : CNDB.Virtual_Wireless_Interface_in_IP6_Network [cndb_net_interface_in_ip_network : mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
       <SAW : Link_Ref_List `ip4_dns_aliases`>
@@ -1126,7 +1126,7 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP6_Network `right` [cndb_net_interface_in_ip_network.right]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
-    <SAW : CNDB.Wired_Interface_in_IP4_Network [cndb_wired_interface_in_ip4_network : cndb_net_interface_in_ip_network : mom_id_entity]>
+    <SAW : CNDB.Wired_Interface_in_IP4_Network [cndb_net_interface_in_ip_network : mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
       <SAW : Link_Ref_List `ip4_dns_aliases`>
@@ -1142,7 +1142,7 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP4_Network `right` [cndb_net_interface_in_ip_network.right]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
-    <SAW : CNDB.Wireless_Interface_in_IP4_Network [cndb_wireless_interface_in_ip4_network : cndb_net_interface_in_ip_network : mom_id_entity]>
+    <SAW : CNDB.Wireless_Interface_in_IP4_Network [cndb_net_interface_in_ip_network : mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
       <SAW : Link_Ref_List `ip4_dns_aliases`>
@@ -1158,7 +1158,7 @@ _test_q_able = """
       <SAW : Surrogate `pid` [mom_id_entity.pid]>
       <SAW : IP4_Network `right` [cndb_net_interface_in_ip_network.right]>
       <SAW : String `type_name` [mom_id_entity.type_name]>
-    <SAW : CNDB.Virtual_Wireless_Interface_in_IP4_Network [cndb_virtual_wireless_interface_in_ip4_network : cndb_net_interface_in_ip_network : mom_id_entity]>
+    <SAW : CNDB.Virtual_Wireless_Interface_in_IP4_Network [cndb_net_interface_in_ip_network : mom_id_entity]>
       <SAW : Rev_Ref `creation`>
       <SAW : Link_Ref_List `documents`>
       <SAW : Link_Ref_List `ip4_dns_aliases`>
@@ -4854,9 +4854,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_virtual_wireless_interface_in_ip4_network.pid AS cndb_virtual_wireless_interface_in_ip4_network_pid,
-               cndb_wired_interface_in_ip4_network.pid AS cndb_wired_interface_in_ip4_network_pid,
-               cndb_wireless_interface_in_ip4_network.pid AS cndb_wireless_interface_in_ip4_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -4864,12 +4861,6 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           LEFT OUTER JOIN cndb_virtual_wireless_interface_in_ip4_network ON cndb_net_interface_in_ip_network.pid = cndb_virtual_wireless_interface_in_ip4_network.pid
-           LEFT OUTER JOIN cndb_wired_interface_in_ip4_network ON cndb_net_interface_in_ip_network.pid = cndb_wired_interface_in_ip4_network.pid
-           LEFT OUTER JOIN cndb_wireless_interface_in_ip4_network ON cndb_net_interface_in_ip_network.pid = cndb_wireless_interface_in_ip4_network.pid
-        WHERE mom_id_entity.pid = cndb_virtual_wireless_interface_in_ip4_network.pid
-            OR mom_id_entity.pid = cndb_wired_interface_in_ip4_network.pid
-            OR mom_id_entity.pid = cndb_wireless_interface_in_ip4_network.pid
     CNDB.Net_Interface_in_IP6_Network CNDB.Net_Interface_in_IP_Network
         SELECT cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
                cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
@@ -4877,9 +4868,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_virtual_wireless_interface_in_ip6_network.pid AS cndb_virtual_wireless_interface_in_ip6_network_pid,
-               cndb_wired_interface_in_ip6_network.pid AS cndb_wired_interface_in_ip6_network_pid,
-               cndb_wireless_interface_in_ip6_network.pid AS cndb_wireless_interface_in_ip6_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -4887,12 +4875,6 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           LEFT OUTER JOIN cndb_virtual_wireless_interface_in_ip6_network ON cndb_net_interface_in_ip_network.pid = cndb_virtual_wireless_interface_in_ip6_network.pid
-           LEFT OUTER JOIN cndb_wired_interface_in_ip6_network ON cndb_net_interface_in_ip_network.pid = cndb_wired_interface_in_ip6_network.pid
-           LEFT OUTER JOIN cndb_wireless_interface_in_ip6_network ON cndb_net_interface_in_ip_network.pid = cndb_wireless_interface_in_ip6_network.pid
-        WHERE mom_id_entity.pid = cndb_virtual_wireless_interface_in_ip6_network.pid
-            OR mom_id_entity.pid = cndb_wired_interface_in_ip6_network.pid
-            OR mom_id_entity.pid = cndb_wireless_interface_in_ip6_network.pid
     CNDB.Net_Link
         SELECT cndb_net_link."left" AS cndb_net_link_left,
                cndb_net_link."right" AS cndb_net_link_right,
@@ -4945,7 +4927,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_wired_interface_in_ip6_network.pid AS cndb_wired_interface_in_ip6_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -4953,7 +4934,7 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           JOIN cndb_wired_interface_in_ip6_network ON cndb_net_interface_in_ip_network.pid = cndb_wired_interface_in_ip6_network.pid
+           JOIN cndb_wired_interface ON cndb_net_interface_in_ip_network."left" = cndb_wired_interface.pid
     CNDB.Wireless_Interface_in_IP6_Network CNDB.Net_Interface_in_IP_Network
         SELECT cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
                cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
@@ -4961,7 +4942,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_wireless_interface_in_ip6_network.pid AS cndb_wireless_interface_in_ip6_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -4969,7 +4949,7 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           JOIN cndb_wireless_interface_in_ip6_network ON cndb_net_interface_in_ip_network.pid = cndb_wireless_interface_in_ip6_network.pid
+           JOIN cndb_wireless_interface ON cndb_net_interface_in_ip_network."left" = cndb_wireless_interface.pid
     CNDB.Virtual_Wireless_Interface_in_IP6_Network CNDB.Net_Interface_in_IP_Network
         SELECT cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
                cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
@@ -4977,7 +4957,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_virtual_wireless_interface_in_ip6_network.pid AS cndb_virtual_wireless_interface_in_ip6_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -4985,7 +4964,7 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           JOIN cndb_virtual_wireless_interface_in_ip6_network ON cndb_net_interface_in_ip_network.pid = cndb_virtual_wireless_interface_in_ip6_network.pid
+           JOIN cndb_virtual_wireless_interface ON cndb_net_interface_in_ip_network."left" = cndb_virtual_wireless_interface.pid
     CNDB.Wired_Interface_in_IP4_Network CNDB.Net_Interface_in_IP_Network
         SELECT cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
                cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
@@ -4993,7 +4972,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_wired_interface_in_ip4_network.pid AS cndb_wired_interface_in_ip4_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -5001,7 +4979,7 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           JOIN cndb_wired_interface_in_ip4_network ON cndb_net_interface_in_ip_network.pid = cndb_wired_interface_in_ip4_network.pid
+           JOIN cndb_wired_interface ON cndb_net_interface_in_ip_network."left" = cndb_wired_interface.pid
     CNDB.Wireless_Interface_in_IP4_Network CNDB.Net_Interface_in_IP_Network
         SELECT cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
                cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
@@ -5009,7 +4987,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_wireless_interface_in_ip4_network.pid AS cndb_wireless_interface_in_ip4_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -5017,7 +4994,7 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           JOIN cndb_wireless_interface_in_ip4_network ON cndb_net_interface_in_ip_network.pid = cndb_wireless_interface_in_ip4_network.pid
+           JOIN cndb_wireless_interface ON cndb_net_interface_in_ip_network."left" = cndb_wireless_interface.pid
     CNDB.Virtual_Wireless_Interface_in_IP4_Network CNDB.Net_Interface_in_IP_Network
         SELECT cndb_net_interface_in_ip_network."left" AS cndb_net_interface_in_ip_network_left,
                cndb_net_interface_in_ip_network."right" AS cndb_net_interface_in_ip_network_right,
@@ -5025,7 +5002,6 @@ _test_select = """
                cndb_net_interface_in_ip_network.mask_len AS cndb_net_interface_in_ip_network_mask_len,
                cndb_net_interface_in_ip_network.name AS cndb_net_interface_in_ip_network_name,
                cndb_net_interface_in_ip_network.pid AS cndb_net_interface_in_ip_network_pid,
-               cndb_virtual_wireless_interface_in_ip4_network.pid AS cndb_virtual_wireless_interface_in_ip4_network_pid,
                mom_id_entity.electric AS mom_id_entity_electric,
                mom_id_entity.last_cid AS mom_id_entity_last_cid,
                mom_id_entity.pid AS mom_id_entity_pid,
@@ -5033,51 +5009,8 @@ _test_select = """
                mom_id_entity.x_locked AS mom_id_entity_x_locked
         FROM mom_id_entity
            JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           JOIN cndb_virtual_wireless_interface_in_ip4_network ON cndb_net_interface_in_ip_network.pid = cndb_virtual_wireless_interface_in_ip4_network.pid
+           JOIN cndb_virtual_wireless_interface ON cndb_net_interface_in_ip_network."left" = cndb_virtual_wireless_interface.pid
 
-           LEFT OUTER JOIN cndb_regulatory_domain ON mom_id_entity.pid = cndb_regulatory_domain.pid
-           LEFT OUTER JOIN cndb_regulatory_permission ON mom_id_entity.pid = cndb_regulatory_permission.pid
-           LEFT OUTER JOIN cndb_zone ON mom_id_entity.pid = cndb_zone.pid
-           LEFT OUTER JOIN cndb_routing_zone_olsr ON mom_id_entity.pid = cndb_routing_zone_olsr.pid
-           LEFT OUTER JOIN cndb_wireless_standard ON mom_id_entity.pid = cndb_wireless_standard.pid
-           LEFT OUTER JOIN cndb_wireless_channel ON mom_id_entity.pid = cndb_wireless_channel.pid
-           LEFT OUTER JOIN cndb_device_type_made_by_company ON mom_id_entity.pid = cndb_device_type_made_by_company.pid
-           LEFT OUTER JOIN cndb_net_interface_in_ip_network ON mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-           LEFT OUTER JOIN cndb_net_link ON mom_id_entity.pid = cndb_net_link.pid
-           LEFT OUTER JOIN cndb_person_mentors_person ON mom_id_entity.pid = cndb_person_mentors_person.pid
-           LEFT OUTER JOIN cndb_wireless_interface_uses_antenna ON mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
-           LEFT OUTER JOIN cndb_wireless_interface_uses_wireless_channel ON mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
-        WHERE mom_id_entity.pid = cndb_antenna_type.pid
-            OR mom_id_entity.pid = cndb_node.pid
-            OR mom_id_entity.pid = cndb_antenna.pid
-            OR mom_id_entity.pid = cndb_antenna_band.pid
-            OR mom_id_entity.pid = cndb_firmware_type.pid
-            OR mom_id_entity.pid = cndb_firmware_version.pid
-            OR mom_id_entity.pid = cndb_firmware_binary.pid
-            OR mom_id_entity.pid = cndb_firmware_bundle.pid
-            OR mom_id_entity.pid = cndb_firmware_binary_in_firmware_bundle.pid
-            OR mom_id_entity.pid = cndb_ip4_network.pid
-            OR mom_id_entity.pid = cndb_ip4_pool.pid
-            OR mom_id_entity.pid = cndb_ip6_network.pid
-            OR mom_id_entity.pid = cndb_ip6_pool.pid
-            OR mom_id_entity.pid = cndb_net_device_type.pid
-            OR mom_id_entity.pid = cndb_net_device.pid
-            OR mom_id_entity.pid = cndb_net_interface.pid
-            OR mom_id_entity.pid = cndb__wireless_interface_.pid
-            OR mom_id_entity.pid = cndb_virtual_wireless_interface.pid
-            OR mom_id_entity.pid = cndb_wpa_credentials.pid
-            OR mom_id_entity.pid = cndb_regulatory_domain.pid
-            OR mom_id_entity.pid = cndb_regulatory_permission.pid
-            OR mom_id_entity.pid = cndb_zone.pid
-            OR mom_id_entity.pid = cndb_routing_zone_olsr.pid
-            OR mom_id_entity.pid = cndb_wireless_standard.pid
-            OR mom_id_entity.pid = cndb_wireless_channel.pid
-            OR mom_id_entity.pid = cndb_device_type_made_by_company.pid
-            OR mom_id_entity.pid = cndb_net_interface_in_ip_network.pid
-            OR mom_id_entity.pid = cndb_net_link.pid
-            OR mom_id_entity.pid = cndb_person_mentors_person.pid
-            OR mom_id_entity.pid = cndb_wireless_interface_uses_antenna.pid
-            OR mom_id_entity.pid = cndb_wireless_interface_uses_wireless_channel.pid
     CNDB.Object
         SELECT cndb_antenna_type."desc" AS cndb_antenna_type_desc,
                cndb_antenna_type.__raw_model_no AS cndb_antenna_type___raw_model_no,
@@ -6610,18 +6543,18 @@ _test_tables = """
     CNDB.Routing_Zone                        : None
     CNDB.Routing_Zone_OLSR                   : cndb_routing_zone_olsr
     CNDB.Virtual_Wireless_Interface          : cndb_virtual_wireless_interface
-    CNDB.Virtual_Wireless_Interface_in_IP4_Network : cndb_virtual_wireless_interface_in_ip4_network
-    CNDB.Virtual_Wireless_Interface_in_IP6_Network : cndb_virtual_wireless_interface_in_ip6_network
+    CNDB.Virtual_Wireless_Interface_in_IP4_Network : None
+    CNDB.Virtual_Wireless_Interface_in_IP6_Network : None
     CNDB.Virtual_Wireless_Interface_in_IP_Network : None
     CNDB.WPA_Credentials                     : cndb_wpa_credentials
     CNDB.Wired_Interface                     : cndb_wired_interface
-    CNDB.Wired_Interface_in_IP4_Network      : cndb_wired_interface_in_ip4_network
-    CNDB.Wired_Interface_in_IP6_Network      : cndb_wired_interface_in_ip6_network
+    CNDB.Wired_Interface_in_IP4_Network      : None
+    CNDB.Wired_Interface_in_IP6_Network      : None
     CNDB.Wired_Interface_in_IP_Network       : None
     CNDB.Wireless_Channel                    : cndb_wireless_channel
     CNDB.Wireless_Interface                  : cndb_wireless_interface
-    CNDB.Wireless_Interface_in_IP4_Network   : cndb_wireless_interface_in_ip4_network
-    CNDB.Wireless_Interface_in_IP6_Network   : cndb_wireless_interface_in_ip6_network
+    CNDB.Wireless_Interface_in_IP4_Network   : None
+    CNDB.Wireless_Interface_in_IP6_Network   : None
     CNDB.Wireless_Interface_in_IP_Network    : None
     CNDB.Wireless_Interface_uses_Antenna     : cndb_wireless_interface_uses_antenna
     CNDB.Wireless_Interface_uses_Wireless_Channel : cndb_wireless_interface_uses_wireless_channel
@@ -6861,18 +6794,6 @@ _test_tables = """
         Column left                      : Integer              Link_Role Wireless_Interface left Id_Entity()
         Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('mom_id_entity.pid')
         Column right                     : Integer              Link_Role Wireless_Channel right Id_Entity()
-    CNDB.Wired_Interface_in_IP6_Network (CNDB.Net_Interface_in_IP_Network) CNDB.Net_Interface_in_IP_Network <Table cndb_wired_interface_in_ip6_network>
-        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb_net_interface_in_ip_network.pid')
-    CNDB.Wireless_Interface_in_IP6_Network (CNDB.Net_Interface_in_IP_Network) CNDB.Net_Interface_in_IP_Network <Table cndb_wireless_interface_in_ip6_network>
-        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb_net_interface_in_ip_network.pid')
-    CNDB.Virtual_Wireless_Interface_in_IP6_Network (CNDB.Net_Interface_in_IP_Network) CNDB.Net_Interface_in_IP_Network <Table cndb_virtual_wireless_interface_in_ip6_network>
-        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb_net_interface_in_ip_network.pid')
-    CNDB.Wired_Interface_in_IP4_Network (CNDB.Net_Interface_in_IP_Network) CNDB.Net_Interface_in_IP_Network <Table cndb_wired_interface_in_ip4_network>
-        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb_net_interface_in_ip_network.pid')
-    CNDB.Wireless_Interface_in_IP4_Network (CNDB.Net_Interface_in_IP_Network) CNDB.Net_Interface_in_IP_Network <Table cndb_wireless_interface_in_ip4_network>
-        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb_net_interface_in_ip_network.pid')
-    CNDB.Virtual_Wireless_Interface_in_IP4_Network (CNDB.Net_Interface_in_IP_Network) CNDB.Net_Interface_in_IP_Network <Table cndb_virtual_wireless_interface_in_ip4_network>
-        Column pid                       : Integer              Internal__Just_Once Surrogate pid primary ForeignKey('cndb_net_interface_in_ip_network.pid')
     <Table for Surrogate `pid`>
         Column electric                  : Boolean              Internal Boolean electric
         Column last_cid                  : Integer              Internal Int last_cid
@@ -6892,7 +6813,6 @@ _test_tables = """
         Column user                      : Integer              Internal__Id_Entity_Reference__Computed__Sync_Change Entity user Id_Entity()
     <Table for Surrogate `cert_id`>
         Column cert_id                   : Integer              ---------- primary
-
 
 """
 
