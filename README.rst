@@ -68,9 +68,11 @@ System requirements
 
   * its best to set up a separate account that runs the CNDB instance
 
-- Apache, with mod-fcgid installed
+- Webserver, one of:
 
-  * or another webserver, e.g. nginx...
+  * nginx plus uwsgi
+
+  * Apache plus mod-fcgid or mod-wsgi
 
 - PostgreSQL
 
@@ -78,7 +80,9 @@ System requirements
 
 - git
 
-- Python (> 2.6, < 3)
+- Python (2.7 or 3.5)
+
+  * `rsclib` is not Python 3 compatible, all other code is
 
 - Python packages
 
@@ -96,7 +100,7 @@ System requirements
 
   * `jinja2`_
 
-  * `passlib`_, `py-bcrypt`_
+  * `py-bcrypt`_
 
     optional but seriously recommended for improved password hashing
 
@@ -120,6 +124,8 @@ System requirements
 
     optional, only used during deployment for minimization of CSS and
     Javascript files
+
+    `rcssmin` and `rjsmin` are much faster than `cssmin` and `jsmin`
 
   * `rsclib`_
 
@@ -165,38 +171,30 @@ If you are running in a virtual machine, you need at least 384 MB of
 RAM, 256 MB isn't enough.
 
 
-Debian Wheezy
-~~~~~~~~~~~~~
-
-Some of the needed Packages are either not in Debian or are too old to
-be useful. The following packages can be installed via the Debian Wheezy
-installer::
-
- $ apt-get --no-install-recommends install \
-     apache2-mpm-worker build-essential git libapache2-mod-fcgid \
-     postgresql python-pip python-babel python-bs4 python-dateutil \
-     python-dev python-distribute python-docutils python-flup \
-     python-jinja2 python-passlib python-psycopg2 python-pyquery \
-     python-sqlalchemy python-tz python-werkzeug swig
-
-Other packages can be installed using ``pip``::
-
- $ pip install plumbum py-bcrypt rcssmin rjsmin rsclib
-
 Debian Jessie
 ~~~~~~~~~~~~~
 
-Some of the needed Packages are either not in Debian or are too old to
-be useful. The following packages can be installed via the Debian Jessie
+Almost all packages can be installed via the Debian Jessie
 installer::
 
  $ apt-get --no-install-recommends install \
-     apache2-mpm-worker git libapache2-mod-fcgid postgresql \
-     python-pip python-babel python-bs4 python-dateutil \
-     python-docutils python-flup \
-     python-jinja2 python-passlib python-psycopg2 python-pyquery \
-     python-sqlalchemy python-tz python-werkzeug python-plumbum \
-     python-bcrypt python-jsmin cssmin
+     git postgresql python-babel python-bcrypt python-bs4 \
+     python-dateutil python-docutils python-jinja2 \
+     python-pip python-plumbum python-psycopg2 python-pyquery \
+     python-rcssmin python-rjsmin python-sqlalchemy python-tz \
+     python-werkzeug
+
+Depending on the webserver you want to use, either::
+
+ $ apt-get --no-install-recommends install \
+     uwsgi uwsgi-plugin-python
+ $ apt-get --no-install-recommends -t jessie-backports install \
+     nginx-full nginx-doc
+
+or::
+
+ $ apt-get --no-install-recommends install \
+     apache2-mpm-worker libapache2-mod-fcgid python-flup
 
 Other packages can be installed using ``pip``::
 
@@ -210,6 +208,7 @@ Create user and database user permitted to create databases. For instance,
 for Funkfeuer Wien::
 
  $ adduser --system --disabled-password --home /srv/ffw --shell /bin/bash --group ffw
+ $ adduser --disabled-password --home /srv/ffw --shell /bin/false --ingroup ffw ffw-r
  $ sudo -u postgres createuser -d ffw -P
 
 Note: Depending on your setup the createuser command has to be executed by
@@ -270,15 +269,16 @@ system should something go wrong during the upgrade::
 With a small config-file, the deploy-app can automatically create an
 Apache configuration file and a fcgi script. You can find sample
 config-files in active/www/app/httpd_config/. For instance,
-active/www/app/httpd_config/ffw_gg32_com__443.config contains::
+active/www/app/httpd_config/nodedb_funkfeuer_at__443.config contains::
 
-        config_path     = "~/fcgi/ffw_gg32_com__443.conf"
-        host_macro      = "gtw_host_ssl"
-        port            = "443"
-        script_path     = "~/fcgi/ffw_gg32_com__443.fcgi"
-        server_admin    = "christian.tanzer@gmail.com"
-        server_name     = "ffw.gg32.com"
-        ssl_key_name    = "srvr1-gg32-com-2048"
+      config_path         = "~/fcgi/nodedb_funkfeuer_at__443.config"
+      host_macro          = "gtw_host_ssl"
+      port                = "443"
+      script_path         = "~/fcgi/nodedb_funkfeuer_at__443.fcgi"
+      server_admin        = "admin@funkfeuer.at"
+      server_name         = "nodedb.funkfeuer.at"
+      ssl_certificate     = "nodedb.funkfeuer.at.crt"
+      ssl_certificate_key = "nodedb.funkfeuer.at.key"
 
 Please note, the lines in the file must not contain leading whitespace.
 
@@ -288,8 +288,8 @@ Create a config::
   $ cp active/www/app/httpd_config/ffw_gg32_com__443.config deploy.config
   $ vi deploy.config
     ### edit the config to your needs
-  $ python active/www/app/deploy.py create_config \
-      -HTTP_Config <your-config> -input_encoding=utf-8
+  $ python active/www/app/deploy.py fcgi_config \
+      -HTTP_Config <your-config> -apache2_4 -input_encoding=utf-8
 
 Finally we create a database and populate it with data::
 
