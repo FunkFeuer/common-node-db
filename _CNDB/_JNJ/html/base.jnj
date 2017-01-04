@@ -1,7 +1,7 @@
 {%- extends "STD::html/base.jnj" %}
 {#- jinja template: base.jnj -#}
 {#
-## Copyright (C) 2012-2014 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2012-2017 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************#
 ## This template is licensed under the terms of the BSD 3-Clause License
@@ -18,6 +18,7 @@
 ## Revision Dates
 ##    27-Mar-2012 (CT) Creation
 ##     9-Jul-2014 (CT) Factor out Funkfeuer specific stuff
+##    20-Jan-2017 (CT) Remove redundant `body_footer` block
 ##    ««revision-date»»···
 ##--
 #}
@@ -27,34 +28,5 @@
     {{- GTW._T ("%s Knotendatenbank") % (page.owner, ) -}}
   </span>
 {%- endblock body_header -%}
-
-{%- block body_footer -%}
-  <div class="copyright">
-    {%- block body_footer_copyright %}
-      {%- if page.copyright %}
-      Copyright &copy;
-      {{ page.copyright.year if page.copyright.year else GTW.now ("%Y") }}
-      <a href="{{ page.copyright.url }}">
-        {{- page.copyright.holder -}}
-      </a>
-      {% endif -%}
-    {% endblock body_footer_copyright -%}
-  </div>
-  <div class="top-link">
-    {%- block body_footer_top_link %}
-      <a id="Bottom" href="#ffm-top">{{ GTW._T ("Top of page") }}</a>
-    {% endblock body_footer_top_link -%}
-  </div>
-  <div class="last-change">
-    {%- block body_footer_last_change %}
-      {{- GTW._T ("Last change") -}}:
-      {%- if page.last_changed %}
-        {{ page.last_changed }}
-      {%- else %}
-        {{ GTW.now ("%d/%m/%Y %H:%M" if page.DEBUG else "%d/%m/%Y")}}
-      {% endif -%}
-    {% endblock body_footer_last_change -%}
-  </div>
-{% endblock body_footer -%}
 
 {#- __END__ jinja template: html/base.jnj -#}

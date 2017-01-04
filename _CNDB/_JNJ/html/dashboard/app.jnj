@@ -1,6 +1,6 @@
 {#- jinja template: html/dashboard/app.jnj -#}
 {#
-## Copyright (C) 2014-2015 Mag. Christian Tanzer All rights reserved
+## Copyright (C) 2014-2017 Mag. Christian Tanzer All rights reserved
 ## Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 ## #*** <License> ************************************************************
 ## This module is licensed under the terms of the BSD 3-Clause License
@@ -27,6 +27,7 @@
 ##    14-Jul-2014 (CT) Fix `{{ title }}` access in block `title`
 ##     3-Dec-2014 (CT) Adapt to changes in grid of pure-0.5.0
 ##    10-Jun-2015 (CT) Add `page_notifications` to display feedback from `/Auth`
+##     4-Jan-2017 (CT) Use `html/base.m.jnj`, not home-grown code
 ##    ««revision-date»»···
 ##--
 #}
@@ -34,42 +35,33 @@
 {%- import (html_version or "html/5.jnj")   as X -%}
 {%- import "html/page_notifications.m.jnj"  as PN      with context %}
 {%- import "html/media_fragments.jnj"       as MF      with context %}
+{%- import "html/base.m.jnj"                as BM      with context %}
+
 {%- import "html/dashboard/app.m.jnj"       as DB      with context %}
 {%- import "html/dashboard/edit.m.jnj"      as DB_Edit with context %}
 {%- import "html/dashboard/user.m.jnj"      as DB_User with context %}
 {%- import "html/dashboard/view.m.jnj"      as DB_View with context %}
 
 {%- call X.html (lang = page.language|default ("en")) -%}
+  {%- set title = page.h_title or
+      ("%s dashboard" % (page.owner or "<Owner is missing>", ))
+  -%}
   {%- call X.head () -%}
     {%- block head_elements -%}
-      {%- set title = page.h_title or
-          ("%s dashboard" % (page.owner or "<Owner is missing>", ))
-      -%}
-      <meta charset="{{ page.encoding|default ("utf-8") }}" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="{{ title }}">
-      {%- if page.exclude_robots %}
-        <meta name="robots" content="NOINDEX, NOFOLLOW">
-      {% endif -%}
+      {%- block meta_elements -%}
+        {{ BM.meta_headers (page, description = title) }}
+      {%- endblock meta_elements -%}
+      {{ BM.link_rel_headers (page, template) }}
       {% block head_base_element %}{% endblock head_base_element %}
         {% block title scoped %}
           <title>{{ title }}</title>
         {% endblock title -%}
       {%- block styles %}
-        {%- if template.css_href %}
-          {{ X.link_stylesheet (template.css_href) }}
-        {%- else %}
-          {{ MF.inline_CSS (template.CSS) }}
-        {% endif -%}
-        {{ MF.link_css (template) }}
+        {{ BM.style_headers (page, template) }}
       {%- endblock styles %}
         {%- block scripts %}
           {{ MF.scripts (template) }}
         {%- endblock scripts -%}
-      {%- block meta_elements -%}
-        <!-- copyright "{{ page.copyright.year }} {{ page.copyright.holder }}"-->
-        <meta name="generator" content="GTW, JNJ, Jinja2" />
-      {%- endblock meta_elements -%}
       {{ page.add_headers|safe }}
     {%- endblock head_elements %}
   {%- endcall %} {# X.head #}
