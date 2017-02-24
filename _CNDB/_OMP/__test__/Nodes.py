@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2016 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2017 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -35,13 +35,14 @@
 #    13-Jun-2014 (RS) Fixes for new `PAP` objects, `Node` no longer derived
 #                     from `Subject`, addition of `Node.desc`, `ui_name`
 #                     for `desc`
+#    24-Feb-2017 (CT) Import `MOM.Inspect`, not `MOM.inspect`
 #    ««revision-date»»···
 #--
 
 from   __future__ import absolute_import, division, print_function, unicode_literals
 
 from   _CNDB._OMP.__test__.model      import *
-from   _MOM.inspect             import children_trans_iter
+from   _MOM.Inspect                   import children_trans_iter
 
 from   datetime                 import datetime
 from   rsclib.IP_Address        import IP4_Address as R_IP4_Address
