@@ -227,6 +227,11 @@ like the following::
       cookie_salt   = 'some random value, e.g., the result of uuid.uuid4 ()'
       db_name       = "ffw"
       db_url        = "postgresql://<account>:<password>@localhost"
+      ### email_from:
+      ### - `From` address for emails sent, e.g., password reset
+      ### - `To`   address for error emails sent
+      ###    (contains tracebacks, request data, etc.)
+      email_from    = "admin@funkfeuer.at"
       languages     = "de", "en"
       locale_code   = "de"
       smtp_server   = "localhost"
