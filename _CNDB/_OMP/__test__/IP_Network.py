@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2013-2016 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2013-2018 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -53,6 +53,7 @@
 #                     have an associated `Net_Interface`.
 #    12-Mar-2015 (CT) Adapt to sqlalchemy 0.9.8
 #    12-Mar-2015 (CT) Fix backend dependent tests
+#    19-Mar-2018 (CT) Use `expect_except` (Python-3 compatibility)
 #    ««revision-date»»···
 #--
 
@@ -152,9 +153,8 @@ _test_alloc = """
     10.0.64.0/18       Open Source Consulting   : electric = T, children = F
     10.0.128.0/17      Open Source Consulting   : electric = T, children = F
 
-    >>> ct_addr = osc_pool.reserve ('10.0.0.1/32', owner = ct)
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.Address_Already_Used) :
+    ...   ct_addr = osc_pool.reserve ('10.0.0.1/32', owner = ct)
     Address_Already_Used: Address 10.0.0.1 already in use by 'Schlatterbeck Ralf'
 
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.0/28
@@ -171,9 +171,8 @@ _test_alloc = """
     10.0.0.4/30        Schlatterbeck Ralf       : electric = T, children = F
     10.0.0.8/29        Schlatterbeck Ralf       : electric = T, children = F
 
-    >>> ak_pool = rs_pool.allocate (28, ak)
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.No_Free_Address_Range) :
+    ...   ak_pool = rs_pool.allocate (28, ak)
     No_Free_Address_Range: Address range [10.0.0.0/28] of this IP4_Network doesn't contain a free subrange for mask length 28
 
     >>> show_networks (scope, ETM, pool = rs_pool) ### 10.0.0.0/30 ct after alloc error
@@ -210,14 +209,12 @@ _test_alloc = """
     10.0.0.8/29        Glueck Martin            : electric = F, children = F
     10.0.0.0/29        Schlatterbeck Ralf       : electric = T, children = T
 
-    >>> xx_pool = rs_pool.allocate (30, mg)
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.No_Free_Address_Range) :
+    ...   xx_pool = rs_pool.allocate (30, mg)
     No_Free_Address_Range: Address range [10.0.0.0/28] of this IP4_Network doesn't contain a free subrange for mask length 30
 
-    >>> yy_pool = mg_pool.allocate (29, mg)
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.No_Free_Address_Range) :
+    ...   yy_pool = mg_pool.allocate (29, mg)
     No_Free_Address_Range: Address range [10.0.0.8/29] of this IP4_Network doesn't contain a free subrange for mask length 29
 
     >>> show_network_count (scope, ETM)
@@ -398,13 +395,11 @@ _test_alloc = """
     >>> q (Q.net_address.CONTAINS (n), sort_key = s).first ()
     CNDB.IP4_Network ("10.42.137.0/28")
 
-    >>> ff_pool.free ()
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.Cannot_Free_Network) :
+    ...   ff_pool.free ()
     Cannot_Free_Network: Cannot free toplevel network 10.0.0.0/8
-    >>> rs_pool.free ()
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.Cannot_Free_Network) :
+    ...   rs_pool.free ()
     Cannot_Free_Network: Cannot free network with allocations: 10.0.0.0/28
 
     >>> p1 = CNDB.IP4_Pool \\
@@ -799,15 +794,13 @@ _test_alloc = """
     >>> xpool  = CNDB.IP4_Network ('192.168.0.0/16', owner = ff, raw = True)
     >>> mgpool = xpool.allocate (17, mg)
     >>> ctpool = xpool.allocate (17, ct)
-    >>> rspool = xpool.allocate (32, rs)
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.No_Free_Address_Range) :
+    ...   rspool = xpool.allocate (32, rs)
     No_Free_Address_Range: Address range [192.168.0.0/16] of this IP4_Network doesn't contain a free subrange for mask length 32
     >>> ffpool = mgpool.allocate (22, ff)
 
-    >>> rspool = xpool.allocate (32, rs)
-    Traceback (most recent call last):
-      ...
+    >>> with expect_except (CNDB.OMP.Error.No_Free_Address_Range) :
+    ...   rspool = xpool.allocate (32, rs)
     No_Free_Address_Range: Address range [192.168.0.0/16] of this IP4_Network doesn't contain a free subrange for mask length 32
 """
 
