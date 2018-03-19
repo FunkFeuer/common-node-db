@@ -54,6 +54,7 @@
 #    12-Mar-2015 (CT) Adapt to sqlalchemy 0.9.8
 #    12-Mar-2015 (CT) Fix backend dependent tests
 #    19-Mar-2018 (CT) Use `expect_except` (Python-3 compatibility)
+#    19-Mar-2018 (CT) Don't use `raw = True` for cooked `I6N.net_address.P_Type`
 #    ««revision-date»»···
 #--
 
@@ -8675,7 +8676,7 @@ _test_order_6 = """
     >>> _   = I6N ("2001:0db8::80/124")
     >>> _   = I6N ("2001:0db8::D4/124")
     >>> adr = I6N.net_address.P_Type ("2001:0db8::0/128")
-    >>> _   = I6N (adr, owner = ff, raw = True)
+    >>> _   = I6N (adr, owner = ff)
 
     >>> scope.commit ()
 
@@ -8702,7 +8703,7 @@ _test_order_6 = """
     2a02:58::/29
     >>> bool (adr1)
     True
-    >>> I6N  (adr1, owner = ff, raw = True)
+    >>> I6N  (adr1, owner = ff)
     CNDB.IP6_Network ("2a02:58::/29")
 
     >>> adr2 = I6N.net_address.P_Type ("2a02:60::/29")
