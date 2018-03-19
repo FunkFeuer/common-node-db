@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2017 Mag. Christian Tanzer All rights reserved
+# Copyright (C) 2012-2018 Mag. Christian Tanzer All rights reserved
 # Glasauergasse 32, A--1130 Wien, Austria. tanzer@swing.co.at
 # #*** <License> ************************************************************#
 # This module is part of the package CNDB.OMP.__test__.
@@ -36,6 +36,7 @@
 #                     from `Subject`, addition of `Node.desc`, `ui_name`
 #                     for `desc`
 #    24-Feb-2017 (CT) Import `MOM.Inspect`, not `MOM.inspect`
+#    19-Mar-2018 (CT) Use `portable_repr` (Python-3 compatibility)
 #    ««revision-date»»···
 #--
 
@@ -43,6 +44,7 @@ from   __future__ import absolute_import, division, print_function, unicode_lite
 
 from   _CNDB._OMP.__test__.model      import *
 from   _MOM.Inspect                   import children_trans_iter
+from   _TFL.portable_repr             import portable_repr as prepr
 
 from   datetime                 import datetime
 from   rsclib.IP_Address        import IP4_Address as R_IP4_Address
@@ -265,37 +267,7 @@ _test_refuse_e_types = """
     >>> for ET in scope.app_type._T_Extension :
     ...     for a in ET.id_entity_attr :
     ...         if getattr (a, "refuse_e_types", None) :
-    ...             print (ET.type_name, a.name, sorted (a.refuse_e_types))
-    PAP.Subject_has_Property left [u'PAP.Adhoc_Group']
-    PAP.Subject_has_IM_Handle left [u'PAP.Adhoc_Group']
-    PAP.Subject_has_Nickname left [u'PAP.Adhoc_Group']
-    PAP.Subject_has_Address left [u'PAP.Adhoc_Group']
-    PAP.Subject_has_Email left [u'PAP.Adhoc_Group']
-    PAP.Subject_has_Phone left [u'PAP.Adhoc_Group']
-    PAP.Subject_has_Url left [u'PAP.Adhoc_Group']
-    PAP.Association_has_Url left [u'PAP.Adhoc_Group']
-    PAP.Person_has_Url left [u'PAP.Adhoc_Group']
-    PAP.Company_has_Url left [u'PAP.Adhoc_Group']
-    PAP.Association_has_Phone left [u'PAP.Adhoc_Group']
-    PAP.Person_has_Phone left [u'PAP.Adhoc_Group']
-    PAP.Company_has_Phone left [u'PAP.Adhoc_Group']
-    PAP.Association_has_Email left [u'PAP.Adhoc_Group']
-    PAP.Person_has_Email left [u'PAP.Adhoc_Group']
-    PAP.Company_has_Email left [u'PAP.Adhoc_Group']
-    PAP.Association_has_Address left [u'PAP.Adhoc_Group']
-    PAP.Person_has_Address left [u'PAP.Adhoc_Group']
-    PAP.Company_has_Address left [u'PAP.Adhoc_Group']
-    PAP.Association_has_Nickname left [u'PAP.Adhoc_Group']
-    PAP.Person_has_Nickname left [u'PAP.Adhoc_Group']
-    PAP.Company_has_Nickname left [u'PAP.Adhoc_Group']
-    PAP.Association_has_IM_Handle left [u'PAP.Adhoc_Group']
-    PAP.Person_has_IM_Handle left [u'PAP.Adhoc_Group']
-    PAP.Company_has_IM_Handle left [u'PAP.Adhoc_Group']
-
-    >>> for ET in scope.app_type._T_Extension :
-    ...     for a in ET.id_entity_attr :
-    ...         if getattr (a, "refuse_e_types", None) :
-    ...             print (ET.type_name, a.name, sorted (a.refuse_e_types_transitive))
+    ...             print (ET.type_name, a.name, prepr (sorted (a.refuse_e_types)))
     PAP.Subject_has_Property left ['PAP.Adhoc_Group']
     PAP.Subject_has_IM_Handle left ['PAP.Adhoc_Group']
     PAP.Subject_has_Nickname left ['PAP.Adhoc_Group']
@@ -322,19 +294,49 @@ _test_refuse_e_types = """
     PAP.Person_has_IM_Handle left ['PAP.Adhoc_Group']
     PAP.Company_has_IM_Handle left ['PAP.Adhoc_Group']
 
-    >>> sorted (CNDB.Node.manager.eligible_e_types)
+    >>> for ET in scope.app_type._T_Extension :
+    ...     for a in ET.id_entity_attr :
+    ...         if getattr (a, "refuse_e_types", None) :
+    ...             print (ET.type_name, a.name, prepr (sorted (a.refuse_e_types_transitive)))
+    PAP.Subject_has_Property left ['PAP.Adhoc_Group']
+    PAP.Subject_has_IM_Handle left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Address left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Email left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Subject_has_Url left ['PAP.Adhoc_Group']
+    PAP.Association_has_Url left ['PAP.Adhoc_Group']
+    PAP.Person_has_Url left ['PAP.Adhoc_Group']
+    PAP.Company_has_Url left ['PAP.Adhoc_Group']
+    PAP.Association_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Person_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Company_has_Phone left ['PAP.Adhoc_Group']
+    PAP.Association_has_Email left ['PAP.Adhoc_Group']
+    PAP.Person_has_Email left ['PAP.Adhoc_Group']
+    PAP.Company_has_Email left ['PAP.Adhoc_Group']
+    PAP.Association_has_Address left ['PAP.Adhoc_Group']
+    PAP.Person_has_Address left ['PAP.Adhoc_Group']
+    PAP.Company_has_Address left ['PAP.Adhoc_Group']
+    PAP.Association_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Person_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Company_has_Nickname left ['PAP.Adhoc_Group']
+    PAP.Association_has_IM_Handle left ['PAP.Adhoc_Group']
+    PAP.Person_has_IM_Handle left ['PAP.Adhoc_Group']
+    PAP.Company_has_IM_Handle left ['PAP.Adhoc_Group']
+
+    >>> print (prepr (sorted (CNDB.Node.manager.eligible_e_types)))
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
-    >>> sorted (CNDB.Node.owner.eligible_e_types)
+    >>> print (prepr (sorted (CNDB.Node.owner.eligible_e_types)))
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
-    >>> sorted (CNDB.Node.owner.selectable_e_types)
+    >>> print (prepr (sorted (CNDB.Node.owner.selectable_e_types)))
     ['PAP.Adhoc_Group', 'PAP.Association', 'PAP.Company', 'PAP.Person']
 
-    >>> sorted (PAP.Subject_has_Property.left.eligible_e_types)
+    >>> print (prepr (sorted (PAP.Subject_has_Property.left.eligible_e_types)))
     ['PAP.Association', 'PAP.Company', 'PAP.Person']
 
-    >>> sorted (PAP.Subject_has_Phone.left.eligible_e_types)
+    >>> print (prepr (sorted (PAP.Subject_has_Phone.left.eligible_e_types)))
     ['PAP.Association', 'PAP.Company', 'PAP.Person']
 
 """
