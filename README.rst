@@ -78,11 +78,10 @@ System requirements
 
   * an account for the web app that can create databases and tables
 
-- git
+- git, unless the Funkfeuer application, common node database, and tapyr are
+  all installed via Debian packages or with ``pip install``.
 
-- Python (2.7 or 3.5)
-
-  * `rsclib` is not Python 3 compatible, all other code is
+- Python (2.7 or 3.5+)
 
 - Python packages
 
@@ -96,7 +95,7 @@ System requirements
 
   * `flup`_
 
-    optional, necessary when fcgi is used
+    only necessary when fcgi is used
 
   * `jinja2`_
 
@@ -124,6 +123,8 @@ System requirements
 
     optional, only used during deployment for minimization of CSS and
     Javascript files
+
+    **should be used to make webserver responses smaller**
 
     `rcssmin` and `rjsmin` are much faster than `cssmin` and `jsmin`
 
@@ -170,36 +171,36 @@ Debian-specific in other parts.
 If you are running in a virtual machine, you need at least 384 MB of
 RAM, 256 MB isn't enough.
 
+Debian Stretch
+~~~~~~~~~~~~~~~
 
-Debian Jessie
-~~~~~~~~~~~~~
+You can install for either Python-2 or Python-3. In the following, we will
+assume an install for nginx and uwsgi.
 
-Almost all packages can be installed via the Debian Jessie
+For Python-2::
+
+  # export pv=''
+
+For Python-3::
+
+  # export pv='3'
+
+Almost all packages can be installed via the Debian Stretch
 installer::
 
- $ apt-get --no-install-recommends install \
-     git postgresql python-babel python-bcrypt python-bs4 \
-     python-dateutil python-docutils python-jinja2 \
-     python-pip python-plumbum python-psycopg2 python-pyquery \
-     python-rcssmin python-rjsmin python-sqlalchemy python-tz \
-     python-werkzeug
-
-Depending on the webserver you want to use, either::
-
- $ apt-get --no-install-recommends install \
-     uwsgi uwsgi-plugin-python
- $ apt-get --no-install-recommends -t jessie-backports install \
-     nginx-full nginx-doc
-
-or::
-
- $ apt-get --no-install-recommends install \
-     apache2-mpm-worker libapache2-mod-fcgid python-flup
+  # apt-get install \
+      git postgresql sudo \
+      python${pv}-babel python${pv}-bcrypt python${pv}-bs4 \
+      python${pv}-dateutil python${pv}-docutils python${pv}-jinja2 \
+      python${pv}-pip python${pv}-plumbum python${pv}-psycopg2 \
+      python${pv}-pyquery python${pv}-rcssmin python${pv}-rjsmin \
+      python${pv}-setuptools python${pv}-sqlalchemy python${pv}-tz \
+      python${pv}-virtualenv python${pv}-werkzeug \
+      nginx-full nginx-doc uwsgi uwsgi-plugin-python${pv}
 
 Other packages can be installed using ``pip``::
 
- $ pip install rsclib
-
+  # pip${pv} install rsclib
 
 How to install
 --------------
@@ -207,25 +208,31 @@ How to install
 Create user and database user permitted to create databases. For instance,
 for Funkfeuer Wien::
 
- $ adduser --system --disabled-password --home /srv/ffw --shell /bin/bash --group ffw
- $ adduser --disabled-password --home /srv/ffw --shell /bin/false --ingroup ffw ffw-r
- $ sudo -u postgres createuser -d ffw -P
+  # adduser --system --disabled-password --home /srv/ffw${pv} \
+      --shell /bin/bash --group ffw${pv}
+
+  # adduser --disabled-password --home /srv/ffw${pv} --no-create-home \
+      --shell /bin/false --ingroup ffw${pv} --quiet ffw${pv}-r
+
+  # sudo -u postgres createuser -d ffw${pv} -P
 
 Note: Depending on your setup the createuser command has to be executed by
 a different user.
 
-Assuming an account `ffw` located in /srv/ffw, you'll need something
-like the following::
+Assuming an account `ffw${pv}` located in /srv/ffw${pv}, you'll need
+something like the following::
 
-  ### Logged in as `ffw`
-  $ cd
+  # su - ffw${pv}
 
-  ### Define config
-  $ vi .ffw.config
-    ### Add the lines (using the appropriate values for **your** install)::
-    ### No leading spaces are allowed
+    $ export pv='3' ### or '' if you use Python-2
+    $ alias python="python${pv}"
+
+    ### Define config
+    $ vi .ffw.config
+      ### Add the lines (using the appropriate values for **your** install)::
+      ### No leading spaces are allowed
       cookie_salt   = 'some random value, e.g., the result of uuid.uuid4 ()'
-      db_name       = "ffw"
+      db_name       = "ffw<pv>" ### best to use the account name here
       db_url        = "postgresql://<account>:<password>@localhost"
       ### email_from:
       ### - `From` address for emails sent, e.g., password reset
@@ -235,45 +242,39 @@ like the following::
       languages     = "de", "en"
       locale_code   = "de"
       smtp_server   = "localhost"
-      target_db_url = db_url
-      time_zone     = "Mars/Olympos Mons"
+      target_db_url = db_url   ### Must be equal to `db_name` here
+      time_zone     = "Europe/Vienna"
 
 Then we continue with the setup of an active and a passive branch of the
 web application. With this you can upgrade the passive application while
-the active application is running without risking a non-functional
+the active application is running; without risking a non-functional
 system should something go wrong during the upgrade::
 
-  ### create a directory with an `active` and `passive` branch of the
-  ### web application
-  ###
-  ### * the active branch will be the one that serves apache requests
-  ###
-  ### * the passive branch can be used for updating the software and
-  ###   testing it. It all works will the branches can be switched
-  ###
+    ### * the active branch will be the one that serves webserver requests
+    ###
+    ### * the passive branch can be used for updating the software and
+    ###   testing it. It all works will the branches can be switched
 
-  $ mkdir fcgi
-  $ mkdir -p v/1/www/media
-  $ ln -s v/1 active
-  $ ln -s v/2 passive
-  $ git clone git://github.com/Tapyr/tapyr.git              v/1/tapyr
-  $ git clone git://github.com/FunkFeuer/common-node-db.git v/1/cndb
-  $ git clone git://github.com/FunkFeuer/Wien.git           v/1/www/app
-  $ (cd v/1/www/media ; ln -s ../app/media/images images)
-  $ cp -a v/1 v/2
+    $ mkdir -p v/1/www
+    $ ln -s v/1 passive
+    $ ln -s v/2 active
+    $ git clone git://github.com/Tapyr/tapyr.git              passive/tapyr
+    $ git clone git://github.com/FunkFeuer/common-node-db.git passive/cndb
+    $ git clone git://github.com/FunkFeuer/Wien.git           passive/www/app
+    $ ( cd passive/www ; ln -s app/media ; mkdir -p app/media/v )
+    $ cp -a v/1 v/2
 
-  $ vi active/.ffw.config
-    ### Add the lines (using the appropriate values for **your** install)::
-      db_name       = "ffw1"
-  $ vi passive/.ffw.config
-      db_name       = "ffw2"
+    ### Ensure different `db_name` for v/1 and v/2
+    ### (using the appropriate values for **your** install)::
+    $ echo 'db_name = "ffw<pv>_a"' > active/.ffw.config
+    $ echo 'db_name = "ffw<pv>_b"' > passive/.ffw.config
 
-  ### Define PYTHONPATH
-  $ export PYTHONPATH=~/active/cndb:~/active/tapyr
+    ### Define PYTHONPATH used by the application
+    $ export PYTHONPATH=~/active/cndb:~/active/tapyr
 
-With a small config-file, the deploy-app can automatically create an
-Apache configuration file and a fcgi script. You can find sample
-config-files in active/www/app/httpd_config/. For instance,
+With a small config-file, the deploy-app can automatically create a
+webserver configuration file and a fcgi/wsgi/uwsgi script. You can find
+sample config-files in active/www/app/httpd_config/. For instance,
 active/www/app/httpd_config/nodedb_funkfeuer_at__443.config contains::
 
       config_path         = "~/fcgi/nodedb_funkfeuer_at__443.config"
@@ -289,66 +290,108 @@ Please note, the lines in the file must not contain leading whitespace.
 
 Create a config::
 
-  ### Create a fcgi script and config for Apache
-  $ cp active/www/app/httpd_config/ffw_gg32_com__443.config deploy.config
-  $ vi deploy.config
-    ### edit the config to your needs
-  $ python active/www/app/deploy.py fcgi_config \
-      -HTTP_Config <your-config> -apache2_4 -input_encoding=utf-8
+    $ cp active/www/app/httpd_config/nodedb_funkfeuer_at__443__nginx.config \
+         deploy.config
+
+    $ vi deploy.config
+      ### edit the config to your needs
+      ### No leading spaces are allowed
+
+    $ mkdir uwsgi
+    $ python active/www/app/deploy.py uwsgi_config -apply_to_version active \
+        -HTTP_Config deploy.config
+
+You can use the created webserver configuration as is, or modify it
+manually or by modifiying the template.
 
 Finally we create a database and populate it with data::
 
-  ### Create a database
-  $ python active/www/app/deploy.py app create -apply_to_version active
+    ### Byte compile python files
+    $ python passive/www/app/deploy.py pycompile -apply_to_version active
 
-  ### Put some data into the database
+    ### Compile translations
+    $ python passive/www/app/deploy.py babel compile -apply_to_version active
 
-Log out user `ffw`
+    ### Create a database
+    $ python active/www/app/deploy.py app create -apply_to_version active
 
-You can use the created Apache configuration as is, or modify it
-manually or by modifiying the template.
+    ### Make sure the application cache is setup correctly
+    $ python active/www/app/deploy.py app setup_cache \
+        -apply_to_version active -verbose
 
-For Debian, the apache configuration should be placed into
-``/etc/apache2/sites-available/``, e.g., into the file
-``nodedb2.example.com``, and enabled. You probably will have to disable
-the default site installed. We used the following commands — we
-also enable some needed modules::
+    ### Put some data into the database, e.g., by running a converter from
+    ### another database
 
-  $ a2ensite nodedb2.example.com
-  $ a2dissite default
-  $ a2enmod expires
-  $ a2enmod fcgid
-  $ /etc/init.d/apache2 restart
+    ### Logout
+    $ exit
 
-For https sites, you'll also need the modules::
+For Debian, the nginx configuration should be placed into
+``/etc/nginx/sites-available/`` and linked to from
+``/etc/nginx/sites-enabled/``::
 
-  $ a2enmod rewrite
-  $ a2enmod ssl
+  # cp /srv/ffw${pv}/uwsgi/<your-config-name>.conf /etc/nginx/sites-available/
+  # ( cd /etc/nginx/sites-enabled \
+    ; echo ln -s ../sites-available/<your-config-name>.conf
+    )
+
+For Debian, the uwsgi configuration should be placed into
+``/etc/uwsgi/apps-available`` and linked to from
+``/etc/uwsgi/apps-enabled``::
+
+  # cp /srv/ffw${pv}/uwsgi/<your-config-name>.ini \
+       /etc/uwsgi/apps-available/
+  # ( cd /etc/uwsgi/apps-enabled/ \
+    ; ln -s ../apps-available/<your-config-name>.ini
+    )
+
+To test if the uwsgi configuration is correct, run the following command
+and check for errors and the use of the right python interpreter::
+
+  # uwsgi --ini /etc/uwsgi/apps-enabled/<your-config-name>.ini
+
+If that looks good, restart uwsgi and nginx::
+
+  # /etc/init.d/uwsgi restart ; /etc/init.d/nginx restart
+
+How to upgrade the installation
+--------------------------------
 
 Whenever we need to upgrade the installation, we can update the passive
 configuration, set up everything, migrate the data from the active to
 the passive configuration, and if everything went OK, enable it by
 exchanging the symbolic links to the active and passive configuration::
 
-  ### Test deployment script and generate some needed files
-    ### Update source code
-    $ python passive/www/app/deploy.py update
+  $ export pv='3' ### or '' if you use Python-2
+  $ alias python="python${pv}"
+  $ export PYTHONPATH=~/passive/cndb:~/passive/tapyr
 
-    ### Byte compile python files
-    $ python passive/www/app/deploy.py pycompile
+  ### Update source code
+  $ python passive/www/app/deploy.py update
 
-    ### Compile translations
-    $ python passive/www/app/deploy.py babel compile
+  ### Byte compile python files
+  $ python passive/www/app/deploy.py pycompile
 
-    ### Migrate database from active to passive
-    $ python passive/www/app/deploy.py migrate -Active -Passive -verbose
+  ### Compile translations
+  $ python passive/www/app/deploy.py babel compile
 
-    ### Setup app cache
-    $ python passive/www/app/deploy.py setup_cache
+  ### Migrate database from active to passive
+  $ python passive/www/app/deploy.py migrate -Active -Passive -verbose
+
+  ### Optionally, test if database is still looking good
+  $ python passive/www/app/Command.py shell
+    ### Use queries in interactive Python shell, like::
+    >>> scope.MOM.Id_Entity.count
+    >>> scope.CNDB.Node.instance ("some-important-name's-name")
+    >>> scope.Auth.Account.query (Q.superuser).all ()
+
+  ### Setup app cache
+  $ python passive/www/app/deploy.py setup_cache
 
   ### Switch active and passive branches
   $ python passive/www/app/deploy.py switch
-  $ sudo /etc/init.d/apache2 restart
+
+  $ sudo /etc/init.d/uwsgi restart
+  $ sudo /etc/init.d/nginx restart
 
 Contact
 -------
