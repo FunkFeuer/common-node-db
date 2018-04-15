@@ -1,3 +1,0 @@
-#!/bin/sh
-wget --no-check-certificate -O txtinfo.txt \
-https://map.funkfeuer.at/wien/txtinfo.php
