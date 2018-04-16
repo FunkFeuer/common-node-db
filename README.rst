@@ -68,6 +68,8 @@ System requirements
 
   * its best to set up a separate account that runs the CNDB instance
 
+  * **make sure that the locale is set to `utf-8`, not ascii**
+
 - Webserver, one of:
 
   * nginx plus uwsgi
@@ -184,6 +186,8 @@ For Python-2::
 For Python-3::
 
   # export pv='3'
+
+  # # make sure that locale is set to `utf-8` !
 
 Almost all packages can be installed via the Debian Stretch
 installer::
