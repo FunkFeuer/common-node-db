@@ -34,8 +34,6 @@
 #    ««revision-date»»···
 #--
 
-from   __future__ import absolute_import, division, print_function, unicode_literals
-
 from   _CNDB                      import CNDB
 import _CNDB._OMP
 from   _GTW.__test__.rst_harness  import *

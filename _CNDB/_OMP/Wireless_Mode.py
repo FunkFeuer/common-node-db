@@ -23,8 +23,6 @@
 #    ««revision-date»»···
 #--
 
-from   __future__  import absolute_import, division, print_function, unicode_literals
-
 from   _CNDB                    import CNDB
 import _CNDB._OMP
 from   _TFL                     import TFL
@@ -50,7 +48,7 @@ class M_Wireless_Mode (TFL.Meta.Object.__class__) :
     # end def __str__
 
     def _m_add (cls, name, Table) :
-        name = pyk.text_type (name)
+        name = str (name)
         assert name not in Table, "Name clash: `%s` <-> `%s`" % \
             (name, Table [name].__class__)
         Table [name] = cls
@@ -59,7 +57,7 @@ class M_Wireless_Mode (TFL.Meta.Object.__class__) :
 # end class M_Wireless_Mode
 
 class Wireless_Mode \
-          (TFL.Meta.BaM (TFL.Meta.Object, metaclass = M_Wireless_Mode)) :
+          (TFL.Meta.Object, metaclass = M_Wireless_Mode) :
 
     pass
 

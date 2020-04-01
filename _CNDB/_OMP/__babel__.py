@@ -21,8 +21,6 @@
 #    ««revision-date»»···
 #--
 
-from   __future__  import absolute_import, division, print_function, unicode_literals
-
 from   _MOM.import_MOM import *
 import _MOM.Babel
 import _CNDB._OMP.import_CNDB

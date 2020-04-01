@@ -41,9 +41,6 @@
 #    ««revision-date»»···
 #--
 
-from   __future__               import absolute_import, division
-from   __future__               import print_function, unicode_literals
-
 from   _CNDB                    import CNDB
 from   _MOM.import_MOM          import *
 from   _MOM.import_MOM          import _A_Unit_, _A_Float_, _A_Named_Value_

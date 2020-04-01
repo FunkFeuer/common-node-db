@@ -40,8 +40,6 @@
 #    ««revision-date»»···
 #--
 
-from   __future__ import absolute_import, division, print_function, unicode_literals
-
 from   _CNDB._OMP.__test__.model      import *
 from   _MOM.Inspect                   import children_trans_iter
 from   _TFL.portable_repr             import portable_repr as prepr

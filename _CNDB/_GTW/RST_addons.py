@@ -138,8 +138,6 @@
 #    ««revision-date»»···
 #--
 
-from   __future__ import absolute_import, division, print_function, unicode_literals
-
 from   _CNDB                    import CNDB
 from   _GTW                     import GTW
 from   _JNJ                     import JNJ
@@ -579,7 +577,7 @@ class _Meta_DB_Div_ (_Ancestor.__class__) :
 
 # end class _Meta_DB_Div_
 
-class _DB_Base_ (TFL.Meta.BaM (_Ancestor, metaclass = _Meta_DB_Div_)) :
+class _DB_Base_ (_Ancestor, metaclass = _Meta_DB_Div_) :
     """Base class of dashboard classes"""
 
     app_div_class         = "pure-u-1"
